@@ -1,0 +1,281 @@
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'VT323', monospace;
+	background-color: #2d3036;
+	min-height: 100vh;  /* Help extend divs to cover from top to bottom of page */
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	height: 80px;
+	border-bottom: 2px solid Gold;
+}
+
+#Logo, header a {
+	width: 60px;
+	height: 62.5px;
+}
+header a {
+	display: block;
+	margin: 8.75px auto;
+}
+
+.Center {
+	line-height: 80px;
+	text-align: center;
+}
+.Center_Text {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+	font-size: 32px;
+	color: #219bff;	
+}
+
+form {
+	text-align: center;
+}
+form>input[type=text] {
+	color: Red;
+	font-size: 18px;
+	vertical-align: top;
+	margin: 25px 0;
+	text-align: center;
+	background-color: Black;
+	height: 30px;
+	border: 2px solid #219bff;
+	border-radius: 4px;
+}
+::placeholder {
+	color: Red;
+}
+
+button {
+	height: 30px;
+	width: 40px;
+	margin: 25px 0;
+	border: 2px solid #219bff;
+	border-radius: 6px;
+	background-color: Black;
+	color: White;
+	
+}
+i {
+	font-size: 1.5em;
+	color: Red;
+}
+
+.Nav{
+	background-color: rgba(0,0,0,0.5);
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 3px solid Gold;
+
+}
+.Nav li {
+	float: left;
+}
+.Nav li a {
+	display: block;
+	padding: 8px 15px;
+	margin: 0;
+	color: White;
+	font-size: 24px;
+	text-decoration: none;
+}
+.Current {
+	background-color: rgba(0,115,209,0.4);
+}
+.Nav li a:hover {
+	background-color: rgba(255,253,115,0.4);
+}
+.Nav li.Current a:hover {
+	background-color: rgba(0,115,209,0.0);
+}
+
+.Sections {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	display: flex;
+	align-items: stretch;
+	border-bottom: 3px solid #219bff;
+}
+.Shared_Sec {
+	border-right: 8px solid #2d3036;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.Sec-1 {
+	border-left: 8px solid #2d3036;
+}
+.Shared_Sec ul {
+	max-width: 50%;
+	font-size: 24px;
+}
+.Shared_Sec li {
+	margin: 20px 0;
+}
+.Shared_Sec a {
+	color: #219bff;
+}
+
+footer {
+	padding-top: 5px;
+	padding-left: 8px;
+	color: white;
+}
+footer a {
+	color: AntiqueWhite;
+}
+
+/* w3schools.com/css/css_rwd_intro.asp */
+@media only screen and (max-width: 484.98px)
+{
+	.col-xxs-1 {width: 8.33%; float: left;}
+	.col-xxs-2 {width: 16.66%; float: left;}
+	.col-xxs-3 {width: 25%; float: left;}
+	.col-xxs-4 {width: 33.33%; float: left;}
+	.col-xxs-5 {width: 41.66%; float: left;}
+	.col-xxs-6 {width: 50%; float: left;}
+	.col-xxs-7 {width: 58.33%; float: left;}
+	.col-xxs-8 {width: 66.66%; float: left;}
+	.col-xxs-9 {width: 75%; float: left;}
+	.col-xxs-10 {width: 83.33%; float: left;}
+	.col-xxs-11 {width: 91.66%; float: left;}
+	.col-xxs-12 {width: 100%; float: left;}
+	
+	#Logo, header a {
+		width: 36px;
+		height: 37.5px;
+	}
+	header a {
+		display: block;
+		margin: 21.25px auto;
+	}
+	
+	.Center_Text {
+		font-size: 22px;
+	}
+	
+	form>input[type=text] {
+		width: 80%;
+	}
+	form>input[type=text], button{
+		font-size: 12px;
+		margin: 4px 0 2px 0;
+	}
+	
+	.Shared_Sec ul {
+		font-size: 18px;
+	}
+}
+@media only screen and (min-width: 485px) and (max-width: 599.98px) 
+{
+	.col-xs-1 {width: 8.33%; float: left;}
+	.col-xs-2 {width: 16.66%; float: left;}
+	.col-xs-3 {width: 25%; float: left;}
+	.col-xs-4 {width: 33.33%; float: left;}
+	.col-xs-5 {width: 41.66%; float: left;}
+	.col-xs-6 {width: 50%; float: left;}
+	.col-xs-7 {width: 58.33%; float: left;}
+	.col-xs-8 {width: 66.66%; float: left;}
+	.col-xs-9 {width: 75%; float: left;}
+	.col-xs-10 {width: 83.33%; float: left;}
+	.col-xs-11 {width: 91.66%; float: left;}
+	.col-xs-12 {width: 100%; float: left;}
+	
+	form>input[type=text], button{
+		font-size: 12px;
+		margin: 4px 8.1px 2px 0;
+	}
+	
+	.Shared_Sec ul {
+		font-size: 22px;
+	}
+}
+@media only screen and (min-width: 600px) and (max-width: 767.98px)
+{
+	.col-s-1 {width: 8.33%; float: left;}
+	.col-s-2 {width: 16.66%; float: left;}
+	.col-s-3 {width: 25%; float: left;}
+	.col-s-4 {width: 33.33%; float: left;}
+	.col-s-5 {width: 41.66%; float: left;}
+	.col-s-6 {width: 50%; float: left;}
+	.col-s-7 {width: 58.33%; float: left;}
+	.col-s-8 {width: 66.66%; float: left;}
+	.col-s-9 {width: 75%; float: left;}
+	.col-s-10 {width: 83.33%; float: left;}
+	.col-s-11 {width: 91.66%; float: left;}
+	.col-s-12 {width: 100%; float: left;}
+
+	form>input[type=text] { 
+		font-size: 13px;
+		width: 50%;
+	}
+	
+	.Shared_Sec ul {
+		font-size: 22px;
+	}
+}
+@media only screen and (min-width: 768px) and (max-width: 991.98px)
+{
+	.col-m-1 {width: 8.33%; float: left;}
+	.col-m-2 {width: 16.66%; float: left;}
+	.col-m-3 {width: 25%; float: left;}
+	.col-m-4 {width: 33.33%; float: left;}
+	.col-m-5 {width: 41.66%; float: left;}
+	.col-m-6 {width: 50%; float: left;}
+	.col-m-7 {width: 58.33%; float: left;}
+	.col-m-8 {width: 66.66%; float: left;}
+	.col-m-9 {width: 75%; float: left;}
+	.col-m-10 {width: 83.33%; float: left;}
+	.col-m-11 {width: 91.66%; float: left;}
+	.col-m-12 {width: 100%; float: left;}
+	
+	form>input[type=text] { 
+		width: 50%;
+	}
+}
+@media only screen and (min-width: 992px) and (max-width: 1199.98px)
+{
+	.col-l-1 {width: 8.33%; float: left;}
+	.col-l-2 {width: 16.66%; float: left;}
+	.col-l-3 {width: 25%; float: left;}
+	.col-l-4 {width: 33.33%; float: left;}
+	.col-l-5 {width: 41.66%; float: left;}
+	.col-l-6 {width: 50%; float: left;}
+	.col-l-7 {width: 58.33%; float: left;}
+	.col-l-8 {width: 66.66%; float: left;}
+	.col-l-9 {width: 75%; float: left;}
+	.col-l-10 {width: 83.33%; float: left;}
+	.col-l-11 {width: 91.66%; float: left;}
+	.col-l-12 {width: 100%; float: left;}
+}
+@media only screen and (min-width: 1200px)
+{
+	.col-xl-1 {width: 8.33%; float: left;}
+	.col-xl-2 {width: 16.66%; float: left;}
+	.col-xl-3 {width: 25%; float: left;}
+	.col-xl-4 {width: 33.33%; float: left;}
+	.col-xl-5 {width: 41.66%; float: left;}
+	.col-xl-6 {width: 50%; float: left;}
+	.col-xl-7 {width: 58.33%; float: left;}
+	.col-xl-8 {width: 66.66%; float: left;}
+	.col-xl-9 {width: 75%; float: left;}
+	.col-xl-10 {width: 83.33%; float: left;}
+	.col-xl-11 {width: 91.66%; float: left;}
+	.col-xl-12 {width: 100%; float: left;}
+}
