@@ -121,16 +121,6 @@ i {
 .Sec-1 {
 	border-left: 8px solid #2d3036;
 }
-.Shared_Sec ul {
-	max-width: 50%;
-	font-size: 24px;
-}
-.Shared_Sec li {
-	margin: 20px 0;
-}
-.Shared_Sec a {
-	color: #219bff;
-}
 
 footer {
 	padding-top: 5px;
@@ -139,6 +129,45 @@ footer {
 }
 footer a {
 	color: AntiqueWhite;
+}
+
+.Code_Ex {
+	counter-reset: counter;
+	display: table;
+	table-layout: fixed;
+	font-size: 20px;
+}
+pre {
+	overflow-x: auto; /* Scroll within code table */
+	border: 2px solid Black;
+}
+.Table_Row {
+	display: table-row;
+}
+.Table_Row:nth-child(even) {
+	background-color: black;
+}
+.Line_Num::before {
+	counter-increment: counter; /* Variable to increment */
+	text-align: right; 
+	display: block; /* Need this for text-align to work */
+	content: counter(counter); /* Numbers each line */
+}
+.Line_Num {
+	display: table-cell; /* Preserves table look */
+	-webkit-user-select: none; /* Safari 3.1+ */
+	-moz-user-select: none; /* Firefox 2+ */
+	-ms-user-select: none; /* IE 10+ */
+	user-select: none; /* Standard syntax */
+	color: white;
+	padding: 0 5px;
+	border-right: 2px solid Orange;
+}
+code {
+	color: Gold;
+	display: table-cell;
+	padding-left: 10px;
+	width: 100%; /* Extends to the end of pre container */
 }
 
 /* w3schools.com/css/css_rwd_intro.asp */
