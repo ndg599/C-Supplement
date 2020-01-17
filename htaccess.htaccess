@@ -7,7 +7,7 @@ RewriteEngine on
 # Move www.tutlegoss.com to https
 RewriteCond %{HTTP_HOST} www.tutlegoss.com [OR,NC]
 RewriteCond %{https} off
-Rewrite Rule ^ https://www.tutlegoss.com/
+Rewrite Rule ^ https://www.tutlegoss.com/ [R=301,L]
 
 # Remove trailing slash from non-filepath urls
 RewriteCond %{REQUEST_URI} /(.+)/$
