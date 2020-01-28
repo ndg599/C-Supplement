@@ -8,10 +8,11 @@
 	<meta name="keywords" content="meta description, tutlegoss, c++, kent, state, stark">
 	<title>Capstone Survey</title>
    
+   <!-- https://meyerweb.com/eric/tools/css/reset/ -->
 	<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
 	<!-- https://fontawesome.com/license/free  - Used for search icon -->
 	<link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="../css/Survey.css">
+	<link rel="stylesheet" href="Survey.css">
 	
 </head>
 
@@ -19,8 +20,8 @@
 		<h1>Please select the answers that most relate to you and your knowledge of C++</h1>
 	    <hr><br>
 		
-		<form name="FORM" action="./databaseconnect.php"> 
-			<label for="Q1">1) How often do you (will you) use a C++ supplement for your Computer Science I - III courses in general <br>
+		<form name="FORM" action="../databaseconnect.php"> 
+			<label>1) How often do you (will you) use a C++ supplement for your Computer Science I - III courses in general <br>
 				                            &emsp;(i.e. websites, such as stackoverflow.com and cplusplus.com)?
 			</label>
 				<br><br>&emsp;
@@ -39,7 +40,7 @@
 				
 				<br><br>
 				
-			<label for="Q2">2) Would you like a C++ supplement tailored to the class itself versus having to sift through articles that <br>
+			<label>2) Would you like a C++ supplement tailored to the class itself versus having to sift through articles that <br>
 										&emsp;may contain information not yet understood (e.g. while in CSI, you look up arrays as function  <br>
 										&emsp;arguments and come across the statement “an array decays to a pointer when passed to a function”)?
 			</label>
@@ -55,7 +56,7 @@
 				
 				<br><br>
 				
-			<label for="Q3">3) Would you be interested in learning about C++ topics not discussed in class?
+			<label>3) Would you be interested in learning about C++ topics not discussed in class?
 			</label>
 				<br><br>&emsp;
 				<label class="container">Yes
@@ -69,7 +70,7 @@
 				
 			<br><br>
 				
-			<label for="Q4">4) Would you be interested in having a deeper understanding about topics discussed in class?
+			<label>4) Would you be interested in having a deeper understanding about topics discussed in class?
 			</label>
 				<br><br>&emsp;
 				<label class="container">Yes
@@ -83,7 +84,7 @@
 
 			<br><br>
 				
-			<label for="Q5">5) What is the best device to use when researching programming topics?
+			<label>5) What is the best device to use when researching programming topics?
 			</label>
 				<br><br>&emsp;
 				<label class="container">Desktop/Laptop
@@ -101,7 +102,7 @@
 
 			<br><br>
 				
-			<label for="Q6">6) Color-coordination helps when studying.
+			<label>6) Color-coordination helps when studying.
 			</label>
 				<br><br>&emsp;
 				<label class="container">True
@@ -115,7 +116,7 @@
 
 			<br><br>
 				
-			<label for="Q7">7) I prefer <span class="mono">monospaced (fixed width)</span> over proportional (character width) font <br>
+			<label>7) I prefer <span class="mono">monospaced (fixed width)</span> over proportional (character width) font <br>
 										   &emsp;(e.g. <span class="mono">Courier New</span> vs Times New Roman).
 			</label>
 				<br><br>&emsp;
@@ -130,7 +131,7 @@
 
 			<br><br>
 				
-			<label for="Q8">8) I prefer dark-themes over light-themes.
+			<label>8) I prefer dark-themes over light-themes.
 			</label>
 				<br><br>&emsp;
 				<label class="container">True
@@ -144,7 +145,7 @@
 
 			<br><br>
 				
-			<label for="Q9">9) Questions, such as fill-in and multiple choice at the end of each section, would benefit my understanding of C++.
+			<label>9) Questions, such as fill-in and multiple choice at the end of each section, would benefit my understanding of C++.
 			</label>
 				<br><br>&emsp;
 				<label class="container">True
@@ -158,7 +159,7 @@
 
 			<br><br>
 				
-			<label for="Q10">10) A comment section is helpful in clearing up any lasting confusion by asking/answering additional questions.
+			<label>10) A comment section is helpful in clearing up any lasting confusion by asking/answering additional questions.
 
 			</label>
 				<br><br>&emsp;
@@ -173,7 +174,7 @@
 
 			<br><br>
 				
-			<label for="Q11">11) An instant chat would be beneficial to ask a tutor questions about C++ and to have a tutor help strategize lab exercises.
+			<label>11) An instant chat would be beneficial to ask a tutor questions about C++ and to have a tutor help strategize lab exercises.
 			</label>
 				<br><br>&emsp;
 				<label class="container">True
@@ -187,7 +188,7 @@
 
 			<br><br>
 				
-			<label for="Q12">12) I have been told <span class="mono">using namespace std;</span> is not recommended.
+			<label>12) I have been told <span class="mono">using namespace std;</span> is not recommended.
 			</label>
 				<br><br>&emsp;
 				<label class="container">True
@@ -201,19 +202,18 @@
 
 			<br><br>
 				
-			<label for="Q13">13) What is the output of the following code snippet (assume using std::cout;)?
-				<div class="code">
-					<br>
+			13) What is the output of the following code snippet (assume using std::cout;)?
+			<label class="code">
+					<br><br>
 						&emsp;&emsp;float f = 0.2;
 					<br>
 						&emsp;&emsp;if (f == 0.2)
 					<br>
-						&emsp;&emsp;&emsp;cout << <q>EQ</q>;
+						&emsp;&emsp;&emsp;cout &lt;&lt; <q>EQ</q>;
 					<br>
 						&emsp;&emsp;else
 					<br>
-						&emsp;&emsp;&emsp;cout << <q>NOT_EQ</q>;
-				</div>
+						&emsp;&emsp;&emsp;cout &lt;&lt; <q>NOT_EQ</q>;
 			</label>
 			<br>&emsp;
 				<label class="container">EQ
@@ -227,19 +227,18 @@
 
 			<br><br>
 				
-			<label for="Q14">14) What is the output of the following code snippet (assume using std::cout;)?
-				<div class="code">
-					<br>
+			14) What is the output of the following code snippet (assume using std::cout;)?
+			<label class="code">
+					<br><br>
 						&emsp;&emsp;float f = 0.25;
 					<br>
 						&emsp;&emsp;if (f == 0.25)
 					<br>
-						&emsp;&emsp;&emsp;cout << <q>EQ</q>;
+						&emsp;&emsp;&emsp;cout  &lt;&lt; <q>EQ</q>;
 					<br>
 						&emsp;&emsp;else
 					<br>
-						&emsp;&emsp;&emsp;cout << <q>NOT_EQ</q>;
-				</div>
+						&emsp;&emsp;&emsp;cout &lt;&lt; <q>NOT_EQ</q>;
 			</label>
 			<br>&emsp;
 				<label class="container">EQ
@@ -253,19 +252,18 @@
 
 			<br><br>
 			
-			<label for="Q15">15) What is the output of the following code snippet (assume using std::cout;)?
-				<div class="code">
-					<br>
+			15) What is the output of the following code snippet (assume using std::cout;)?
+			<label class="code">
+					<br><br>
 						&emsp;&emsp;double d = 0.0/0.0;
 					<br>
 						&emsp;&emsp;if (d == d)
 					<br>
-						&emsp;&emsp;&emsp;cout << <q>EQ</q>;
+						&emsp;&emsp;&emsp;cout &lt;&lt; <q>EQ</q>;
 					<br>
 						&emsp;&emsp;else
 					<br>
-						&emsp;&emsp;&emsp;cout << <q>NOT_EQ</q>;
-				</div>
+						&emsp;&emsp;&emsp;cout &lt;&lt; <q>NOT_EQ</q>;
 			</label>
 			<br>&emsp;
 				<label class="container">EQ
