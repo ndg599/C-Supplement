@@ -18,15 +18,16 @@
 		 '$_POST[Q13_selection]','$_POST[Q14_selection]','$_POST[Q15_selection]')";
 		
 		if($conn->exec($sql))
-		    echo "Entry was successful. Thank you! -Landen";
+		    echo "Entry was successful. Thank you! -Landen<br>
+		    <span style=\"color:red\">Please do not refresh this page or submit another form. Thank you!</span>";
 		else
 		    echo "Entry was NOT successful. I messed up somewhere.";
 
 		echo "<br><br><br>";
 		
 		echo "Answer to Q13: <br>&emsp;It is important to take note that literals 
-		such as <span style=\"color:#26ed07\">0.2</span> have type <span style=\"color:#26ed07\">double</span>. There
-		when you do a comparison with a 
+		such as <span style=\"color:#26ed07\">0.2</span> have type <span style=\"color:#26ed07\">double</span>. When you
+		do a comparison with a 
 		variable of type <span style=\"color:#26ed07\">float</span>, you may not get equality. The reason for this is 
 		due to the fact that floating point numbers have a certain amount of 
 		precision. A <span style=\"color:#26ed07\">float</span> has less precision than a 
@@ -35,8 +36,8 @@
 		you are comparing <span style=\"color:#26ed07\">0.20000000298023223876953125</span> with 
 		<span style=\"color:#26ed07\">0.200000000000000011102230246252</span>,
 		which are <span style=\"color:#26ed07\">NOT_EQ</span>! To mitigate this problem, append an 
-		<span style=\"color:#26ed07\">f</span> at the end of your number literal, such as 
-		<span style=\"color:#26ed07\">0.2f</span>. The number literal is now a float and would 
+		<span style=\"color:#26ed07\">f</span> at the end of your decimal literal, such as 
+		<span style=\"color:#26ed07\">0.2f</span>. The decimal literal is now a float and would 
 		do a proper comparison. <br><br>";
 		
 		echo "Answer to Q14: <br>&emsp;<span style=\"color:#26ed07\">0.25</span> can be perfectly represented in base 2 
@@ -50,13 +51,18 @@
 		is <span style=\"color:#26ed07\">NOT_EQ</span> to itself! 
 		Since it is, well, not a number, there can't be equality. There has been 
 		distain in regards to IEEE making this decision, but that's too advanced 
-		to get into.";
+		to get into. Also, <span style=\"color:#26ed07\">SIGFPE</span>
+		is a signal for a Floating Point Exception and signals are 
+		executed during run-time. You would potentially see this if you compiled with 
+		<span style=\"color:#26ed07\">g++</span> 
+		using the code snippet <span style=\"color:#26ed07\">int x = 0/0;</span>.";
 		
 	} catch (PDOException $pe) {
 		die("Could not connect to the database $dbname :" .
 		    $pe->getMessage());
 	}
 ?>
+
 
 </body>
 </html>
