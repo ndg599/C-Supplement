@@ -20,12 +20,12 @@
 		<h1>Please select the answers that most relate to you and your knowledge of C++</h1>
 	    <hr><br>
 		
-		<form name="FORM" action="../databaseconnect.php"> 
+		<form name="FORM" action="../databaseconnect.php" method="post"> 
 			<label>1) How often do you (will you) use a C++ supplement for your Computer Science I - III courses in general <br>
-				                            &emsp;(i.e. websites, such as stackoverflow.com and cplusplus.com)?
+				    &emsp;(i.e. websites, such as stackoverflow.com and cplusplus.com)?
 			</label>
 				<br><br>&emsp;
-				<label class="container">(Very often)
+				<label class="container">(Very) often
 					<input type="radio" name="Q1_selection" value="1" required>
 					<span class="checkmark"></span>
 				</label>
@@ -41,8 +41,8 @@
 				<br><br>
 				
 			<label>2) Would you like a C++ supplement tailored to the class itself versus having to sift through articles that <br>
-										&emsp;may contain information not yet understood (e.g. while in CSI, you look up arrays as function  <br>
-										&emsp;arguments and come across the statement “an array decays to a pointer when passed to a function”)?
+					&emsp;may contain information not yet understood (e.g. while in CSI, you look up arrays as function  <br>
+					&emsp;arguments and come across the statement “an array decays to a pointer when passed to a function”)?
 			</label>
 				<br><br>&emsp;
 				<label class="container">Yes
