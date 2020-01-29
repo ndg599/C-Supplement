@@ -9,13 +9,15 @@
 		                $username, $password);
 		                
 		$sql = "INSERT INTO Results
-		(Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15)
+		(Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Concern)
 		VALUES
 		('$_POST[Q1_selection]','$_POST[Q2_selection]','$_POST[Q3_selection]',
 		 '$_POST[Q4_selection]','$_POST[Q5_selection]','$_POST[Q6_selection]',
 		 '$_POST[Q7_selection]','$_POST[Q8_selection]','$_POST[Q9_selection]',
 		 '$_POST[Q10_selection]','$_POST[Q11_selection]','$_POST[Q12_selection]',
-		 '$_POST[Q13_selection]','$_POST[Q14_selection]','$_POST[Q15_selection]')";
+		 '$_POST[Q13_selection]','$_POST[Q14_selection]','$_POST[Q15_selection]',
+		 '$_POST[Concern])'";
+		
 		
 		if($conn->exec($sql))
 		    echo "Entry was successful. Thank you! -Landen<br>
