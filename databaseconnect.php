@@ -1,5 +1,5 @@
 <html>
-<body style="background-color: #2b2a27; color: white; font-size: 26px;">
+<body style="background-color: #2b2a27; color: white; font-size: 20px;">
 
 <?php
 	require_once 'pdoconfig.php';
@@ -16,7 +16,7 @@
 		 '$_POST[Q7_selection]','$_POST[Q8_selection]','$_POST[Q9_selection]',
 		 '$_POST[Q10_selection]','$_POST[Q11_selection]','$_POST[Q12_selection]',
 		 '$_POST[Q13_selection]','$_POST[Q14_selection]','$_POST[Q15_selection]',
-		 '$_POST[Concern])'";
+		 '$_POST[Concern]')";
 		
 		
 		if($conn->exec($sql))
