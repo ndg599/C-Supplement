@@ -3,6 +3,15 @@ body {
 	font-family: 'Courier Prime', monospace;
 }
 
+.navbar {
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
 @media only screen and (max-width: 575.98px) 
 {
 	/* Separate Account button with search in drop-down */
@@ -30,6 +39,16 @@ body {
 
 i {
 	margin-top: 2px;
+}
+
+.banner {
+	margin-top: 61px;
+	border-top: solid 3px #EFAB00 !important;
+	border-bottom: solid 3px #EFAB00 !important;
+	background-color:  #002664;
+	font-size: 35px; 
+	color: white;
+	text-align: center;
 }
 
 .jumbotron {
@@ -80,6 +99,10 @@ i {
 	.btn_mgn {
 		margin-top: 0.5rem;
 	}
+	
+	.banner {
+		margin-top: 57px;
+	}
 }
 
 .card-img-top {
@@ -105,15 +128,6 @@ nav .nav-link {
 
 .csIII {
 	color: #fff !important;
-}
-
-.banner {
-	border-top: solid 3px #EFAB00 !important;
-	border-bottom: solid 3px #EFAB00 !important;
-	background-color:  #002664;
-	font-size: 35px; 
-	color: white;
-	text-align: center;
 }
 
 .pad_mar {
