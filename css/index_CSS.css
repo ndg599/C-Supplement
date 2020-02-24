@@ -38,43 +38,43 @@ i {
 }
 
 /* This came from the Bootstrap V4.4.1 source file bootstrap.css and I modified it so
-   the navbar collapsed at 809px so conform to my navbar style                       */
-@media (min-width: 809px) 
+   the navbar collapsed at 820px so conform to my navbar style                       */
+@media (min-width: 820px) 
 {
-	.navbar-expand-809 {
+	.navbar-expand-820 {
 		-ms-flex-flow: row nowrap;
 		flex-flow: row nowrap;
 		-ms-flex-pack: start;
 		justify-content: flex-start;
 	}
-	.navbar-expand-809 .navbar-nav {
+	.navbar-expand-820 .navbar-nav {
 		-ms-flex-direction: row;
 		flex-direction: row;
 	}
-	.navbar-expand-809 .navbar-nav .dropdown-menu {
+	.navbar-expand-820 .navbar-nav .dropdown-menu {
 		position: absolute;
 	}
-	.navbar-expand-809 .navbar-nav .nav-link {
+	.navbar-expand-820 .navbar-nav .nav-link {
 		padding-right: 0.5rem;
 		padding-left: 0.5rem;
 	}
-	.navbar-expand-809 > .container,
-	.navbar-expand-809 > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {
+	.navbar-expand-820 > .container,
+	.navbar-expand-820 > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
 	}
-	.navbar-expand-809 .navbar-collapse {
+	.navbar-expand-820 .navbar-collapse {
 		display: -ms-flexbox !important;
 		display: flex !important;
 		-ms-flex-preferred-size: auto;
 		flex-basis: auto;
 	}
-	.navbar-expand-809 .navbar-toggler {
+	.navbar-expand-820 .navbar-toggler {
 		display: none;
 	}
 }
 
-@media only screen and (max-width: 809px) 
+@media only screen and (max-width: 820px) 
 {
 	/* Separate Account button with search in drop-down */
 	.btn_mgn {
