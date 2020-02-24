@@ -108,7 +108,8 @@ nav .nav-link {
 }
 
 .banner {
-	border: solid 3px #EFAB00 !important;
+	border-top: solid 3px #EFAB00 !important;
+	border-bottom: solid 3px #EFAB00 !important;
 	background-color:  #002664;
 	font-size: 35px; 
 	color: white;
