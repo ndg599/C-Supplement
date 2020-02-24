@@ -1,116 +1,113 @@
 <!DOCTYPE html>
-<!-- https://www.w3schools.com/bootstrap4/default.asp -->
 <html lang="en">
 <head>
-  <title>Bootstrap 4 Website Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="./bootstrap-4.4.1-dist/css/bootstrap-reboot.min">
-  <link rel="stylesheet" href="./bootstrap-4.4.1-dist/css/bootstrap.min.css">
-  
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
-  
+	<title>Kent C++ Supplement</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/index_CSS.css">
+	<link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet"/> 
 	<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
 
-
-
-  <style>
-	.card-img-top {
-		height: 22vw;
-	}
-  </style>
 </head>
-<body style="background-color: #1a1a1a; font-family: 'Courier Prime', monospace;">
+<body>
 
-
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-success">
-  <a class="navbar-brand" href="#"><img src="./img/K++_2.png" style="width: 70px; height: 30px;"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link mr-2" style="color: #F8EB61; font-size: 1.2rem;" href="#">CS I</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link mr-2" style="color: #4994CB; font-size: 1.2rem;" href="#">CS II</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" style="color: #fff; font-size: 1.2rem;" href="#">CS III</a>
-      </li>    
-    </ul>
-	<form class="form-inline  ml-auto mr-2">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-primary my-sm-0" type="submit">Search</button>
-  </form>
-  <button class="btn btn-outline-primary my-sm-0 mr-2" type="button">Login/Sign Up</button>
-  </div>  
-</nav>
-
-<div class="jumbotron text-center border rounded-0" style="line-height: 0px; height: 100px; margin-bottom:0; border-color: #EFAB00 !important; background-color:  #002664; border-width: 6px !important;">
-  <p style="font-size: 35px; color: white;">Kent State's C++ Code Course</p> 
-</div>
-
-<div class="container-fluid" style="margin: 25px 0;">
-  <div class="row justify-content-center" style="">
- 	<div class="col-sm-5 mr-2"> 
-	<div class="card" style="">
-	  <img src="./img/CSI.png" class="card-img-top" alt="...">
-	  <div class="card-body">
-		<h5 class="card-title">Computer Science I</h5>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		<a href="#" class="btn btn-primary">Go somewhere</a>
-	   </div>
-    </div>
+	<div class="container-fluid border rounded-0 banner-sm">
+		<span>Please keep browser &gt; 575px</span>
 	</div>
-	<div class="col-sm-5 ml-2"> 
-	<div class="card" style="">
-	  <img src="./img/CSII.png" class="card-img-top" alt="...">
-	  <div class="card-body">
-		<h5 class="card-title">Computer Science II</h5>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		<a href="#" class="btn btn-primary">Go somewhere</a>
-	   </div>
-    </div>
-	</div>
-  </div>
-</div>
+	
+	<nav class="navbar navbar-dark navbar-expand-809 navbar-success">
+		<a class="navbar-brand" href="#"><img src="./img/K++_2.png"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+		        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle naviation"       >
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav nav nav-pills mr-auto mt-2 mt-md-0">
+				<li class="nav-item">
+					<a class="nav-link mr-2 csI" href="#">CS I<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link mr-2 csII" href="#">CS II</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link csIII mr-2" href="#">CS III</a>
+				</li> 
+				<li class="nav-item">
+					<a class="nav-link csI" href="#">Chat</a>
+				</li>  	  
+			</ul>
+			<form class="form-inline  ml-auto mr-2">
+				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-primary my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+			</form>
+			<button class="btn btn-outline-primary mr-2 btn_mgn" type="button">Account</button>
+		</div>  
+	</nav>
 
-<div class="container-fluid" style="margin: 25px 0; padding: 0 20px;">
-  <div class="row justify-content-center" style="">
- 	<div class="col-sm-5 mr-2"> 
-	<div class="card" style="">
-	  <img src="./img/CSIII.png" class="card-img-top" alt="...">
-	  <div class="card-body">
-		<h5 class="card-title">Computer Science III</h5>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		<a href="#" class="btn btn-primary">Go somewhere</a>
-	   </div>
-    </div>
+	<div class="container-fluid border rounded-0 banner">
+		<span>Kent State's C++ Code Course</span>
 	</div>
-	<div class="col-sm-5 ml-2"> 
-	<div class="card" style="">
-	  <img src="./img/IM.png" class="card-img-top" alt="...">
-	  <div class="card-body">
-		<h5 class="card-title">Instant Message</h5>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		<a href="#" class="btn btn-primary">Go somewhere</a>
-	   </div>
-    </div>
-	</div>
-  </div>
-</div>
 
-<div class="container-fluid rounded-0" style="position: absolute; background-color: green; margin-bottom: 0; border-top: 6px solid; border-color: #EFAB00 !important; background-color:  #002664; border-width: 6px !important">
-  <p>Footer</p>
-</div>
+	<div class="container-fluid pad_mar">
+		<div class="row justify-content-center">
+			<div class="col-6"> 
+				<div class="card h-100" style="">
+					<img src="./img/CSI.png" class="card-img-top" alt="CS_I Word Art">
+					<div class="card-body">
+						<h5 class="card-title">Computer Science I</h5>
+						<p class="card-text">Description Placeholder</p>
+						<a href="#" class="btn btn-primary">CS I Index</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-6"> 
+				<div class="card h-100">
+					<img src="./img/CSII.png" class="card-img-top" alt="CS_II Word Art">
+					<div class="card-body">
+						<h5 class="card-title">Computer Science II</h5>
+						<p class="card-text">Description Placeholder</p>
+						<a href="#" class="btn btn-primary">CS II Index</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid pad_mar">
+		<div class="row justify-content-center">
+			<div class="col-6"> 
+				<div class="card h-100">
+					<img src="./img/CSIII.png" class="card-img-top" alt="CS_III Word Art">
+					<div class="card-body">
+						<h5 class="card-title">Computer Science III</h5>
+						<p class="card-text">Description Placeholder</p>
+						<a href="#" class="btn btn-primary">CS III Index</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-6"> 
+				<div class="card h-100">
+					<img src="./img/IM.png" class="card-img-top" alt="Chat Word Art">
+					<div class="card-body">
+						<h5 class="card-title">Instant Message</h5>
+						<p class="card-text">Description Placeholder</p>
+						<a href="#" class="btn btn-primary">Instant Messaging Client</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid rounded-0 footer">
+		<p>Footer Placeholder</p>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>

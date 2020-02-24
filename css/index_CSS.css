@@ -1,328 +1,130 @@
-.row::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-    font-family: 'VT323', monospace;
-	background-color: #2d3036;
-	min-height: 100vh;  /* Help extend divs to cover from top to bottom of page */
-	display: flex;
-	flex-direction: column;
+	background-color: #1a1a1a; 
+	font-family: 'Courier Prime', monospace;
 }
 
-header {
-	height: 145px;
-	border-bottom: 2px solid Gold;
-}
-
-#Logo, header a {
-	width: 120px;
-	height: 125px;
-}
-header a {
-	display: block;
-	margin: 10px auto;
-}
-
-.Center {
-	line-height: 145px;
-	text-align: center;
-}
-.Center_Text {
-	display: inline-block;
-	vertical-align: middle;
-	line-height: normal;
-	font-size: 32px;
-	color: White;	
-}
-.Center_Text>span {
-	color: #219bff;
-}
-.Center_Text>span+span {
-	color: Gold;
-}
-.Center_Text>span+span+span {
-	color: White;
-}
-
-.Search {
-	display: flex;
-	align-items: center;
-	justify_content: center;
-}
-form {
-	text-align: center;
-}
-form>input[type=text] {
-	margin: 56.25px auto;
-	color: Red;
-	font-size: 18px;
-	text-align: center;
-	background-color: Black;
-	height: 30px;
-	border: 2px solid #219bff;
-	border-radius: 4px;
-}
-::placeholder {
-	color: Red;
-}
-
-button {
-	height: 30px;
-	width: 40px;
-	border: 2px solid #219bff;
-	border-radius: 6px;
-	background-color: Black;
-	color: White;
-}
-i {
-	font-size: 1.5em;
-	color: Red;
-}
-
-.Sections {
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	display: flex;
-	align-items: stretch;
-	background-color: Black;
-	border-bottom: 3px solid #219bff;
-}
-div.Sections p {
-	text-align: center;
-	font-size: 48px;
-}
-.Shared_Sec {
-	border-right: 8px solid #2d3036;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	padding: 110px 20px;
-}
-.Sec-1 {
-	border-left: 8px solid #2d3036;
-	background-image: url("../img/CSI.png");
-}
-.Sec-1 a {
-	color: #219bff;
-}
-.Sec-2 {
-	background-image: url("../img/CSII.png");
-}
-.Sec-2 a {
-	color: Gold;
-}
-.Sec-3 {
-	background-image: url("../img/OOP.png");
-}
-.Sec-3 a {
-	color: White;
-}
-
-footer {
-	padding-top: 5px;
-	padding-left: 8px;
-	color: white;
-}
-footer a {
-	color: AntiqueWhite;
-}
-
-/* w3schools.com/css/css_rwd_intro.asp */
-@media only screen and (max-width: 484.98px)
+@media only screen and (max-width: 575.98px) 
 {
-	.col-xxs-1 {width: 8.33%; float: left;}
-	.col-xxs-2 {width: 16.66%; float: left;}
-	.col-xxs-3 {width: 25%; float: left;}
-	.col-xxs-4 {width: 33.33%; float: left;}
-	.col-xxs-5 {width: 41.66%; float: left;}
-	.col-xxs-6 {width: 50%; float: left;}
-	.col-xxs-7 {width: 58.33%; float: left;}
-	.col-xxs-8 {width: 66.66%; float: left;}
-	.col-xxs-9 {width: 75%; float: left;}
-	.col-xxs-10 {width: 83.33%; float: left;}
-	.col-xxs-11 {width: 91.66%; float: left;}
-	.col-xxs-12 {width: 100%; float: left;}
-	
-	#Logo, header a {
-		width: 36px;
-		height: 37.5px;
+	/* Separate Account button with search in drop-down */
+	.banner-sm {
+		background-color: red;
+		font-size: 28px; 
+		color: white;
+		text-align: center;
+		display: static;
+		position: fixed;
+		z-index: 1;
 	}
-	header a {
-		margin: 53.75px auto;
-	}
-	
-	.Center_Text {
-		font-size: 20px;
-	}
-	
-	form>input[type=text] {
-		font-size: 12px;
-		margin: 40.5px 0 0 0;
-		width: 90%;
-	}
-	button {
-		margin-top: 4px;
-	}
+}
 
-	div.Sections p {
-		font-size: 15px;
-	}
-}
-@media only screen and (min-width: 485px) and (max-width: 599.98px) 
+@media only screen and (min-width: 576px)
 {
-	.col-xs-1 {width: 8.33%; float: left;}
-	.col-xs-2 {width: 16.66%; float: left;}
-	.col-xs-3 {width: 25%; float: left;}
-	.col-xs-4 {width: 33.33%; float: left;}
-	.col-xs-5 {width: 41.66%; float: left;}
-	.col-xs-6 {width: 50%; float: left;}
-	.col-xs-7 {width: 58.33%; float: left;}
-	.col-xs-8 {width: 66.66%; float: left;}
-	.col-xs-9 {width: 75%; float: left;}
-	.col-xs-10 {width: 83.33%; float: left;}
-	.col-xs-11 {width: 91.66%; float: left;}
-	.col-xs-12 {width: 100%; float: left;}
-	
-	#Logo, header a {
-		width: 60px;
-		height: 62.5px;
-	}
-	header a {
-		margin: 41.25px auto;
-	}
-	.Center_Text {
-		font-size: 24px;
-	}
-	
-	form>input[type=text] {
-		font-size: 14px;
-		margin: 40.5px 0 0 0;
-		width: 90%;
-	}
-	button {
-		margin-top: 4px;
-	}
-
-	div.Sections p {
-		font-size: 24px;
-	}
-}
-@media only screen and (min-width: 600px) and (max-width: 767.98px)
-{
-	.col-s-1 {width: 8.33%; float: left;}
-	.col-s-2 {width: 16.66%; float: left;}
-	.col-s-3 {width: 25%; float: left;}
-	.col-s-4 {width: 33.33%; float: left;}
-	.col-s-5 {width: 41.66%; float: left;}
-	.col-s-6 {width: 50%; float: left;}
-	.col-s-7 {width: 58.33%; float: left;}
-	.col-s-8 {width: 66.66%; float: left;}
-	.col-s-9 {width: 75%; float: left;}
-	.col-s-10 {width: 83.33%; float: left;}
-	.col-s-11 {width: 91.66%; float: left;}
-	.col-s-12 {width: 100%; float: left;}
-	
-	#Logo, header a {
-		width: 84px;
-		height: 87.5px;
-	}
-	header a {
-		margin: 28.75px auto;
-	}
-	
-	
-	.Center_Text {
-		font-size: 28px;
-	}
-	
-	form>input[type=text] {
-		font-size: 16px;
-		margin: 40.5px 0 0 0;
-		width: 90%;
-	}
-	button {
-		margin-top: 4px;
-	}
-	
-	div.Sections p {
-		font-size: 32px;
-	}
-	
-}
-@media only screen and (min-width: 768px) and (max-width: 991.98px)
-{
-	.col-m-1 {width: 8.33%; float: left;}
-	.col-m-2 {width: 16.66%; float: left;}
-	.col-m-3 {width: 25%; float: left;}
-	.col-m-4 {width: 33.33%; float: left;}
-	.col-m-5 {width: 41.66%; float: left;}
-	.col-m-6 {width: 50%; float: left;}
-	.col-m-7 {width: 58.33%; float: left;}
-	.col-m-8 {width: 66.66%; float: left;}
-	.col-m-9 {width: 75%; float: left;}
-	.col-m-10 {width: 83.33%; float: left;}
-	.col-m-11 {width: 91.66%; float: left;}
-	.col-m-12 {width: 100%; float: left;}
-	
-	#Logo, header a {
-		width: 108px;
-		height: 112.5px;
-	}
-	header a {
-		margin: 16.25px auto;
-	}
-	
-	form>input[type=text] {
-		font-size: 16px;
-		margin: 40.5px 0 0 0;
-		width: 90%;
-	}
-	button {
-		margin-top: 4px;
-	}
-	
-	div.Sections p {
-		font-size: 46px;
-	}
-}
-@media only screen and (min-width: 992px) and (max-width: 1199.98px)
-{
-	.col-l-1 {width: 8.33%; float: left;}
-	.col-l-2 {width: 16.66%; float: left;}
-	.col-l-3 {width: 25%; float: left;}
-	.col-l-4 {width: 33.33%; float: left;}
-	.col-l-5 {width: 41.66%; float: left;}
-	.col-l-6 {width: 50%; float: left;}
-	.col-l-7 {width: 58.33%; float: left;}
-	.col-l-8 {width: 66.66%; float: left;}
-	.col-l-9 {width: 75%; float: left;}
-	.col-l-10 {width: 83.33%; float: left;}
-	.col-l-11 {width: 91.66%; float: left;}
-	.col-l-12 {width: 100%; float: left;}
-}
-@media only screen and (min-width: 1200px)
-{
-	.col-xl-1 {width: 8.33%; float: left;}
-	.col-xl-2 {width: 16.66%; float: left;}
-	.col-xl-3 {width: 25%; float: left;}
-	.col-xl-4 {width: 33.33%; float: left;}
-	.col-xl-5 {width: 41.66%; float: left;}
-	.col-xl-6 {width: 50%; float: left;}
-	.col-xl-7 {width: 58.33%; float: left;}
-	.col-xl-8 {width: 66.66%; float: left;}
-	.col-xl-9 {width: 75%; float: left;}
-	.col-xl-10 {width: 83.33%; float: left;}
-	.col-xl-11 {width: 91.66%; float: left;}
-	.col-xl-12 {width: 100%; float: left;}
-	
-	br {
+	.banner-sm {
 		display: none;
 	}
+}
+
+.active {
+	background-color: #444 !important;
+}
+
+i {
+	margin-top: 2px;
+}
+
+.jumbotron {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* This came from the Bootstrap V4.4.1 source file bootstrap.css and I modified it so
+   the navbar collapsed at 809px so conform to my navbar style                       */
+@media (min-width: 809px) 
+{
+	.navbar-expand-809 {
+		-ms-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+	}
+	.navbar-expand-809 .navbar-nav {
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+	.navbar-expand-809 .navbar-nav .dropdown-menu {
+		position: absolute;
+	}
+	.navbar-expand-809 .navbar-nav .nav-link {
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
+	}
+	.navbar-expand-809 > .container,
+	.navbar-expand-809 > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+	}
+	.navbar-expand-809 .navbar-collapse {
+		display: -ms-flexbox !important;
+		display: flex !important;
+		-ms-flex-preferred-size: auto;
+		flex-basis: auto;
+	}
+	.navbar-expand-809 .navbar-toggler {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 809px) 
+{
+	/* Separate Account button with search in drop-down */
+	.btn_mgn {
+		margin-top: 0.5rem;
+	}
+}
+
+.card-img-top {
+	height: 22vw;
+}
+
+nav img {
+	width: 70px; 
+	height: 30px;
+}
+
+nav .nav-link {
+	font-size: 1.2rem;
+}
+
+.csI {
+	color: #F8EB61 !important;
+}
+
+.csII {
+	color: #4994CB !important;
+}
+
+.csIII {
+	color: #fff !important;
+}
+
+.banner {
+	border: solid 3px #EFAB00 !important;
+	background-color:  #002664;
+	font-size: 35px; 
+	color: white;
+	text-align: center;
+}
+
+.pad_mar {
+	margin: 25px 0; 
+	padding: 0 40px;
+}
+
+.footer {
+	position: absolute; 
+	margin-bottom: 0; 
+	color: white;
+	border-top: 3px solid; 
+	border-color: #EFAB00 !important; 
+	background-color:  #002664; 
 }
