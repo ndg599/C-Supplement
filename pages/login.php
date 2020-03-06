@@ -1,11 +1,10 @@
 <?php
 require_once('../pdoconfig.php');
 // Setup link to database
-$link = mysqli_connect($servername, $username, $password, $database);
+$conn = mysqli_connect($servername, $username, $password, $database);
 
-if ($link) {
+if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
-	exit();
 }
 
 echo "Link established\n";
