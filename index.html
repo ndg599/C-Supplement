@@ -3,29 +3,58 @@
 <head>
 	<title>Kent C++ Supplement</title>
 	<meta charset="utf-8">
+	<meta name="description" content="C++ Supplement for Kent State - Stark">
+	<meta name="keywords" content="meta description, c++, Kent, State, Stark">
+	<!-- Required as per Bootstrap documentation to utilize responsiveness -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<!-- Bootstrap css file / Our custom css file (index_CSS) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/index_CSS.css">
+	<!-- Fontawesome css file (for 'emoticons' like the search magnifying glass) / Google custom fonts -->
 	<link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet"/> 
-	<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> <!-- VT323 (experimental font) -->
+	<link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet"> <!-- Courier Prime (monospace) IN USE -->
 
 </head>
 <body>
+	<!-- Each section should be wrapped in a class called container or container-fluid. The container class has a bit of margin between itself
+	     and the sizes of the webpage. The container-fluid class runs from end to end which is what I want for the navbar and header/footer.
+		 Each container has 12 columns. This can be nested, so a container within a container has its own 12 columns to use. For example, if you 
+		 wanted 3 photos side-by-side, you could make each span 4 columns (totalling 12) and would all be on one row (more on this below). 
+		 Border class denotes a border, rounded-0 means don't round the corners of the container, banner-sm is custom and is defined in index_CSS.
+
+		 This pops up when the browser width is <= 575px 																							-->
 	<div class="container-fluid border rounded-0 banner-sm">
 		<span>Please keep browser &gt; 575px</span>
 	</div>
 	
-	<nav class="navbar navbar-dark navbar-expand-834 navbar-success">
+	<!-- The navbar already spans the width of the page so no container-fluid. Navbar class is to make this section a navigation bar. 
+	     Navbar-dark is dark theme. Navbar-expand-834 is custom and is defined in index_CSS. Some of the contents here came from the 
+		 documentation. Any class that begins with nav- or navbar- is a Bootstrap class and included in the documentation template.                 -->
+	<nav class="navbar navbar-dark navbar-expand-834">
+		<!-- navbar-brand is where your logo goes -->
 		<a class="navbar-brand" href="#"><img src="./img/K++_2.png" alt="Kent C++ Logo"></a>
+		<!-- navbar-toggler allows for the navbar collapsing (when you shrink the browswer and the navbar "disappears" and turns into the 
+		     hamburger button. This whole button is from Bootstrap documentation -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
 		        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle naviation"       >
 			<span class="navbar-toggler-icon"></span>
 		</button>
+		<!-- Navbar content to display during a larger screen width and to collapse during a smaller screen width. Collapse allows for the 
+		     shrinking of the navbar content (look at the button above data-toggle="collapse" which connects the section to shrink down). 
+																																					-->
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav nav nav-pills mr-auto mt-2 mt-md-0">
+		<!-- List for the navbar. nav-pills highlights the current (active) page. I chose this, because I didn't want to mess with creating a
+		     different background as it made the text askew. mr-auto means margin-right automatic, so the content is left-justified in the 
+			 collapse box. mt-2 is margin-top 2, and the number indicates how large you want the margin to be on the top of the element. 
+			 The highest number is 5. mt-md-0 is setting the top margin to nothing as long as the browser is >= medium width (size ranges are
+			 in the documentation.																													-->
+			<ul class="navbar-nav nav nav-pills mr-auto mt-2 mt-md-0">	
+				<!-- nav-item is a class for an item on a html list -->
 				<li class="nav-item">
+					<!-- csI, csII, csIII are the Kent colors shown in index_CSS. sr-only means to display that section to screen readers, and
+					     will not be seen on the website itself -->
 					<a class="nav-link mr-2 csI" href="#">CS I<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
@@ -38,22 +67,48 @@
 					<a class="nav-link csI" href="#">Chat</a>
 				</li>  	  
 			</ul>
+			<!-- form-inline is a Bootstrap class that formats the inputs to a form. Inline having the inputs on one row. ml-auto is
+			     to right-justify the form (search bar). mr-2 is a margin of size 2 on the right of the search button to separate it from
+				 the Account button -->
 			<form class="form-inline  ml-auto mr-2">
+				<!-- form-control styles the input area -->
 				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
+				<!-- btn class is to denote a button, btn-primary is the specific color of the button (there are several options), 
+				     my-sm-0 is margin top and bottom set to none as long as the browser is >= small width. far fa-search are
+					 fontawesome classes where fa-search is the magnifying glass image. This <i> section is copied from the 
+					 fontawesome website when selecting an image to use -->
 				<button class="btn btn-primary my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 			</form>
-			<button class="btn btn-outline-primary mr-2 btn_mgn" type="button">Account</button>
+			<!-- btn-outline-primary is a color scheme that only has the outline of the element colored and the inside transparent 
+			     (primary is blue for Bootstrap 4.X). btn_mgn is a custom class in index_CSS -->
+			<form action="https://www.kentcpp.com/pages/login.html">
+				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">Login</button>
+			</form>
 		</div>  
 	</nav>
 
+	<!-- banner is a custom class in index_CSS -->
 	<div class="container-fluid rounded-0 banner">
 		<span>Kent State's C++ Code Course</span>
 	</div>
 
+	<!-- pad_mar is a custom class in index_CSS -->
 	<div class="container-fluid pad_mar">
-		<div class="row justify-content-center">
+		<!-- row class must be put before you start denoting column sizes, in other words you are section off a row of your webpage to 
+		     section off in up to 12 parts. -->
+		<div class="row">
+			<!-- col-6 means to create a column of size 6 (or half of the available space). You can also put column sizes based upon the
+			     size of the browser. You can have col-md-4, which means create a column of size 4 when the browser is >= medium width, but 
+				 also have col-sm-6 in the same section to have the same section take up more space when the screen in smaller. It may make
+				 more sence playing around with it if this isn't clear -->
 			<div class="col-6"> 
-				<div class="card h-100" style="">
+				<!-- card is the Bootstrap class for each CS image, description, and button (as well as the chat one). h-100 means to have
+				     the height of each card to be 100% of the row height. Sometimes one card may have more text than the adjacent making
+					 one longer than the other looking weird -->
+				<div class="card h-100">
+					<!-- card-img-top is a custom class for the image on the top of the card to resize as the browser resizes. Any class 
+					     beginning with card- is from Bootstrap. card-body is where the description and link button goes. card-title styles 
+						 the title and card-text styles the text of the card. This repeats 4 times. -->
 					<img src="./img/CSI.png" class="card-img-top" alt="CS_I Word Art">
 					<div class="card-body">
 						<h5 class="card-title">Computer Science I</h5>
@@ -104,6 +159,7 @@
 		<p>Footer Placeholder</p>
 	</div>
 	
+	<!-- Bootstrap documentation jquery and javascript scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
