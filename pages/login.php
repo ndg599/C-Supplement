@@ -7,5 +7,15 @@ if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
 }
 
-echo "Link established\n";
+$query = "SELECT Username FROM Login WHERE Username=\"" .
+$_POST["username"] . "\" && password=\"" . $_POST["password"] . "\"";
+#echo $query; echo "\n";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) == 1) {
+	echo "Login successful";
+}
+else {
+	echo "Login failed";
+}
 ?>
