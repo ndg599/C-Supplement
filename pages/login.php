@@ -1,24 +1,44 @@
-<?php
-require_once('../pdoconfig.php');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Kent C++ Supplement</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-// Setup link to database
-$conn = mysqli_connect($servername, $username, $password, $database);
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/index_CSS.css">
+	<link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet"/> 
+	<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
 
-if (!$conn) {
-	die("Connection failed: " . mysqli_connect_error());
-}
+</head>
+<body>
+	<form action="login.php" method="post">
+		<label for="username">Username</label><br>
+		<input type="text" name="username" required><br>
+		<label for="password">Password</label><br>
+		<input type="password" name="password" required><br>
+		<input type="submit" value="Submit">
+	</form>
+	<?php
+	function checkLogin($username, $password)
+	{
+		if ($username == "ngeiger2" && $password == "password123") {
+			return true;
+		}
+	
+		return false;
+	}
 
-// Query the username and password given in index.html
-$query = "SELECT Username FROM Login WHERE Username=\"" .
-	$_POST["username"] . "\" && password=\"" . $_POST["password"] . "\"";
-$result = mysqli_query($conn, $query);
-
-// Should only have one match for unique username and password
-if (mysqli_num_rows($result) == 1) {
-	echo "Login successfull"; // Temporary, for testing
-	include 'login_success.php'; // Handles successful login
-}
-else {
-	echo "Login failed"; // Temporary, should appear live on login.html
-}
-?>
+	if ($_POST["username"] == "") {
+		return;
+	}
+	else if (checkLogin($_POST["username"], $_POST["password"])) {
+		echo "<br>Login successful. Redirecting....<br>";
+		header("Location: https://www.kentcpp.com"); // Redirect to main page
+	}
+	else {
+		echo "<br>Login failed. Try again.<br>";
+	}
+	?>
+</body>
