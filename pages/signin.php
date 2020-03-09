@@ -20,7 +20,7 @@ function validatePassW($password) {
 
 
 
-require_once("dbconnect.php");
+require_once("dbconnect2.php");
 		session_start();
 
 	 if(isset($_POST['create'])) {
@@ -59,7 +59,7 @@ require_once("dbconnect.php");
             	if(! $retval ) {
                		die('This account cannot be created. Please try again later.');
            	}
-	   		header("location: account.php");		
+	   		//header("location: account.php");		
             		mysqli_close($conn);
           	}
 	}
