@@ -28,7 +28,12 @@
 	}
 	else if (authLogin($_POST["username"], $_POST["password"])) {
 		echo "<br>Login successful. Redirecting....<br>";
-		header("Location: https://www.kentcpp.com"); // Redirect to main page
+
+		session_start();
+		$_SESSION["loggedin"] = true;
+		$_SESSION["username"] = $_POST["username"];
+
+		header("Location: http://localhost");//https://www.kentcpp.com"); // Redirect to main page
 	}
 	else {
 		echo "<br>Login failed. Try again.<br>";

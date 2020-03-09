@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php session_start(); ?>
 	<title>Kent C++ Supplement</title>
 	<meta charset="utf-8">
 	<meta name="description" content="C++ Supplement for Kent State - Stark">
@@ -81,8 +82,11 @@
 			</form>
 			<!-- btn-outline-primary is a color scheme that only has the outline of the element colored and the inside transparent 
 			     (primary is blue for Bootstrap 4.X). btn_mgn is a custom class in index_CSS -->
-			<form action="https://www.kentcpp.com/pages/login.html">
-				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">Login</button>
+			<form action="<?php if ($_SESSION["loggedin"] == true) { echo "https://www.kentcpp.com/pages/account.php"; }
+			else { echo "https://www.kentcpp.com/pages/login.php"; } ?>">
+				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">
+				<?php if ($_SESSION["loggedin"] == true) { echo "Account"; } else { echo "Login"; } ?>
+				</button>
 			</form>
 		</div>  
 	</nav>
