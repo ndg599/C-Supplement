@@ -20,7 +20,7 @@ function validatePassW($password) {
 
 
 
-require_once("dbconnect2.php");
+require_once("dbconnect.php");
 		session_start();
 
 	 if(isset($_POST['create'])) {
