@@ -13,30 +13,16 @@
 
 </head>
 <body>
-	<form action="login.php" method="post">
-		<label for="username">Username</label><br>
-		<input type="text" name="username" required><br>
-		<label for="password">Password</label><br>
-		<input type="password" name="password" required><br>
-		<input type="submit" value="Submit">
-	</form>
 	<?php
-	include 'authLogin.php';
-
-	if ($_POST["username"] == "") {
-		return;
-	}
-	else if (authLogin($_POST["username"], $_POST["password"])) {
-		echo "<br>Login successful. Redirecting....<br>";
-
-		session_start();
-		$_SESSION["loggedin"] = true;
-		$_SESSION["username"] = $_POST["username"];
-
-		header("Location: https://www.kentcpp.com"); // Redirect to main page
+	session_start();
+	if ($_SESSION["loggedin"]) {
+		echo "Logging out...<br>";
+		session_destroy();
+		header("Location: https://www.kentcpp.com");
 	}
 	else {
-		echo "<br>Login failed. Try again.<br>";
+		echo "User is already logged out.<br>";
+		header("Location: https://www.kentcpp.com");
 	}
 	?>
 </body>
