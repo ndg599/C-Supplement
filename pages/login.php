@@ -21,19 +21,12 @@
 		<input type="submit" value="Submit">
 	</form>
 	<?php
-	function checkLogin($username, $password)
-	{
-		if ($username == "ngeiger2" && $password == "password123") {
-			return true;
-		}
-	
-		return false;
-	}
+	include 'authLogin.php';
 
 	if ($_POST["username"] == "") {
 		return;
 	}
-	else if (checkLogin($_POST["username"], $_POST["password"])) {
+	else if (authLogin($_POST["username"], $_POST["password"])) {
 		echo "<br>Login successful. Redirecting....<br>";
 		header("Location: https://www.kentcpp.com"); // Redirect to main page
 	}
