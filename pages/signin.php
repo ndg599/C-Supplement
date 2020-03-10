@@ -152,7 +152,7 @@
 					<p> Sign Up</p>
 					<hr>
 					<p> Please enter your email address, your username, and password </p>
-					<form method = "post">
+					<form method = "post" action="google.com">
 						<table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
 							<tr>
 							   <td width = "250">Username</td>
