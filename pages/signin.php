@@ -1,3 +1,25 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@bjacob12 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+Code Issues 0 Pull requests 0 Projects 0 Actions Wiki Security Pulse Community
+C-Supplement/pages/signin.php / 
+@Tutlegoss Tutlegoss Updated signin.php and dbconnect.php
+972bfcb 1 minute ago
+@Tutlegoss@bjacob12
+Executable File  198 lines (173 sloc)  6.79 KB
+  
+You're using code navigation to jump to definitions or references.
+Learn more or give us feedback
 <?php
 	function validateEmail($email) {
 	   $pattern = '/^[\-0-9a-zA-Z\.\+_]+@[\-0-9a-zA-Z\.\+_]+\.[a-zA-Z\.]{2,5}$/';
@@ -31,6 +53,10 @@
 		$_randomID=rand(100,99999999999);
 		$sql1="select ID from login";
 		$results= $conn->query($sql1);
+		if(!$check1_res){
+			printf("Error: %s\n",mysqli_error($conn))
+			exit();
+		}
 		$resultarr=array();
 		while($row=mysqli_fetch_array($results)){
 			$resultarr[]=$row;
@@ -196,3 +222,15 @@
 
 </body>
 </html>
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
