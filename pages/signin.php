@@ -1,26 +1,26 @@
 <?php
-function validateEmail($email) {
-   $pattern = '/^[\-0-9a-zA-Z\.\+_]+@[\-0-9a-zA-Z\.\+_]+\.[a-zA-Z\.]{2,5}$/';
-   if ( preg_match($pattern, $email) ) {
-     return true;
-   }
-   return false;
-}
+	function validateEmail($email) {
+	   $pattern = '/^[\-0-9a-zA-Z\.\+_]+@[\-0-9a-zA-Z\.\+_]+\.[a-zA-Z\.]{2,5}$/';
+	   if ( preg_match($pattern, $email) ) {
+		 return true;
+	   }
+	   return false;
+	}
 
-function validatePassW($password) {
-   $pattern = "/^.{8,30}$/";
-   if ( preg_match($pattern, $password) ) {
-     return true;
-   }
-   return false;
-}
+	function validatePassW($password) {
+	   $pattern = "/^.{8,30}$/";
+	   if ( preg_match($pattern, $password) ) {
+		 return true;
+	   }
+	   return false;
+	}
 
-error_reporting(E_ALL);
-echo "<pre>";
-ini_set('display_errors',1);
-ini_set('error_log', 'sign_error');
-require_once("dbconnect.php");
-		session_start();
+	error_reporting(E_ALL);
+	echo "<pre>";
+	ini_set('display_errors',1);
+	ini_set('error_log', 'sign_error');
+	require_once("dbconnect.php");
+			session_start();
 
 	 if(isset($_POST['create'])) {
 	       $_email = $_POST['_email'];
@@ -146,12 +146,13 @@ require_once("dbconnect.php");
 	</div>
 
 	<!--Form for user to sign up-->
-		  <br><br>
+	<br><br>
 	<div class="container">
-	<p> Sign Up</p><hr width="1700">
-		 <p> Please enter your email address, your username, and password </p>
-		  <form method = "post">
-			 <table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
+		<p> Sign Up</p>
+		<hr width="1700">
+		<p> Please enter your email address, your username, and password </p>
+		<form method = "post">
+			<table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
 				<tr>
 				   <td width = "250">Username</td>
 				   <td>
@@ -174,8 +175,10 @@ require_once("dbconnect.php");
 				   <td width = "200"> </td>
 				   <td>
 					  <input name = "create" type = "submit" id = "create"  value = "Create account">
-				   </td></tr>		
-			 </table> 
+				   </td>
+				</tr>		
+			</table> 
+		</form>
 	</div>
 	
 	<footer class="container-fluid rounded-0">
