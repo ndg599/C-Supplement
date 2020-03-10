@@ -144,7 +144,11 @@
 							} 
 						  ?>">
 				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">
-				<?php if ($_SESSION["loggedin"]) echo "Account"; else echo "Login"; ?>
+				<?php 
+					if (isset($_SESSION["loggedin"])) 
+						echo "Account"; 
+					else echo "Login"; 
+				?>
 				</button>
 			</form>
 		</div>  
