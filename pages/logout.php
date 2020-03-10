@@ -13,11 +13,16 @@
 
 </head>
 <body>
-	<form action="login.php" method="post">
-		<label for="username">Username</label><br>
-		<input type="text" name="username"><br>
-		<label for="password">Password</label><br>
-		<input type="text" name="password"><br>
-		<input type="submit" value="Submit">
-	</form>
+	<?php
+	session_start();
+	if ($_SESSION["loggedin"]) {
+		echo "Logging out...<br>";
+		session_destroy();
+		header("Location: https://www.kentcpp.com");
+	}
+	else {
+		echo "User is already logged out.<br>";
+		header("Location: https://www.kentcpp.com");
+	}
+	?>
 </body>
