@@ -1,25 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@bjacob12 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-Code Issues 0 Pull requests 0 Projects 0 Actions Wiki Security Pulse Community
-C-Supplement/pages/signin.php / 
-@Tutlegoss Tutlegoss Updated signin.php and dbconnect.php
-972bfcb 1 minute ago
-@Tutlegoss@bjacob12
-Executable File  198 lines (173 sloc)  6.79 KB
-  
-You're using code navigation to jump to definitions or references.
-Learn more or give us feedback
 <?php
 	function validateEmail($email) {
 	   $pattern = '/^[\-0-9a-zA-Z\.\+_]+@[\-0-9a-zA-Z\.\+_]+\.[a-zA-Z\.]{2,5}$/';
@@ -43,12 +21,12 @@ Learn more or give us feedback
 	ini_set('display_errors',1);
 	ini_set('error_log', 'sign_error'); */
 	require_once("dbconnect.php");
-			session_start();
+	session_start();
 
-	 if(isset($_POST['create'])) {
-	       $_email = $_POST['_email'];
-               $_username = $_POST['_username'];
-               $_password = $_POST['_password'];
+	if(isset($_POST['create'])) {
+		$_email = $_POST['_email'];
+        $_username = $_POST['_username'];
+        $_password = $_POST['_password'];
 		$_type="Student";
 		$_randomID=rand(100,99999999999);
 		$sql1="select ID from login";
@@ -58,53 +36,52 @@ Learn more or give us feedback
 		while($row=mysqli_fetch_array($results)){
 			$resultarr[]=$row;
 		}
+
 		$bool=0;
 		while($bool==0){
-		$bool=1;
-		foreach($resultarr as $row){
-			echo "results";
-			if($_randomID==$row['ID']){
-				$_randomID=$_randomID=rand(100,99999999999);
-				$bool=0;
+			$bool=1;
+			foreach($resultarr as $row){
+				echo '<p class="white-text">results</p>';
+				if($_randomID==$row['ID']){
+					$_randomID=$_randomID=rand(100,99999999999);
+					$bool=0;
+				}
 			}
-		}
 		}
 	 	
 		$_type="student";
 		$error="";
 		if(validateEmail($_email)===false){
-		
-		  $error="<br>Your email is invalid. Please try again. ";
+			$error='<br><p class="white-text">Your email is invalid. Please try again.</p>';
 		}
+
 		if(validatePassW($_password)===false){
-		  $error= $error . "<br>Your Password is invalid. Must be 8 characters or more. "; 
+			$error= $error . '<br><p class="white-text">Your Password is invalid. Must be 8 characters or more.</p>'; 
 		}
 
 		if($error!=""){
 			echo $error;
 		}else{
 
-	       	$_hash=password_hash($_password,PASSWORD_BCRYPT);
+	    	$_hash=password_hash($_password,PASSWORD_BCRYPT);
    
-            	$sql =$conn->prepare("INSERT INTO Login ".
-               	"(Username, Password,ID,Email, Type ) "."VALUES ".
-              	"(?,?,?,?,?)");
+           	$sql =$conn->prepare("INSERT INTO Login ".
+            "(Username, Password,ID,Email, Type ) "."VALUES ".
+            "(?,?,?,?,?)");
 	
-		$sql->bind_param("ssiss",$_username,$_hash,$_randomID,$_email,$_type);
-		$retval=$sql->execute();
-            
-			
-            	//$retval = mysqli_query($conn, $sql->execute());
+			$sql->bind_param("ssiss",$_username,$_hash,$_randomID,$_email,$_type);
+			$retval=$sql->execute();
+ 
 	    	if(false===$retval){
-			printf("error:%s\n", mysqli_error($conn));
-		}
-         
-            	if(! $retval ) {
-               		die('This account cannot be created. Please try again later.');
+				printf("error:%s\n", mysqli_error($conn));
+			}
+
+          	if(! $retval ) {
+               	die('This account cannot be created. Please try again later.');
            	}
-	   		//header("location: index.php");		
-            		mysqli_close($conn);
-          	}
+           	mysqli_close($conn);
+	   		header("location: index.php");		
+		}
 	}	
 ?>
 
@@ -219,15 +196,3 @@ Learn more or give us feedback
 
 </body>
 </html>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
