@@ -111,7 +111,7 @@ require_once("dbconnect.php");
 	</div>
 	
 	<nav class="navbar navbar-dark navbar-expand-834">
-		<a class="navbar-brand" href="#"><img src="./img/K++_2.png" alt="Kent C++ Logo"></a>
+		<a class="navbar-brand" href="#"><img src="../img/K++_2.png" alt="Kent C++ Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
 		        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle naviation"       >
 			<span class="navbar-toggler-icon"></span>
