@@ -136,7 +136,7 @@
 				<button class="btn btn-primary my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 			</form>
 			<form action="<?php 
-							if ($_SESSION["loggedin"]) { 
+							if (isset($_SESSION["loggedin"])) { 
 								echo "https://www.kentcpp.com/pages/account.php"; 
 							}
 							else { 
