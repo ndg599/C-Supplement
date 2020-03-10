@@ -60,7 +60,7 @@
 		}
 
 		if($error!=""){
-			echo $error;
+			echo '<p class="white-text">'.$error.'</p>';
 		}else{
 
 	    	$_hash=password_hash($_password,PASSWORD_BCRYPT);
@@ -135,8 +135,14 @@
 				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-primary my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 			</form>
-			<form action="<?php if ($_SESSION["loggedin"]) { echo "https://www.kentcpp.com/pages/account.php"; }
-			else { echo "https://www.kentcpp.com/pages/login.php"; } ?>">
+			<form action="<?php 
+							if ($_SESSION["loggedin"]) { 
+								echo "https://www.kentcpp.com/pages/account.php"; 
+							}
+							else { 
+								echo "https://www.kentcpp.com/pages/login.php"; 
+							} 
+						  ?>">
 				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">
 				<?php if ($_SESSION["loggedin"]) echo "Account"; else echo "Login"; ?>
 				</button>
