@@ -17,12 +17,10 @@ function validatePassW($password) {
    return false;
 }
 
-
-error_reporting(-1);
-ini_set("display_errors","1");
-ini_set("log_errors",1);
-ini_set("error_log","sign-error.log");
-
+error_reporting(E_ALL);
+echo "<pre>";
+ini_set('display_errors',1);
+ini_set('error_log', 'sign_error');
 require_once("dbconnect.php");
 		session_start();
 
