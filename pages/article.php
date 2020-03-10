@@ -24,7 +24,7 @@
 	</div>
 	
 	<nav class="navbar navbar-dark navbar-expand-834">
-		<a class="navbar-brand" href="#"><img src="./img/K++_2.png" alt="Kent C++ Logo"></a>
+		<a class="navbar-brand" href="#"><img src="../img/K++_2.png" alt="Kent C++ Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
 		        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle naviation"       >
 			<span class="navbar-toggler-icon"></span>
@@ -74,7 +74,7 @@
 						<br>
 						<p>
 						<figure>
-							<img src="./img/insert.png" alt="for loop flow" class="mb-5 ml-2">
+							<img src="../img/insert.png" alt="for loop flow" class="mb-5 ml-2">
 							<figcaption>Example figure caption</figcaption>
 						</figure>
 						Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
@@ -96,7 +96,7 @@
 						<br>
 						<p>
 						<figure>
-							<img src="./img/forLoop3.png" alt="for loop flow" class="mb-5 ml-2">
+							<img src="../img/forLoop3.png" alt="for loop flow" class="mb-5 ml-2">
 							<figcaption>Example visual for a FOR LOOP</figcaption>
 						</figure>
 						An example of a subtopic would be the FOR LOOP topic. Another subtopic would be the DO WHILE LOOP 
