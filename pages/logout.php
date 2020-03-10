@@ -18,11 +18,11 @@
 	if ($_SESSION["loggedin"]) {
 		echo "Logging out...<br>";
 		session_destroy();
-		header("Location: https://www.kentcpp.com");
+		header("Location: http://localhost");
 	}
 	else {
 		echo "User is already logged out.<br>";
-		header("Location: https://www.kentcpp.com");
+		header("Location: http://localhost");
 	}
 	?>
 </body>
