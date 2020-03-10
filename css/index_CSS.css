@@ -1,31 +1,54 @@
+html {
+	height: 100%;
+}
+
 body {
 	background-color: #1a1a1a; 
-	font-family: 'Courier Prime', monospace;
+	font-family: 'Courier Prime', monospace; /* Site font and fallback font */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+/* https://css-tricks.com/couple-takes-sticky-footer/ - Source to get a footer on the bottom of the page - flex stuff from body/footer/content */
+footer {
+	flex-shrink: 0;
+	padding: 10px;
+	color: white;
+	border-top: 3px solid; 
+	border-color: #EFAB00 !important; 
+	background-color:  #002664; 
+}
+
+.content {
+	flex: 1 0 auto;
 }
 
 .navbar {
-	overflow: hidden;
+	overflow: hidden; /* If any content goes beyond the navbar's box, don't show it */
 	background-color: #333;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 1;
+	position: fixed; /* Keep the navbar on screen on the top even after scrolling */
+	top: 0; /* Put on extreme top of screen */
+	width: 100%; /* Span the entire width of the browser */
+	z-index: 1; /* Show on top of everything it scrolls over */
 }
 
+/* This section only happens if browser width is <= 575.98 pixels */
 @media only screen and (max-width: 575.98px) 
 {
-	/* Separate Account button with search in drop-down */
+	/* Display red banner saying to increase browser width */
 	.banner-sm {
 		background-color: red;
 		font-size: 28px; 
 		color: white;
 		text-align: center;
-		display: static;
 		position: fixed;
 		z-index: 1;
 	}
 }
 
+/* This section only happens if browser width is >= 576 pixels. Get rid of red banner */
 @media only screen and (min-width: 576px)
 {
 	.banner-sm {
@@ -33,6 +56,7 @@ body {
 	}
 }
 
+/* !important is necessary to override Bootstrap default css settings. */
 .active {
 	background-color: #444 !important;
 }
@@ -51,13 +75,8 @@ i {
 	text-align: center;
 }
 
-.jumbotron {
-	padding-left: 0;
-	padding-right: 0;
-}
-
 /* This came from the Bootstrap V4.4.1 source file bootstrap.css and I modified it so
-   the navbar collapsed at 834px so conform to my navbar style                       */
+   the navbar collapsed at 834px to conform to my navbar style                        */
 @media (min-width: 834px) 
 {
 	.navbar-expand-834 {
@@ -105,6 +124,7 @@ i {
 	}
 }
 
+/* vw means view width, and the image size will change as the browser width changes */
 .card-img-top {
 	height: 22vw;
 }
@@ -135,11 +155,160 @@ nav .nav-link {
 	padding: 0 40px;
 }
 
-.footer {
-	position: absolute; 
-	margin-bottom: 0; 
-	color: white;
-	border-top: 3px solid; 
-	border-color: #EFAB00 !important; 
-	background-color:  #002664; 
+/* Below is for article.php */
+hr {
+	border: 1px solid white;
+	margin-top: -10px;
 }
+
+.intro {
+	padding-left: 5vw;
+	font-weight: bold;
+}
+
+.section { 
+	text-align: justify;
+	border-radius: 10px; 
+	border: 3px solid #4994CB; 
+	font-size: 1rem;
+	color: white;
+} 
+
+.section br {
+	display: block;
+	content: "";
+}
+
+
+/* Next three sections are from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption and have been modified */
+figure {
+	float: right;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 225px;
+    margin: -5px 15px 0 15px;
+}
+
+figure img {
+	background-color: #fff;
+    max-width: 220px;
+    max-height: 150px;
+}
+
+figcaption {
+    background-color: #222;
+    color: #F8EB61;
+    font: italic smaller sans-serif;
+	margin-top: -50px;
+	margin-bottom: 50px;
+	margin-left: 8px;
+    padding: 4px;
+    text-align: center;
+}
+
+.Code_Ex {
+	counter-reset: counter;
+	display: table;
+	table-layout: fixed;
+	font-size: 20px;
+}
+pre {
+	overflow-x: auto; /* Scroll within code table */
+	border: 2px solid Black;
+}
+.Table_Row {
+	display: table-row;
+}
+.Table_Row:nth-child(odd) {
+	background-color: black;
+}
+.Table_Row:nth-child(even) {
+	background-color: #080707;
+}
+.Line_Num::before {
+	counter-increment: counter; /* Variable to increment */
+	text-align: right; 
+	display: block; /* Need this for text-align to work */
+	content: counter(counter); /* Numbers each line */
+}
+
+/* Don't select line numbers while copying code - https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+.Line_Num {
+	display: table-cell; /* Preserves table look */
+	-webkit-user-select: none; /* Safari 3.1+ */
+	-moz-user-select: none; /* Firefox 2+ */
+	-ms-user-select: none; /* IE 10+ */
+	-o-user-select: none; /* Opera */
+	user-select: none; /* Standard syntax */
+	color: white;
+	padding: 0 5px;
+	border-right: 2px solid Orange;
+}
+code {
+	color: Gold;
+	display: table-cell;
+	padding-left: 10px;
+	width: 100%; /* Extends to the end of pre container */
+}
+
+/* Custom radio buttons - https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+/* The container */
+.qBox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.qBox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.qBox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.qBox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.qBox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.mono, .code{
+	font-family:  'courier new', monospace;
+	color: #26ed07;
+}
+
