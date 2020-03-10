@@ -29,7 +29,7 @@
         $_password = $_POST['_password'];
 		$_type="Student";
 		$_randomID=rand(100,99999999999);
-		$sql1="select ID from login";
+		$sql1="select ID from Login";
 		$results= mysqli_query($conn,$sql1);
 		if (!$results) {
     			printf("Error: %s\n", mysqli_error($conn));
