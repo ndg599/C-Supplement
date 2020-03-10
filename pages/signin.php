@@ -1,4 +1,4 @@
-<?php
+<?php /*
 	function validateEmail($email) {
 	   $pattern = '/^[\-0-9a-zA-Z\.\+_]+@[\-0-9a-zA-Z\.\+_]+\.[a-zA-Z\.]{2,5}$/';
 	   if ( preg_match($pattern, $email) ) {
@@ -82,7 +82,7 @@
             		mysqli_close($conn);
           	}
 	}
-		
+	*/	
 ?>
 
 <!DOCTYPE html>
