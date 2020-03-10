@@ -15,10 +15,11 @@
 	   return false;
 	}
 
-	error_reporting(E_ALL);
+/*	DEBUGGING ONLY: /*
+/*	error_reporting(E_ALL);
 	echo "<pre>";
 	ini_set('display_errors',1);
-	ini_set('error_log', 'sign_error');
+	ini_set('error_log', 'sign_error'); */
 	require_once("dbconnect.php");
 			session_start();
 
@@ -152,7 +153,7 @@
 					<p> Sign Up</p>
 					<hr>
 					<p> Please enter your email address, your username, and password </p>
-					<form method = "post" action="google.com">
+					<form method = "post">
 						<table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
 							<tr>
 							   <td width = "250">Username</td>
