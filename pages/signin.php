@@ -44,7 +44,7 @@
 			$bool=1;
 			foreach($resultarr as $row){
 
-				if($_randomID==$row['ID']){
+				if($_randomID==$row){
 					$_randomID=rand(100,99999999999);
 					$bool=0;
 				}
