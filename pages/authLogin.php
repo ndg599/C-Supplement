@@ -1,5 +1,6 @@
 <?php
-/* Authenticates login given a username and password (returning bool)
+/* Authenticates login given a username and password
+ * Return values: -1 = bad username, 0 = bad password, 1 = match
  * NOTE: args must start in caps or they will overlap with variables from pdoconfig
  */
 function authLogin($Username, $Password)
@@ -13,17 +14,25 @@ function authLogin($Username, $Password)
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
-	// Query the username and password
-	$query = "SELECT Username FROM Login WHERE Username=\"" .
-	$Username . "\" && password=\"" . $Password . "\"";
+	// Query username
+	$query = "SELECT Username FROM Login WHERE Username=\"" . $Username . "\"";
 	$result = mysqli_query($conn, $query);
-	#echo $query . "<br>";
 
-	// Should only have one match for unique username and password
+	// Should only have one match for unique username
 	if (mysqli_num_rows($result) == 1) {
-		return true;
+		// Query username + password
+		$query = "SELECT Username FROM Login WHERE Username=\"" .
+		$Username . "\" && Password=\"" . $Password . "\"";
+		$result = mysqli_query($conn, $query);
+		#echo $query . "<br>";
+
+		if (mysqli_num_rows($result) == 1) {
+			return 1; // Match
+		}
+
+		return 0; // Bad password
 	}
 
-	return false;
+	return -1; // Bad username
 }
 ?>

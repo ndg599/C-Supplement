@@ -23,20 +23,24 @@
 	<?php
 	include 'authLogin.php';
 
-	if ($_POST["username"] == "") {
-		return;
-	}
-	else if (authLogin($_POST["username"], $_POST["password"])) {
-		echo "<br>Login successful. Redirecting....<br>";
+	if (isset($_POST["username"])) {
+		$attempt = authLogin($_POST["username"], $_POST["password"]);
 
-		session_start();
-		$_SESSION["loggedin"] = true;
-		$_SESSION["username"] = $_POST["username"];
-
-		header("Location: https://www.kentcpp.com"); // Redirect to main page
-	}
-	else {
-		echo "<br>Login failed. Try again.<br>";
+		switch ($attempt) {
+		case -1: 
+			echo "<br>Invalid username. Try again.<br>";
+			break;
+		case 0:
+			echo "<br>Wrong password. Try again.<br>";
+			break;
+		case 1:
+			echo "<br>Login successful. Redirecting....<br>";
+			session_start();
+			$_SESSION["loggedin"] = true;
+			$_SESSION["username"] = $_POST["username"];
+			header("Location: http://localhost"); // Redirect to main page
+			break;
+		}
 	}
 	?>
 </body>
