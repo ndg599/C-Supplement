@@ -30,13 +30,12 @@
 		$_type="Student";
 		$_randomID=rand(100,99999999999);
 		$sql1="select ID from login";
-		$results= $conn->query($sql1);
+		$results= mysqli_query($conn,$sql1);
 		
 		$resultarr=array();
 		while($row=mysqli_fetch_array($results)){
 			$resultarr[]=$row;
 		}
-
 		$bool=0;
 		while($bool==0){
 			$bool=1;
