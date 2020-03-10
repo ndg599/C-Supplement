@@ -111,7 +111,7 @@ require_once("dbconnect.php");
 	</div>
 	
 	<nav class="navbar navbar-dark navbar-expand-834">
-		<a class="navbar-brand" href="#"><img src="../img/K++_2.png" alt="Kent C++ Logo"></a>
+		<a class="navbar-brand" href="#"><img src="./img/K++_2.png" alt="Kent C++ Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
 		        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle naviation"       >
 			<span class="navbar-toggler-icon"></span>
@@ -147,7 +147,7 @@ require_once("dbconnect.php");
 
 	<!--Form for user to sign up-->
 		  <br><br>
-	<main class="container">
+	<div class="container">
 	<p> Sign Up</p><hr width="1700">
 		 <p> Please enter your email address, your username, and password </p>
 		  <form method = "post">
@@ -176,7 +176,7 @@ require_once("dbconnect.php");
 					  <input name = "create" type = "submit" id = "create"  value = "Create account">
 				   </td></tr>		
 			 </table> 
-	</main>
+	</div>
 	
 	<footer class="container-fluid rounded-0">
 		<p>Footer Placeholder</p>
