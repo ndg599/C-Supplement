@@ -31,7 +31,10 @@
 		$_randomID=rand(100,99999999999);
 		$sql1="select ID from login";
 		$results= mysqli_query($conn,$sql1);
-		
+		if (!$results) {
+    			printf("Error: %s\n", mysqli_error($conn));
+   			 exit();
+		}
 		$resultarr=array();
 		while($row=mysqli_fetch_array($results)){
 			$resultarr[]=$row;
