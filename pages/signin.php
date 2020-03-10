@@ -15,6 +15,11 @@
 	   return false;
 	}
 
+	
+
+
+	
+
 /*	DEBUGGING ONLY: /*
 /*	error_reporting(E_ALL);
 	echo "<pre>";
@@ -28,7 +33,8 @@
         $_username = $_POST['_username'];
         $_password = $_POST['_password'];
 		$_type="Student";
-		$_randomID=rand(100,99999999999);
+		
+		$_randomID=mt_rand();
 		$sql1="select ID from Login";
 		$results= mysqli_query($conn,$sql1);
 		if (!$results) {
@@ -40,13 +46,13 @@
 			$resultarr[]=$row;
 		}
 		$bool=0;
+		echo $_randomID;
 		while($bool==0){
 			$bool=1;
 			foreach($resultarr as $row){
-
 				if($_randomID==$row){
-					$_randomID=rand(100,99999999999);
-					echo $_randomID;
+					
+					$_randomID=mt_rand();
 					$bool=0;
 				}
 			}
@@ -83,7 +89,7 @@
                	die('This account cannot be created. Please try again later.');
            	}
            	mysqli_close($conn);
-	   		header("location: index.php");		
+	   		//header("location: index.php");		
 		}
 	}	
 ?>
