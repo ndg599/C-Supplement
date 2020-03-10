@@ -53,7 +53,7 @@ Learn more or give us feedback
 		$_randomID=rand(100,99999999999);
 		$sql1="select ID from login";
 		$results= $conn->query($sql1);
-		if(!$check1_res){
+		if(!$sql1){
 			printf("Error: %s\n",mysqli_error($conn))
 			exit();
 		}
