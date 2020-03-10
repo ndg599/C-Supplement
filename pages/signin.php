@@ -146,41 +146,42 @@
 	</div>
 
 	<!--Form for user to sign up-->
-	<br><br>
-	<div class="container text-white">
-		<div class="row">
-			<div class="col-12">
-				<p> Sign Up</p>
-				<hr>
-				<p> Please enter your email address, your username, and password </p>
-				<form method = "post">
-					<table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
-						<tr>
-						   <td width = "250">Username</td>
-						   <td>
-							  <input name = "_username" type = "text" id = "_username">
-						   </td></tr>
-					 
-						<tr>
-						   <td width = "200">Email Address</td>
-						   <td>
-							  <input name = "_email" type = "text" id = "_email">
-						   </td></tr>
-					 
-						<tr>
-						   <td width = "200">Password</td>
-						   <td>
-							  <input name = "_password" type = "text" id = "_password">
-						   </td></tr>
+	<div class="content">
+		<div class="container text-white mt-5">
+			<div class="row">
+				<div class="col-12">
+					<p> Sign Up</p>
+					<hr>
+					<p> Please enter your email address, your username, and password </p>
+					<form method = "post">
+						<table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
+							<tr>
+							   <td width = "250">Username</td>
+							   <td>
+								  <input name = "_username" type = "text" id = "_username">
+							   </td></tr>
+						 
+							<tr>
+							   <td width = "200">Email Address</td>
+							   <td>
+								  <input name = "_email" type = "text" id = "_email">
+							   </td></tr>
+						 
+							<tr>
+							   <td width = "200">Password</td>
+							   <td>
+								  <input name = "_password" type = "text" id = "_password">
+							   </td></tr>
 
-						<tr>
-						   <td width = "200"> </td>
-						   <td>
-							  <input name = "create" type = "submit" id = "create"  value = "Create account">
-						   </td>
-						</tr>		
-					</table> 
-				</form>
+							<tr>
+							   <td width = "200"> </td>
+							   <td>
+								  <input name = "create" type = "submit" id = "create"  value = "Create account">
+							   </td>
+							</tr>		
+						</table> 
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
