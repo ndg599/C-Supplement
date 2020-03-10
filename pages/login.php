@@ -13,34 +13,36 @@
 
 </head>
 <body>
-	<form action="login.php" method="post">
-		<label for="username">Username</label><br>
-		<input type="text" name="username" required><br>
-		<label for="password">Password</label><br>
-		<input type="password" name="password" required><br>
-		<input type="submit" value="Submit">
-	</form>
 	<?php
 	include 'authLogin.php';
 
 	if (isset($_POST["username"])) {
 		$attempt = authLogin($_POST["username"], $_POST["password"]);
-
 		switch ($attempt) {
 		case -1: 
-			echo "<br>Invalid username. Try again.<br>";
+			$errorMsg = "<br>Invalid username. Try again.<br>";
 			break;
 		case 0:
-			echo "<br>Wrong password. Try again.<br>";
+			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 		case 1:
 			echo "<br>Login successful. Redirecting....<br>";
 			session_start();
 			$_SESSION["loggedin"] = true;
 			$_SESSION["username"] = $_POST["username"];
-			header("Location: https://www.kentcpp.com"); // Redirect to main page
+			header("Location: http://localhost"); // Redirect to main page
 			break;
 		}
 	}
 	?>
+	<form action="login.php" method="post">
+		<label for="username">Username</label><br>
+		<input type="text" name="username"
+		// Keep username if just bad password 
+		<?php if ($attempt == 0) echo "value=\"" . $_POST["username"] . "\""; ?> required><br>
+		<label for="password">Password</label><br>
+		<input type="password" name="password" required><br>
+		<input type="submit" value="Submit">
+	</form>
+	<?php if (isset($errorMsg)) echo $errorMsg; // Error message from attempt ?>
 </body>
