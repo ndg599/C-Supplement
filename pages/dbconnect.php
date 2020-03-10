@@ -1,4 +1,4 @@
-<?--Used to open database-->
+<!--Used to open database-->
 <?php
 require_once('../pdoconfig.php');
 error_reporting(-1);
