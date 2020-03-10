@@ -30,7 +30,7 @@
 			session_start();
 			$_SESSION["loggedin"] = true;
 			$_SESSION["username"] = $_POST["username"];
-			header("Location: http://localhost"); // Redirect to main page
+			header("Location: https://www.kentcpp.com"); // Redirect to main page
 			break;
 		}
 	}

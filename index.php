@@ -83,8 +83,8 @@
 			<!-- btn-outline-primary is a color scheme that only has the outline of the element colored and the inside transparent 
 			     (primary is blue for Bootstrap 4.X). btn_mgn is a custom class in index_CSS -->
 			<!-- check if user is logged in with php session to set button to account/login accordingly -->
-			<form action="<?php if ($_SESSION["loggedin"]) { echo "http://localhost/pages/account.php"; }
-			else { echo "http://localhost/pages/login.php"; } ?>">
+			<form action="<?php if ($_SESSION["loggedin"]) { echo "https://www.kentcpp.com/pages/account.php"; }
+			else { echo "https://www.kentcpp.com/pages/login.php"; } ?>">
 				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">
 				<?php if ($_SESSION["loggedin"]) echo "Account"; else echo "Login"; ?>
 				</button>
