@@ -46,6 +46,7 @@
 
 				if($_randomID==$row){
 					$_randomID=rand(100,99999999999);
+					echo $_randomID;
 					$bool=0;
 				}
 			}
