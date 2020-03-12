@@ -64,15 +64,15 @@
 			$_type="student";
 			$error="";
 			if(validateEmail($_email)===false){
-				$error='<br><p class="red">Your email is invalid. Please try again.</p>';
+				$error='<p class="red">Your email is invalid. Please try again.</p>';
 			}
 
 			if(validatePassW($_password)===false){
-				$error= $error . '<br><p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
+				$error= $error . '<p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
 			}
 
 			if($error!=""){
-				echo '<p>'.$error.'</p>';
+				echo '<p class="red">'.$error.'</p>';
 			}else{
 
 				$_hash=password_hash($_password,PASSWORD_BCRYPT);
