@@ -15,11 +15,17 @@
 	   return false;
 	}
 
+	
+
+
+	
+
 /*	DEBUGGING ONLY: /*
 /*	error_reporting(E_ALL);
 	echo "<pre>";
 	ini_set('display_errors',1);
 	ini_set('error_log', 'sign_error'); */
+	
 	require_once("dbconnect.php");
 	session_start();
 
@@ -28,22 +34,26 @@
         $_username = $_POST['_username'];
         $_password = $_POST['_password'];
 		$_type="Student";
-		$_randomID=rand(100,99999999999);
-		$sql1="select ID from login";
-		$results= $conn->query($sql1);
 		
+		$_randomID=mt_rand();
+		$sql1="select ID from Login";
+		$results= mysqli_query($conn,$sql1);
+		if (!$results) {
+    			printf("Error: %s\n", mysqli_error($conn));
+   			 exit();
+		}
 		$resultarr=array();
 		while($row=mysqli_fetch_array($results)){
 			$resultarr[]=$row;
 		}
-
 		$bool=0;
+		echo $_randomID;
 		while($bool==0){
 			$bool=1;
 			foreach($resultarr as $row){
-				echo '<p class="white-text">results</p>';
-				if($_randomID==$row['ID']){
-					$_randomID=$_randomID=rand(100,99999999999);
+				if($_randomID==$row){
+					
+					$_randomID=mt_rand();
 					$bool=0;
 				}
 			}
@@ -80,14 +90,14 @@
                	die('This account cannot be created. Please try again later.');
            	}
            	mysqli_close($conn);
-	   		header("location: index.php");		
+	   		//header("location: index.php");		
 		}
 	}	
 	
 	require_once('../inc/header.inc.php'); 
 ?>
 	<!--Form for user to sign up-->
-	<div class="content">
+	<div class="content text-white">
 		<div class="container text-white mt-5">
 			<div class="row">
 				<div class="col-12">
