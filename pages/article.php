@@ -1,6 +1,7 @@
 <?php require_once('../inc/header.inc.php'); ?>
-
+	
 	<div class="content">
+		<article>
 			<div class="container-fluid mt-3">
 				<h1 class="text-white intro">Article Title</h1>
 				<hr>
@@ -15,7 +16,7 @@
 						<br>
 						<p>
 						<figure>
-							<img src="../img/insert.png" alt="for loop flow" class="mb-5 ml-2">
+							<img src="./img/insert.png" alt="for loop flow" class="mb-5 ml-2">
 							<figcaption>Example figure caption</figcaption>
 						</figure>
 						Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
@@ -37,7 +38,7 @@
 						<br>
 						<p>
 						<figure>
-							<img src="../img/forLoop3.png" alt="for loop flow" class="mb-5 ml-2">
+							<img src="./img/forLoop3.png" alt="for loop flow" class="mb-5 ml-2">
 							<figcaption>Example visual for a FOR LOOP</figcaption>
 						</figure>
 						An example of a subtopic would be the FOR LOOP topic. Another subtopic would be the DO WHILE LOOP 
@@ -45,15 +46,16 @@
 						</p>
 						<p>Here is example code:</p>
 						<div class="row">
-							<div class="col-9 Code_Ex">
-							<pre><span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code style="color:magenta">#include &lt;iostream&gt;</code></span>
-									<span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code style="color:magenta">#include &lt;string&gt;</code></span>
-									<span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code></code></span>
-									<span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code style="color:green"><span style="color:cyan">int</span> main()</code></span>
-									<span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code style="color:green">{</code></span>
-									<span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code style="color:green"><span style="color:cyan">    int</span> x = <span style="color:magenta">100</span>;</code></span>
-									<span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code style="color:green">    <span style="color:red">return</span> <span style="color:magenta">0</span>;</code></span>
-									<span class="Table_Row"><span class="Line_Num" style="color:gray"></span><code style="color:green">}</code></span></pre>
+							<div class="col-6 Code_Ex ml-1 mb-1">
+								<!-- Empty span is where the line number is displayed - check CSS file -->
+								<pre><span></span><code class="magenta">#include &lt;iostream&gt;</code></pre>
+								<pre><span></span><code class="magenta">#include &lt;string&gt;</code></pre>
+								<pre><span></span><code></code></pre>
+								<pre><span></span><code class="green"><span class="cyan">int</span> main()</code></pre>
+								<pre><span></span><code class="green">{</code></span></pre>
+								<pre><span></span><code class="green"><span class="cyan">    int</span> x = <span class="magenta">100</span>;</code></pre>
+								<pre><span></span><code class="green"><span class="red">    return</span><span class="magenta"> 0</span>;</code></pre>
+								<pre><span></span><code class="green">}</code></span></pre>
 							</div>
 						</div>
 					</div>
@@ -188,6 +190,7 @@
 					</div>
 				</div>
 			</div>
+		</article>
 	</div>
 
 <?php require_once('../inc/footer.inc.php'); ?>
