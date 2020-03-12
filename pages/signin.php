@@ -26,11 +26,11 @@
 	ini_set('display_errors',1);
 	ini_set('error_log', 'sign_error'); */
 	
-	require_once("dbconnect.php");
 	/* session_start(); - This is now invoked in header.inc.php */
 	
 	function displayFormErrors()
 	{
+		require_once("dbconnect.php");
 		if(isset($_POST['create'])) {
 			$_email = $_POST['_email'];
 			$_username = $_POST['_username'];
