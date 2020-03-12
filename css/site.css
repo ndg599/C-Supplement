@@ -40,7 +40,7 @@ footer {
 {
 	/* Display red banner saying to increase browser width */
 	.banner-sm {
-		margin-top: 56px;
+		margin-top: 56px !important;
 		background-color: red;
 		font-size: 28px; 
 		color: white;
