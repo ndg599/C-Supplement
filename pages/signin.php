@@ -100,10 +100,10 @@
 	require_once('../inc/header.inc.php'); 
 ?>
 	<!--Form for user to sign up-->
-	<div class="content text-white">
+	<div class="content">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
+				<div class="col-12 errorBox">
 					<?php displayFormErrors(); ?>
 				</div>
 			</div>

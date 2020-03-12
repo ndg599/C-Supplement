@@ -210,7 +210,7 @@ figcaption {
 .Code_Ex {
 	counter-reset: counter;
 	font-size: 20px;
-	background-color: #000;"
+	background-color: #000;
 }
 
 pre {
@@ -319,4 +319,10 @@ code {
 .mono, .code{
 	font-family:  'courier new', monospace;
 	color: #26ed07;
+}
+
+/* Below is for signin.php */
+.errorBox {
+	border: 2px solid white;
+	background-color: rgba(255,255,255,0.7);
 }
