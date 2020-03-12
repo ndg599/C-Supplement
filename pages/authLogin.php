@@ -24,7 +24,7 @@ function authLogin($Username, $Password)
 		$query = "SELECT Username FROM Login WHERE Username=\"" .
 		$Username . "\" && Password=\"" . $Password . "\"";
 		$result = mysqli_query($conn, $query);
-		#echo $query . "<br>";
+		// echo $query . "<br>";
 
 		if (mysqli_num_rows($result) == 1) {
 			return 1; // Match

@@ -16,7 +16,7 @@
 	<?php
 	include 'authLogin.php';
 
-	if (isset($_POST["username"])) {
+	if (isset($_POST["username"]) && isset($_POST["password"])) {
 		$attempt = authLogin($_POST["username"], $_POST["password"]);
 		switch ($attempt) {
 		case -1: 
@@ -38,7 +38,7 @@
 	<form action="login.php" method="post">
 		<label for="username">Username</label><br>
 		<input type="text" name="username"
-		// Keep username if just bad password 
+		<!-- Keep username if just bad password -->
 		<?php if ($attempt == 0) echo "value=\"" . $_POST["username"] . "\""; ?> required><br>
 		<label for="password">Password</label><br>
 		<input type="password" name="password" required><br>

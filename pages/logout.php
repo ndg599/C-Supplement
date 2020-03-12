@@ -15,7 +15,7 @@
 <body>
 	<?php
 	session_start();
-	if ($_SESSION["loggedin"]) {
+	if (isset($_SESSION["loggedin"])) {
 		echo "Logging out...<br>";
 		session_destroy();
 		header("Location: https://www.kentcpp.com");
