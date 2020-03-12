@@ -49,7 +49,7 @@
 				$resultarr[]=$row;
 			}
 			$bool=0;
-			echo $_randomID;
+			/* Why echo? - echo $_randomID; */
 			while($bool==0){
 				$bool=1;
 				foreach($resultarr as $row){
@@ -64,11 +64,11 @@
 			$_type="student";
 			$error="";
 			if(validateEmail($_email)===false){
-				$error='<br><p>Your email is invalid. Please try again.</p>';
+				$error='<br><p class="red">Your email is invalid. Please try again.</p>';
 			}
 
 			if(validatePassW($_password)===false){
-				$error= $error . '<br><p>Your Password is invalid. Must be 8 characters or more.</p>'; 
+				$error= $error . '<br><p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
 			}
 
 			if($error!=""){
