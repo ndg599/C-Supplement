@@ -16,7 +16,7 @@
 						<br>
 						<p>
 						<figure>
-							<img src="./img/insert.png" alt="for loop flow" class="mb-5 ml-2">
+							<img src="../img/insert.png" alt="for loop flow" class="mb-5 ml-2">
 							<figcaption>Example figure caption</figcaption>
 						</figure>
 						Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
@@ -38,7 +38,7 @@
 						<br>
 						<p>
 						<figure>
-							<img src="./img/forLoop3.png" alt="for loop flow" class="mb-5 ml-2">
+							<img src="../img/forLoop3.png" alt="for loop flow" class="mb-5 ml-2">
 							<figcaption>Example visual for a FOR LOOP</figcaption>
 						</figure>
 						An example of a subtopic would be the FOR LOOP topic. Another subtopic would be the DO WHILE LOOP 
