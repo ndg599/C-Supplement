@@ -1,6 +1,6 @@
 <?php require_once('./inc/header.inc.php'); ?>
 
-	<div class="content">
+	<div class="content red">
 		<!-- banner is a custom class in index_CSS -->
 		<div class="container-fluid rounded-0 banner">
 			<span>Kent State's C++ Code Course</span>
