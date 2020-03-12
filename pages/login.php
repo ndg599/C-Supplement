@@ -37,8 +37,8 @@
 	?>
 	<form action="login.php" method="post">
 		<label for="username">Username</label><br>
-		<input type="text" name="username"
 		<!-- Keep username if just bad password -->
+		<input type="text" name="username" 
 		<?php if ($attempt == 0) echo "value=\"" . $_POST["username"] . "\""; ?> required><br>
 		<label for="password">Password</label><br>
 		<input type="password" name="password" required><br>

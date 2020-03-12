@@ -27,7 +27,7 @@
 	ini_set('error_log', 'sign_error'); */
 	
 	require_once("dbconnect.php");
-	session_start();
+	/* session_start(); - This is now invoked in header.inc.php */
 
 	if(isset($_POST['create'])) {
 		$_email = $_POST['_email'];
