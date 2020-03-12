@@ -28,77 +28,87 @@
 	
 	require_once("dbconnect.php");
 	/* session_start(); - This is now invoked in header.inc.php */
-
-	if(isset($_POST['create'])) {
-		$_email = $_POST['_email'];
-        $_username = $_POST['_username'];
-        $_password = $_POST['_password'];
-		$_type="Student";
-		
-		$_randomID=mt_rand();
-		$sql1="select ID from Login";
-		$results= mysqli_query($conn,$sql1);
-		if (!$results) {
-    			printf("Error: %s\n", mysqli_error($conn));
-   			 exit();
-		}
-		$resultarr=array();
-		while($row=mysqli_fetch_array($results)){
-			$resultarr[]=$row;
-		}
-		$bool=0;
-		echo $_randomID;
-		while($bool==0){
-			$bool=1;
-			foreach($resultarr as $row){
-				if($_randomID==$row){
-					
-					$_randomID=mt_rand();
-					$bool=0;
+	
+	function displayFormErrors()
+	{
+		if(isset($_POST['create'])) {
+			$_email = $_POST['_email'];
+			$_username = $_POST['_username'];
+			$_password = $_POST['_password'];
+			$_type="Student";
+			
+			$_randomID=mt_rand();
+			$sql1="select ID from Login";
+			$results= mysqli_query($conn,$sql1);
+			if (!$results) {
+					printf("Error: %s\n", mysqli_error($conn));
+				 exit();
+			}
+			$resultarr=array();
+			while($row=mysqli_fetch_array($results)){
+				$resultarr[]=$row;
+			}
+			$bool=0;
+			echo $_randomID;
+			while($bool==0){
+				$bool=1;
+				foreach($resultarr as $row){
+					if($_randomID==$row){
+						
+						$_randomID=mt_rand();
+						$bool=0;
+					}
 				}
 			}
-		}
-	 	
-		$_type="student";
-		$error="";
-		if(validateEmail($_email)===false){
-			$error='<br><p>Your email is invalid. Please try again.</p>';
-		}
-
-		if(validatePassW($_password)===false){
-			$error= $error . '<br><p>Your Password is invalid. Must be 8 characters or more.</p>'; 
-		}
-
-		if($error!=""){
-			echo '<p>'.$error.'</p>';
-		}else{
-
-	    	$_hash=password_hash($_password,PASSWORD_BCRYPT);
-   
-           	$sql =$conn->prepare("INSERT INTO Login ".
-            "(Username, Password,ID,Email, Type ) "."VALUES ".
-            "(?,?,?,?,?)");
-	
-			$sql->bind_param("ssiss",$_username,$_hash,$_randomID,$_email,$_type);
-			$retval=$sql->execute();
- 
-	    	if(false===$retval){
-				printf("error:%s\n", mysqli_error($conn));
+			
+			$_type="student";
+			$error="";
+			if(validateEmail($_email)===false){
+				$error='<br><p>Your email is invalid. Please try again.</p>';
 			}
 
-          	if(! $retval ) {
-               	die('This account cannot be created. Please try again later.');
-           	}
-           	mysqli_close($conn);
-	   		//header("location: index.php");		
+			if(validatePassW($_password)===false){
+				$error= $error . '<br><p>Your Password is invalid. Must be 8 characters or more.</p>'; 
+			}
+
+			if($error!=""){
+				echo '<p>'.$error.'</p>';
+			}else{
+
+				$_hash=password_hash($_password,PASSWORD_BCRYPT);
+	   
+				$sql =$conn->prepare("INSERT INTO Login ".
+				"(Username, Password,ID,Email, Type ) "."VALUES ".
+				"(?,?,?,?,?)");
+		
+				$sql->bind_param("ssiss",$_username,$_hash,$_randomID,$_email,$_type);
+				$retval=$sql->execute();
+	 
+				if(false===$retval){
+					printf("error:%s\n", mysqli_error($conn));
+				}
+
+				if(! $retval ) {
+					die('This account cannot be created. Please try again later.');
+				}
+				mysqli_close($conn);
+				//header("location: index.php");		
+			}
 		}
-	}	
+	}
 	
 	require_once('../inc/header.inc.php'); 
 ?>
 	<!--Form for user to sign up-->
 	<div class="content text-white">
-		<div class="container text-white mt-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<?php displayFormErrors(); ?>
+				</div>
+			</div>
+		</div>
+		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<p> Sign Up</p>
