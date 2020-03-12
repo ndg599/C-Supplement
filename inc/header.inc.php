@@ -1,9 +1,8 @@
-<? 
-	if(isset($_SERVER['HTTP_HOST']))
-		$page = $_SERVER['HTTP_HOST'];
+<?php
+	if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === "www.kentcpp.com")
+		$dir = "./";
 	else
-		$page = "";
-	echo "<p>".$page."</p>";
+		$dir = "../";
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +18,14 @@
 
 	<!-- Bootstrap css file / Our custom css file (index_CSS) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="./css/reset.css">
-	<link rel="stylesheet" href="./css/index_CSS.css">
+	<link rel="stylesheet" href="<?php echo $dir; ?>css/site.css">
 	<!-- Fontawesome css file (for 'emoticons' like the search magnifying glass) / Google custom fonts -->
 	<link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet"/> 
 	<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> <!-- VT323 (experimental font) -->
 	<link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet"> <!-- Courier Prime (monospace) IN USE -->
 
 </head>
+
 <body>
 	<!-- Each section should be wrapped in a class called container or container-fluid. The container class has a bit of margin between itself
 	     and the sizes of the webpage. The container-fluid class runs from end to end which is what I want for the navbar and header/footer.
@@ -92,93 +91,11 @@
 			<!-- btn-outline-primary is a color scheme that only has the outline of the element colored and the inside transparent 
 			     (primary is blue for Bootstrap 4.X). btn_mgn is a custom class in index_CSS -->
 			<!-- check if user is logged in with php session to set button to account/login accordingly -->
-			<form action="<?php if ($_SESSION["loggedin"]) { echo "https://www.kentcpp.com/pages/account.php"; }
+			<form action="<?php if (isset($_SESSION["loggedin"])) { echo "https://www.kentcpp.com/pages/account.php"; }
 			else { echo "https://www.kentcpp.com/pages/login.php"; } ?>">
 				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">
-				<?php if ($_SESSION["loggedin"]) echo "Account"; else echo "Login"; ?>
+				<?php if (isset($_SESSION["loggedin"])) echo "Account"; else echo "Login"; ?>
 				</button>
 			</form>
 		</div>  
 	</nav>
-
-	<!-- banner is a custom class in index_CSS -->
-	<div class="container-fluid rounded-0 banner">
-		<span>Kent State's C++ Code Course</span>
-	</div>
-	
-	<div class="content">
-		<!-- pad_mar is a custom class in index_CSS -->
-		<div class="container-fluid pad_mar">
-			<!-- row class must be put before you start denoting column sizes, in other words you are section off a row of your webpage to 
-				 section off in up to 12 parts. -->
-			<div class="row">
-				<!-- col-6 means to create a column of size 6 (or half of the available space). You can also put column sizes based upon the
-					 size of the browser. You can have col-md-4, which means create a column of size 4 when the browser is >= medium width, but 
-					 also have col-sm-6 in the same section to have the same section take up more space when the screen in smaller. It may make
-					 more sence playing around with it if this isn't clear -->
-				<div class="col-6"> 
-					<!-- card is the Bootstrap class for each CS image, description, and button (as well as the chat one). h-100 means to have
-						 the height of each card to be 100% of the row height. Sometimes one card may have more text than the adjacent making
-						 one longer than the other looking weird -->
-					<div class="card h-100">
-						<!-- card-img-top is a custom class for the image on the top of the card to resize as the browser resizes. Any class 
-							 beginning with card- is from Bootstrap. card-body is where the description and link button goes. card-title styles 
-							 the title and card-text styles the text of the card. This repeats 4 times. -->
-						<img src="./img/CSI.png" class="card-img-top" alt="CS_I Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Computer Science I</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">CS I Index</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-6"> 
-					<div class="card h-100">
-						<img src="./img/CSII.png" class="card-img-top" alt="CS_II Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Computer Science II</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">CS II Index</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container-fluid pad_mar">
-			<div class="row justify-content-center">
-				<div class="col-6"> 
-					<div class="card h-100">
-						<img src="./img/CSIII.png" class="card-img-top" alt="CS_III Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Computer Science III</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">CS III Index</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-6"> 
-					<div class="card h-100">
-						<img src="./img/IM.png" class="card-img-top" alt="Chat Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Instant Message</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">Instant Messaging Client</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container-fluid rounded-0 footer">
-		<p>Footer Placeholder</p>
-	</div>
-	
-	<!-- Bootstrap documentation jquery and javascript scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
-</html>
