@@ -34,7 +34,7 @@
 		 Border class denotes a border, rounded-0 means don't round the corners of the container, banner-sm is custom and is defined in index_CSS.
 
 		 This pops up when the browser width is <= 575px 																							-->
-	<div class="container-fluid border rounded-0 banner-sm">
+	<div class="container-fluid border rounded-0 banner-sm" style="margin-top: 61px;">
 		<span>Please keep browser &gt; 575px</span>
 	</div>
 	
@@ -43,7 +43,7 @@
 		 documentation. Any class that begins with nav- or navbar- is a Bootstrap class and included in the documentation template.                 -->
 	<nav class="navbar navbar-dark navbar-expand-834">
 		<!-- navbar-brand is where your logo goes -->
-		<a class='navbar-brand" href="#"><img src="<?php echo $dir; ?>img/K++_2.png' alt="Kent C++ Logo"></a>
+		<a class="navbar-brand" href="#"><img src="<?php echo $dir; ?>img/K++_2.png" alt="Kent C++ Logo"></a>
 		<!-- navbar-toggler allows for the navbar collapsing (when you shrink the browswer and the navbar "disappears" and turns into the 
 		     hamburger button. This whole button is from Bootstrap documentation -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
