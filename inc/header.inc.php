@@ -64,7 +64,7 @@
 				<li class="nav-item">
 					<!-- csI, csII, csIII are the Kent colors shown in index_CSS. sr-only means to display that section to screen readers, and
 					     will not be seen on the website itself -->
-					<a class="nav-link mr-2 csI" href="#">CS I<span class="sr-only">(current)</span></a>
+					<a class="nav-link mr-2 csI" href="#">CS I</span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link mr-2 csII" href="#">CS II</a>
