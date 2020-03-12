@@ -22,6 +22,7 @@ footer {
 }
 
 .content {
+	margin-top: 61px;
 	flex: 1 0 auto;
 }
 
@@ -66,7 +67,6 @@ i {
 }
 
 .banner {
-	margin-top: 61px;
 	border-top: solid 3px #EFAB00 !important;
 	border-bottom: solid 3px #EFAB00 !important;
 	background-color:  #002664;

@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body class="text-white">
 	<!-- Each section should be wrapped in a class called container or container-fluid. The container class has a bit of margin between itself
 	     and the sizes of the webpage. The container-fluid class runs from end to end which is what I want for the navbar and header/footer.
 		 Each container has 12 columns. This can be nested, so a container within a container has its own 12 columns to use. For example, if you 
