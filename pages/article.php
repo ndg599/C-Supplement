@@ -1,5 +1,32 @@
 <?php require_once('../inc/header.inc.php'); ?>
-	
+
+<script>
+/* Source - https://techoverflow.net/2018/03/30/copying-strings-to-the-clipboard-using-pure-javascript/ */
+    function copyStringToClipboard() {
+       // Create new element
+       var code = document.createElement('textarea');
+       // Set value (string to be copied)
+       var str = "#include <iostream>\n" + 
+                 "#include <string>\n\n" +
+                 "int main()\n" +
+                 "{\n" +
+                 "\tint x = 100;\n" +
+                 "\treturn 0;\n" +
+                 "}\n";
+       code.value = str;
+       // Set non-editable to avoid focus and move outside of view
+       code.setAttribute('readonly', '');
+       code.style = {position: 'absolute', left: '-9999px'};
+       document.body.appendChild(code);
+       // Select text inside element
+       code.select();
+       // Copy text to clipboard
+       document.execCommand('copy');
+       // Remove temporary element
+       document.body.removeChild(code);
+    }
+</script>
+
 	<div class="content">
 		<article>
 			<div class="container-fluid mt-3">
@@ -46,16 +73,19 @@
 						</p>
 						<p>Here is example code:</p>
 						<div class="row">
-							<div class="col-6 Code_Ex ml-1 mb-1">
+							<div class="col-11 Code_Ex ml-1 mb-1">
 								<!-- Empty span is where the line number is displayed - check CSS file -->
-								<pre><span></span><code class="magenta">#include &lt;iostream&gt;</code></pre>
-								<pre><span></span><code class="magenta">#include &lt;string&gt;</code></pre>
-								<pre><span></span><code></code></pre>
-								<pre><span></span><code class="green"><span class="cyan">int</span> main()</code></pre>
-								<pre><span></span><code class="green">{</code></span></pre>
-								<pre><span></span><code class="green"><span class="cyan">    int</span> x = <span class="magenta">100</span>;</code></pre>
-								<pre><span></span><code class="green"><span class="red">    return</span><span class="magenta"> 0</span>;</code></pre>
-								<pre><span></span><code class="green">}</code></span></pre>
+								<div><pre><span></span><code class="magenta">#include &lt;iostream&gt;</code></pre></div>
+								<div><pre><span></span><code class="magenta">#include &lt;string&gt;</code></pre></div>
+								<div><pre><span></span><code> </code></pre></div>
+								<div><pre><span></span><code class="green"><span class="cyan">int</span> main()</code></pre></div>
+								<div><pre><span></span><code class="green">{</code></span></pre></div>
+								<div><pre><span></span><code class="green"><span class="cyan">    int</span> x = <span class="magenta">100</span>;</code></pre></div>
+								<div><pre><span></span><code class="green"><span class="red">    return</span><span class="magenta"> 0</span>;</code></pre></div>
+								<div><pre><span></span><code class="green">}</code></span></pre></div>
+							</div>
+							<div class="col-3 mt-1 mb-2">
+                                <button class="btn btn-success btn-block" onclick="copyStringToClipboard()" type="button">Copy Code</button>
 							</div>
 						</div>
 					</div>
