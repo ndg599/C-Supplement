@@ -21,11 +21,14 @@ footer {
 	background-color:  #002664; 
 }
 
+/* Must wrap web page's content within <div class="content"> ... </div> to make footer stay on bottom */
 .content {
 	margin-top: 61px;
 	flex: 1 0 auto;
 }
 
+/* ------------------------------------------------------------------------- */
+/* Below is for header / navigation bar */
 .navbar {
 	overflow: hidden; /* If any content goes beyond the navbar's box, don't show it */
 	background-color: #333;
@@ -33,6 +36,15 @@ footer {
 	top: 0; /* Put on extreme top of screen */
 	width: 100%; /* Span the entire width of the browser */
 	z-index: 1; /* Show on top of everything it scrolls over */
+}
+
+/* Colors for Kent */
+.kentYellow {
+	color: #F8EB61 !important;
+}
+
+.kentBlue {
+	color: #4994CB !important;
 }
 
 /* This section only happens if browser width is <= 575.98 pixels */
@@ -125,11 +137,6 @@ i {
 	}
 }
 
-/* vw means view width, and the image size will change as the browser width changes */
-.card-img-top {
-	height: 22vw;
-}
-
 nav img {
 	width: 70px; 
 	height: 30px;
@@ -139,16 +146,11 @@ nav .nav-link {
 	font-size: 1.2rem;
 }
 
-.csI {
-	color: #F8EB61 !important;
-}
-
-.csII {
-	color: #4994CB !important;
-}
-
-.csIII {
-	color: #fff !important;
+/* ------------------------------------------------------------------------- */
+/* Below is for index.php */
+/* vw means view width, and the image size will change as the browser width changes */
+.card-img-top {
+	height: 22vw;
 }
 
 .pad_mar {
@@ -156,6 +158,7 @@ nav .nav-link {
 	padding: 0 40px;
 }
 
+/* ------------------------------------------------------------------------- */
 /* Below is for article.php */
 hr {
 	border: 1px solid white;
@@ -322,8 +325,16 @@ code {
 	color: #26ed07;
 }
 
+/* ------------------------------------------------------------------------- */
 /* Below is for signup.php */
 .errorBox {
 	border: 2px solid white;
 	background-color: rgba(255,255,255,0.7);
+}
+
+/* ------------------------------------------------------------------------- */
+/* Below is for topics.php */
+.links a {
+	color: #4994CB;
+	font-size: 1.5rem;
 }
