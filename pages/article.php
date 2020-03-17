@@ -24,6 +24,12 @@
        document.execCommand('copy');
        // Remove temporary element
        document.body.removeChild(code);
+	   document.getElementsByClassName("btn-success")[0].textContent="Code Copied!";
+       var inst = setInterval(changeBtnTxt, 3000);
+       function changeBtnTxt() {
+        document.getElementsByClassName("btn-success")[0].textContent="Copy Code";
+        clearInterval(inst);
+       }
     }
 </script>
 
@@ -84,8 +90,9 @@
 								<div><pre><span></span><code class="green"><span class="red">    return</span><span class="magenta"> 0</span>;</code></pre></div>
 								<div><pre><span></span><code class="green">}</code></span></pre></div>
 							</div>
-							<div class="col-3 mt-1 mb-2">
-                                <button class="btn btn-success btn-block" onclick="copyStringToClipboard()" type="button">Copy Code</button>
+							<div class="col-11 mt-1 mb-2">
+                                <button class="btn btn-success" onclick="copyStringToClipboard()" type="button">Copy Code</button>
+								<span>*iOS users, manually copy</span>
 							</div>
 						</div>
 					</div>
