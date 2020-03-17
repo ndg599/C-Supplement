@@ -3,6 +3,7 @@
 
 	if (isset($_POST["username"]) && isset($_POST["password"])) {
 		$attempt = authLogin($_POST["username"], $_POST["password"]);
+
 		switch ($attempt) {
 		case -1: 
 			$errorMsg = "<br>Invalid username. Try again.<br>";
