@@ -9,30 +9,34 @@ function authLogin($Username, $Password)
 
 	// Setup link to database
 	$conn = mysqli_connect($servername, $username, $password, $database);
-
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
 	// Query username
-	$query = "SELECT Username FROM Login WHERE Username=\"" . $Username . "\"";
+	$query = "SELECT Password FROM Login WHERE Username=\"" . $Username . "\"";
 	$result = mysqli_query($conn, $query);
 
 	// Should only have one match for unique username
 	if (mysqli_num_rows($result) == 1) {
+		$obj = mysqli_fetch_object($result);
+		$hash = $obj->Password;
+		return (int)password_verify($Password, $hash);
+/*
 		// Query username + password
 		$query = "SELECT Username FROM Login WHERE Username=\"" .
 		$Username . "\" && Password=\"" . $Password . "\"";
 		$result = mysqli_query($conn, $query);
-		// echo $query . "<br>";
+		//echo $query . "<br>";
 
 		if (mysqli_num_rows($result) == 1) {
 			return 1; // Match
 		}
-
+		
 		return 0; // Bad password
+ */
 	}
-
+	
 	return -1; // Bad username
 }
 ?>
