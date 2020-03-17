@@ -91,7 +91,7 @@
 								<div><pre><span></span><code class="green">}</code></span></pre></div>
 							</div>
 							<div class="col-11 mt-1 mb-2">
-                                <button class="btn btn-success btn-block" onclick="copyStringToClipboard()" type="button">Copy Code</button>
+                                <button class="btn btn-success" onclick="copyStringToClipboard()" type="button">Copy Code</button>
 								<span>*iOS users, manually copy</span>
 							</div>
 						</div>
