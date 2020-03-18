@@ -123,6 +123,11 @@ i {
 	.navbar-expand-834 .navbar-toggler {
 		display: none;
 	}
+
+	.dropdownPos {
+		right: 0;
+		left: auto;
+	}
 }
 
 @media only screen and (max-width: 834px) 
@@ -134,6 +139,11 @@ i {
 	
 	.banner {
 		margin-top: -5px;
+	}
+
+	.dropdownPos {
+		left: 0;
+		right: auto;
 	}
 }
 
