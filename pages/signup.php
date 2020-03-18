@@ -93,14 +93,13 @@
 				}
 				mysqli_close($conn);
 				
-				echo "<script> window.location.replace("www.kentcpp.com"); </script>";		
+				header("Location: https://www.kentcpp.com");		
 			}
 		}
 	}
 	
 	require_once('../inc/header.inc.php'); 
-?>
-<!--Form for user to sign up-->
+?><!--Form for user to sign up-->
 	<div class="content">
 		<div class="container">
 			<div class="row <?php if (isset($_POST['create'])) echo "errorBox mb-3" ?> mt-5">
@@ -146,5 +145,4 @@
 				</div>
 			</div>
 		</div>
-	</div>
-<?php require_once('../inc/footer.inc.php'); ?>
+	</div><?php require_once('../inc/footer.inc.php'); ?>
