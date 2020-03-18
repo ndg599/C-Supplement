@@ -51,24 +51,20 @@
 				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-primary my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 			</form>
-	
-	<!-- Link Dropdown -->
+	<?php if (isset($_SESSION["loggedin"])) echo "<!--"; // Probably a better way to do this, like including, but it works for now ?>
+			<form action="http://localhost/pages/login.php">
+				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">Login</button>
+			</form>
+	<?php if (isset($_SESSION["loggedin"])) echo "-->"; else echo "<!--"; ?>
 			<div class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle nav-item text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+				<a class="nav-link dropdown-toggle nav-item text-white" href="#"
+				id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
 				<div class="dropdown-menu dropdownPos" aria-labelledby="navbarDropdownMenuLink">
 					<a class="dropdown-item" href="#">Edit</a>
 					<a class="dropdown-item" href="#">This</a>
 					<a class="dropdown-item" href="#">...</a> 						
 				</div>
-			</div>  
-
-	<!-- Old Accont Button   
-			<form action="<?php if (isset($_SESSION["loggedin"])) { echo "https://www.kentcpp.com/pages/account.php"; }
-			else { echo "https://www.kentcpp.com/pages/login.php"; } ?>">
-				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">
-				<?php if (isset($_SESSION["loggedin"])) echo "Account"; else echo "Login"; ?>
-				</button>
-			</form> 
-	-->
+			</div>
+	<?php if (!isset($_SESSION["loggedin"])) echo "-->"; ?>
 		</div>  
 	</nav>
