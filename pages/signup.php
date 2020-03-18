@@ -99,7 +99,7 @@
 	
 	require_once('../inc/header.inc.php'); 
 ?>
-	<!--Form for user to sign up-->
+<!--Form for user to sign up-->
 	<div class="content">
 		<div class="container">
 			<div class="row <?php if (isset($_POST['create'])) echo "errorBox mb-3" ?> mt-5">
