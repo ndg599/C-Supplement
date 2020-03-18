@@ -92,7 +92,8 @@
 					die('This account cannot be created. Please try again later.');
 				}
 				mysqli_close($conn);
-				header("Location: https://www.kentcpp.com");		
+				
+				<script> location.replace("www.kentcpp.com"); </script>		
 			}
 		}
 	}
@@ -146,5 +147,4 @@
 			</div>
 		</div>
 	</div>
-	
 <?php require_once('../inc/footer.inc.php'); ?>
