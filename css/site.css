@@ -156,6 +156,10 @@ nav .nav-link {
 	font-size: 1.2rem;
 }
 
+.dropdown-menu a:hover {
+    background-color: #C1C1C1 !important;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Below is for index.php */
 /* vw means view width, and the image size will change as the browser width changes */

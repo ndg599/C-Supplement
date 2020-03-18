@@ -54,7 +54,7 @@
 	
 	<!-- Link Dropdown -->
 			<div class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle nav-item" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+				<a class="nav-link dropdown-toggle nav-item text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
 				<div class="dropdown-menu dropdownPos" aria-labelledby="navbarDropdownMenuLink">
 					<a class="dropdown-item" href="#">Edit</a>
 					<a class="dropdown-item" href="#">This</a>
