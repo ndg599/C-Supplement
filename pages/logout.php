@@ -4,16 +4,15 @@
 		<div class="container">
 			<div class="row">
 				<?php
-					if (isset($_SESSION["loggedin"])) {
-						echo "Logging out...<br>";
-						session_destroy();
-						//header("Location: https://www.kentcpp.com");
-					}
-					else {
-						echo "User is already logged out.<br>";
-						//header("Location: https://www.kentcpp.com");
-					}
+				if (isset($_SESSION["loggedin"])) {
+					echo "<br>Logging out...<br>";
+					session_destroy();
+				}
+				else {
+					echo "<br>User is already logged out.<br>";
+				}
 				?>
+				<!-- Redirect to homepage -->
 				<meta http-equiv="Refresh" content="0; url=https://www.kentcpp.com" />
 			</div>
 		</div>

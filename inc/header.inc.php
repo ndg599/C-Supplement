@@ -27,7 +27,7 @@
 	</div>
 	
 	<nav class="navbar navbar-dark navbar-expand-834">
-		<a class="navbar-brand" href="#"><img src="<?php echo $dir; ?>img/K++_2.png" alt="Kent C++ Logo"></a>
+		<a class="navbar-brand" href="https://www.kentcpp.com"><img src="<?php echo $dir; ?>img/K++_2.png" alt="Kent C++ Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
 		        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle naviation"       >
 			<span class="navbar-toggler-icon"></span>
@@ -44,27 +44,26 @@
 					<a class="nav-link csIII mr-2" href="#">CS III</a>
 				</li> 
 				<li class="nav-item">
-					<a class="nav-link csI" href="#">Chat</a>
+					<a class="nav-link csI" href="https://www.kentcpp.com/pages/chatConnect.php">Chat</a>
 				</li>  	  
 			</ul>
 			<form class="form-inline  ml-auto mr-2">
 				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-primary my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 			</form>
-	<?php if (isset($_SESSION["loggedin"])) echo "<!--"; // Probably a better way to do this, like including, but it works for now ?>
-			<form action="http://localhost/pages/login.php">
-				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">Login</button>
-			</form>
-	<?php if (isset($_SESSION["loggedin"])) echo "-->"; else echo "<!--"; ?>
+	<?php if (isset($_SESSION["loggedin"])): ?>
 			<div class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle nav-item text-white" href="#"
 				id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
 				<div class="dropdown-menu dropdownPos" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="#">Edit</a>
-					<a class="dropdown-item" href="#">This</a>
-					<a class="dropdown-item" href="#">...</a> 						
+					<a class="dropdown-item" href="https://www.kentcpp.com/pages/settings.php">Settings</a>
+					<a class="dropdown-item" href="https://www.kentcpp.com/pages/logout.php">Logout</a> 						
 				</div>
 			</div>
-	<?php if (!isset($_SESSION["loggedin"])) echo "-->"; ?>
+	<?php else: ?>
+			<form action="https://www.kentcpp.com/pages/login.php">
+				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">Login</button>
+			</form>
+	<?php endif; ?>
 		</div>  
 	</nav>
