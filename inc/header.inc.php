@@ -53,14 +53,15 @@
 			</form>
 	
 	<!-- Link Dropdown -->
-			<div class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle nav-item text-white" href="#" id="navbarDropdownMenuLink" 
-				   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-				<div class="dropdown-menu dropdownPos" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="#">Login</a>
-					<a class="dropdown-item" href="#">Edit all this text</a>
-				</div>
-			</div>
+				<div class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+					<div class="dropdown-menu try" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Post List (Part 1)</a>
+						<a class="dropdown-item" href="#">Single Post (Part 2)</a>
+						<a class="dropdown-item" href="#">Single Work (Part 3)</a> 
+						<a class="dropdown-item" href="#">Search (Part 4)</a> 						
+					</div>
+				</div>  
 
 
 
