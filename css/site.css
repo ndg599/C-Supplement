@@ -30,7 +30,6 @@ footer {
 /* ------------------------------------------------------------------------- */
 /* Below is for header / navigation bar */
 .navbar {
-	overflow: hidden; /* If any content goes beyond the navbar's box, don't show it */
 	background-color: #333;
 	position: fixed; /* Keep the navbar on screen on the top even after scrolling */
 	top: 0; /* Put on extreme top of screen */
@@ -144,6 +143,7 @@ i {
 	.dropdownPos {
 		left: 0;
 		right: auto;
+		margin-top: -189px;
 	}
 }
 

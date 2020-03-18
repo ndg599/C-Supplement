@@ -53,20 +53,17 @@
 			</form>
 	
 	<!-- Link Dropdown -->
-				<div class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-					<div class="dropdown-menu try" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Post List (Part 1)</a>
-						<a class="dropdown-item" href="#">Single Post (Part 2)</a>
-						<a class="dropdown-item" href="#">Single Work (Part 3)</a> 
-						<a class="dropdown-item" href="#">Search (Part 4)</a> 						
-					</div>
-				</div>  
+			<div class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle nav-item" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+				<div class="dropdown-menu dropdownPos" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="#">Edit</a>
+					<a class="dropdown-item" href="#">This</a>
+					<a class="dropdown-item" href="#">...</a> 						
+				</div>
+			</div>  
 
-
-
-
-	<!--    <form action="<?php if (isset($_SESSION["loggedin"])) { echo "https://www.kentcpp.com/pages/account.php"; }
+	<!-- Old Accont Button   
+			<form action="<?php if (isset($_SESSION["loggedin"])) { echo "https://www.kentcpp.com/pages/account.php"; }
 			else { echo "https://www.kentcpp.com/pages/login.php"; } ?>">
 				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">
 				<?php if (isset($_SESSION["loggedin"])) echo "Account"; else echo "Login"; ?>
