@@ -93,7 +93,7 @@
 				}
 				mysqli_close($conn);
 				
-				echo "<script> location.replace("www.kentcpp.com"); </script>";		
+				echo "<script> window.location.replace("www.kentcpp.com"); </script>";		
 			}
 		}
 	}
