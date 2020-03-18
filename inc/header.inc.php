@@ -54,9 +54,9 @@
 	
 	<!-- Link Dropdown -->
 			<div class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle nav-item text-white" href="#" id="accountSignupLinks" 
+				<a class="nav-link dropdown-toggle nav-item text-white" href="#" id="navbarDropdownMenuLink" 
 				   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-				<div class="dropdown-menu dropdownPos" aria-labelledby="accountSignupLinks">
+				<div class="dropdown-menu dropdownPos" aria-labelledby="navbarDropdownMenuLink">
 					<a class="dropdown-item" href="#">Login</a>
 					<a class="dropdown-item" href="#">Edit all this text</a>
 				</div>
