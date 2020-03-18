@@ -16,7 +16,7 @@
 
 	<!-- Bootstrap css file / Our custom css file (index_CSS) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="<?php echo $dir; ?>css/site.css">
+	<link rel="stylesheet" href="<?php ob_start(); echo $dir; ?>css/site.css">
 	<!-- Fontawesome css file (for 'emoticons' like the search magnifying glass) / Google custom fonts -->
 	<link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet"/> 
 	<link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> <!-- VT323 (experimental font) -->
