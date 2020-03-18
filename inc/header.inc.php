@@ -3,9 +3,7 @@
 		$dir = "./";
 	else
 		$dir = "../";
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php session_start(); ?> <!-- Start php session so session variables are available -->
