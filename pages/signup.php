@@ -92,7 +92,7 @@
 					die('This account cannot be created. Please try again later.');
 				}
 				mysqli_close($conn);
-				//header("location: index.php");		
+				header("Location: https://www.kentcpp.com");		
 			}
 		}
 	}
