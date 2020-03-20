@@ -2,7 +2,7 @@
         <div class="content">
                 <div class="container">
                         <div class="row">
-				<h2><br>Under construction</h2>
+				<a href="http://localhost/pages/chat.php">Chat Test</a>
 			</div>
 		</div>
 	</div>
