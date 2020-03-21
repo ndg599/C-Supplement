@@ -6,20 +6,12 @@ function init()
 	sendButton.onclick = sendMsg;
 }
 
-function Msg(msg) {
-	var d = new Date();
-	this.date = d.toDateString();
-	this.time = d.toTimeString();
-	this.text = msg;
-}
-
 function sendMsg() {
-	var msgBox = document.getElementById("msgBox").value;
-	var msg = new Msg(msgBox);
-	var msgJSON = JSON.stringify(msg);
+	var msg = document.getElementById("msgBox").value;
+	//var msgJSON = JSON.stringify(msg);
 	var request = new XMLHttpRequest();
-	console.log(msgJSON);
-	var URL = "sendMsg.php?data=" + encodeURI(msgJSON);
+	//console.log(msgJSON);
+	var URL = "sendMsg.php?data=" + msg;//encodeURI(msgJSON);
 	request.open("GET", URL);
 	request.setRequestHeader("Content-Type", "text/plain;chatset=UTF-8");
 	request.send();

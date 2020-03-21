@@ -1,29 +1,16 @@
 <?php
-if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
-	function strip_slashes($input) {
-		if (!is_array($input)) {
-			return stripslashes($input);
-		}
-		else {
-			return array_map('strip_slashes', $input);
-		}
-	}
-	$_GET = strip_slashes($_GET);
-	$_POST = strip_slashes($_POST);
-	$_COOKIE = strip_slashes($_COOKIE);
-	$_REQUEST = strip_slashes($_REQUEST);
-}
+require_once('../../pdoconfig.php');
 
-function customError($errno, $errstr) {
-	echo "<b>Error:</b> [$errno] $errstr<br>";
-	echo "Ending Script";
-	die("Ending Script");
+// Setup link to database
+$conn = mysqli_connect($servername, $username, $password, $database);
+if (!$conn) {
+	die("Connection failed: " . mysqli_connect_error());
 }
-set_error_handler("customError");
-
-$fileHandle = fopen("SQLStmt.txt", "a");
-$msg = json_decode($_GET["data"], true);
-$query = "INSERT INTO IM VALUES (" . $msg["date"] . "," . $msg["time"] . "," . $msg["text"] . ")";
-fwrite($fileHandle, $query);
-fclose($fileHandle);
+// Insert message
+session_start();
+$stmt = mysqli_stmt_init($conn);
+$receiverid = 460048219; // Placeholder
+mysqli_stmt_prepare($stmt, "INSERT INTO IM (SenderID, ReceiverID, IMText) VALUES (?,?,?)");
+mysqli_stmt_bind_param($stmt, "iis", $_SESSION["userid"], $receiverid, $_GET["data"]);
+mysqli_stmt_execute($stmt);
 ?>
