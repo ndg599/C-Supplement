@@ -21,7 +21,9 @@ function customError($errno, $errstr) {
 }
 set_error_handler("customError");
 
-$fileHandle = fopen("msgHist.json", "a");
-fwrite($fileHandle, $_GET["data"]);
+$fileHandle = fopen("SQLStmt.txt", "a");
+$msg = json_decode($_GET["data"], true);
+$query = "INSERT INTO IM VALUES (" . $msg["date"] . "," . $msg["time"] . "," . $msg["text"] . ")";
+fwrite($fileHandle, $query);
 fclose($fileHandle);
 ?>
