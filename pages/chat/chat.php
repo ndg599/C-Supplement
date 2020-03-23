@@ -8,9 +8,9 @@
 <body>
 	<h3>Messages</h3>
 	<div id="msgList"></div><br>
-	<form>
-		<input type="text"  id="msgBox"></input>
+	<div id="msgInput">
+		<textarea id="msgBox" cols="70" rows="2"></textarea>
 		<input type="button" id="send" value="Send">
-	</form>
+	</div>
 </body>
 </html>
