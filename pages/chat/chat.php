@@ -23,13 +23,12 @@ $result = mysqli_stmt_get_result($stmt);
 	<script src="chat.js"></script> 
 </head>
 <body>
-	<h3>Messages</h3>
-	<div id="msgList">
-<?php
-while($row = mysqli_fetch_assoc($result)) {
-	echo $row["IMText"] . "<br>";
-}
-?>
+	<div id="sentMsgList">
+		<?php
+		while($row = mysqli_fetch_assoc($result)) {
+			echo "<p>" . $row["IMText"] . "</p>";
+		}
+		?>
 	</div><br>
 	<div id="msgInput">
 		<textarea id="msgBox" cols="70" rows="2"></textarea>
