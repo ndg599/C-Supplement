@@ -1,5 +1,5 @@
 <?php
-require_once('../../pdoconfig.php');
+require_once('../pdoconfig.php');
 
 // Setup link to database
 $conn = mysqli_connect($servername, $username, $password, $database);

@@ -1,5 +1,5 @@
 <?php
-require_once("../../pdoconfig.php");
+require_once("../pdoconfig.php");
 
 // Setup link to database
 $conn = mysqli_connect($servername, $username, $password, $database);
@@ -22,15 +22,12 @@ mysqli_stmt_bind_param($stmt, "ii", $_SESSION["userid"], $_GET["receiverid"]);
 mysqli_stmt_execute($stmt);
 $rcvdResult = mysqli_stmt_get_result($stmt);
 
-//require_once('../../inc/header.inc.php');
+require_once('../inc/header.inc.php');
 ?>
-<html>
 <head>
-        <title>Chat Prototype</title>
-        <meta charset="utf-8">
-        <script src="chat.js"></script>
+	<meta charset="utf-8">
+	<script src="chat.js"></script>
 </head>
-<body>
 <div class="content">
  <div class="container">
   <div class="row">
@@ -55,5 +52,4 @@ $rcvdResult = mysqli_stmt_get_result($stmt);
   </div>
  </div>
 </div>
-</body>
-<?php //require_once('../../inc/footer.inc.php'); ?>
+<?php require_once('../inc/footer.inc.php'); ?>
