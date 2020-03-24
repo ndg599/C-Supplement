@@ -4,7 +4,7 @@ const evtSource = new EventSource("receiveMsg.php");
 evtSource.onmessage = function(event)
 {
 	var newEl = document.createElement("p");
-	var msgList = document.getElementById("rcvMsgList");
+	var msgList = document.getElementById("rcvdMsgList");
 	newEl.innerHTML = event.data;
 	msgList.appendChild(newEl);
 }
