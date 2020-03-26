@@ -27,7 +27,7 @@
 	</div>
 	
 	<nav class="navbar navbar-dark navbar-expand-834">
-		<a class="navbar-brand" href="http://localhost"><img src="<?php echo $dir; ?>img/K++_2.png" alt="Kent C++ Logo"></a>
+		<a class="navbar-brand" href="https://www.kentcpp.com"><img src="<?php echo $dir; ?>img/K++_2.png" alt="Kent C++ Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
 		        aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle naviation"       >
 			<span class="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@
 				</li>
 			<?php if (isset($_SESSION["loggedin"])): ?>
 				<li class="nav-item">
-					<a class="nav-link csI" href="http://localhost/pages/chatConnect.php">Chat</a>
+					<a class="nav-link csI" href="https://www.kentcpp.com/pages/chatConnect.php">Chat</a>
 				</li>  	  
 			<?php endif; ?>
 			</ul>
@@ -58,12 +58,12 @@
 				<a class="nav-link dropdown-toggle nav-item text-white" href="#"
 				id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
 				<div class="dropdown-menu dropdownPos" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="http://localhost/pages/settings.php">Settings</a>
-					<a class="dropdown-item" href="http://localhost/pages/logout.php">Logout</a> 						
+					<a class="dropdown-item" href="https://www.kentcpp.com/pages/settings.php">Settings</a>
+					<a class="dropdown-item" href="https://www.kentcpp.com/pages/logout.php">Logout</a> 						
 				</div>
 			</div>
 		<?php else: ?>
-			<form action="http://localhost/pages/login.php">
+			<form action="https://www.kentcpp.com/pages/login.php">
 				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">Login</button>
 			</form>
 		<?php endif; ?>
