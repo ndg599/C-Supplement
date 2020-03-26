@@ -1,6 +1,6 @@
 <?php
 /* Authenticates login given a username and password
- * Return values: -1 = bad username, 0 = bad password, 1 = match
+ * Return values: bad username = -1, bad password = 0, match = user ID
  * NOTE: args must start in caps or they will overlap with variables from pdoconfig
  */
 function authLogin($Username, $Password)
@@ -15,7 +15,7 @@ function authLogin($Username, $Password)
 
 	// Query username
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "SELECT Password FROM Login WHERE Username=?");
+	mysqli_stmt_prepare($stmt, "SELECT ID,Password FROM Login WHERE Username=?");
 	mysqli_stmt_bind_param($stmt, "s", $Username);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
@@ -24,7 +24,10 @@ function authLogin($Username, $Password)
 	if (mysqli_num_rows($result) == 1) {
 		$obj = mysqli_fetch_object($result);
 		$hash = $obj->Password;
-		return (int)password_verify($Password, $hash);
+		if (password_verify($Password, $hash)) {
+			return $obj->ID; // Match, return ID
+		}
+		return 0; // Bad password
 	}
 
 	return -1; // Bad username
