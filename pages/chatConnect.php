@@ -18,7 +18,7 @@ require_once('../inc/header.inc.php');
 				<br><p>Connect With a Tutor</p>
 				<?php
 				while ($row = mysqli_fetch_assoc($result)) {
-					echo "<a href=\"http://localhost/pages/chat/chat.php?receiverid=" . $row["ID"]
+					echo "<a href=\"https://www.kentcpp.com/pages/chat.php?receiverid=" . $row["ID"]
 					. "\">" . $row["Username"] . "</a>";
 				}
 				?>

@@ -25,8 +25,7 @@ if ($lastMsgNum > $_SESSION["lastim"]) {
 	goto getLastMsg;
 }
 else {
-	sleep(1);
-	goto repeat;
+	goto finish;
 }
 
 getLastMsg:
@@ -40,6 +39,7 @@ $text = $row["IMText"];
 
 $_SESSION["lastim"] = $lastMsgNum;
 
+finish:
 header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 
