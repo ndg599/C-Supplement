@@ -7,8 +7,10 @@ if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
 }
 
-// Query sent messages
 session_start();
+$_SESSION["chatpartner"] = $_GET["receiverid"];
+
+// Query sent messages
 $stmt = mysqli_stmt_init($conn);
 mysqli_stmt_prepare($stmt, "SELECT IMText FROM IM WHERE SenderID=? && ReceiverID=?");
 mysqli_stmt_bind_param($stmt, "ii", $_SESSION["userid"], $_GET["receiverid"]);
@@ -17,7 +19,7 @@ $sentResult = mysqli_stmt_get_result($stmt);
 
 // Query received messages
 $stmt = mysqli_stmt_init($conn);
-mysqli_stmt_prepare($stmt, "SELECT IMText FROM IM WHERE ReceiverID=? && SenderID=?");
+mysqli_stmt_prepare($stmt, "SELECT IMNum,IMText FROM IM WHERE ReceiverID=? && SenderID=?");
 mysqli_stmt_bind_param($stmt, "ii", $_SESSION["userid"], $_GET["receiverid"]);
 mysqli_stmt_execute($stmt);
 $rcvdResult = mysqli_stmt_get_result($stmt);
@@ -42,6 +44,7 @@ require_once('../inc/header.inc.php');
 		<?php
 		while($row = mysqli_fetch_assoc($rcvdResult)) {
 			echo "<p>" . $row["IMText"] . "</p>";
+			$_SESSION["lastim"] = $row["IMNum"];
 		}
 		?>
 	</div><br>
@@ -52,4 +55,4 @@ require_once('../inc/header.inc.php');
   </div>
  </div>
 </div>
-<?php require_once('../inc/footer.inc.php'); ?>
+<?php require_once('../inc/footer.inc.php');?>

@@ -1,4 +1,4 @@
-/*
+
 const evtSource = new EventSource("receiveMsg.php");
 
 evtSource.onmessage = function(event)
@@ -13,7 +13,7 @@ evtSource.onerror = function(err)
 {
 	console.error("EventSource failed:", err);
 }
-*/
+
 window.onload = init;
 
 function init()
@@ -35,8 +35,7 @@ function sendMsg() {
 	var msg = document.getElementById("msgBox").value; // Get message
 	document.getElementById("msgBox").value = ""; // Clear message box
 	var request = new XMLHttpRequest();
-	var sendData = window.location.search.substr(1) + "&text=" + msg; // Receiverid (from url) + text
-	request.open("GET", "sendMsg.php?" + sendData);
+	request.open("GET", "sendMsg.php?text=" + msg);
 	request.setRequestHeader("Content-Type", "text/plain;chatset=UTF-8");
 	request.send();
 
@@ -45,4 +44,20 @@ function sendMsg() {
 	var msgList = document.getElementById("sentMsgList");
 	newEl.innerHTML = msg;
 	msgList.appendChild(newEl);
+}
+
+function update()
+{
+	var request = new XMLHttpRequest();
+	var requestData = window.location.search.substr(1);
+	request.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var newEl = document.createElement("p");
+			var msgList = document.getElementById("rcvdMsgList");
+			newEl.innerHTML = this.responseText;
+			msgList.appendChild(newEl);
+		}
+	};
+	request.open("GET", "receiveMsg.php?" + requestData);
+	request.send();
 }
