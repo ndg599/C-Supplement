@@ -1,6 +1,15 @@
 <?php require_once('../inc/header.inc.php'); ?>
 
+<style>
+#repform{
+	width: 100%;
+	
+}
+</style>
+
+
 <script>
+
 /* Source - https://techoverflow.net/2018/03/30/copying-strings-to-the-clipboard-using-pure-javascript/ */
     function copyStringToClipboard() {
        // Create new element
@@ -31,8 +40,48 @@
         clearInterval(inst);
        }
     }
-</script>
 
+
+
+
+</script>
+<?php
+/*
+//code to post a new comment
+//Still currently incomplete
+//Will complete once article database is setup
+	require_once("dbconnect.php");
+	
+	if(isset($_POST['comment'])) {
+	if($_SESSION["loggedin"]==true){
+		$_comment=$_POST['comment'];
+		//$_articleNum=  THE ARTICLE NUMBER WILL GO HERE!!!!!!
+		$_date=date('Y-m-d H:i:s');
+		$sql1="Select MAX(EntryNum) from comments";
+		$maxEN=mysqli_query($conn,$sql1);
+		if (!$maxEN){
+			printf("Error: %s\n", mysqli_error($conn));
+			exit();
+		}
+		$max=mysqli_fetch_array($maxEN);
+		$sql=$conn->prepare("INSERT INTO comments". "(Text,ID,Time,EntryNum,TopicID)"."VALUES".
+		"(?,?,?,?,?)");
+		$sql->bind_param("s,i,i,i,i"),$_comment,$_SESSION['UserID'],$_date,$max+1,$_articleNum);
+		$result=$sql->execute();
+		if(false===$result){
+			printf("error:%s\n",mysqli_error($conn));
+		}
+		if(!$result){
+			die('Your cannot post your comment. Please try again later.');
+		}	
+		mysqli_close($conn);
+	}else{
+		echo '<p class="red">You must sign in to add a comment.</p>';}
+*/
+
+
+
+?>
 	<div class="content">
 		<article>
 			<div class="container-fluid mt-3">
@@ -207,11 +256,65 @@
 				<div class="row mb-5">
 					<div class="col-12 section">
 						<!-- PHP Function would be good here, maybe -->
+					<?php   //REMOVE ABOVE DIV CLASS LINE!!
+					/*
+						require_once("dbconnent.php");
+						$sql2="Select * from Comments";
+						$results=mysqli_query($conn,$sql2);
+						if(!results){
+							printf("Error: %s\n", mysqli_error($conn));
+							exit();
+						}
+						$resultarr=array();
+						while($row=mysqli_fetch_array($results)){
+							$sql3="Select username from Login where ID= $row[ID]";
+							$res=mysqli_query($conn,$sql3);
+							if (!$res) {
+								printf("Error: %s\n", mysqli_error($conn));
+								 exit();
+							}
+							$usern=mysqli_fetch_array($res);
+							echo '<div class="col-12 section">';
+							echo "<p>$usern</p>";
+							echo "<p>".$row['Text']."</p>";
+							echo '<button class="fas fa-reply"> Reply</button>';
+							echo "<span> | </span>";
+							echo '<button class="fas fa-check"> Good Comment</button></div>';
+							
+							//replies post here for each comment
+							$rEntNum=$row['EntryNum'];
+							$sql4= "Select * from Replies where EntryNum = $rEntNum";
+							$res1=mysqli_query($conn,$sql2);
+							if(!$res1){
+								printf("Error: %s\n", mysqli_error($conn));
+								exit();
+							}
+							while($row1=mysqli_fetch_array($res1)){
+								$sql4="Select username from Login where ID= $row[ID]";
+								$res1=mysqli_query($conn,$sql4);
+								if (!$res1) {
+									printf("Error: %s\n", mysqli_error($conn));
+									exit();
+								}
+								$usern1=mysqli_fetch_array($res1);
+								echo '<div class="mt-3 col-11 section ml-auto">';
+								echo "<p>$usern1</p>";	
+								echo '<button class="fa fa-reply"> Reply</button>';
+								echo '<span> | </span>';
+								echo '<button class="fas fa-check"> Good Comment</button>';	
+							}
+									
+						}
+						
+
+						*/
+						?>
 						<p>User Comment</p>
-						<i class="fa fa-reply"> Reply</i>
+						<button onclick="openForm()" class="fa fa-reply" > Reply</button>
 						<span> | </span>
 						<i class="fas fa-check"> Good Comment</i>
 					</div>
+					
 					<div class="mt-3 col-11 section ml-auto">
 						<p>Reply Comment (By another user/tutor/admin)</p>
 						<i class="fa fa-reply"> Reply</i>
