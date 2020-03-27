@@ -129,7 +129,21 @@ i {
 	}
 }
 
-@media only screen and (max-width: 834px) 
+.dropdownPos {
+	background-color: rgba(0,38,100,0.92);
+	border: 2px solid #4994CB;
+}
+	
+.dropdownPos a {
+	color: #F8EB61;
+}
+
+.dropdownPos a:hover {
+	color: #F8EB61;
+	background-color: #333333;
+}
+	
+@media only screen and (max-width: 833.98px) 
 {
 	/* Separate Account button with search in drop-down */
 	.btn_mgn {
@@ -143,8 +157,24 @@ i {
 	.dropdownPos {
 		left: 0;
 		right: auto;
-		margin-top: -189px;
+		margin-top: -120px;
 	}
+
+}
+
+input#search {
+	border-radius: 0;
+}
+
+.btnKent {
+	color: white;
+	background-color: #002664;
+	border-color: #4994CB;
+	border-radius: 0;
+}
+
+.btnKent:hover {
+	color: white;
 }
 
 nav img {
@@ -154,10 +184,6 @@ nav img {
 
 nav .nav-link {
 	font-size: 1.2rem;
-}
-
-.dropdown-menu a:hover {
-    background-color: #C1C1C1 !important;
 }
 
 /* ------------------------------------------------------------------------- */
