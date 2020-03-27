@@ -1,17 +1,12 @@
-
 const evtSource = new EventSource("receiveMsg.php");
 
 evtSource.onmessage = function(event)
 {
+	// Add the received message to right side of page
 	var newEl = document.createElement("p");
-	var msgList = document.getElementById("rcvdMsgList");
+	var msgList = document.getElementById("msgList");
 	newEl.innerHTML = event.data;
 	msgList.appendChild(newEl);
-}
-
-evtSource.onerror = function(err)
-{
-	console.error("EventSource failed:", err);
 }
 
 window.onload = init;
@@ -21,6 +16,8 @@ function init()
 	var sendButton = document.getElementById("send");
 	sendButton.onclick = sendMsg;
 
+	/* This will click the submit button when the user hits enter, credit to kdenney from stackoverflow:
+	https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box */
 	document.getElementById("msgBox")
 		.addEventListener("keyup", function(event) {
 		event.preventDefault();
@@ -35,29 +32,30 @@ function sendMsg() {
 	var msg = document.getElementById("msgBox").value; // Get message
 	document.getElementById("msgBox").value = ""; // Clear message box
 	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			// Load sent message in document
+			var newEl = document.createElement("p");
+			var msgList = document.getElementById("msgList");
+			newEl.innerHTML = this.responseText;
+			msgList.appendChild(newEl);
+		}
+	};
 	request.open("GET", "sendMsg.php?text=" + msg);
 	request.setRequestHeader("Content-Type", "text/plain;chatset=UTF-8");
 	request.send();
-
-	// Load sent message in document
-	var newEl = document.createElement("p");
-	var msgList = document.getElementById("sentMsgList");
-	newEl.innerHTML = msg;
-	msgList.appendChild(newEl);
 }
-
-function update()
+/*
+function getUsername()
 {
 	var request = new XMLHttpRequest();
 	var requestData = window.location.search.substr(1);
 	request.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			var newEl = document.createElement("p");
-			var msgList = document.getElementById("rcvdMsgList");
-			newEl.innerHTML = this.responseText;
-			msgList.appendChild(newEl);
+			return this.responseText;
 		}
 	};
-	request.open("GET", "receiveMsg.php?" + requestData);
+	request.open("GET", "getUsername.php");
 	request.send();
 }
+*/

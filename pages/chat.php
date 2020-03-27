@@ -8,21 +8,23 @@ if (!$conn) {
 }
 
 session_start();
-$_SESSION["chatpartner"] = $_GET["receiverid"];
+$_SESSION["partnerid"] = $_GET["partnerid"];
 
-// Query sent messages
+// Query chat partner's username
 $stmt = mysqli_stmt_init($conn);
-mysqli_stmt_prepare($stmt, "SELECT IMText FROM IM WHERE SenderID=? && ReceiverID=?");
-mysqli_stmt_bind_param($stmt, "ii", $_SESSION["userid"], $_GET["receiverid"]);
+mysqli_stmt_prepare($stmt, "SELECT Username FROM Login WHERE ID=?");
+mysqli_stmt_bind_param($stmt, "i", $_GET["partnerid"]);
 mysqli_stmt_execute($stmt);
-$sentResult = mysqli_stmt_get_result($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$row = mysqli_fetch_assoc($result);
+$_SESSION["partnername"] = $row["Username"];
 
-// Query received messages
+// Query message history
 $stmt = mysqli_stmt_init($conn);
-mysqli_stmt_prepare($stmt, "SELECT IMNum,IMText FROM IM WHERE ReceiverID=? && SenderID=?");
-mysqli_stmt_bind_param($stmt, "ii", $_SESSION["userid"], $_GET["receiverid"]);
+mysqli_stmt_prepare($stmt, "SELECT * FROM IM WHERE SenderID=? AND ReceiverID=? OR ReceiverID=? AND SenderID=?");
+mysqli_stmt_bind_param($stmt, "iiii", $_SESSION["userid"], $_GET["partnerid"], $_SESSION["userid"], $_GET["partnerid"]);
 mysqli_stmt_execute($stmt);
-$rcvdResult = mysqli_stmt_get_result($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
 require_once('../inc/header.inc.php');
 ?>
@@ -33,21 +35,21 @@ require_once('../inc/header.inc.php');
 <div class="content">
  <div class="container">
   <div class="row">
-	<div class="col-6" id="sentMsgList">
+	<div class="col-12" id="msgList">
+	<p></p>
 		<?php
-		while($row = mysqli_fetch_assoc($sentResult)) {
-			echo "<p>" . $row["IMText"] . "</p>";
+		while($row = mysqli_fetch_assoc($result)) {
+			if ($row["SenderID"] == $_SESSION["userid"]) {
+				$displayName = $_SESSION["username"];
+			}
+			else {
+				$displayName = $_SESSION["partnername"];
+			}
+			echo "<p>" . $displayName . "<br>" . $row["IMText"] . "</p>";
+			$_SESSION["lastmsg"] = $row["IMNum"];
 		}
 		?>
-	</div><br>
-	<div class="col-6" id="rcvdMsgList">
-		<?php
-		while($row = mysqli_fetch_assoc($rcvdResult)) {
-			echo "<p>" . $row["IMText"] . "</p>";
-			$_SESSION["lastim"] = $row["IMNum"];
-		}
-		?>
-	</div><br>
+	</div>
 	<div class="col-12" id="msgInput">
 		<textarea id="msgBox" cols="70" rows="2"></textarea>
 		<input type="button" id="send" value="Send">
