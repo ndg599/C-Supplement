@@ -28,10 +28,6 @@ $result = mysqli_stmt_get_result($stmt);
 
 require_once('../inc/header.inc.php');
 ?>
-<head>
-	<meta charset="utf-8">
-	<script src="chat.js"></script>
-</head>
 <div class="content">
  <div class="container">
   <div class="row">
@@ -57,4 +53,5 @@ require_once('../inc/header.inc.php');
   </div>
  </div>
 </div>
+<script src="chat.js"></script>
 <?php require_once('../inc/footer.inc.php');?>
