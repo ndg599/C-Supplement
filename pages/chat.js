@@ -2,7 +2,7 @@ const evtSource = new EventSource("receiveMsg.php");
 
 evtSource.onmessage = function(event)
 {
-	// Add the received message to right side of page
+	// Load received message in page
 	var newEl = document.createElement("p");
 	var msgList = document.getElementById("msgList");
 	newEl.innerHTML = event.data;
@@ -32,9 +32,9 @@ function sendMsg() {
 	var msg = document.getElementById("msgBox").value; // Get message
 	document.getElementById("msgBox").value = ""; // Clear message box
 	var request = new XMLHttpRequest();
-	request.onreadystatechange = function() {
+	request.onreadystatechange = function() { // Get full message from server
 		if (this.readyState == 4 && this.status == 200) {
-			// Load sent message in document
+			// Load sent message in page
 			var newEl = document.createElement("p");
 			var msgList = document.getElementById("msgList");
 			newEl.innerHTML = this.responseText;
@@ -45,17 +45,3 @@ function sendMsg() {
 	request.setRequestHeader("Content-Type", "text/plain;chatset=UTF-8");
 	request.send();
 }
-/*
-function getUsername()
-{
-	var request = new XMLHttpRequest();
-	var requestData = window.location.search.substr(1);
-	request.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			return this.responseText;
-		}
-	};
-	request.open("GET", "getUsername.php");
-	request.send();
-}
-*/
