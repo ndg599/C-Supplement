@@ -41,17 +41,17 @@
 					<a class="nav-link mr-2 kentBlue" href="#">CS II</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link csIII mr-2" href="#">CS III</a>
+					<a class="nav-link mr-2 text-white" href="#">CS III</a>
 				</li>
 			<?php if (isset($_SESSION["loggedin"])): ?>
 				<li class="nav-item">
-					<a class="nav-link csI" href="https://www.kentcpp.com/pages/chatConnect.php">Chat</a>
+					<a class="nav-link kentYellow" href="https://www.kentcpp.com/pages/chatConnect.php">Chat</a>
 				</li>  	  
 			<?php endif; ?>
 			</ul>
 			<form class="form-inline  ml-auto mr-2">
 				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-primary my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+				<button class="btn btn-primary my-sm-0 btnKent" type="submit"><i class="fas fa-search"></i></button>
 			</form>
 		<?php if (isset($_SESSION["loggedin"])): ?>
 			<div class="nav-item dropdown">
@@ -64,7 +64,7 @@
 			</div>
 		<?php else: ?>
 			<form action="https://www.kentcpp.com/pages/login.php">
-				<button class="btn btn-outline-primary mr-2 btn_mgn" type="submit">Login</button>
+				<button class="btn mr-2 btn_mgn btnKent" type="submit">Login</button>
 			</form>
 		<?php endif; ?>
 		</div>  
