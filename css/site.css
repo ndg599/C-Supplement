@@ -413,12 +413,16 @@ code {
 }
 
 /* ------------------------------------------------------------------------- */
-/* Below is for signup.php */
-#signup {
+/* Below is for signup.php, login.php*/
+#forms {
 	font-size: 1.1rem;
 	background-color: rgba(0,0,0,0.5); 
 	border: 3px inset gray; 
 	padding: 10px;
+}
+
+#btnMv {
+	margin-left: 95px;
 }
 
 /* ------------------------------------------------------------------------- */

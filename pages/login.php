@@ -24,16 +24,20 @@
 	require_once('../inc/header.inc.php');
 ?>
 	<div class="content">
-		<div class="container">
-			<div class="row">
-				<form action="login.php" method="post">
-					<label for="username">Username</label><br>
+		<div class="container d-flex h-100">
+			<div class="row justify-content-center align-self-center mx-auto">
+				<div class="col-9">
+					<h3>Sign In</h3>
+					<hr>
+				</div>
+				<form id="forms" action="login.php" method="post">
+					<label class="kentYellow" for="username">Username</label><br>
 					<!-- Keep username if just bad password -->
 					<input type="text" name="username" 
 					<?php if ($attempt == 0) echo "value=\"" . $_POST["username"] . "\""; ?> required><br>
-					<label for="password">Password</label><br>
+					<label class="kentBlue" for="password">Password</label><br>
 					<input type="password" name="password" required><br>
-					<input type="submit" value="Submit">
+					<input class="btn btnKent mt-2" id="btnMv" type="submit" value="Sign In">
 				</form>
 				<?php if (isset($errorMsg)) echo $errorMsg; // Error message from attempt ?>
 			</div>

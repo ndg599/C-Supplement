@@ -1,8 +1,15 @@
+<?php
+	if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] === "")
+		$dir = "./";
+	else
+		$dir = "../";
+?>
+
 	<footer class="container-fluid rounded-0">
 		<div class="row">
 			<div class="col-2">
 				<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
-					<img class="navbar-brand" src="./img/LGPLv3_Logo.svg" alt="GNU PL 3">
+					<img class="navbar-brand" src="<?php echo $dir; ?>img/LGPLv3_Logo.svg" alt="GNU PL 3">
 				</a>
 			</div>
 			<div class="ml-auto">

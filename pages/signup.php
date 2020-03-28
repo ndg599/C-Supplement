@@ -111,7 +111,7 @@
 					<p> Please enter your email address, your username, and password </p>
 				</div>
 				<div class="col-12 col-md-8 col-lg-6">
-					<form method = "post" id="signup">
+					<form method = "post" id="forms">
 						<table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
 							<tr>
 							   <td width = "250" class="kentYellow">Username</td>
