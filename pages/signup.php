@@ -102,9 +102,7 @@
 					<h3> Sign Up</h3>
 					<hr>
 					<p> Please enter your email address, your username, and password </p>
-					<div class="<?php if (isset($_POST['create'])) echo "errorBox" ?>">
-						<?php displayFormErrors(); ?>"
-					</div>
+					<?php displayFormErrors(); ?>
 				</div>
 				<div class="col-12 col-md-8 col-lg-6">
 					<form method = "post" id="forms">

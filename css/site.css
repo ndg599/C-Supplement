@@ -138,13 +138,12 @@ i {
 	}
 }
 
-/* errorBox is general and not part of navbar */
-.dropdownPos, .errorBox {
+.dropdownPos {
 	background-color: rgba(0,38,100,0.92);
 	border: 2px solid #4994CB;
 }
 	
-.dropdownPos a, .errorBox {
+.dropdownPos a {
 	color: #F8EB61;
 }
 
