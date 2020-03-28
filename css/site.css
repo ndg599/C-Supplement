@@ -30,7 +30,7 @@ footer {
 }
 
 /* ------------------------------------------------------------------------- */
-/* Below is for header / navigation bar */
+/* Below is for header / navigation bar and footer*/
 .navbar {
 	background-color: #333;
 	position: fixed; /* Keep the navbar on screen on the top even after scrolling */
@@ -181,14 +181,6 @@ input#search {
 	background-color: #002664;
 	border-color: #4994CB;
 	border-radius: 0;
-}
-
-td input.btnKent {
-	color: #F8EB61;
-}
-
-.btnKent:hover {
-	color: white;
 }
 
 nav img, footer img {
@@ -421,6 +413,19 @@ code {
 
 #btnMv {
 	margin-left: 95px;
+}
+
+#suMv {
+	margin-top: 7px;
+	margin-left: 20px;
+}
+
+form input.btnKent {
+	color: #F8EB61;
+}
+
+.btnKent:hover {
+	color: white;
 }
 
 /* ------------------------------------------------------------------------- */

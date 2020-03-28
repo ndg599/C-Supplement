@@ -59,15 +59,15 @@
 			$_type="student";
 			$error="";
 			if(validateEmail($_email)===false){
-				$error='<p>Your email is invalid. Please try again.</p>';
+				$error='<p class="red">Your email is invalid. Please try again.</p>';
 			}
 
 			if(validatePassW($_password)===false){
-				$error= $error . '<p>Your Password is invalid. Must be 8 characters or more.</p>'; 
+				$error= $error . '<p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
 			}
 
 			if($error!=""){
-				echo '<p>'.$error.'</p>';
+				echo '<p class="red">'.$error.'</p>';
 			}else{
 
 				$_hash=password_hash($_password,PASSWORD_BCRYPT);
@@ -95,20 +95,14 @@
 	
 	require_once('../inc/header.inc.php'); 
 ?><!--Form for user to sign up-->
-	<div class="content align-self-center">
-		<div class="container">
-			<div class="row <?php if (isset($_POST['create'])) echo "errorBox mb-3" ?> mt-5">
-				<div class="col-12">
-					<?php displayFormErrors(); ?>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
+	<div class="content">
+		<div class="container d-flex h-100">
+			<div class="row <?php if (isset($_POST['create'])) echo "errorBox mb-3" ?> justify-content-center align-self-center mx-auto">
+				<div class="col-9">
 					<h3> Sign Up</h3>
 					<hr>
 					<p> Please enter your email address, your username, and password </p>
+					<?php displayFormErrors(); ?>
 				</div>
 				<div class="col-12 col-md-8 col-lg-6">
 					<form method = "post" id="forms">
