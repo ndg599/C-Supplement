@@ -97,7 +97,7 @@
 ?><!--Form for user to sign up-->
 	<div class="content">
 		<div class="container d-flex h-100">
-			<div class="row ustify-content-center align-self-center mx-auto">
+			<div class="row justify-content-center align-self-center mx-auto">
 				<div class="col-9">
 					<h3> Sign Up</h3>
 					<hr>
