@@ -50,7 +50,7 @@
 			<?php endif; ?>
 			</ul>
 			<form class="form-inline  ml-auto mr-2">
-				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
+				<input class="form-control" id="search" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-primary my-sm-0 btnKent" type="submit"><i class="fas fa-search"></i></button>
 			</form>
 		<?php if (isset($_SESSION["loggedin"])): ?>
@@ -64,7 +64,7 @@
 			</div>
 		<?php else: ?>
 			<form action="https://www.kentcpp.com/pages/login.php">
-				<button class="btn mr-2 btn_mgn btnKent" type="submit">Login</button>
+				<button class="btn mr-2 btn_mgn btnKent padLogin" type="submit">Login</button>
 			</form>
 		<?php endif; ?>
 		</div>  

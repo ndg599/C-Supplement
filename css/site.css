@@ -16,9 +16,11 @@ footer {
 	flex-shrink: 0;
 	padding: 10px;
 	color: white;
-	border-top: 3px solid; 
-	border-color: #EFAB00 !important; 
-	background-color:  #002664; 
+	border-top: 3px solid transparent; 
+	border-image: linear-gradient(to right, #EFAB00,#F8EB61,  #4994CB, #002664) !important; 
+	border-image-slice: 1 !important;
+	background-color: #333; 
+	font-size: 0.8rem;
 }
 
 /* Must wrap web page's content within <div class="content"> ... </div> to make footer stay on bottom */
@@ -78,9 +80,12 @@ i {
 	margin-top: 2px;
 }
 
+/* Gradient border - https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice */
 .banner {
-	border-top: solid 3px #EFAB00 !important;
-	border-bottom: solid 3px #EFAB00 !important;
+	border-bottom: 3px solid transparent; 
+	border-top: 3px solid transparent; 
+	border-image: linear-gradient(to right, #EFAB00,#F8EB61,  #4994CB, #002664); 
+	border-image-slice: 1 !important;	
 	background-color:  #002664;
 	font-size: 35px; 
 	color: white;
@@ -127,14 +132,19 @@ i {
 		right: 0;
 		left: auto;
 	}
+	
+	.padLogin {
+		padding: 6.5px;
+	}
 }
 
-.dropdownPos {
+/* errorBox is general and not part of navbar */
+.dropdownPos, .errorBox {
 	background-color: rgba(0,38,100,0.92);
 	border: 2px solid #4994CB;
 }
 	
-.dropdownPos a {
+.dropdownPos a, .errorBox {
 	color: #F8EB61;
 }
 
@@ -173,11 +183,15 @@ input#search {
 	border-radius: 0;
 }
 
+td input.btnKent {
+	color: #F8EB61;
+}
+
 .btnKent:hover {
 	color: white;
 }
 
-nav img {
+nav img, footer img {
 	width: 70px; 
 	height: 30px;
 }
@@ -186,16 +200,49 @@ nav .nav-link {
 	font-size: 1.2rem;
 }
 
+footer img {
+	background-color: rgba(230,230,230,0.9);
+}
+
+footer p {
+	margin-top: 5px; 
+	margin-bottom: -3px;
+	padding-right: 5px;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Below is for index.php */
 /* vw means view width, and the image size will change as the browser width changes */
-.card-img-top {
-	height: 22vw;
+@media (max-width: 881.98px)
+{
+	.col-cust-img, .col-cust-info  {
+		width: 100%;
+	}
+
+	.img-view {
+		width: 80vw;
+	}
 }
 
-.pad_mar {
-	margin: 25px 0; 
-	padding: 0 40px;
+@media (min-width: 882px)
+{
+	.col-cust-img {
+		width: 45%;
+	}
+	
+	.col-cust-info {
+		width: 55%;
+	}
+
+	.img-view {
+		width: 40vw;
+	}
+}
+
+#landing td {
+	text-align: left;
+	padding: 8px;
+	font-size: 1rem;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -367,9 +414,11 @@ code {
 
 /* ------------------------------------------------------------------------- */
 /* Below is for signup.php */
-.errorBox {
-	border: 2px solid white;
-	background-color: rgba(255,255,255,0.7);
+#signup {
+	font-size: 1.1rem;
+	background-color: rgba(0,0,0,0.5); 
+	border: 3px inset gray; 
+	padding: 10px;
 }
 
 /* ------------------------------------------------------------------------- */

@@ -1,5 +1,14 @@
 	<footer class="container-fluid rounded-0">
-		<p>Footer Placeholder</p>
+		<div class="row">
+			<div class="col-2">
+				<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+					<img class="navbar-brand" src="./img/LGPLv3_Logo.svg" alt="GNU PL 3">
+				</a>
+			</div>
+			<div class="ml-auto">
+				<p><strong class="kentYellow">Made by:</strong> Group2 - Landen, Nathan, Brandon, Ryan</p>
+			</div>
+		</div>
 	</footer>
 	
 	<!-- Bootstrap documentation jquery and javascript scripts -->

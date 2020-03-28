@@ -15,11 +15,6 @@
 	   return false;
 	}
 
-	
-
-
-	
-
 /*	DEBUGGING ONLY: /*
 /*	error_reporting(E_ALL);
 	echo "<pre>";
@@ -64,15 +59,15 @@
 			$_type="student";
 			$error="";
 			if(validateEmail($_email)===false){
-				$error='<p class="red">Your email is invalid. Please try again.</p>';
+				$error='<p>Your email is invalid. Please try again.</p>';
 			}
 
 			if(validatePassW($_password)===false){
-				$error= $error . '<p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
+				$error= $error . '<p>Your Password is invalid. Must be 8 characters or more.</p>'; 
 			}
 
 			if($error!=""){
-				echo '<p class="red">'.$error.'</p>';
+				echo '<p>'.$error.'</p>';
 			}else{
 
 				$_hash=password_hash($_password,PASSWORD_BCRYPT);
@@ -100,7 +95,7 @@
 	
 	require_once('../inc/header.inc.php'); 
 ?><!--Form for user to sign up-->
-	<div class="content">
+	<div class="content align-self-center">
 		<div class="container">
 			<div class="row <?php if (isset($_POST['create'])) echo "errorBox mb-3" ?> mt-5">
 				<div class="col-12">
@@ -111,33 +106,35 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<p> Sign Up</p>
+					<h3> Sign Up</h3>
 					<hr>
 					<p> Please enter your email address, your username, and password </p>
-					<form method = "post">
+				</div>
+				<div class="col-12 col-md-8 col-lg-6">
+					<form method = "post" id="signup">
 						<table width = "400" border = "0" cellspacing = "1" cellpadding = "2">
 							<tr>
-							   <td width = "250">Username</td>
+							   <td width = "250" class="kentYellow">Username</td>
 							   <td>
 								  <input name = "_username" type = "text" id = "_username">
 							   </td></tr>
 						 
 							<tr>
-							   <td width = "200">Email Address</td>
+							   <td width = "200" class="kentBlue">Email Address</td>
 							   <td>
-								  <input name = "_email" type = "text" id = "_email">
+								  <input name = "_email" type = "text" id = "_email" placeholder="@kent.edu">
 							   </td></tr>
 						 
 							<tr>
 							   <td width = "200">Password</td>
 							   <td>
-								  <input name = "_password" type = "text" id = "_password">
+								  <input name = "_password" type = "text" id = "_password" placeholder="8-30 Chars">
 							   </td></tr>
 
 							<tr>
 							   <td width = "200"> </td>
 							   <td>
-								  <input name = "create" type = "submit" id = "create"  value = "Create account">
+								  <input class="btn btnKent" name = "create" type = "submit" id = "create"  value = "Create account">
 							   </td>
 							</tr>		
 						</table> 

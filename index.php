@@ -1,69 +1,132 @@
 <?php require_once('./inc/header.inc.php'); ?>
 
-	<div class="content red">
-		<!-- banner is a custom class in index_CSS -->
+	<div class="content">
 		<div class="container-fluid rounded-0 banner">
 			<span>Kent State's C++ Code Course</span>
 		</div>
 		
-		<!-- pad_mar is a custom class in index_CSS -->
-		<div class="container-fluid pad_mar">
-			<!-- row class must be put before you start denoting column sizes, in other words you are section off a row of your webpage to 
-				 section off in up to 12 parts. -->
+		<div class="container-fluid mt-5 mb-5" id="landing">
 			<div class="row">
-				<!-- col-6 means to create a column of size 6 (or half of the available space). You can also put column sizes based upon the
-					 size of the browser. You can have col-md-4, which means create a column of size 4 when the browser is >= medium width, but 
-					 also have col-sm-6 in the same section to have the same section take up more space when the screen in smaller. It may make
-					 more sence playing around with it if this isn't clear -->
-				<div class="col-6"> 
-					<!-- card is the Bootstrap class for each CS image, description, and button (as well as the chat one). h-100 means to have
-						 the height of each card to be 100% of the row height. Sometimes one card may have more text than the adjacent making
-						 one longer than the other looking weird -->
-					<div class="card h-100">
-						<!-- card-img-top is a custom class for the image on the top of the card to resize as the browser resizes. Any class 
-							 beginning with card- is from Bootstrap. card-body is where the description and link button goes. card-title styles 
-							 the title and card-text styles the text of the card. This repeats 4 times. -->
-						<img src="./img/CSI.png" class="card-img-top" alt="CS_I Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Computer Science I</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">CS I Index</a>
-						</div>
+				<div class="col-cust-img mb-5"> 
+					<img src="./img/CSI.png" class="img-view mx-auto d-block" alt="CS_I Word Art">
+				</div>
+				<div class="col-cust-info mb-5">
+					<h5 class="kentYellow text-center">Computer Science I - CS 13001</h5>
+					<table class="table text-white">
+						<tr>
+							<td class="kentBlue">Class Time:</td>
+							<td>Tuesday/Thursday</td>
+							<td>12:30p - 01:45p</td>
+						</tr>
+						<tr>
+							<td class="kentBlue">Lab Time:</td>
+							<td>Friday</td>
+							<td>09:00a - 11:00a</td>
+						</tr>
+						<tr>
+							<td class="kentBlue">Tutor:</td>
+							<td>Landen</td>
+							<td>Lmarchan@kent.edu</td>
+						</tr>
+						<tr>
+							<td class="kentBlue">Next Exam:</td>
+							<td>Thursday Oct 1</td>
+							<td>12:30p - 01:45p</td>
+						</tr>						
+					</table>
+					<div class="text-center">
+						<a href="#" class="btn btnKent">CS I Index</a>
 					</div>
 				</div>
-				<div class="col-6"> 
-					<div class="card h-100">
-						<img src="./img/CSII.png" class="card-img-top" alt="CS_II Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Computer Science II</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">CS II Index</a>
-						</div>
+				
+				<div class="col-cust-img mb-5"> 
+					<img src="./img/CSII.png" class="img-view mx-auto d-block" alt="CS_II Word Art">
+				</div>
+				<div class="col-cust-info mb-5">
+					<h5 class="kentBlue text-center">Computer Science II - CS 23001</h5>				
+					<table class="table text-white">
+						<tr>
+							<td class="kentYellow">Class Time:</td>
+							<td>Tuesday/Thursday</td>
+							<td>03:30p - 04:45p</td>
+						</tr>
+						<tr>
+							<td class="kentYellow">Lab Time:</td>
+							<td>Friday</td>
+							<td>11:00a - 01:00p</td>
+						</tr>
+						<tr>
+							<td class="kentYellow">Tutor:</td>
+							<td>Landen</td>
+							<td>Lmarchan@kent.edu</td>
+						</tr>
+						<tr>
+							<td class="kentYellow">Next Exam:</td>
+							<td>Thursday Oct 1</td>
+							<td>03:30p - 04:45p</td>
+						</tr>						
+					</table>
+					<div class="text-center">
+						<a href="#" class="btn btnKent">CS II Index</a>
 					</div>
 				</div>
-			</div>
-		</div>
 
-		<div class="container-fluid pad_mar">
-			<div class="row justify-content-center">
-				<div class="col-6"> 
-					<div class="card h-100">
-						<img src="./img/CSIII.png" class="card-img-top" alt="CS_III Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Computer Science III</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">CS III Index</a>
-						</div>
+				<div class="col-cust-img mb-5"> 
+					<img src="./img/CSIII.png" class="img-view mx-auto d-block" alt="CS_III Word Art">
+				</div>
+				<div class="col-cust-info mb-5">
+					<h5 class="text-center">Computer Science III - CS 44001</h5>				
+					<table class="table text-white">
+						<tr>
+							<td class="kentYellow">Class Time:</td>
+							<td>Tuesday/Thursday</td>
+							<td>05:55p - 08:10p</td>
+						</tr>
+						<tr>
+							<td class="kentYellow">Lab Time:</td>
+							<td>Friday</td>
+							<td>11:00a - 01:00p</td>
+						</tr>
+						<tr>
+							<td class="kentYellow">Tutor:</td>
+							<td>Landen</td>
+							<td>Lmarchan@kent.edu</td>
+						</tr>
+						<tr>
+							<td class="kentYellow">Next Exam:</td>
+							<td>Thursday Oct 1</td>
+							<td>05:55p - 08:10p</td>
+						</tr>						
+					</table>
+					<div class="text-center">
+						<a href="#" class="btn btnKent">CS III Index</a>
 					</div>
 				</div>
-				<div class="col-6"> 
-					<div class="card h-100">
-						<img src="./img/IM.png" class="card-img-top" alt="Chat Word Art">
-						<div class="card-body">
-							<h5 class="card-title">Instant Message</h5>
-							<p class="card-text">Description Placeholder</p>
-							<a href="#" class="btn btn-primary">Instant Messaging Client</a>
-						</div>
+				
+				<div class="col-cust-img mb-5"> 
+					<img src="./img/IM.png" class="img-view mx-auto d-block" alt="Chat Word Art">
+				</div>
+				<div class="col-cust-info mb-5">
+					<h5 class="kentYellow text-center">Chat with a Tutor</h5>				
+					<table class="table text-white">
+						<tr>
+							<td class="kentBlue">Landen:</td>
+							<td>Monday/Wednesday</td>
+							<td>08:00a - 12:00p</td>
+						</tr>
+						<tr>
+							<td class="kentBlue">Trey:</td>
+							<td>Tuesday/Thursday</td>
+							<td>09:00a - 01:00p</td>
+						</tr>
+						<tr>
+							<td class="kentBlue">Tutor3:</td>
+							<td>Friday</td>
+							<td>01:00p - 05:00p</td>
+						</tr>				
+					</table>				
+					<div class="text-center">
+						<a href="#" class="btn btnKent">IM Client</a>
 					</div>
 				</div>
 			</div>
