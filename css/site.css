@@ -433,3 +433,14 @@ form input.btnKent {
 	color: #4994CB;
 	font-size: 1.5rem;
 }
+
+/* ------------------------------------------------------------------------- */
+/* Below is for chatConnect.php */
+#chatLink {
+	color: #4994CB;
+	font-size: 1.2rem;
+}
+
+#chatLink:hover {
+	color: #F8EB61;
+}	

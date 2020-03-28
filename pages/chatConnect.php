@@ -11,19 +11,25 @@ $result = mysqli_query($conn, $query);
 
 require_once('../inc/header.inc.php');
 ?>
-<div class="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<br><p>Connect With a Tutor</p>
+	<div class="content">
+		<div class="container mt-5">
+			<div class="row justify-content-center mx-auto">
+				<div class="col-12">
+					<h3>Connect with a Tutor</h3>
+					<hr>
+				</div>
+			</div>
+			<div class="row justify-content-center mx-auto">
+				<div class="col-12">
 				<?php
 				while ($row = mysqli_fetch_assoc($result)) {
-					echo "<a href=\"https://www.kentcpp.com/pages/chat.php?partnerid=" . $row["ID"]
+					echo "<a id='chatLink' href=\"https://www.kentcpp.com/pages/chat.php?partnerid=" . $row["ID"]
 					. "\">" . $row["Username"] . "</a>";
 				}
 				?>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
 <?php require_once('../inc/footer.inc.php'); ?>
