@@ -7,7 +7,6 @@ if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
 }
 
-repeat:
 // Find last message
 session_start();
 $stmt = mysqli_stmt_init($conn);
@@ -24,7 +23,6 @@ if ($lastMsgNum <= $_SESSION["lastmsg"]) {
 }
 
 // Query last message
-getLastMsg:
 $stmt = mysqli_stmt_init($conn);
 mysqli_stmt_prepare($stmt, "SELECT IMText FROM IM WHERE ReceiverID=? && SenderID=? && IMNum=?");
 mysqli_stmt_bind_param($stmt, "iii", $_SESSION["userid"], $_SESSION["partnerid"], $lastMsgNum);
