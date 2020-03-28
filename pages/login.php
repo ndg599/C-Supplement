@@ -31,11 +31,11 @@
 					<hr>
 				</div>
 				<form id="forms" action="login.php" method="post">
-					<label class="kentYellow" for="username">Username</label><br>
+					<label class="kentYellow" for="username">Username</label>
 					<!-- Keep username if just bad password -->
 					<input type="text" name="username" 
 					<?php if ($attempt == 0) echo "value=\"" . $_POST["username"] . "\""; ?> required><br>
-					<label class="kentBlue" for="password">Password</label><br>
+					<label class="kentBlue mt-2" for="password">Password</label>
 					<input type="password" name="password" required><br>
 					<input class="btn btnKent mt-2" id="btnMv" type="submit" value="Sign In">
 				</form>
