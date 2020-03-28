@@ -97,12 +97,14 @@
 ?><!--Form for user to sign up-->
 	<div class="content">
 		<div class="container d-flex h-100">
-			<div class="row <?php if (isset($_POST['create'])) echo "errorBox mb-3" ?> justify-content-center align-self-center mx-auto">
+			<div class="row ustify-content-center align-self-center mx-auto">
 				<div class="col-9">
 					<h3> Sign Up</h3>
 					<hr>
 					<p> Please enter your email address, your username, and password </p>
-					<?php displayFormErrors(); ?>
+					<div class="<?php if (isset($_POST['create'])) echo "errorBox" ?>">
+						<?php displayFormErrors(); ?>"
+					</div>
 				</div>
 				<div class="col-12 col-md-8 col-lg-6">
 					<form method = "post" id="forms">
