@@ -44,7 +44,7 @@
 			global $conn;
 			
 			/* Main area may have multiple images */
-			if ($imgTable == "images") {			
+			if ($imgTable == "Images") {			
 				$stmt = "SELECT * FROM " . $imgTable . " WHERE TopicID = ?;";
 				if(!($sql_img = $conn->prepare($stmt))) {
 					echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
@@ -53,7 +53,7 @@
 				$sql_img->bind_param("i", $_GET['ID']);
 			}
 			/* So far, each subtopic may have one image */
-			else if ($imgTable == "subimages") {				
+			else if ($imgTable == "Subimages") {				
 				$stmt = "SELECT * FROM " . $imgTable . " WHERE TopicID = ? AND SubNum = ?;";
 				if(!($sql_img = $conn->prepare($stmt))) {
 					echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
