@@ -8,7 +8,7 @@
 	if (isset($_GET['ID'])) {
 		/* Main topic information pull */
 		try {
-			if(!($sql_article = $conn->prepare("SELECT * FROM article WHERE TopicID = ?;"))) {
+			if(!($sql_article = $conn->prepare("SELECT * FROM Article WHERE TopicID = ?;"))) {
 				echo '<p class="kentYellow errorBelowNav">Database prepare failure</p>';
 				mysqli_close($conn);
 				exit();
@@ -95,7 +95,7 @@
 			global $code;
 			global $raw;
 			global $topicText;
-			if(!($sql_sub = $conn->prepare("SELECT * FROM subtopics WHERE TopicID = ? ORDER BY SubNum ASC;"))) {
+			if(!($sql_sub = $conn->prepare("SELECT * FROM Subtopics WHERE TopicID = ? ORDER BY SubNum ASC;"))) {
 				echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
 				return;
 			}
@@ -115,7 +115,7 @@
 								
 				echo $topicText['Pointers'];
 				/*displayMainText(); */
-				displayImages("subimages", $row_sub['SubNum']);
+				displayImages("Subimages", $row_sub['SubNum']);
 				
 				if($row_sub['CodeID'] != NULL) {
 					echo	'<p class="kentBlue">Example Code:</p>
@@ -150,7 +150,7 @@
 		try {
 			global $conn;
 			global $code;
-			if(!($sql_quiz = $conn->prepare("SELECT * FROM questions WHERE TopicID = ?;"))) {
+			if(!($sql_quiz = $conn->prepare("SELECT * FROM Questions WHERE TopicID = ?;"))) {
 				echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
 				return;
 			}
@@ -247,7 +247,7 @@
 						<?php 
 							echo $topicText['Pointers'];
 							/* displayMainText(); */
-							displayImages("images"); 
+							displayImages("Images"); 
 						?>				
 					</div>
 				</div>
