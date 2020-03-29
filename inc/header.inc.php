@@ -35,7 +35,7 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav nav nav-pills mr-auto mt-2 mt-md-0">	
 				<li class="nav-item">
-					<a class="nav-link mr-2 kentYellow" href="#">CS I</span></a>
+					<a class="nav-link mr-2 kentYellow" href="#">CS I</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link mr-2 kentBlue" href="#">CS II</a>

@@ -239,7 +239,9 @@ footer p {
 /* ------------------------------------------------------------------------- */
 /* Below is for article.php */
 hr {
-	border: 1px solid white;
+	border-top: 3px solid transparent; 
+	border-image: linear-gradient(to right, #EFAB00,#F8EB61,  #4994CB, #002664) !important; 
+	border-image-slice: 1 !important;
 	margin-top: -10px;
 }
 
@@ -249,50 +251,33 @@ hr {
 }
 
 .section { 
+	padding: 20px;
 	text-align: justify;
-	border-radius: 10px; 
-	border: 3px solid #4994CB; 
+	border-top: 1px solid #4994CB;
+	border-bottom: 1px solid #F8EB61;
 	font-size: 1rem;
-	color: white;
 } 
 
+/* Shortens vertical spacing */
 .section br {
 	display: block;
 	content: "";
 }
 
-
-/* Next three sections are from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption and have been modified */
-figure {
-	float: right;
-    display: flex;
-    flex-flow: column;
-    padding: 5px;
-    max-width: 225px;
-    margin: -5px 15px 0 15px;
-}
-
-figure img {
-	background-color: #fff;
-    max-width: 220px;
-    max-height: 150px;
-}
-
-figcaption {
-    background-color: #222;
-    color: #F8EB61;
-    font: italic smaller sans-serif;
-	margin-top: -50px;
-	margin-bottom: 50px;
-	margin-left: 8px;
-    padding: 4px;
-    text-align: center;
+.figOpts {
+	width: 100%; 
+	max-width: 300px; 
+	height: auto;
+	max-height: 300px;
+	background-color: rgba(232,232,232,1);
+	border: 2px solid #002664;
 }
 
 .Code_Ex {
 	counter-reset: counter;
-	font-size: 20px;
+	font-size: 1.1rem;
 	background-color: #000;
+	overflow: scroll;
 }
 
 pre {
@@ -350,7 +335,6 @@ code {
 	padding-left: 35px;
 	margin-bottom: 12px;
 	cursor: pointer;
-	font-size: 18px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -367,10 +351,10 @@ code {
 /* Create a custom radio button */
 .checkmark {
 	position: absolute;
-	top: 0;
-	left: 0;
-	height: 25px;
-	width: 25px;
+	top: 4px;
+	left: 10px;
+	height: 15px;
+	width: 15px;
 	background-color: #eee;
 	border-radius: 50%;
 }
@@ -382,7 +366,7 @@ code {
 
 /* When the radio button is checked, add a blue background */
 .qBox input:checked ~ .checkmark {
-	background-color: #2196F3;
+	background-color: #4994CB;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -403,6 +387,23 @@ code {
 	color: #26ed07;
 }
 
+#repform{
+	width: 100%;
+}
+
+#noVid {
+	font-size: 1.5rem;
+}
+
+.errorBelowNav {
+	font-size: 1.3rem;
+	margin-top: 61px;
+}
+
+.qSize {
+	font-size: 1.15rem;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Below is for signup.php, login.php*/
 #forms {
@@ -415,7 +416,7 @@ code {
 }
 
 #suMv {
-	margin-top: 7px;
+	margin-top: 8px;
 	margin-left: 20px;
 }
 
