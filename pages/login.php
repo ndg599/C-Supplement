@@ -11,12 +11,12 @@
 		case 0: // Bad password
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
-		default: // Match, user ID was returned
-			echo "<br>Login successful. Redirecting....<br>";
+		default: // Match, query row was returned
 			session_start();
 			$_SESSION["loggedin"] = true;
 			$_SESSION["username"] = $_POST["username"];
-			$_SESSION["userid"] = $attempt;
+			$_SESSION["userid"] = $attempt["ID"];
+			$_SESSION["usertype"] = $attempt["Type"];
 			header("Location: https://www.kentcpp.com"); // Redirect to main page
 			break;
 		}
