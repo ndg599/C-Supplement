@@ -3,10 +3,9 @@ const evtSource = new EventSource("receiveMsg.php");
 evtSource.onmessage = function(event)
 {
 	// Load received message in page
-	var newEl = document.createElement("p");
+	var newDiv = "<div align='right'>" + event.data + "</div>";
 	var msgList = document.getElementById("msgList");
-	newEl.innerHTML = event.data;
-	msgList.appendChild(newEl);
+	msgList.innerHTML += newDiv;
 }
 
 window.onload = init;
@@ -35,10 +34,9 @@ function sendMsg() {
 	request.onreadystatechange = function() { // Get full message from server
 		if (this.readyState == 4 && this.status == 200) {
 			// Load sent message in page
-			var newEl = document.createElement("p");
+			var newDiv = "<div align='left'>" + this.responseText + "</div>";
 			var msgList = document.getElementById("msgList");
-			newEl.innerHTML = this.responseText;
-			msgList.appendChild(newEl);
+			msgList.innerHTML += newDiv;
 		}
 	};
 	request.open("GET", "sendMsg.php?text=" + msg);
