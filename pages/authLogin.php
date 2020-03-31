@@ -15,17 +15,17 @@ function authLogin($Username, $Password)
 
 	// Query username
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "SELECT ID,Password FROM Login WHERE Username=?");
+	mysqli_stmt_prepare($stmt, "SELECT ID,Password,Type FROM Login WHERE Username=?");
 	mysqli_stmt_bind_param($stmt, "s", $Username);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 
 	// Should only have one match for unique username
 	if (mysqli_num_rows($result) == 1) {
-		$obj = mysqli_fetch_object($result);
-		$hash = $obj->Password;
+		$row = mysqli_fetch_assoc($result);
+		$hash = $row["Password"];
 		if (password_verify($Password, $hash)) {
-			return $obj->ID; // Match, return ID
+			return $row; // Match
 		}
 		return 0; // Bad password
 	}
