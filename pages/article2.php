@@ -1,7 +1,6 @@
 <?php 
 	require_once('../inc/header.inc.php'); 
     require_once('../inc/code.inc.php');
-	require_once('../inc/topicText.inc.php');
 	require_once("dbconnect.php");
 
 	/* Page must have an ID and be valid to execute page*/
@@ -9,7 +8,7 @@
 		/* Main topic information pull */
 		try {
 			if(!($sql_article = $conn->prepare("SELECT * FROM Article WHERE TopicID = ?;"))) {
-				echo '<p class="kentYellow errorBelowNav">Database prepare failure</p>';
+				echo '<p class="kentYellow errorBelowNav">Database prepare failure - General</p>';
 				mysqli_close($conn);
 				exit();
 			}
@@ -43,26 +42,26 @@
 		try {
 			global $conn;
 			
-			/* Main area may have multiple images */
+			/* Main area image setup */
 			if ($imgTable == "Images") {			
 				$stmt = "SELECT * FROM " . $imgTable . " WHERE TopicID = ?;";
 				if(!($sql_img = $conn->prepare($stmt))) {
-					echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
+					echo '<p class="kentYellow articleFontSize">Database prepare failure - Images</p>';
 					return;
 				}
 				$sql_img->bind_param("i", $_GET['ID']);
 			}
-			/* So far, each subtopic may have one image */
+			/* Subtopic area image setup */
 			else if ($imgTable == "Subimages") {				
 				$stmt = "SELECT * FROM " . $imgTable . " WHERE TopicID = ? AND SubNum = ?;";
 				if(!($sql_img = $conn->prepare($stmt))) {
-					echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
+					echo '<p class="kentYellow articleFontSize">Database prepare failure</p>';
 					return;
 				}				
 				$sql_img->bind_param("ii", $_GET['ID'], $subnum);
 			}
 			else {
-				echo '<p class="kentYellow" style="font-size: 1.3rem">Image retrieval failure</p>';
+				echo '<p class="kentYellow articleFontSize">Image retrieval failure</p>';
 				return;
 			}
 			
@@ -89,14 +88,11 @@
 
 	function displaySubtopics() 
 	{
-		/* Image pull */
 		try {
 			global $conn;
-			global $code;
-			global $raw;
 			global $topicText;
 			if(!($sql_sub = $conn->prepare("SELECT * FROM Subtopics WHERE TopicID = ? ORDER BY SubNum ASC;"))) {
-				echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
+				echo '<p class="kentYellow articleFontSize">Database prepare failure - Subtopics</p>';
 				return;
 			}
 			
@@ -113,35 +109,58 @@
 							<div class="row ml-5 mr-5">
 								<div class="col-12 section">';
 								
-				echo $topicText['Pointers'];
-				/*displayMainText(); */
+				echo $row_sub['Text'];
+								
 				displayImages("Subimages", $row_sub['SubNum']);
 				
-				if($row_sub['CodeID'] != NULL) {
-					echo	'<p class="kentBlue">Example Code:</p>
-						     <div class="row">
-								<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
-									. $code[$row_sub['CodeID']] .
-							   '</div>
-							    <div class="col-11 mt-1 mb-2">
-									<button class="btn btn-success" id="' . $row_sub['CodeID'] . '" 
-									        onclick="copyStringToClipboard(\'' . $raw[$row_sub['CodeID']] . '\', \'' . $row_sub['CodeID'] . '\')" 
-									        type="button">Copy Code</button>
-									<span>*iOS users, manually copy</span>
-								</div>
-							 </div>';
-				}
+				displayExCode($row_sub['SubNum']);
 				
 				/* Ending 3 divs from second echo of while loop */
 				echo	'</div>
 				         </div>
 						 </div>';
 			}
-				
 		}
 		catch(Exception $e) {
-			echo '<p class="kentYellow">Database failure for subtopic(s)</p>';
+			echo '<p class="kentYellow articleFontSize">Database failure for subtopic(s)</p>';
 		}
+	}
+	
+	function displayExCode($SubNum) 
+	{
+		try {
+			global $conn;
+			global $code;
+			global $raw;
+			if(!($sql_code = $conn->prepare("SELECT * FROM Subcode WHERE SubNum = ? ORDER BY SubCodeNum ASC;"))) {
+				echo '<p class="kentYellow articleFontSize">Database prepare failure - ExCode</p>';
+				return;
+			}
+			
+			$sql_code->bind_param("i", $SubNum);
+			$sql_code->execute();
+			$res_code = $sql_code->get_result();
+			
+			if ($res_code->num_rows > 0)
+				echo	'<p class="kentBlue text-center articleFontSize">Example Code:</p>';
+			while($row_code = $res_code->fetch_assoc()) {			
+				echo	'<div class="row mb-4">
+							<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
+								. $code[$row_code['SubCodeNum']] .
+						   '</div>
+							<div class="col-11 mt-1 mb-2">
+								<button class="btn btn-success" id="' . $row_code['SubCodeNum'] . '" 
+										onclick="copyStringToClipboard(\'' . $raw[$row_code['SubCodeNum']] . '\', \'' . $row_code['SubCodeNum'] . '\')" 
+										type="button">Copy Code</button>
+								<span>*iOS users, manually copy</span>
+							</div>
+						 </div>';
+			}	
+		}
+		catch(Exception $e) {
+			echo '<p class="kentYellow articleFontSize">Database failure for example code</p>';
+		}		
+		
 	}
 	
 	function displayQuiz() 
@@ -151,7 +170,7 @@
 			global $conn;
 			global $code;
 			if(!($sql_quiz = $conn->prepare("SELECT * FROM Questions WHERE TopicID = ?;"))) {
-				echo '<p class="kentYellow" style="font-size: 1.3rem">Database prepare failure</p>';
+				echo '<p class="kentYellow articleFontSize">Database prepare failure</p>';
 				return;
 			}
 			
@@ -191,12 +210,12 @@
 			}
 						
 			if ($i === 0) {
-				echo '<p class="kentYellow" style="font-size: 1.3rem">Database fetch failure or no present quiz questions</p>';
+				echo '<p class="kentYellow articleFontSize">Database fetch failure or no present quiz questions</p>';
 				return;
 			}
 		}
 		catch(Exception $e) {
-			echo '<p class="kentYellow">Database failure for quiz</p>';
+			echo '<p class="kentYellow articleFontSize">Database failure for quiz</p>';
 		}
 	}
 /*
@@ -232,8 +251,6 @@
 		echo '<p class="red">You must sign in to add a comment.</p>';}
 */
 
-
-
 ?>
 	<div class="content">
 			<!-- Main Section - Maybe just a summary? -->
@@ -245,8 +262,7 @@
 				<div class="row ml-5 mr-5">
 					<div class="col-12 section">
 						<?php 
-							echo $topicText['Pointers'];
-							/* displayMainText(); */
+							echo $row_article['Text'];
 							displayImages("Images"); 
 						?>				
 					</div>
@@ -298,92 +314,75 @@
 				<h3 class="text-white intro">Comments</h3>
 				<hr>
 			</div>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row mb-5">
 					<div class="col-md-8 col-12">
 						<form action="" method="post">
 							<div class="input-group">
-								<textarea type="text" rows="10" name="comment" value="comment" placeholder="Enter Comment..." class="form-control"></textarea>
+								<textarea type="text" rows="5" name="comment" value="comment" placeholder="Enter Comment..." class="form-control"></textarea>
 							</div>
-							<button type="submit" class="btn btn-primary mt-2">Submit</button>
+							<button type="submit" class="btn btnKent mt-2">Submit</button>
 						</form>
 					</div>
 				</div>
 				<div class="row mb-5">
-					<div class="col-12 section">
-						<!-- PHP Function would be good here, maybe -->
-					<?php   //REMOVE ABOVE DIV CLASS LINE!!
-					/*
-						require_once("dbconnent.php");
-						$sql2="Select * from Comments";
+					<?php   
+						$sql2="Select * from Comments WHERE TopicID = $_GET[ID]";
 						$results=mysqli_query($conn,$sql2);
-						if(!results){
+						if(!$results){
 							printf("Error: %s\n", mysqli_error($conn));
 							exit();
 						}
-						$resultarr=array();
+						/* Used anywhere in code? */
+						$resultarr=array(); 
+						
 						while($row=mysqli_fetch_array($results)){
-							$sql3="Select username from Login where ID= $row[ID]";
+							$sql3="Select username from Login where ID = $row[ID]";
 							$res=mysqli_query($conn,$sql3);
 							if (!$res) {
 								printf("Error: %s\n", mysqli_error($conn));
-								 exit();
+								exit();
 							}
 							$usern=mysqli_fetch_array($res);
-							echo '<div class="col-12 section">';
-							echo "<p>$usern</p>";
-							echo "<p>".$row['Text']."</p>";
-							echo '<button class="fas fa-reply"> Reply</button>';
-							echo "<span> | </span>";
-							echo '<button class="fas fa-check"> Good Comment</button></div>';
+							echo '<div class="col-12 section mt-5">';
+							echo 	"<p class='kentYellow'>$username" 
+							       ."<span class='kentBlue'> | ID: $row[ID] | "
+								   ."Post #: $row[EntryNum]</span>" 
+								   ."</p>";
+							echo 	"<p>$row[Text]</p>";
+							echo 	'<button class="btn btnKent fas fa-reply"> Reply</button>';
+							echo 	"<span class='green'> | $row[Time]</span>";
+							echo '</div>';
 							
 							//replies post here for each comment
 							$rEntNum=$row['EntryNum'];
 							$sql4= "Select * from Replies where EntryNum = $rEntNum";
-							$res1=mysqli_query($conn,$sql2);
+							$res1=mysqli_query($conn,$sql4);
 							if(!$res1){
 								printf("Error: %s\n", mysqli_error($conn));
 								exit();
 							}
 							while($row1=mysqli_fetch_array($res1)){
-								$sql4="Select username from Login where ID= $row[ID]";
-								$res1=mysqli_query($conn,$sql4);
-								if (!$res1) {
+								$sql4="Select username from Login where ID = $row1[ID]";
+								$res2=mysqli_query($conn,$sql4);
+								if (!$res2) {
 									printf("Error: %s\n", mysqli_error($conn));
 									exit();
 								}
-								$usern1=mysqli_fetch_array($res1);
-								echo '<div class="mt-3 col-11 section ml-auto">';
-								echo "<p>$usern1</p>";	
-								echo '<button class="fa fa-reply"> Reply</button>';
-								echo '<span> | </span>';
-								echo '<button class="fas fa-check"> Good Comment</button>';	
-							}
-									
+								$usern1=mysqli_fetch_array($res2);
+								echo '<div class="col-11 mt-3 section ml-auto">';
+								echo 	"<p class='kentBlue'>$usern1[username]" 
+									   ."<span class='kentYellow'> | ID: $row1[ID] | "
+									   ."Reply Post #: $row1[RepID]</span>" 
+									   ."</p>";
+								echo 	"<p>".$row1['Text']."</p>";
+								echo 	'<button class="btn btnKent fa fa-reply"> Reply</button>';
+								echo 	'<span> | </span>';
+								echo 	"<span class='green'> $row[Time] | Parent #: $row1[EntryNum]</span>";	
+								echo '</div>';
+							}		
 						}
-						
-
-						*/
-						?>
-						<p>User Comment</p>
-						<button onclick="openForm()" class="fa fa-reply" > Reply</button>
-						<span> | </span>
-						<i class="fas fa-check"> Good Comment</i>
-					</div>
-					
-					<div class="mt-3 col-11 section ml-auto">
-						<p>Reply Comment (By another user/tutor/admin)</p>
-						<i class="fa fa-reply"> Reply</i>
-						<span> | </span>
-						<i class="fas fa-check"> Good Comment</i>					
-					</div>
-			        <div class="mt-3 col-12 section">
-						<!-- PHP Function would be good here, maybe -->
-						<p>User Comment</p>
-						<i class="fa fa-reply"> Reply</i>
-						<span> | </span>
-						<i class="fas fa-check"> Good Comment</i>
-					</div>
+					?>
 				</div>
 			</div>
 	</div>

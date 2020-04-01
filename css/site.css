@@ -134,7 +134,7 @@ i {
 	}
 	
 	.padLogin {
-		padding: 6.5px;
+		padding: 6.1px;
 	}
 }
 
@@ -271,6 +271,10 @@ hr {
 	max-height: 300px;
 	background-color: rgba(232,232,232,1);
 	border: 2px solid #002664;
+}
+
+.articleFontSize {
+	font-size: 1.3rem;
 }
 
 .Code_Ex {
