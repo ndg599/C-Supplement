@@ -218,39 +218,133 @@
 			echo '<p class="kentYellow articleFontSize">Database failure for quiz</p>';
 		}
 	}
-/*
-//code to post a new comment
-//Still currently incomplete
-//Will complete once article database is setup
-	
-	
-	if(isset($_POST['comment'])) {
-	if($_SESSION["loggedin"]==true){
-		$_comment=$_POST['comment'];
-		//$_articleNum=  THE ARTICLE NUMBER WILL GO HERE!!!!!! - $_GET['ID']
-		$_date=date('Y-m-d H:i:s');
-		$sql1="Select MAX(EntryNum) from comments";
-		$maxEN=mysqli_query($conn,$sql1);
-		if (!$maxEN){
-			printf("Error: %s\n", mysqli_error($conn));
-			exit();
-		}
-		$max=mysqli_fetch_array($maxEN);
-		$sql=$conn->prepare("INSERT INTO comments". "(Text,ID,Time,EntryNum,TopicID)"."VALUES".
-		"(?,?,?,?,?)");
-		$sql->bind_param("s,i,i,i,i"),$_comment,$_SESSION['UserID'],$_date,$max+1,$_articleNum);
-		$result=$sql->execute();
-		if(false===$result){
-			printf("error:%s\n",mysqli_error($conn));
-		}
-		if(!$result){
-			die('Your cannot post your comment. Please try again later.');
-		}	
-		mysqli_close($conn);
-	}else{
-		echo '<p class="red">You must sign in to add a comment.</p>';}
-*/
 
+	function displayComments() {
+		global $conn;
+		try {
+			if(!($sql_OC = 
+			        $conn->prepare("SELECT * FROM Comments 
+								    WHERE TopicID = ? AND ISNULL(ParentEntryNum)
+									ORDER BY EntryNum;"))) {
+				echo '<p class="kentYellow articleFontSize">Database prepare failure</p>';
+				return;
+			}
+			
+			$sql_OC->bind_param("i", $_GET['ID']);
+			$sql_OC->execute();
+			$res_OC = $sql_OC->get_result();
+				
+			while($row_OC = $res_OC->fetch_assoc()) {
+				$sql_oUsr="SELECT username FROM Login WHERE ID = $row_OC[ID]";
+				$res_oUsr=mysqli_query($conn,$sql_oUsr);
+				if (!$res_oUsr) {
+					printf("Error: %s\n", mysqli_error($conn));
+					exit();
+				}
+				$oUsr = mysqli_fetch_array($res_oUsr);
+				echo 	"<div class='col-12 section mt-5 noWrap'>
+							<p class='kentYellow'>$oUsr[username]</p>
+							<p>$row_OC[Text]</p>
+							<form action='localhost/C-Supplement/pages/article2.php?ID=2' method='POST'>
+								<input type='hidden' name='parentNum' value='NULL'>
+								<button class='btn btnKent fas fa-reply'> Reply</button>
+								<span style='color: Thistle'> $row_OC[Time] | Post #$row_OC[EntryNum]</span>
+							</form>
+				         </div>";
+				
+				replyCheck($row_OC);
+			}
+		}
+		catch(Exception $e) {
+			echo '<p class="kentYellow articleFontSize">Database failure for comments</p>';
+		}
+	}
+	
+	function replyCheck($record)
+	{	
+		global $conn;
+		try {
+			$sql_repl = "SELECT * from Comments
+						 WHERE TopicID = $record[TopicID] AND ParentEntryNum = $record[EntryNum]
+						 ORDER BY ParentEntryNum, EntryNum;";
+				 
+			$res_repl = mysqli_query($conn,$sql_repl);
+			
+			if(!$res_repl){
+				printf("Error: %s\n", mysqli_error($conn));
+				exit();
+			}
+			
+			if (mysqli_num_rows($res_repl) > 0)
+				displayReplies($res_repl);	
+		}
+		catch(Exception $e) {
+			echo '<p class="kentYellow articleFontSize">Database failure for potential replies</p>';
+		}		
+	}
+	
+	function displayReplies($children) 
+	{
+		global $conn;
+		try {
+			while($row_repl = mysqli_fetch_array($children)){
+				$sql_usr = "SELECT username FROM Login WHERE ID = $row_repl[ID]";
+				$sq1_pUsr = "SELECT username 
+							 FROM Comments JOIN Login 
+							 WHERE EntryNum = $row_repl[ParentEntryNum] 
+							   AND Login.ID = Comments.ID;";
+				$res_usr = mysqli_query($conn,$sql_usr);
+				$res_pUsr = mysqli_query($conn,$sq1_pUsr);
+				if (!$res_usr || !$res_pUsr) {
+					printf("Error: %s\n", mysqli_error($conn));
+					exit();
+				}
+				$user = mysqli_fetch_array($res_usr);
+				$pUser = mysqli_fetch_array($res_pUsr);
+				echo '<div class="col-11 mt-3 section ml-auto noWrap">';
+				echo 	"<p class='kentBlue'>$user[username]" 
+					   ."<span class='kentYellow'> | @$pUser[username] "
+					   ."post #$row_repl[ParentEntryNum]</span>" 
+					   ."</p>";
+				echo 	"<p>$row_repl[Text]</p>";
+				echo 	'<button class="btn btnKent fa fa-reply"> Reply</button>';
+				echo 	"<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>";	
+				echo '</div>';
+				
+				replyCheck($row_repl);
+			}	
+		}
+		catch(Exception $e) {
+			echo '<p class="kentYellow articleFontSize">Database failure for replies</p>';
+		}			
+	}
+
+	if(isset($_POST['comment'])) {
+		if($_SESSION["loggedin"]==true){
+			try {
+				$_comment=$_POST['comment'];
+				$_GET['ID'];
+				$_date=date('Y-m-d H:i:s');
+				$NUMDELETE = 460048219;
+				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
+				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
+				"(?,?,?,?,?)");
+				$sql->bind_param("sisii",$_comment,$NUMDELETE,$_date,$_GET['ID'],$pNum);
+				$result=$sql->execute();
+				if(false==$result){
+					printf("error:%s\n",mysqli_error($conn));
+				}
+				if(!$result){
+					die('You cannot post your comment. Please try again later.');
+				}	
+				mysqli_close($conn);
+			}
+			catch(Exception $e) {
+				echo '<p class="kentYellow articleFontSize">Database failure for replies</p>';
+			}	
+		}else
+			echo '<p class="red">You must sign in to add a comment.</p>';
+	}
 ?>
 	<div class="content">
 			<!-- Main Section - Maybe just a summary? -->
@@ -317,72 +411,17 @@
 			<div class="container-fluid">
 				<div class="row mb-5">
 					<div class="col-md-8 col-12">
-						<form action="" method="post">
+						<form action="" method="POST">
 							<div class="input-group">
 								<textarea type="text" rows="5" name="comment" value="comment" placeholder="Enter Comment..." class="form-control"></textarea>
 							</div>
+							<input type="hidden" name="parentNum" value="">
 							<button type="submit" class="btn btnKent mt-2">Submit</button>
 						</form>
 					</div>
 				</div>
 				<div class="row mb-5">
-					<?php   
-						$sql2="Select * from Comments WHERE TopicID = $_GET[ID]";
-						$results=mysqli_query($conn,$sql2);
-						if(!$results){
-							printf("Error: %s\n", mysqli_error($conn));
-							exit();
-						}
-						/* Used anywhere in code? */
-						$resultarr=array(); 
-						
-						while($row=mysqli_fetch_array($results)){
-							$sql3="Select username from Login where ID = $row[ID]";
-							$res=mysqli_query($conn,$sql3);
-							if (!$res) {
-								printf("Error: %s\n", mysqli_error($conn));
-								exit();
-							}
-							$usern=mysqli_fetch_array($res);
-							echo '<div class="col-12 section mt-5">';
-							echo 	"<p class='kentYellow'>$username" 
-							       ."<span class='kentBlue'> | ID: $row[ID] | "
-								   ."Post #: $row[EntryNum]</span>" 
-								   ."</p>";
-							echo 	"<p>$row[Text]</p>";
-							echo 	'<button class="btn btnKent fas fa-reply"> Reply</button>';
-							echo 	"<span class='green'> | $row[Time]</span>";
-							echo '</div>';
-							
-							//replies post here for each comment
-							$rEntNum=$row['EntryNum'];
-							$sql4= "Select * from Replies where EntryNum = $rEntNum";
-							$res1=mysqli_query($conn,$sql4);
-							if(!$res1){
-								printf("Error: %s\n", mysqli_error($conn));
-								exit();
-							}
-							while($row1=mysqli_fetch_array($res1)){
-								$sql4="Select username from Login where ID = $row1[ID]";
-								$res2=mysqli_query($conn,$sql4);
-								if (!$res2) {
-									printf("Error: %s\n", mysqli_error($conn));
-									exit();
-								}
-								$usern1=mysqli_fetch_array($res2);
-								echo '<div class="col-11 mt-3 section ml-auto">';
-								echo 	"<p class='kentBlue'>$usern1[username]" 
-									   ."<span class='kentYellow'> | ID: $row1[ID] | "
-									   ."Reply Post #: $row1[RepID]</span>" 
-									   ."</p>";
-								echo 	"<p>".$row1['Text']."</p>";
-								echo 	'<button class="btn btnKent fa fa-reply"> Reply</button>';
-								echo 	'<span> | </span>';
-								echo 	"<span class='green'> $row[Time] | Parent #: $row1[EntryNum]</span>";	
-								echo '</div>';
-							}		
-						}
-					?>
+					<?php displayComments(); ?>
 				</div>
 			</div>
 	</div>

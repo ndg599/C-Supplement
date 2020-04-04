@@ -264,6 +264,10 @@ hr {
 	content: "";
 }
 
+.noWrap span, .noWrap p:first-child{
+	white-space: nowrap;
+}
+
 .figOpts {
 	width: 100%; 
 	max-width: 300px; 
@@ -281,7 +285,7 @@ hr {
 	counter-reset: counter;
 	font-size: 1.1rem;
 	background-color: #000;
-	overflow: scroll;
+	overflow: auto;
 }
 
 pre {
