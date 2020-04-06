@@ -5,6 +5,9 @@
 
 
 <?php
+error_reporting(-1);
+ini_set("display_errors","0");
+ini_set("log_errors",0);
 require_once('../inc/header.inc.php'); 
 require_once("dbconnect.php");
 $search="";
