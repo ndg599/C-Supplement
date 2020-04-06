@@ -6,8 +6,8 @@
 
 <?php
 //require_once('../inc/header.inc.php'); 
-//require_once("dbconnect.php");
-/*$search="";
+require_once("dbconnect.php");
+$search="";
 echo "<div class='container d-flex h-100'>";
 echo '<div class="row justify-content-center align-self-center mx-auto">';
 
@@ -47,10 +47,10 @@ mysqli_close($conn);
 
 }
 echo "</div></div>";
-require_once('../inc/footer.inc.php'); 
+//require_once('../inc/footer.inc.php'); 
 
 
-*/?>
+?>
 
 
 
