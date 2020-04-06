@@ -1,8 +1,9 @@
-<?php 
+<?php
+/* Start of things to be done before page is loaded */ 
 	require_once('../inc/header.inc.php'); 
     require_once('../inc/code.inc.php');
 	require_once("dbconnect.php");
-
+	
 	/* Page must have an ID and be valid to execute page*/
 	if (isset($_GET['ID'])) {
 		/* Main topic information pull */
@@ -36,6 +37,31 @@
 		exit();
 	}
 
+	if(isset($_POST['comment'])) {
+		if($_SESSION["loggedin"]==true){
+			try {
+				$_comment=$_POST['comment'];
+				$_date=date('Y-m-d H:i:s');
+				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
+				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
+				"(?,?,?,?,?)");
+				$sql->bind_param("sisii",$_comment,$_SESSION['userid'],$_date,$_GET['ID'],$pNum);
+				$result=$sql->execute();
+				if(false==$result){
+					printf("error:%s\n",mysqli_error($conn));
+				}
+				if(!$result){
+					die('You cannot post your comment. Please try again later.');
+				}	
+			}
+			catch(Exception $e) {
+				echo '<p class="kentYellow articleFontSize">Database failure for replies</p>';
+			}	
+		}else
+			echo '<p class="red">You must sign in to add a comment.</p>';
+	}
+
+/* Start of functions to load page */
 	function displayImages($imgTable, $subnum = NULL) 
 	{
 		/* Image pull */
@@ -245,8 +271,8 @@
 				echo 	"<div class='col-12 section mt-5 noWrap'>
 							<p class='kentYellow'>$oUsr[username]</p>
 							<p>$row_OC[Text]</p>
-							<form action='localhost/C-Supplement/pages/article2.php?ID=2' method='POST'>
-								<input type='hidden' name='parentNum' value='NULL'>
+							<form action='' method='POST'>
+								<input type='hidden' name='parentNum' value='$row_OC[EntryNum]'>
 								<button class='btn btnKent fas fa-reply'> Reply</button>
 								<span style='color: Thistle'> $row_OC[Time] | Post #$row_OC[EntryNum]</span>
 							</form>
@@ -307,7 +333,11 @@
 					   ."post #$row_repl[ParentEntryNum]</span>" 
 					   ."</p>";
 				echo 	"<p>$row_repl[Text]</p>";
-				echo 	'<button class="btn btnKent fa fa-reply"> Reply</button>';
+				echo	"<form action='' method='POST'>
+								<input type='hidden' name='parentNum' value='$row_repl[EntryNum]'>
+								<button class='btn btnKent fas fa-reply'> Reply</button>
+								<span style='color: Thistle'> $row_OC[Time] | Post #$row_OC[EntryNum]</span>
+						 </form>";
 				echo 	"<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>";	
 				echo '</div>';
 				
@@ -317,33 +347,6 @@
 		catch(Exception $e) {
 			echo '<p class="kentYellow articleFontSize">Database failure for replies</p>';
 		}			
-	}
-
-	if(isset($_POST['comment'])) {
-		if($_SESSION["loggedin"]==true){
-			try {
-				$_comment=$_POST['comment'];
-				$_GET['ID'];
-				$_date=date('Y-m-d H:i:s');
-				$NUMDELETE = 460048219;
-				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
-				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
-				"(?,?,?,?,?)");
-				$sql->bind_param("sisii",$_comment,$NUMDELETE,$_date,$_GET['ID'],$pNum);
-				$result=$sql->execute();
-				if(false==$result){
-					printf("error:%s\n",mysqli_error($conn));
-				}
-				if(!$result){
-					die('You cannot post your comment. Please try again later.');
-				}	
-				mysqli_close($conn);
-			}
-			catch(Exception $e) {
-				echo '<p class="kentYellow articleFontSize">Database failure for replies</p>';
-			}	
-		}else
-			echo '<p class="red">You must sign in to add a comment.</p>';
 	}
 ?>
 	<div class="content">
@@ -393,7 +396,7 @@
 				<h3 class="intro kentBlue">Quiz</h3>
 				<hr>
 			</div>
-			<div class="container">
+			<div class="container-fluid ml-5">
 				<div class="row">
 					<div class="col-12">
 						<form name="FORM" action="../quizProcess.???" method="post"> 
@@ -409,7 +412,7 @@
 				<hr>
 			</div>
 			<div class="container-fluid">
-				<div class="row mb-5">
+				<div class="row mb-5 ml-5">
 					<div class="col-md-8 col-12">
 						<form action="" method="POST">
 							<div class="input-group">
