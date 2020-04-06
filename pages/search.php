@@ -16,7 +16,7 @@ if(isset($_GET['search'])){
 		
 $s="%{$_GET['search']}%";
 
-$sql=$conn->prepare("Select * from article Join subtopics where article.TopicName LIKE ? OR article.Text LIKE ? OR subtopics.SubName LIKE ? OR Subtopics.Text LIKE ?");
+$sql=$conn->prepare("Select * from Article Join Subtopics where Article.TopicName LIKE ? OR Article.Text LIKE ? OR Subtopics.SubName LIKE ? OR Subtopics.Text LIKE ?");
 $sql->bind_param("ssss",$s,$s,$s,$s);
 $sql->execute();
 $results=$sql->get_result();
