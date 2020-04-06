@@ -334,11 +334,10 @@
 					   ."</p>";
 				echo 	"<p>$row_repl[Text]</p>";
 				echo	"<form action='' method='POST'>
-								<input type='hidden' name='parentNum' value='$row_repl[EntryNum]'>
+								<input type='hidden' name='parentNum' value='$row_repl[ParentEntryNum]'>
 								<button class='btn btnKent fas fa-reply'> Reply</button>
-								<span style='color: Thistle'> $row_OC[Time] | Post #$row_OC[EntryNum]</span>
+								<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>
 						 </form>";
-				echo 	"<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>";	
 				echo '</div>';
 				
 				replyCheck($row_repl);
@@ -396,7 +395,7 @@
 				<h3 class="intro kentBlue">Quiz</h3>
 				<hr>
 			</div>
-			<div class="container-fluid ml-5">
+			<div class="container ml-5">
 				<div class="row">
 					<div class="col-12">
 						<form name="FORM" action="../quizProcess.???" method="post"> 
