@@ -3,6 +3,9 @@
 		$dir = "./";
 	else
 		$dir = "../";
+
+	
+	
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +52,9 @@
 				</li>  	  
 			<?php endif; ?>
 			</ul>
-			<form class="form-inline  ml-auto mr-2">
-				<input class="form-control" id="search" type="search" placeholder="Search" aria-label="Search">
+			<form action="search.php" class="form-inline  ml-auto mr-2" method="GET" >
+				<label for="search"></label>
+				<input class="form-control" name="search" id="search" type="search"  placeholder="Search" aria-label="Search">
 				<button class="btn btn-primary my-sm-0 btnKent" type="submit"><i class="fas fa-search"></i></button>
 			</form>
 		<?php if (isset($_SESSION["loggedin"])): ?>
