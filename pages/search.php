@@ -6,14 +6,14 @@
 
 <?php
 
-error_reporting(-1);
-ini_set("display_errors","0");
-ini_set("log_errors",0);
-require_once('../inc/header.inc.php'); 
-require_once("dbconnect.php");
-$search="";
-echo "<div class='container d-flex h-100'>";
-echo '<div class="row justify-content-center align-self-center mx-auto">';
+//error_reporting(-1);
+//ini_set("display_errors","0");
+//ini_set("log_errors",0);
+//require_once('../inc/header.inc.php'); 
+//require_once("dbconnect.php");
+//$search="";
+//echo "<div class='container d-flex h-100'>";
+//echo '<div class="row justify-content-center align-self-center mx-auto">';
 
 /*
 if(isset($_GET['search'])){
