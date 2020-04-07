@@ -15,17 +15,22 @@ function init()
 {
 	var sendButton = document.getElementById("send");
 	sendButton.onclick = sendMsg;
-
-	/* This will click the submit button when the user hits enter, credit to kdenney from stackoverflow:
-	https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box */
+/*
+	// This will click the submit button when the user hits enter, credit to kdenney from stackoverflow:
+	// https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
 	document.getElementById("msgBox")
 		.addEventListener("keyup", function(event) {
 		event.preventDefault();
 		if (event.keyCode === 13) {
-			document.getElementById("send").click();
+			if (event.shiftKey) {
+				document.getElementById("br").innerHTML = " ";
+			}
+			else {
+				document.getElementById("send").click();
+			}
 		}
 	});
-
+*/
 	window.scrollTo(0,document.body.scrollHeight); // Scroll to end of page (so user is at most recent message)
 }
 
