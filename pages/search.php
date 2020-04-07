@@ -1,1 +1,6 @@
-<p>head</p>
+<p>head2</p>
+
+<?-- Prototype for search page-->
+
+
+<!DOCTYPE html>
