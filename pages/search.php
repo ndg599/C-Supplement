@@ -3,4 +3,4 @@
 <?-- Prototype for search page-->
 
 
-<!DOCTYPE html>
+
