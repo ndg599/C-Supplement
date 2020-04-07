@@ -15,7 +15,7 @@ $search="";
 echo "<div class='container d-flex h-100'>";
 echo '<div class="row justify-content-center align-self-center mx-auto">';
 
-
+/*
 if(isset($_GET['search'])){
 		
 $s="%{$_GET['search']}%";
@@ -51,6 +51,11 @@ mysqli_close($conn);
 
 }else{header("Location: https://www.kentcpp.com");}
 echo "</div></div>";
+
+
+
+
+*/
 require_once('../inc/footer.inc.php'); 
 
 
