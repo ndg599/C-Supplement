@@ -5,6 +5,7 @@
 
 
 <?php
+
 error_reporting(-1);
 ini_set("display_errors","0");
 ini_set("log_errors",0);
@@ -48,7 +49,7 @@ if($received==0){
 }
 mysqli_close($conn);
 
-}
+}else{header("Location: https://www.kentcpp.com");}
 echo "</div></div>";
 //require_once('../inc/footer.inc.php'); 
 
