@@ -89,7 +89,7 @@ if(isset($_POST['reply'])){
 				$pNum = $_POST['position'];
 				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
 				"(?,?,?,?,?)");
-				$sql->bind_param("sisii",$_comment,$NUMDELETE,$_date,$_GET['ID'],$pNum);
+				$sql->bind_param("sisii",$_comment,$_SESSION['userid'],$_date,$_GET['ID'],$pNum);
 				$result=$sql->execute();
 				if(false==$result){
 					printf("error:%s\n",mysqli_error($conn));
