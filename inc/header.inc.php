@@ -52,7 +52,7 @@
 				</li>  	  
 			<?php endif; ?>
 			</ul>
-			<form action="search.php" class="form-inline  ml-auto mr-2" method="GET" >
+			<form action="/pages/search.php" class="form-inline  ml-auto mr-2" method="GET" >
 				<label for="search"></label>
 				<input class="form-control" name="search" id="search" type="search"  placeholder="Search" aria-label="Search">
 				<button class="btn btn-primary my-sm-0 btnKent" type="submit"><i class="fas fa-search"></i></button>
