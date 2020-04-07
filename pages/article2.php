@@ -316,14 +316,23 @@ if(isset($_POST['reply'])){
 				echo 	"<div class='col-12 section mt-5 noWrap'>
 							<p class='kentYellow'>$oUsr[username]</p>
 							<p>$row_OC[Text]</p>
-							<form action='' method='POST'>
-								<input type='hidden' name='parentNum' value='$row_OC[EntryNum]'>
-								<button class='btn btnKent fas fa-reply'> Reply</button>
+							<form method='POST' action=''>
+								<input type='hidden' name='parentNum' value='NULL'>
+								<button onclick= 'displaybox(".$GLOBALS['counter'].")' type='button' class='btn btnKent fa fa-reply'> Reply</button>
 								<span style='color: Thistle'> $row_OC[Time] | Post #$row_OC[EntryNum]</span>
 							</form>
 				         </div>";
+					
+					echo    '<div style="text-indent:55px" id="messtxt" class="display:none">';
+				echo    '<p>Input your reply</p>';
+				echo    '<form method=post action="">';
+				echo    '<textarea placeholder="Your reply" name="reply" style="padding-left:5px;height:100px; width:500px"  type="text"  id="reply"></textarea><br>';
 				
-				replyCheck($row_OC);
+				echo    '<input type="hidden" name="position" value='.$row_OC["EntryNum"].'> ';
+				echo	'<button style="float: right" class="btn btnKent fa " type=submit name=submit id=reply>Post</button></form></div>';
+
+					$GLOBALS['counter']++;
+					replyCheck($row_OC);
 			}
 		}
 		catch(Exception $e) {
