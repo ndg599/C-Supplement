@@ -1,3 +1,21 @@
+<script type='text/javascript'>
+        
+	window.onload = function() {
+  		var allelements=document.querySelectorAll('[id="messtxt"]')
+		for(i=0;i<allelements.length;i++){
+		allelements[i].style.display = 'none';
+		}
+	};
+	
+        
+	function displaybox(id){
+		var allelements=document.querySelectorAll('[id="messtxt"]')
+		allelements[id].style.display = 'block';
+		
+	};
+</script>
+
+
 <?php
 /* Start of things to be done before page is loaded */ 
 	require_once('../inc/header.inc.php'); 
