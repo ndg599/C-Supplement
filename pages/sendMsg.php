@@ -12,7 +12,7 @@ $stmt = mysqli_stmt_init($conn);
 mysqli_stmt_prepare($stmt, "INSERT INTO IM (SenderID, ReceiverID, IMText) VALUES (?,?,?)");
 mysqli_stmt_bind_param($stmt, "iis", $_SESSION["userid"], $_SESSION["partnerid"], $_GET["text"]);
 mysqli_stmt_execute($stmt);
-sleep(0.2);
+sleep(0.1);
 // Find sent message
 //$stmt = mysqli_stmt_init($conn);
 mysqli_stmt_prepare($stmt, "SELECT MAX(IMNum) FROM IM WHERE SenderID=?");
@@ -34,10 +34,4 @@ if ($text != $row["IMText"]) {
 }
 echo "<div class='sentMsgHead'>" . $_SESSION["username"] . " | " . $row["Time"] 
 	. "</div><div class='sentMsgText'>" . $text . "</div>";
-/*
-$fileName = $_SESSION["userid"] . ':' . $_GET["partnerid"];
-$file = fopen($fileName);
-$fwrite($file, $_GET["text"] . '\n', 'a');
-$fclose($file);
- */
 ?>

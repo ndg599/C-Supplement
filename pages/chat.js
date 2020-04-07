@@ -31,7 +31,7 @@ function init()
 
 function sendMsg() {
 	// Send message to server via AJAX request
-	var msg = document.getElementById("msgBox").value; // Get message
+	var msg = encodeURIComponent(document.getElementById("msgBox").value); // Get and encode message
 	document.getElementById("msgBox").value = ""; // Clear message box
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function() { // Get full message from server
