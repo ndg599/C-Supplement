@@ -452,4 +452,26 @@ form input.btnKent {
 
 #chatLink:hover {
 	color: #F8EB61;
-}	
+}
+
+.chatMsg {
+	margin: 10px 0px;
+	background-color: #333333;
+	padding: 2px;
+}
+
+.sentMsgHead {
+	color: LightBlue;
+}
+
+.rcvdMsgHead {
+	color: DodgerBlue;
+}
+
+.sentMsgText {
+	color: LightGrey;
+}
+
+.rcvdMsgText {
+	color: White;
+}

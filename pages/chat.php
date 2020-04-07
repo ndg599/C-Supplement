@@ -36,17 +36,19 @@ require_once('../inc/header.inc.php');
 		<?php
 		while($row = mysqli_fetch_assoc($result)) {
 			if ($row["SenderID"] == $_SESSION["userid"]) {
-				echo "<div align='left'>" . $_SESSION["username"] . "<br>" . $row["IMText"] . "</div>";
+				echo "<div class='chatMsg'><div class='sentMsgHead'>" . $_SESSION["username"] . " | "
+				. $row["Time"] . "</div><div class='sentMsgText'>" . $row["IMText"] . "</div></div>";
 			}
 			else {
-				echo "<div align='right'>" . $_SESSION["partnername"] . "<br>" . $row["IMText"] . "</div>";
+				echo "<div class='chatMsg'><div class='rcvdMsgHead'>" . $_SESSION["partnername"] . " | "
+				. $row["Time"] . "</div><div class='rcvdMsgText'>" . $row["IMText"] . "</div></div>";
 			}
 			$_SESSION["lastmsg"] = $row["IMNum"];
 		}
 		?>
 	</div>
 	<div class="col-12" align="center" id="msgInput">
-		<textarea id="msgBox" cols="70" rows="2"></textarea>
+		<textarea id="msgBox" cols="80" rows="1"></textarea>
 		<input type="button" id="send" value="Send">
 	</div>
   </div>
