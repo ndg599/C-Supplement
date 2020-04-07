@@ -365,9 +365,11 @@ if(isset($_POST['reply'])){
 	
 	function displayReplies($children) 
 	{
+		$id=0;
 		global $conn;
 		try {
 			while($row_repl = mysqli_fetch_array($children)){
+				
 				$sql_usr = "SELECT username FROM Login WHERE ID = $row_repl[ID]";
 				$sq1_pUsr = "SELECT username 
 							 FROM Comments JOIN Login 
@@ -387,14 +389,18 @@ if(isset($_POST['reply'])){
 					   ."post #$row_repl[ParentEntryNum]</span>" 
 					   ."</p>";
 				echo 	"<p>$row_repl[Text]</p>";
-				echo	"<form action='' method='POST'>
-								<input type='hidden' name='parentNum' value='$row_repl[ParentEntryNum]'>
-								<button class='btn btnKent fas fa-reply'> Reply</button>
-								<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>
-						 </form>";
-				echo '</div>';
-				
+				echo 	'<button onclick= "displaybox('.$GLOBALS["counter"].')" class="btn btnKent fa fa-reply"> Reply</button>';
+				echo 	"<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>";	
+				echo    '</div>';
+				echo    '<div style="text-indent:55px" id="messtxt" class="display:none">';
+				echo    '<p>Input your reply</p>';
+				echo    '<form method=post action="">';
+				echo    '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea placeholder="Your reply" name="reply" style="padding-left:5px;height:100px; width:500px"  type="text"  id="reply"></textarea><br>';
+				echo    '<input type="hidden" name="position" value='.$row_repl["EntryNum"].'> ';
+				echo	'<button style="float: right" type=submit class='btn btnKent fa fa-reply' name=submit id=reply>Post</button></form></div>';
+				$GLOBALS['counter']++;
 				replyCheck($row_repl);
+				
 			}	
 		}
 		catch(Exception $e) {
