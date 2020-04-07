@@ -10,7 +10,7 @@ if (!$conn) {
 session_start();
 $stmt = mysqli_stmt_init($conn);
 $text = htmlspecialchars($_GET["text"]);
-$text = nl2br($_GET["text"]); // Convert new lines to HTML breaks
+$text = nl2br($text); // Convert new lines to HTML breaks
 mysqli_stmt_prepare($stmt, "INSERT INTO IM (SenderID, ReceiverID, IMText) VALUES (?,?,?)");
 mysqli_stmt_bind_param($stmt, "iis", $_SESSION["userid"], $_SESSION["partnerid"], $text);
 mysqli_stmt_execute($stmt);
