@@ -397,7 +397,7 @@ if(isset($_POST['reply'])){
 				echo    '<form method=post action="">';
 				echo    '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea placeholder="Your reply" name="reply" style="padding-left:5px;height:100px; width:500px"  type="text"  id="reply"></textarea><br>';
 				echo    '<input type="hidden" name="position" value='.$row_repl["EntryNum"].'> ';
-				echo	'<button style="float: right" type=submit class='btn btnKent fa fa-reply' name=submit id=reply>Post</button></form></div>';
+				echo	'<button style="float: right" type="submit" class="btn btnKent fa fa-reply" name="submit" id="reply">Post</button></form></div>';
 				$GLOBALS['counter']++;
 				replyCheck($row_repl);
 				
