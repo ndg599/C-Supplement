@@ -24,12 +24,13 @@ if ($lastMsgNum <= $_SESSION["lastmsg"]) {
 
 // Query last message
 $stmt = mysqli_stmt_init($conn);
-mysqli_stmt_prepare($stmt, "SELECT IMText FROM IM WHERE ReceiverID=? && SenderID=? && IMNum=?");
+mysqli_stmt_prepare($stmt, "SELECT IMText,Time FROM IM WHERE ReceiverID=? && SenderID=? && IMNum=?");
 mysqli_stmt_bind_param($stmt, "iii", $_SESSION["userid"], $_SESSION["partnerid"], $lastMsgNum);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $row = mysqli_fetch_assoc($result);
-$data = $_SESSION["partnername"] . "<br>" . $row["IMText"];	
+$data = "<div class='rcvdMsgHead'>" . $_SESSION["partnername"] . " | " . $row["Time"] 
+	. "</div><div class='rcvdMsgText'>" . $row["IMText"];	
 $_SESSION["lastmsg"] = $lastMsgNum; // Disparity between last message in session and database so update it
 
 // Send event data (if any)
@@ -37,7 +38,9 @@ finish:
 header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 echo "retry: 500\n";
-echo "data: {$data}\n\n";
+if (isset($data)) {
+	echo "data: {$data}\n\n";
+}
 ob_end_flush();
 flush();
 sleep(0.5);

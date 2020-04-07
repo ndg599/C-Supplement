@@ -3,9 +3,10 @@ const evtSource = new EventSource("receiveMsg.php");
 evtSource.onmessage = function(event)
 {
 	// Load received message in page
-	var newDiv = "<div align='right'>" + event.data + "</div>";
+	var newDiv = "<div class='chatMsg'>" + event.data + "</div>";
 	var msgList = document.getElementById("msgList");
 	msgList.innerHTML += newDiv;
+	window.scrollTo(0,document.body.scrollHeight); // Scroll to end of page
 }
 
 window.onload = init;
@@ -24,6 +25,8 @@ function init()
 			document.getElementById("send").click();
 		}
 	});
+
+	window.scrollTo(0,document.body.scrollHeight); // Scroll to end of page (so user is at most recent message)
 }
 
 function sendMsg() {
@@ -34,9 +37,10 @@ function sendMsg() {
 	request.onreadystatechange = function() { // Get full message from server
 		if (this.readyState == 4 && this.status == 200) {
 			// Load sent message in page
-			var newDiv = "<div align='left'>" + this.responseText + "</div>";
+			var newDiv = "<div class='chatMsg'>" + this.responseText + "</div>";
 			var msgList = document.getElementById("msgList");
 			msgList.innerHTML += newDiv;
+			window.scrollTo(0,document.body.scrollHeight); // Scroll to end of page
 		}
 	};
 	request.open("GET", "sendMsg.php?text=" + msg);
