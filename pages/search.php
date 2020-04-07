@@ -1,11 +1,11 @@
 
 <?-- Prototype for search page-->
 
-<!DOCTYPE html>
+
 
 
 <?php
-/*
+/*<!DOCTYPE html>
 error_reporting(-1);
 ini_set("display_errors","0");
 ini_set("log_errors",0);
@@ -52,7 +52,8 @@ mysqli_close($conn);
 }else{header("Location: https://www.kentcpp.com");}
 echo "</div></div>";
 //require_once('../inc/footer.inc.php'); 
-
+</body>
+</html>
 */
 ?>
 
