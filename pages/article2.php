@@ -17,6 +17,7 @@
 
 
 <?php
+$counter=0;
 /* Start of things to be done before page is loaded */ 
 	require_once('../inc/header.inc.php'); 
     require_once('../inc/code.inc.php');
@@ -78,7 +79,33 @@
 		}else
 			echo '<p class="red">You must sign in to add a comment.</p>';
 	}
-
+if(isset($_POST['reply'])){
+		if($_SESSION["loggedin"]==true){
+			try {
+				$_comment=$_POST['reply'];
+				$_GET['ID'];
+				$_date=date('Y-m-d H:i:s');
+				$NUMDELETE = 460048219;
+				$pNum = $_POST['position'];
+				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
+				"(?,?,?,?,?)");
+				$sql->bind_param("sisii",$_comment,$NUMDELETE,$_date,$_GET['ID'],$pNum);
+				$result=$sql->execute();
+				if(false==$result){
+					printf("error:%s\n",mysqli_error($conn));
+				}
+				if(!$result){
+					die('You cannot post your comment. Please try again later.');
+				}	
+				//mysqli_close($conn);
+			}
+			catch(Exception $e) {
+				echo '<p class="kentYellow articleFontSize">Database failure for replies</p>';
+			}	
+		}else
+			echo '<p class="red">You must sign in to add a comment.</p>';
+	}
+	
 /* Start of functions to load page */
 	function displayImages($imgTable, $subnum = NULL) 
 	{
