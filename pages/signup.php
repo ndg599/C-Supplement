@@ -15,11 +15,7 @@
 	   return false;
 	}
 
-/*	DEBUGGING ONLY: /*
-/*	error_reporting(E_ALL);
-	echo "<pre>";
-	ini_set('display_errors',1);
-	ini_set('error_log', 'sign_error'); */
+
 	
 	/* session_start(); - This is now invoked in header.inc.php */
 	
@@ -44,7 +40,7 @@
 				$resultarr[]=$row;
 			}
 			$bool=0;
-			/* Why echo? - echo $_randomID; */
+			
 			while($bool==0){
 				$bool=1;
 				foreach($resultarr as $row){
@@ -88,7 +84,7 @@
 				}
 				mysqli_close($conn);
 				
-				header("Location: https://www.kentcpp.com");		
+				header("Location: https://www.kentcpp.com/pages/login.php");		
 			}
 		}
 	}
