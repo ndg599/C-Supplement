@@ -9,12 +9,12 @@
 			$errorMsg = "<br>Invalid username. Try again.<br>";
 			break;
 		case 0: // Bad password
-			/*
+			
 			$user=$_POST["username"];
 			require("dbconnect.php");
 			$sql=$conn->prepare("Update login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
-			$result=$sql->execute();
+			/*$result=$sql->execute();
 			if(false===$result){
 				printf("error:%s\n", mysqli_error($conn));
 			}
