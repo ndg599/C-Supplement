@@ -45,7 +45,7 @@
 			$user=$_POST["username"];
 			require("dbconnect.php");
 		
-			if(!$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?;"))){
+			if(!$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?;")){
 				echo '<p class="kentYellow errorBeloNav">Failure</p>';
 				exit();
 			}
