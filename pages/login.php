@@ -49,8 +49,8 @@
 			
 			$user=$_POST["username"];
 			require_once("dbconnect.php");
-			if(!$conn){
-				die('Could not connect: ' . mysqli_error($conn));
+			if ( mysqli_connect_errno() ) {
+    				printf("Connect failed: %s\n", mysqli_connect_error());
 			}
 			if(!$sql2="SELECT * FROM Login"){
 				die ('1failure');	
