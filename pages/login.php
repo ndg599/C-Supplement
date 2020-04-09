@@ -14,7 +14,7 @@
 			require("dbconnect.php");
 			$sql=$conn->prepare("Update login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
-			/*$result=$sql->execute();
+			$result=$sql->execute();
 			if(false===$result){
 				printf("error:%s\n", mysqli_error($conn));
 			}
@@ -36,7 +36,7 @@
 				if(false===$check){
 					printf("error:%s\n", mysqli_error($conn));
 			}
-			}*/	
+			}	
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 		default: // Match, query row was returned
