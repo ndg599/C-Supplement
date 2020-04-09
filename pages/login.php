@@ -1,6 +1,6 @@
 <?php
 	include 'authLogin.php';
-
+error_reporting(E_ALL & ~E_NOTICE);
 	if (isset($_POST["username"]) && isset($_POST["password"])) {
 		$attempt = authLogin($_POST["username"], $_POST["password"]);
 
@@ -9,12 +9,12 @@
 			$errorMsg = "<br>Invalid username. Try again.<br>";
 			break;
 		case 0: // Bad password
-			/*
+			
 			$user=$_POST["username"];
 			require("dbconnect.php");
 			$sql=$conn->prepare("Update login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
-			$result=$sql->execute();
+			/*$result=$sql->execute();
 			if(false===$result){
 				printf("error:%s\n", mysqli_error($conn));
 			}
