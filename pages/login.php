@@ -49,7 +49,7 @@
 			
 			$user=$_POST["username"];
 			mysqli_close($conn);
-			require_once("dbconnect.php");
+			require_once("dbconnect2.php");
 			
 			if ( mysqli_connect_errno() ) {
     				printf("Connect failed: %s\n", mysqli_connect_error());
