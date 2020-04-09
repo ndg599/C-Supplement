@@ -54,7 +54,7 @@
    				 exit();
 			}
 			if(!$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?")){
-				die ('failure)';	
+				die ('failure');	
 			}	
 			/*$sql1->bind_param("s",$user);
 			$sql1->execute();
