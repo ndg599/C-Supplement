@@ -45,9 +45,9 @@
 		
 			$sql1=$conn->prepare("Select * from Login where Username = ? ");
 			$sql1->bind_param("s",$user);
-			$sql1->execute();
+			/*$sql1->execute();
 			$result2=$sql1->get_result();
-			/*	
+		
 			if(false===$result2){
 				printf("error:%s\n", mysqli_error($conn));
 			}
