@@ -25,6 +25,7 @@
 		if ( mysqli_connect_errno() ) {
     			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
+		echo $servername;
 		if(isset($_POST['create'])) {
 			$_email = $_POST['_email'];
 			$_username = $_POST['_username'];
