@@ -39,7 +39,8 @@
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 		default: // Match, query row was returned
-				$user=$_POST["username"];
+			/*
+			$user=$_POST["username"];
 			require("dbconnect.php");
 			$sql1=$conn->prepare("Select * from Login where Username = ? ");
 			$sql1->bind_param("s",$user);
@@ -63,7 +64,7 @@
 					printf("error:%s\n", mysqli_error($conn));
 				}
 			}	
-				
+				*/
 			session_start();
 			$_SESSION["loggedin"] = true;
 			$_SESSION["username"] = $_POST["username"];
