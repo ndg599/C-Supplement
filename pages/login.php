@@ -27,6 +27,19 @@
 		<div class="container d-flex h-100">
 			<div class="row justify-content-center align-self-center mx-auto">
 				<div class="col-9">
+		<?php if(isset($_GET['message'])){
+		if($_GET['message']=="sent"){
+			echo "<h5>Check your email for a link to reset your password.</h5>";
+			}else{
+			if($_GET['message']=="fail"){
+				echo "<h5>This link has expired. Please try again.</h5>";
+			}else{
+			if($_GET['message']=="changed"){
+				echo "<h5>Your password was successfully changed.</h5>";
+			}
+			
+
+		}}}?>
 					<h3>Sign In</h3>
 					<hr>
 				</div>
@@ -40,6 +53,7 @@
 					<input class="btn btnKent mt-2" id="btnMv" type="submit" value="Sign In">
 					<a href="./signup.php" class="btn btnKent" id="suMv">Sign Up</a>
 				</form>
+				<a href="resetpassword.php">Forgot Password?</a>
 				<?php if (isset($errorMsg)) echo $errorMsg; // Error message from attempt ?>
 			</div>
 		</div>
