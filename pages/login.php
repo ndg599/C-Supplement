@@ -52,6 +52,9 @@
 			if(!$conn){
 				die('Could not connect: ' . mysqli_error($conn));
 			}
+			if(!$sql2=$conn->prepare("SELECT * FROM Login")){
+				die ('1failure');	
+			}
 			if(!$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?")){
 				die ('failure');	
 			}	
