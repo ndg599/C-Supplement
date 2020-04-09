@@ -48,7 +48,7 @@
 			{
 			
 			$user=$_POST["username"];
-			mysqli_close($conn);
+			//mysqli_close($conn);
 			require_once("dbconnect2.php");
 			
 			if ( mysqli_connect_errno() ) {
