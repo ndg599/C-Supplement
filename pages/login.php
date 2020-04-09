@@ -46,14 +46,14 @@
 			}
 		default: // Match, query row was returned
 			{
-			/*
+			
 			$user=$_POST["username"];
 			require("dbconnect.php");
 		
 			$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?");
 				
 			$sql1->bind_param("s",$user);
-			$sql1->execute();
+			/*$sql1->execute();
 			$result2=$sql1->get_result();
 		
 			if(false===$result2){
@@ -92,7 +92,7 @@
 		<div class="container d-flex h-100">
 			<div class="row justify-content-center align-self-center mx-auto">
 				<div class="col-9">
-		<?/*php if(isset($_GET['message'])){
+		<?php if(isset($_GET['message'])){
 		if($_GET['message']=="sent"){
 			echo "<h5>Check your email for a link to reset your password.</h5>";
 			}else{
@@ -104,7 +104,7 @@
 			}
 			
 
-		}}}*/?>
+		}}}?>
 					<h3>Sign In</h3>
 					<hr>
 				</div>
