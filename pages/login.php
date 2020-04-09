@@ -9,6 +9,7 @@
 			$errorMsg = "<br>Invalid username. Try again.<br>";
 			break;
 		case 0: // Bad password
+			
 			$user=$_POST["username"];
 			require("dbconnect.php");
 			$sql=$conn->prepare("Update login Set FailCount = FailCount +1 where Username= ?");
@@ -39,7 +40,7 @@
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 		default: // Match, query row was returned
-			
+			try{
 			$user=$_POST["username"];
 			require("dbconnect.php");
 		
@@ -48,7 +49,7 @@
 				exit();
 			}
 			$sql1->bind_param("s",$user);
-			/*$sql1->execute();
+			$sql1->execute();
 			$result2=$sql1->get_result();
 		
 			if(false===$result2){
@@ -69,7 +70,8 @@
 					printf("error:%s\n", mysqli_error($conn));
 				}
 			}	
-				*/
+			}catch(Exception $e){echo "error";}
+				
 			session_start();
 			$_SESSION["loggedin"] = true;
 			$_SESSION["username"] = $_POST["username"];
