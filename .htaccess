@@ -25,6 +25,6 @@ RewriteRule ^(.*)$ https://www.kentcpp.com/$1 [R=301,L]
 
 <IfModule mod_php5.c>
 php_flag log_errors on 
-php_value error_log ./path_to_MY_PHP_ERRORS.log
-# php_flag display_errors on 
+#php_value error_log ./path_to_MY_PHP_ERRORS.log
+php_flag display_errors on 
 </IfModule>
