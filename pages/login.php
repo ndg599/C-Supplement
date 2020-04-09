@@ -49,9 +49,12 @@
 			
 			$user=$_POST["username"];
 			require("dbconnect.php");
-		
+			if (mysqli_connect_errno()) {
+   				 printf("Connect failed: %s\n", mysqli_connect_error());
+   				 exit();
+			}
 			if(!$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?")){
-				echo '<p>failure</p>';	
+				die ('failure)';	
 			}	
 			/*$sql1->bind_param("s",$user);
 			$sql1->execute();
