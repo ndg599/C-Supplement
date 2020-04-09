@@ -56,6 +56,7 @@
 				die ('1failure');	
 			}
 			if(!$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?")){
+				printf("Error: %s.\n", $sql1->error);
 				die ('failure');	
 			}	
 			/*$sql1->bind_param("s",$user);
