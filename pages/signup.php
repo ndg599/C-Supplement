@@ -22,6 +22,9 @@
 	function displayFormErrors()
 	{
 		require_once("dbconnect.php");
+		if ( mysqli_connect_errno() ) {
+    			printf("Connect failed: %s\n", mysqli_connect_error());
+		}
 		if(isset($_POST['create'])) {
 			$_email = $_POST['_email'];
 			$_username = $_POST['_username'];
