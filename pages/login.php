@@ -6,9 +6,12 @@
 
 		switch ($attempt) {
 		case -1: // Bad username 
+			{
 			$errorMsg = "<br>Invalid username. Try again.<br>";
 			break;
+			}
 		case 0: // Bad password
+			{
 			/*
 			$user=$_POST["username"];
 			require("dbconnect.php");
@@ -40,7 +43,9 @@
 			*/
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
+			}
 		default: // Match, query row was returned
+			{
 			/*
 			$user=$_POST["username"];
 			require("dbconnect.php");
@@ -78,6 +83,7 @@
 			$_SESSION["usertype"] = $attempt["Type"];
 			header("Location: https://www.kentcpp.com"); // Redirect to main page
 			break;
+			}
 		}
 	}
 	require_once('../inc/header.inc.php');
