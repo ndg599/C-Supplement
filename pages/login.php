@@ -9,9 +9,61 @@
 			$errorMsg = "<br>Invalid username. Try again.<br>";
 			break;
 		case 0: // Bad password
+			$user=$_POST["username"];
+			require("dbconnect.php");
+			$sql=$conn->prepare("Update login Set FailCount = FailCount +1 where Username= ?");
+			$sql->bind_param("s",$user);
+			$result=$sql->execute();
+			if(false===$result){
+				printf("error:%s\n", mysqli_error($conn));
+			}
+			$sql0=$conn->prepare("Select * from login where Username = ?");
+			$sql0->bind_param("s",$user);
+			$sql0->execute();
+			$result1=$sql0->get_result();
+			if(false===$result1){
+				printf("error:%s\n", mysqli_error($conn));
+			}
+			if(! $result1) {
+				die('Theres an error');
+			}
+			$row=$result1->fetch_assoc();
+			if($row["FailCount"]>=20){
+				$sql2=$conn->prepare("Update Login Set Locked = '1' where username = ? ");
+				$sql2->bind_param("s",$user);				
+				$check=$sql2->execute();
+				if(false===$check){
+					printf("error:%s\n", mysqli_error($conn));
+			}
+			}	
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 		default: // Match, query row was returned
+				$user=$_POST["username"];
+			require("dbconnect.php");
+			$sql1=$conn->prepare("Select * from Login where Username = ? ");
+			$sql1->bind_param("s",$user);
+			$sql1->execute();
+			$result2=$sql1->get_result();
+			if(false===$result2){
+				printf("error:%s\n", mysqli_error($conn));
+			}
+			if(! $result2) {
+				die('Theres an error');
+			}
+			$row=$result2->fetch_assoc();
+			if($row['Locked']==1){
+				$errorMsg =" <br>This account is locked. Please reset your password to unlock your account.<br>";
+				break;
+			}else{
+				$sql3=$conn->prepare("Update login Set FailCount = '0' where username = ? ");
+				$sql3->bind_param("s",$user);				
+				$check=$sql3->execute();
+				if(false===$check){
+					printf("error:%s\n", mysqli_error($conn));
+				}
+			}	
+				
 			session_start();
 			$_SESSION["loggedin"] = true;
 			$_SESSION["username"] = $_POST["username"];
