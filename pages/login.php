@@ -43,8 +43,8 @@
 			$user=$_POST["username"];
 			require("dbconnect.php");
 		
-			$sql1=$conn->prepare("Select * from 'Login' where 'Username' = ? ");
-			$sql1->bind_param('s',$user);
+			$sql1=$conn->prepare("SELECT * FROM Login WHERE Username = ?;");
+			$sql1->bind_param("s",$user);
 			/*$sql1->execute();
 			$result2=$sql1->get_result();
 		
