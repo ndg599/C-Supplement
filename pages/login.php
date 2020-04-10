@@ -28,14 +28,14 @@
 			}
 			$sql0->bind_param("s",$user);
 			$sql0->execute();
-			/*$result1=$sql0->get_result();
+			$result1=$sql0->get_result();
 			if(false===$result1){
 				printf("error:%s\n", mysqli_error($conn));
 			}
 			if(! $result1) {
 				die('Theres an error');
 			}
-			$row=$result1->fetch_assoc();
+			/*$row=$result1->fetch_assoc();
 			if($row["FailCount"]>=20){
 				$sql2=$conn->prepare("Update Login Set Locked = '1' where Username = ? ");
 				$sql2->bind_param("s",$user);				
