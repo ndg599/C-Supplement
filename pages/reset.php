@@ -72,7 +72,7 @@ $new_passc=$_POST["npassc"];
 
 if($new_pass==$new_passc){
 	if(validatePassW($new_pass)===false){
-		$error= $error . '<p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
+		echo '<p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
 	}else{
 	if(isset($_GET['s'])){
 		
