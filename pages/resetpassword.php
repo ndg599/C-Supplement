@@ -94,8 +94,8 @@ if(isset($_POST['reset'])){
 	<td><input name="reset" type = "submit" id="reset" value=" reset password"></td></td></tr></form>
 </div></div></div>
 
-
-
+</body>
+</html>
 
 
 <?php require_once('../inc/footer.inc.php'); ?>
