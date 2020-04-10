@@ -17,14 +17,18 @@
 			require("dbconnect2.php");
 			$sql=$conn->prepare("Update Login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
-			/*$result=$sql->execute();
+			$result=$sql->execute();
 			if(false===$result){
 				printf("error:%s\n", mysqli_error($conn));
 			}
-			$sql0=$conn->prepare("Select * from Login where Username = ?");
+			//$sql0=$conn->prepare("Select * from Login where Username = ?");
+			if(!$sql0=$conn->prepare("SELECT * FROM Login WHERE Username = ?")){
+				printf("Error: %s.\n", $sql1->error);
+				die ('failure');	
+			}
 			$sql0->bind_param("s",$user);
 			$sql0->execute();
-			$result1=$sql0->get_result();
+			/*$result1=$sql0->get_result();
 			if(false===$result1){
 				printf("error:%s\n", mysqli_error($conn));
 			}
