@@ -80,6 +80,7 @@ if(isset($_POST['reset'])){
 }
 
 ?>
+<body>
 <br><br><br>
 <div class="container d-flex h-100">
 	<div class="row">
