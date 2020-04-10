@@ -61,10 +61,10 @@
 				printf("Error: %s.\n", $sql1->error);
 				die ('failure');	
 			}	
-			/*$sql1->bind_param("s",$user);
+			$sql1->bind_param("s",$user);
 			$sql1->execute();
 			$result2=$sql1->get_result();
-		
+		/*
 			if(false===$result2){
 				printf("error:%s\n", mysqli_error($conn));
 			}
