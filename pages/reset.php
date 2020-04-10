@@ -7,11 +7,11 @@ require_once('../inc/header.inc.php');
 
 ?>
 
-<head>
+<h1>
 	<meta charset="UTF-8">
-	<title>Password Reset PHP</title>
+	<title>Password Reset </title>
 	<link rel="stylesheet" href="main.css">
-</head>
+</h1>
 <body>
 	<form class="login-form" action="" method="post">
 		<h2 class="form-title">New password</h2>
