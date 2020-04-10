@@ -79,25 +79,6 @@ if(isset($_POST['reset'])){
 
 }
 
-/*
-Add command later.
-
-
-CREATE EVENT hourlyreset
-    ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR
-  DO
-  DELETE from reset WHERE
-    expires < DATEADD(day, -1, GETDATE())
-
-
- #1105 Event scheduler is switched off, use SET GLOBAL event_scheduler=ON
-
-
-*/
-
-
-
-
 ?>
 <br><br><br>
 <div class="container d-flex h-100">
@@ -110,7 +91,7 @@ CREATE EVENT hourlyreset
 	<td >Input your email</td>
 	<td>
 	<input name = "email" type = "text" id = "email">
-	<td><input name="reset" type = "submit" id="reset" value=" reset password"></td></td></tr>
+	<td><input name="reset" type = "submit" id="reset" value=" reset password"></td></td></tr></form>
 </div></div></div>
 
 
