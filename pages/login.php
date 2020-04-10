@@ -14,7 +14,7 @@
 			{
 			
 			$user=$_POST["username"];
-			require("dbconnect.php");
+			require("dbconnect2.php");
 			$sql=$conn->prepare("Update Login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
 			$result=$sql->execute();
