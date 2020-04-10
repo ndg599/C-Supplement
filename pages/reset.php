@@ -10,7 +10,7 @@ function validatePassW($password) {
 	   }
 	   return false;
 	}
-
+echo "<br><br><br><br><br>";
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
