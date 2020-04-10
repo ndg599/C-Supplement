@@ -12,16 +12,16 @@
 			}
 		case 0: // Bad password
 			{
-			/*
+			
 			$user=$_POST["username"];
 			require("dbconnect.php");
-			$sql=$conn->prepare("Update login Set FailCount = FailCount +1 where Username= ?");
+			$sql=$conn->prepare("Update Login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
 			$result=$sql->execute();
 			if(false===$result){
 				printf("error:%s\n", mysqli_error($conn));
 			}
-			$sql0=$conn->prepare("Select * from login where Username = ?");
+			$sql0=$conn->prepare("Select * from Login where Username = ?");
 			$sql0->bind_param("s",$user);
 			$sql0->execute();
 			$result1=$sql0->get_result();
@@ -33,14 +33,14 @@
 			}
 			$row=$result1->fetch_assoc();
 			if($row["FailCount"]>=20){
-				$sql2=$conn->prepare("Update Login Set Locked = '1' where username = ? ");
+				$sql2=$conn->prepare("Update Login Set Locked = '1' where Username = ? ");
 				$sql2->bind_param("s",$user);				
 				$check=$sql2->execute();
 				if(false===$check){
 					printf("error:%s\n", mysqli_error($conn));
 			}
 			}	
-			*/
+			
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 			}
@@ -48,7 +48,6 @@
 			{
 			
 			$user=$_POST["username"];
-			//mysqli_close($conn);
 			require_once("dbconnect2.php");
 			
 			if ( mysqli_connect_errno() ) {
