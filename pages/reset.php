@@ -2,9 +2,7 @@
 
 
 <?php
-//require_once('../inc/header.inc.php');
-
-
+require_once('../inc/header.inc.php');
 ?>
 <br><br><br>
 <h2>
@@ -44,9 +42,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once("dbconnect2.php");
 if(isset($_GET["s"])){
-	echo "true";
 	$ss=$_GET["s"];
-	echo $ss;
 	$sql9="Select * from reset where hkey = '$ss'";
 	$ress=mysqli_query($conn,$sql9);
 	if (!$ress) {
@@ -75,7 +71,6 @@ if($new_pass==$new_passc){
 		echo '<p class="red">Your Password is invalid. Must be 8 characters or more.</p>'; 
 	}else{
 	if(isset($_GET['s'])){
-		
 		$s=$_GET['s'];
 		$sql="Select * from reset where hkey = '$s'";
 		$result=mysqli_query($conn,$sql);
@@ -87,7 +82,6 @@ if($new_pass==$new_passc){
 		$email=$row['Email'];
 		echo $email;
 		$_hash=password_hash($new_pass,PASSWORD_BCRYPT);
-		//$sql2=$conn->prepare("INSERT INTO Login (Password) Values"."(?)"." where Email=$email");
 		$sql2=$conn->prepare("Update Login Set Password = ? where Email='$email'");
 		$sql2->bind_param("s",$_hash);
 		$result1=$sql2->execute();
@@ -104,7 +98,6 @@ if($new_pass==$new_passc){
 			printf("Error: %s\n", mysqli_error($conn));
 			exit();
 		}
-		
 		$sql4="Update Login Set FailCount = '0' , Locked = '0' where Email = '$email' ";
 		$result4=mysqli_query($conn,$sql4);
 		if(false===$result4){
@@ -113,24 +106,15 @@ if($new_pass==$new_passc){
 		if(! $result4 ) {
 			die("There's an error.");
 		}
-		
-		mysqli_close($conn);
-				
+		mysqli_close($conn);	
 		header("Location: login.php?message=changed");
 	}
 	}
-
-
-
-}else{echo "<p>Your passwords didn't match. Please try again";echo $email; echo "found</p>";}
+}else{echo "<p>Your passwords didn't match. Please try again</p>";}
 
 
 
 }
-
-
-
-
 ?>
 
 
