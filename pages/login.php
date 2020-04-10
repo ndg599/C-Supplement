@@ -36,7 +36,7 @@
 				die('Theres an error');
 			}
 			$row=$result1->fetch_assoc();
-			/*if($row["FailCount"]>=20){
+			if($row["FailCount"]>=20){
 				$sql2=$conn->prepare("Update Login Set Locked = '1' where Username = ? ");
 				$sql2->bind_param("s",$user);				
 				$check=$sql2->execute();
@@ -44,7 +44,7 @@
 					printf("error:%s\n", mysqli_error($conn));
 			}
 			}	
-			*/
+			
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 			}
