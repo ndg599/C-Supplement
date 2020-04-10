@@ -99,4 +99,5 @@ if(isset($_POST['reset'])){
 </html>
 
 
-<?php require_once('../inc/footer.inc.php'); ?>
+<?php// require_once('../inc/footer.inc.php'); 
+?>
