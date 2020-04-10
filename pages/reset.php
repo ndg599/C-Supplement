@@ -2,16 +2,16 @@
 
 
 <?php
-require_once('../inc/header.inc.php');
+//require_once('../inc/header.inc.php');
 
 
 ?>
-
-<h1>
+<br><br><br>
+<h2>
 	<meta charset="UTF-8">
 	<title>Password Reset </title>
 	<link rel="stylesheet" href="main.css">
-</h1>
+</h2>
 <body>
 	<form class="login-form" action="" method="post">
 		<h2 class="form-title">New password</h2>
@@ -39,7 +39,6 @@ function validatePassW($password) {
 	   }
 	   return false;
 	}
-echo "<br><br><br><br><br>";
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
