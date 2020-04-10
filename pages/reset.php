@@ -122,7 +122,7 @@ if($new_pass==$new_passc){
 
 
 
-}else{echo "<p>Your passwords didn't match. Please try again</p>";echo $email; echo "found";}
+}else{echo "<p>Your passwords didn't match. Please try again";echo $email; echo "found</p>";}
 
 
 
