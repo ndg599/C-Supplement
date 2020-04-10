@@ -110,7 +110,7 @@ if($new_pass==$new_passc){
 		header("Location: login.php?message=changed");
 	}
 	}
-}else{echo "<p>Your passwords didn't match. Please try again</p>";}
+}else{echo "<p class="red">Your passwords didn't match. Please try again</p>";}
 
 
 
