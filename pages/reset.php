@@ -43,7 +43,7 @@ echo "<br><br><br><br><br>";
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once("dbconnect.php");
+require_once("dbconnect2.php");
 if(isset($_GET["s"])){
 	echo "true";
 	$ss=$_GET["s"];
