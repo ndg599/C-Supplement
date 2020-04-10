@@ -76,7 +76,7 @@
 				$errorMsg =" <br>This account is locked. Please reset your password to unlock your account.<br>";
 				break;
 			}else{
-				$sql3=$conn->prepare("Update login Set FailCount = '0' where username = ? ");
+				$sql3=$conn->prepare("Update Login Set FailCount = '0' where Username = ? ");
 				$sql3->bind_param("s",$user);				
 				$check=$sql3->execute();
 				if(false===$check){
