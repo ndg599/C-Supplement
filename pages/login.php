@@ -12,7 +12,7 @@
 			}
 		case 0: // Bad password
 			{
-			
+			/*
 			$user=$_POST["username"];
 			require("dbconnect2.php");
 			$sql=$conn->prepare("Update Login Set FailCount = FailCount +1 where Username= ?");
@@ -40,7 +40,7 @@
 					printf("error:%s\n", mysqli_error($conn));
 			}
 			}	
-			
+			*/
 			$errorMsg = "<br>Wrong password. Try again.<br>";
 			break;
 			}
