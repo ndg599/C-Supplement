@@ -53,7 +53,7 @@ if(isset($_GET["s"])){
 	while($row=mysqli_fetch_array($ress)){
 		if($row["hkey"]==$ss){
 			$bool=1;
-			echo "matched found";	
+				
 		}
 	}
 	if($bool==0){
