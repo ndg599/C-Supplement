@@ -3,6 +3,35 @@
 
 <?php
 require_once('../inc/header.inc.php');
+
+
+?>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Password Reset PHP</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<form class="login-form" action="" method="post">
+		<h2 class="form-title">New password</h2>
+		<!-- form validation messages -->
+		
+		<div class="form-group">
+			<label>New password&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+			<input type="password" name="npass" id="npass">
+		</div>
+		<div class="form-group">
+			<label>Confirm new password    </label>
+			<input type="password" name="npassc">
+		</div>
+		<div class="form-group">
+			<button type="submit" name="newpass" class="login-btn">Submit</button>
+		</div>
+	</form>
+</body>
+
+<?php
 function validatePassW($password) {
 	   $pattern = "/^.{8,30}$/";
 	   if ( preg_match($pattern, $password) ) {
@@ -106,29 +135,7 @@ if($new_pass==$new_passc){
 ?>
 
 
-<head>
-	<meta charset="UTF-8">
-	<title>Password Reset PHP</title>
-	<link rel="stylesheet" href="main.css">
-</head>
-<body>
-	<form class="login-form" action="" method="post">
-		<h2 class="form-title">New password</h2>
-		<!-- form validation messages -->
-		
-		<div class="form-group">
-			<label>New password&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-			<input type="password" name="npass" id="npass">
-		</div>
-		<div class="form-group">
-			<label>Confirm new password    </label>
-			<input type="password" name="npassc">
-		</div>
-		<div class="form-group">
-			<button type="submit" name="newpass" class="login-btn">Submit</button>
-		</div>
-	</form>
-</body>
+
 </html>
 
 
