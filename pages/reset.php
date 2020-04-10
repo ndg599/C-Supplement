@@ -85,7 +85,7 @@ if($new_pass==$new_passc){
 		}
 		$row=mysqli_fetch_array($result);
 		$email=$row['Email'];
-		
+		echo $email;
 		$_hash=password_hash($new_pass,PASSWORD_BCRYPT);
 		//$sql2=$conn->prepare("INSERT INTO Login (Password) Values"."(?)"." where Email=$email");
 		$sql2=$conn->prepare("Update Login Set Password = ? where Email='$email'");
