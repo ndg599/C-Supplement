@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="./jquery-3.4.1.min.js"> </script>
+</head>
+
+	<style>
+		body {
+			font-family: monospace;
+		}
+		#widthBkgnd {
+			background-color: rgba(0,0,0,0.9);
+			width: 552px;
+		}
+		#outer { 
+			padding: 10px;
+			border: 1px solid white; 
+			height: 238px;
+		}
+		#box0 {
+			background: #870000;
+		}
+		#box1 {
+			background: #cf6400;
+		}
+		#box2 {
+			background: #087300;
+		}
+		#box3 {
+			background: #070173;
+		}
+		#box4 {
+			background: #490173;
+		}
+		#outer div div {
+			float: left;
+			text-align: center;
+			border: 1px solid black;
+			height: 25px;
+			width: 100px;
+			position: relative;
+			color: white;
+		}
+		.div_p p{
+			font-size: 1.2rem;
+			color: white;
+		}
+	</style>
+
+	<script> 
+	$(document).ready(function(){
+	  $("#b1").click(function(){
+		$("#b1").attr("disabled","disabled");
+		$("#box0").animate({bottom: '177px'}, 1000)
+		          .animate({left:   '140px'}, 1000)
+				  .animate({left:   '140px'}, 1000)
+				  .animate({bottom:  '87px'}, 1000)
+				  .animate({bottom:  '87px'}, 1000)
+				  .animate({bottom: '133px'}, 1000)
+				  .animate({bottom: '133px'}, 1000)
+				  .animate({left:   '400px'}, 1000)
+				  .animate({top:        '0'}, 1000);
+		$("#box4").animate({bottom: '133px'}, 1000)
+				  .animate({right:  '260px'}, 1000)
+				  .animate({right:  '260px'}, 1000)
+				  .animate({right:  '260px'}, 1000)
+				  .animate({bottom: '177px'}, 1000)
+				  .animate({bottom: '177px'}, 1000)
+				  .animate({bottom: '177px'}, 1000)
+				  .animate({right:  '400px'}, 1000)
+				  .animate({top:        '0'}, 1000, function() {
+					$("#box1").animate({bottom: '177px'}, 1000)
+					          .animate({left:    '40px'}, 1000)
+							  .animate({left:    '40px'}, 1000)
+							  .animate({bottom:  '87px'}, 1000)
+							  .animate({bottom:  '87px'}, 1000)
+							  .animate({bottom: '133px'}, 1000)
+				              .animate({bottom: '133px'}, 1000)
+							  .animate({left:   '200px'}, 1000)
+				              .animate({top:        '0'}, 1000);
+					$("#box3").animate({bottom: '133px'}, 1000)
+							  .animate({right:  '160px'}, 1000)
+							  .animate({right:  '160px'}, 1000)
+				              .animate({right:  '160px'}, 1000)
+							  .animate({bottom: '177px'}, 1000)
+							  .animate({bottom: '177px'}, 1000)
+							  .animate({bottom: '177px'}, 1000)
+							  .animate({right:  '200px'}, 1000)
+				              .animate({top:        '0'}, 1000);
+				  });
+	  });
+	  $("#b2").click(function(){
+		$("#box0").stop(true).removeAttr("style");
+		$("#box1").stop(true).removeAttr("style");
+		$("#box3").stop(true).removeAttr("style");
+		$("#box4").stop(true).removeAttr("style");
+		$("#b1").removeAttr("disabled","disabled");		
+	  });
+	});
+	</script> 
+	
+</head>
+<body>
+	<div class="container-fluid" id="widthBkgnd">
+		<div class="mt-5 pt-2 pb-2 row">
+			<div class="col">
+				<div  class="btn-toolbar">
+					<button id="b1" class="btn btn-success">Start Animation</button>
+					<button id="b2" class="ml-auto btn btn-danger">Reset Animation</button>
+				</div>
+			</div>
+		</div>
+		<div class="pb-2 row">
+			<div class="col">
+				<div id="outer">
+					<div class="div_p">
+						<p>Element X:</p>
+						<p>Element Y:</p>
+						<p>Temporary:</p>
+					</div>
+					<div class="div_p">
+						<p class="text-center">Array:</p>
+						<div id="box0">Element 0</div>
+						<div id="box1">Element 1</div>
+						<div id="box2">Element 2</div>
+						<div id="box3">Element 3</div>
+						<div id="box4">Element 4</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
