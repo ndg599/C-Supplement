@@ -6,7 +6,8 @@ function init()
 	sendButton.onclick = sendProgram;
 }
 
-function sendProgram() {
+function sendProgram()
+{
 	var result = document.getElementById("result");
 	result.innerHTML = "Compiling...";
 	window.scrollTo(0,document.body.scrollHeight); 
