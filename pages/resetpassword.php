@@ -26,8 +26,6 @@ if(isset($_POST['reset'])){
 		$sel=bin2hex(random_bytes(8));
 		$token=random_bytes(40);
 		$url=sprintf('%rKentcpp.com/pages/reset.php?s=%s','ABS_URL',$sel,bin2hex($token));
-		$expires= new DateTime('NOW');
-		$expires->add(new DateInterval('PT01H'));
 		$eM=$em['Email'];
 		$sql4="Select * from reset";
 		$res=mysqli_query($conn,$sql4);
