@@ -20,7 +20,7 @@ function sendProgram()
 			result.innerHTML = this.responseText;
 		}
 	};
-	request.open("GET", "programQuiz/sendProgram.php?text=" + text);
+	request.open("GET", "programQuiz/sendProgram.php?" + window.location.search.substr(1) + "&text=" + text);
 	request.setRequestHeader("Content-Type", "text/x-c;chatset=UTF-8");
 	request.send();
 }

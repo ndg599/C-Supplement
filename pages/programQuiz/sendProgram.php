@@ -31,7 +31,22 @@ function outputFeedback($output)
 		die("Connection failed: " . mysqli_connect_error());
 	}
 
-	return "Correct.<br><br>Your output:<br>$output"; 
+	$stmt = mysqli_stmt_init($conn);
+	mysqli_stmt_prepare($stmt, "SELECT * FROM ProgQuiz WHERE ID=?");
+	mysqli_stmt_bind_param($stmt, "i", $_GET["ID"]);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+	$row = mysqli_fetch_assoc($result);
+	$answers = json_decode($row["Answers"], true);
+
+	$i = 1;
+	while ($answers[$i++]) {
+		if ($output == $answers[$i]) {
+			return "Correct.<br><br>Your output:<br>$output"; 
+		}
+	}
+
+	return "Incorrect output. Try again.<br><br>Your output:<br>$output"; 
 }
 
 // Write received program to cpp file and compile it
