@@ -59,7 +59,7 @@ $counter=0;
 	if(isset($_POST['comment'])) {
 		if($_SESSION["loggedin"]==true){
 			try {
-				$_comment=$_POST['comment'];
+				$_comment=nl2br(htmlspecialchars($_POST['comment'])); // Encode HTML characters and convert new lines
 				$_date=date('Y-m-d H:i:s');
 				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
 				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
@@ -82,7 +82,7 @@ $counter=0;
 if(isset($_POST['reply'])){
 		if($_SESSION["loggedin"]==true){
 			try {
-				$_comment=$_POST['reply'];
+				$_comment=nl2br(htmlspecialchars($_POST['reply']));
 				$_GET['ID'];
 				$_date=date('Y-m-d H:i:s');
 				$NUMDELETE = 460048219;
