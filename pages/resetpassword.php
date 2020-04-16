@@ -4,8 +4,7 @@
 <?php
 require_once('../inc/header.inc.php'); 
 require_once("dbconnect.php");
-//removes notice reporting
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
 if(isset($_POST['reset'])){
 	$_email=$_POST['email'];
 	
@@ -25,10 +24,8 @@ if(isset($_POST['reset'])){
 	echo "This account doesn't exist. Please try again.";
 	}else {
 		$sel=bin2hex(random_bytes(8));
-		$token=random_bytes(32);
+		$token=random_bytes(40);
 		$url=sprintf('%rKentcpp.com/pages/reset.php?s=%s','ABS_URL',$sel,bin2hex($token));
-		$expires= new DateTime('NOW');
-		$expires->add(new DateInterval('PT01H'));
 		$eM=$em['Email'];
 		$sql4="Select * from reset";
 		$res=mysqli_query($conn,$sql4);
@@ -74,9 +71,6 @@ if(isset($_POST['reset'])){
 		$sent = mail($send,$subj,$mess,$head);
 		header("Location: login.php?message=sent");
 	}
-	
-	
-
 }
 
 ?>
@@ -88,16 +82,12 @@ if(isset($_POST['reset'])){
 	<h1>Reset Password</h1>
 <form method="post">
 	<table width = "500" border = "0" cellspacing = "1" cellpadding = "1">
-	<tr>
-	<td >Input your email</td>
-	<td>
+	<tr><td >Input your email</td><td>
 	<input name = "email" type = "text" id = "email">
 	<td><input name="reset" type = "submit" id="reset" value=" reset password"></td></td></tr></form>
 </div></div></div>
-
 </body>
 </html>
-
 
 <?php// require_once('../inc/footer.inc.php'); 
 ?>
