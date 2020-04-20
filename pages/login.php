@@ -14,7 +14,14 @@
 			{
 			
 			$user=$_POST["username"];
-			require("dbconnect2.php");
+			//require("dbconnect.php");
+			require_once('../pdoconfig.php');
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $database);
+
+	if(!$conn){
+		die('Could not connect: ' . mysqli_error($conn));
+	}
 			$sql=$conn->prepare("Update Login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
 			$result=$sql->execute();
@@ -52,7 +59,7 @@
 			{
 			
 			$user=$_POST["username"];
-			require_once("dbconnect2.php");
+			//require_once("dbconnect.php");
 			
 			if ( mysqli_connect_errno() ) {
     				printf("Connect failed: %s\n", mysqli_connect_error());
