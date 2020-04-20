@@ -14,10 +14,7 @@
 			{
 			
 			$user=$_POST["username"];
-			//require("dbconnect.php");
-			require_once('../pdoconfig.php');
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $database);
+			require("dbconnect.php");
 
 	if(!$conn){
 		die('Could not connect: ' . mysqli_error($conn));
