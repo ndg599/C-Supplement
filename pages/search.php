@@ -40,7 +40,7 @@ if(!$results){
 		echo "<p>".substr($str,0,500)."...<br></p>";
 		
 	}
-	$sql=$conn->prepare("Select * from SubTopics where SubName LIKE ? OR Text LIKE ?");
+	$sql=$conn->prepare("Select * from Subtopics where SubName LIKE ? OR Text LIKE ?");
 	$sql->bind_param("ss",$s,$s);
 	$sql->execute();
 	$results=$sql->get_result();
