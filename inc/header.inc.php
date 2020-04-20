@@ -55,7 +55,7 @@
 			<form action="/pages/search.php" class="form-inline my-auto ml-auto mr-2" method="GET" >
 				<label for="search"></label>
 				<input class="form-control" name="search" id="search" type="search"  placeholder="Search" aria-label="Search">
-				<button class="btn btn-primary my-sm-0 btnKent" type="submit"><i class="fas fa-search"></i></button>
+				<button class="btn btnKent" type="submit"><i class="fas fa-search"></i></button>
 			</form>
 		<?php if (isset($_SESSION["loggedin"])): ?>
 			<div class="nav-item dropdown">
