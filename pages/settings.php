@@ -51,7 +51,7 @@
 								$type="Student";
 							}else{$type="Tutor";}
 							$id=$row['ID'];
-							$sql2="Update login Set Type= '$type' Where ID=$id";
+							$sql2="Update Login Set Type= '$type' Where ID=$id";
 							$res=mysqli_query($conn,$sql2);
 							if(!$res){
 								printf("Error2 :%s\n",mysqli_error($conn));
