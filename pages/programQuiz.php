@@ -8,7 +8,7 @@ if (!$conn) {
 }
 
 $stmt = mysqli_stmt_init($conn);
-mysqli_stmt_prepare($stmt, "SELECT * FROM ProgQuiz WHERE ID=?");
+mysqli_stmt_prepare($stmt, "SELECT Descr FROM ProgQuiz WHERE ID=?");
 mysqli_stmt_bind_param($stmt, "i", $_GET["ID"]);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
@@ -25,7 +25,7 @@ require_once('../inc/header.inc.php');
  <div class="container">
   <div class="row">
 	<div class="col-12">
-		<p><?php echo $row["Desc"]; ?></p>
+		<p><?php echo $row["Descr"]; ?></p>
 		<textarea id="textBox" cols="100" rows="20"></textarea>
 		<input type="button" id="send" value="Send">
 		<p id="result"></p>

@@ -4,7 +4,8 @@ if (isset($_POST["target"])) {
     require_once('../pdoconfig.php');
 
 	$target = htmlspecialchars($_POST["target"]);
-	$feedback = htmlspecialchars($_POST["feedback"]);
+	$target = nl2br($target);
+	$feedback = nl2br(htmlspecialchars($_POST["feedback"]));
 
     // Setup link to database
     $conn = mysqli_connect($servername, $username, $password, $database);

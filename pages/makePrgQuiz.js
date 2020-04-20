@@ -5,41 +5,41 @@ function ProgQuiz(desc, ans)
 	this.ans = ans;
 }
 */
-var answerIndex = 1;
-var answerDiv = document.getElementById("answers");
+var outputIndex = 1;
+var outputDiv = document.getElementById("output");
 
 window.onload = init;
 
 function init()
 {
-	var addOutput = document.getElementById("addAnswer");
-	addOutput.onclick = addAnswer;
+	var addOutputDiv = document.getElementById("addOutput");
+	addOutputDiv.onclick = addOutput;
 	//var sendButton = document.getElementById("submit");
 	//sendButton.onclick = sendQuiz;
 }
 
-function addAnswer()
+function addOutput()
 {
-	answerIndex++;
+	outputIndex++;
 	var p = document.createElement("p");
-	p.innerHTML = "Acceptable Output " + answerIndex;
+	p.innerHTML = "Acceptable Output " + outputIndex;
 	var ta = document.createElement("textarea");
-	ta.name = "answer" + answerIndex;
+	ta.name = "output" + outputIndex;
 	ta.cols = 50;
 	ta.rows = 10;
-	answerDiv.appendChild(p);
-	answerDiv.appendChild(ta);
+	outputDiv.appendChild(p);
+	outputDiv.appendChild(ta);
 }
 /*
 function sendQuiz()
 {
-	var answers = new Array();
-	for (var i = 1; i <= answerIndex; i++) {
-		answers[i-1] = document.getElementById("answer" + i).value;
+	var outputs = new Array();
+	for (var i = 1; i <= outputIndex; i++) {
+		outputs[i-1] = document.getElementById("output" + i).value;
 	}
 
 	var desc = document.getElementById("desc").value;
-	var newQuiz = new ProgQuiz(desc, answers);
+	var newQuiz = new ProgQuiz(desc, outputs);
 	console.log(newQuiz);
 
 	// Send AJAX request to compile program, print result

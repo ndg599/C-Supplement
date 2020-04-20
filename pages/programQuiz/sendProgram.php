@@ -1,14 +1,6 @@
 <?php
-function compileErrorFeedback($compileError)
+function compileErrorFeedback($compileError, $conn)
 {
-	require_once('../../pdoconfig.php');
-
-	// Setup link to database
-	$conn = mysqli_connect($servername, $username, $password, $database);
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
-
 	$query = "SELECT * FROM CompileFeedback";
 	$result = mysqli_query($conn, $query);
 
@@ -21,32 +13,25 @@ function compileErrorFeedback($compileError)
 	return NULL;
 }
 
-function outputFeedback($output)
+function outputFeedback($output, $conn)
 {
-	require_once('../../pdoconfig.php');
-
-	// Setup link to database
-	$conn = mysqli_connect($servername, $username, $password, $database);
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
-
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "SELECT * FROM ProgQuiz WHERE ID=?");
+	mysqli_stmt_prepare($stmt, "SELECT Output FROM ProgQuiz WHERE ID=?");
 	mysqli_stmt_bind_param($stmt, "i", $_GET["ID"]);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	$row = mysqli_fetch_assoc($result);
-	$answers = json_decode($row["Answers"], true);
+	$correctOutput = json_decode($row["Output"], true);
 
 	$i = 1;
-	while ($answers[$i++]) {
-		if ($output == $answers[$i]) {
+	while ($correctOutput[$i]) {
+		if ($output == $correctOutput[$i]) {
 			return "Correct.<br><br>Your output:<br>$output"; 
 		}
+		$i++;
 	}
 
-	return "Incorrect output. Try again.<br><br>Your output:<br>$output"; 
+	return "Incorrect output. Try again.<br><br>Your output:<br>$output <br>Expected output:<br>$correctOutput[1]"; 
 }
 
 // Write received program to cpp file and compile it
@@ -60,16 +45,38 @@ $text = "\n";
 fwrite($file, $text);
 fclose($file);
 
+require_once("../../pdoconfig.php");
+
+// Setup link to database
+$conn = mysqli_connect($servername, $username, $password, $database);
+if (!$conn) {
+	die("Connection failed: " . mysqli_connect_error());
+}
+
 // Check for compile error and try to return feedback to page
 if ($compileError) {
-	$feedback = compileErrorFeedback($compileError);
+	$feedback = compileErrorFeedback($compileError, $conn);
 	echo "COMPILE ERROR:<br>$compileError<br><br>";
 	echo $feedback ? "Feedback:<br>$feedback" : "No feedback found. If you're confused about this error, please discuss it with a tutor.";
 }
 // Check for correctness of output and return feedback
 else {
-	$output = shell_exec('PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin ./a.out 2>&1');
+	$stmt = mysqli_stmt_init($conn);
+	mysqli_stmt_prepare($stmt, "SELECT Input FROM ProgQuiz WHERE ID=?");
+	mysqli_stmt_bind_param($stmt, "i", $_GET["ID"]);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+	$row = mysqli_fetch_assoc($result);
+	$input = $row["Input"];
+
+	if ($input) {
+		$output = shell_exec(" echo '$input' | ./a.out 2>&1");
+	}
+	else {
+		$output = shell_exec("./a.out 2>&1");
+	}
+
 	shell_exec("rm a.out");
-	echo outputFeedback($output);
+	echo outputFeedback($output, $conn);
 }
 ?> 
