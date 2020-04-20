@@ -187,7 +187,7 @@ if(isset($_POST['reply'])){
 							<div class="row ml-5 mr-5">
 								<div class="col-12 section">';
 								
-				echo $row_sub['Text'];
+				echo    '<p class="break">' . nl2br($row_sub['Text']) . '</p>';
 								
 				displayImages("Subimages", $row_sub['SubNum']);
 				
