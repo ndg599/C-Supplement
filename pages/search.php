@@ -10,8 +10,8 @@
 require_once('../inc/header.inc.php'); 
 require_once("dbconnect.php");
 $search="";
-echo "<br><br><br>";
-echo "<h3 align=center>Search Results</h3>";
+echo "<div class='content'>";
+echo "<h3 style='text-align: center'>Search Results</h3>";
 echo "<div class='container  h-100' style='overflow-y:auto'>";
 echo '<div class="row justify-content-center align-self-center mx-auto">';
 
@@ -65,7 +65,7 @@ if($received==0){
 mysqli_close($conn);
 
 }else{header("Location: https://www.kentcpp.com");}
-echo "</div></div>";
+echo "</div></div></div>";
 require_once('../inc/footer.inc.php'); 
 
 
