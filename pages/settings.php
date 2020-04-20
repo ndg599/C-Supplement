@@ -22,7 +22,10 @@
 				echo "<h2 align=center><br>Welcome  ".$_SESSION["username"] ."! <br><h2>"; 
 					echo "<body>";
 					//if user is an administrator print list and allow reassignment
-					if(isset($_SESSION["usertype"])=="Admin"){
+					if(isset($_SESSION["usertype"])){
+						
+						if($_SESSION["usertype"]=="Admin"){
+						
 						echo "<h4 align=center>Reassign user below</h4>";
 						require_once("dbconnect.php");
 						if ( mysqli_connect_errno() ) {
@@ -104,6 +107,7 @@
 
 
 					}
+				}
 
 
 
