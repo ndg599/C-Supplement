@@ -19,7 +19,7 @@ echo '<div class="row justify-content-center align-self-center mx-auto">';
 if(isset($_GET['search'])){
 	$received=0;
 $s="%{$_GET['search']}%";
-echo $s;
+
 $sql=$conn->prepare("Select * from Article where TopicName LIKE ? OR Text LIKE ?");
 $sql->bind_param("ss",$s,$s);
 $sql->execute();
