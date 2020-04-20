@@ -15,6 +15,10 @@
 			
 			$user=$_POST["username"];
 			require("dbconnect2.php");
+
+	if(!$conn){
+		die('Could not connect: ' . mysqli_error($conn));
+	}
 			$sql=$conn->prepare("Update Login Set FailCount = FailCount +1 where Username= ?");
 			$sql->bind_param("s",$user);
 			$result=$sql->execute();

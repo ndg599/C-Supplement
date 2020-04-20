@@ -45,6 +45,7 @@ $counter=0;
 			
 			$articleName = $row_article['TopicName'];
 			$videoLink   = $row_article['VideoLink'];
+			$mainCode    = $row_article['Code'];
 		}
 		catch(Exception $e) {
 			echo '<p class="kentYellow errorBelowNav">Database failure for article</p>';
@@ -59,7 +60,7 @@ $counter=0;
 	if(isset($_POST['comment'])) {
 		if($_SESSION["loggedin"]==true){
 			try {
-				$_comment=nl2br(htmlspecialchars($_POST['comment'])); // Encode HTML characters and convert new lines
+				$_comment=$_POST['comment'];
 				$_date=date('Y-m-d H:i:s');
 				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
 				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
@@ -82,7 +83,7 @@ $counter=0;
 if(isset($_POST['reply'])){
 		if($_SESSION["loggedin"]==true){
 			try {
-				$_comment=nl2br(htmlspecialchars($_POST['reply']));
+				$_comment=$_POST['reply'];
 				$_GET['ID'];
 				$_date=date('Y-m-d H:i:s');
 				$NUMDELETE = 460048219;
@@ -140,8 +141,14 @@ if(isset($_POST['reply'])){
 			$res_img = $sql_img->get_result();
 			
 			while($row_img = $res_img->fetch_assoc()) {
-				echo	'<figure>
-							<img src="../img/' . $row_img['Filename'] . '" class="figOpts" alt="Responsive image">
+				echo	'<figure class="text-center">
+							<img src="../img/' . $row_img['Filename'] . '" class="figOpts" 
+							 alt="';
+			                      if ($row_img['Alt'] != NULL) 
+							          echo $row_img['Alt'];
+							      else 
+									  echo 'Alt Text Missing';
+				echo         '">
 							<figcaption class="justify-center kentYellow">';
 				if ($row_img['Figcaption'] != NULL)
 					echo	$row_img['Figcaption'];
@@ -180,7 +187,7 @@ if(isset($_POST['reply'])){
 							<div class="row ml-5 mr-5">
 								<div class="col-12 section">';
 								
-				echo $row_sub['Text'];
+				echo    '<p class="break">' . nl2br($row_sub['Text']) . '</p>';
 								
 				displayImages("Subimages", $row_sub['SubNum']);
 				
@@ -203,26 +210,27 @@ if(isset($_POST['reply'])){
 			global $conn;
 			global $code;
 			global $raw;
-			if(!($sql_code = $conn->prepare("SELECT * FROM Subcode WHERE SubNum = ? ORDER BY SubCodeNum ASC;"))) {
+			if(!($sql_code = $conn->prepare("SELECT * FROM Subcode WHERE SubNum = ? AND TopicID = ? ORDER BY SubCodeNum ASC;"))) {
 				echo '<p class="kentYellow articleFontSize">Database prepare failure - ExCode</p>';
 				return;
 			}
-			
-			$sql_code->bind_param("i", $SubNum);
+
+			$sql_code->bind_param("ii", $SubNum, $_GET['ID']);
 			$sql_code->execute();
 			$res_code = $sql_code->get_result();
 			
 			if ($res_code->num_rows > 0)
 				echo	'<p class="kentBlue text-center articleFontSize">Example Code:</p>';
-			while($row_code = $res_code->fetch_assoc()) {			
+			while($row_code = $res_code->fetch_assoc()) {	
+				$copy_paste_code = htmlspecialchars($raw[$row_code['SubCodeNum']]);
 				echo	'<div class="row mb-4">
 							<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
 								. $code[$row_code['SubCodeNum']] .
 						   '</div>
 							<div class="col-11 mt-1 mb-2">
-								<button class="btn btn-success" id="' . $row_code['SubCodeNum'] . '" 
-										onclick="copyStringToClipboard(\'' . $raw[$row_code['SubCodeNum']] . '\', \'' . $row_code['SubCodeNum'] . '\')" 
-										type="button">Copy Code</button>
+							    <button class="btn btn-success" id="' . $row_code['SubCodeNum'] . '" ';
+				                    printf('onclick="copyStringToClipboard(\'%s\',\'%s\')" ', $copy_paste_code , $row_code[SubCodeNum]);
+				echo	'		    type="button">Copy Code</button>
 								<span>*iOS users, manually copy</span>
 							</div>
 						 </div>';
@@ -438,14 +446,14 @@ if(isset($_POST['reply'])){
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 col-lg-9">
-					<div class="embed-responsive embed-responsive-16by9">
 						<?php   if($videoLink != NULL) {
-									echo '<iframe class="embed-responsive-item" src="'. $videoLink . '" allowfullscreen>
-									      </iframe>';
+									echo '<div class="embed-responsive embed-responsive-16by9">
+										      <iframe class="embed-responsive-item" src="'. $videoLink . '" allowfullscreen>
+									          </iframe>
+										  </div>';
 						        } else
 									echo '<p class="kentYellow text-center" id="noVid">No video for topic available</p>';
 						?>					
-					</div>
 					</div>
 				</div>
 			</div>
