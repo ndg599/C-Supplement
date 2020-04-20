@@ -271,9 +271,9 @@ hr {
 
 .figOpts {
 	width: 100%; 
-	max-width: 300px; 
+	max-width: 500px; 
 	height: auto;
-	max-height: 300px;
+	max-height: 500px;
 	background-color: rgba(232,232,232,1);
 	border: 2px solid #002664;
 }
