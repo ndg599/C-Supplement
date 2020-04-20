@@ -14,7 +14,7 @@
 			{
 			
 			$user=$_POST["username"];
-			require("dbconnect.php");
+			require("dbconnect2.php");
 
 	if(!$conn){
 		die('Could not connect: ' . mysqli_error($conn));
@@ -56,7 +56,7 @@
 			{
 			
 			$user=$_POST["username"];
-			//require_once("dbconnect.php");
+			require_once("dbconnect2.php");
 			
 			if ( mysqli_connect_errno() ) {
     				printf("Connect failed: %s\n", mysqli_connect_error());
