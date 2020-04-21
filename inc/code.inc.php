@@ -121,3 +121,77 @@
 			   .'    Obj3.display(); // Parent Class Display\\n'
 			   .'    return 0;\\n'
 	           .'}\\n';
+
+	$code[2] =  $includeLine . '#include &lt;iostream&gt;										' . $endOfLine
+			   .$bodyLine . '#include &lt;map&gt;												' . $endOfLine
+			   .$bodyLine . '#include &lt;iterator&gt;											' . $endOfLine
+			   .$emptyLine
+			   .$bodyLine . $type . 'int ' . $endSpan . 'main(){								' . $endOfLine
+			   .$bodyLine . '	map <int, int> myMap;											' . $endOfLine
+			   .$bodyLine . '	// inserting elements into map									' . $endOfLine
+			   .$bodyLine . '	myMap.insert (pair<int, int>(1, 5);								' . $endOfLine
+			   .$bodyLine . '	myMap.insert (pair<int, int>(2, 4);								' . $endOfLine
+			   .$bodyLine . '	myMap.insert (pair<int, int>(3, 3);								' . $endOfLine
+			   .$bodyLine . '	myMap.insert (pair<int, int>(4, 2);								' . $endOfLine
+			   .$bodyLine . '	myMap.insert (pair<int, int>(5, 1);								' . $endOfLine
+			   .$emptyLine
+			   .$bodyLine . '	// printing myMap: 5, 4, 3, 2, 1								' . $endOfLine
+			   .$bodyLine . '	myMap<int, int>::iterator itr;									' . $endOfLine
+			   .$bodyLine . '	std::cout << "My map contains: ";								' . $endOfLine
+			   .$emptyLine
+			   .$bodyLine . '   for(itr = myMap.begin(); itr != myMap.end(); ++itr){			' . $endOfLine
+			   .$bodyLine . '		std::cout << \t << itr->first << \t itr->second <<		    ' . $endOfLine
+			   .$bodyLine . '	}															    ' . $endOfLine
+			   .$bodyLine . '	std::cout << endl;												' . $endOfLine 
+			   .$bodyLine . $keyword . '    return ' . $endSpan . $literal . '0' . $endSpan . ';' . $endOfLine
+			   .$bodyLine . '}																	' . $endOfLine;
+	
+	$raw[2] =   '#include <iostream>											 \\n'
+			   .'#include <map>													 \\n'
+			   .'#include <iterator>										  \\n\\n'
+			   .'int main(){													 \\n'
+			   .'    map <int, int> myMap;									  \\n\\n'
+			   .'	 // inserting elements into map								 \\n'
+			   .'    myMap.insert (pair<int, int>(1, 5);						 \\n'
+			   .'    myMap.insert (pair<int, int>(2, 4);						 \\n'
+			   .'    myMap.insert (pair<int, int>(3, 3);						 \\n'
+			   .'    myMap.insert (pair<int, int>(4, 2);						 \\n'
+			   .'    myMap.insert (pair<int, int>(5, 1);					  \\n\\n'
+			   .'	 // printing myMap: 5, 4, 3, 2, 1							 \\n'
+			   .'	 myMap<int, int>::iterator itr;								 \\n'
+			   .'    std::cout << "My map contains: "							 \\n'
+			   .' 	 for(itr = myMap.begin(); itr != myMap.end(); ++itr){		 \\n'
+			   .'	 	std::cout << \t << itr->first << \t itr->second << \n;   \\n'
+			   .'	 }'
+			   .'	 std::cout << endl;\\n'
+			   .'    return 0;\\n'
+	           .'}\\n';
+			   
+	$code[3] =  $includeLine . '#include &lt;iostream&gt;										   ' . $endOfLine
+			   .$emptyLine
+			   .$bodyLine 	 . $type . 'int ' . $endSpan . 'main(){								   ' . $endOfLine
+			   .$bodyLine 	 . '	int SIZE = 5;												   ' . $endOfLine
+			   .$bodyLine 	 . '	int myArray[SIZE] = {1, 2, 3, 4, 5};						   ' . $endOfLine
+			   .$emptyLine
+			   .$bodyLine 	 . '	// printing myArray: 1, 2, 3, 4, 5							   ' . $endOfLine
+			   .$bodyLine 	 . '	std::cout << "My array contains: ";							   ' . $endOfLine
+			   .$emptyLine
+			   .$bodyLine 	 . '   for(int i = 0; itr != SIZE - 1; ++i){ 						   ' . $endOfLine
+			   .$bodyLine 	 . '		std::cout <<  i << ", ";  								   ' . $endOfLine
+			   .$bodyLine 	 . '	}															   ' . $endOfLine
+			   .$bodyLine 	 . '	std::cout << std::endl;										   ' . $endOfLine 
+			   .$bodyLine 	 . $keyword . '    return ' . $endSpan . $literal . '0' . $endSpan . ';' . $endOfLine
+			   .$bodyLine 	 . '}																   ' . $endOfLine;
+	
+	$raw[3] =   '#include <iostream>				     \\n\\n'
+			   .'int main(){								\\n'
+			   .'    int SIZE = 5;					     \\n\\n'
+			   .'    int myArray[SIZE] = {1, 2, 3, 4, 5};   \\n'
+			   .'	 // Printing myArray: 1, 2, 3, 4, 5     \\n'
+			   .'    std::cout << "My array contains: "; 	\\n'
+			   .'    for (int i = 0; i < SIZE - 1; ++i){ 	\\n'
+			   .'    	std::cout << i << ", ";			 	\\n'
+			   .'    }									 	\\n'
+			   .'    std::cout << std::endl;			 	\\n'
+			   .'    return 0;						     	\\n'
+	           .'}										 	\\n';
