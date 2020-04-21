@@ -55,7 +55,7 @@ require_once('../inc/header.inc.php');
 	<form action="makeArticle.php" method="post">
 		<br>
 		<?php 
-		if ($articleID) {
+		if (isset($articleID)) {
 			echo "<p>Article #$articleID submitted successfully</p>";
 		}
 		?>
