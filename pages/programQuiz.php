@@ -25,9 +25,9 @@ require_once('../inc/header.inc.php');
  <div class="container">
   <div class="row">
 	<div class="col-12">
-		<p><?php echo $row["Descr"]; ?></p>
-		<div id="textBox" class="lang-clike"><code></code></div>
-		<input type="button" id="send" value="Send">
+		<br><p><?php echo $row["Descr"]; ?></p>
+		<div id="textBox" style="background-color: Black" class="lang-clike"><code></code></div>
+		<input type="button" id="send" value="Send"><br><br>
 		<p id="result"></p>
 	</div>
   </div>
@@ -39,6 +39,6 @@ require_once('../inc/header.inc.php');
 <script type="module">
 	import {CodeJar} from '../node_modules/@medv/codejar/codejar.js';
 	let jar = new CodeJar(document.querySelector('#textBox'), Prism.highlightElement);
-	jar.updateCode("\n");
+	jar.updateCode("\n\n");
 </script>
 <?php require_once('../inc/footer.inc.php');?>
