@@ -13,7 +13,7 @@ function sendProgram()
 	window.scrollTo(0,document.body.scrollHeight); 
 
 	// Send AJAX request to compile program, print result
-	var text = encodeURIComponent(document.getElementById("textBox").value);
+	var text = encodeURIComponent(document.getElementById("textBox").innerText);
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

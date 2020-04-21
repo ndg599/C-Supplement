@@ -26,12 +26,19 @@ require_once('../inc/header.inc.php');
   <div class="row">
 	<div class="col-12">
 		<p><?php echo $row["Descr"]; ?></p>
-		<textarea id="textBox" cols="100" rows="20"></textarea>
+		<div id="textBox" class="lang-clike"><code></code></div>
 		<input type="button" id="send" value="Send">
 		<p id="result"></p>
 	</div>
   </div>
  </div>
 </div>
+<script src="prism.js"></script>
+<link href="../css/prism.css" rel="stylesheet" />
 <script src="programQuiz.js"></script>
+<script type="module">
+	import {CodeJar} from '../node_modules/@medv/codejar/codejar.js';
+	let jar = new CodeJar(document.querySelector('#textBox'), Prism.highlightElement);
+	jar.updateCode("\n");
+</script>
 <?php require_once('../inc/footer.inc.php');?>
