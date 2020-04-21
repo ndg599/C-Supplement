@@ -1,20 +1,9 @@
 <?php
-/*
-if (isset($_POST["desc"])) {
+if (isset($_POST["title"])) {
     require_once('../pdoconfig.php');
 
-	$desc = htmlspecialchars($_POST["desc"]);
-
-	$input = htmlspecialchars($_POST["input1"]);
-
-	$i = 1;
-	$output = Array();
-	while (isset($_POST["output" . $i])) {
-		$output[$i] = htmlspecialchars($_POST["output" . $i]);
-		$i++;
-	}
-
-	$output = json_encode($output);
+	$title = nl2br(htmlspecialchars($_POST["title"]));
+	$body = nl2br(htmlspecialchars($_POST["body"]));
 
     // Setup link to database
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -31,8 +20,25 @@ if (isset($_POST["desc"])) {
 		die("Query failed: " .  mysqli_error($conn));
 	}
 
+	$i = 1;
+	$output = Array();
+	while (isset($_POST["output" . $i])) {
+		$output[$i] = htmlspecialchars($_POST["output" . $i]);
+		$i++;
+	}
+
+	$output = json_encode($output);
+
+	$stmt = mysqli_stmt_init($conn);
+	mysqli_stmt_prepare($stmt, "INSERT INTO ProgQuiz VALUES (NULL,?,?,?)");
+	mysqli_stmt_bind_param($stmt, "sss", $desc, $input, $output);
+	$result = mysqli_stmt_execute($stmt);
+
+	if (!$result) {
+		die("Query failed: " .  mysqli_error($conn));
+	}
+
 }
-*/ 
 require_once('../inc/header.inc.php');
 ?>
 <div class="content">
@@ -50,9 +56,9 @@ require_once('../inc/header.inc.php');
 			<p>Article Title:</p>
 			<input type="text" name="title"><br><br>
 			<p>Article Body:</p>
-			<textarea id="body" name="body" cols="70" rows="5"></textarea><br>
+			<textarea id=0 name="body" cols="70" rows="5"></textarea><br>
 		</div>
-		<button type="button" id="addSub">Add SubSection</button>
+		<br><button type="button" id="addSub">Add SubSection</button>
 		<button type="button" id="addImg">Add Image</button>
 		<button type="button" id="addCode">Add Code Snippet</button>
 		<button type="button" id="addVid">Add Video</button><br><br>

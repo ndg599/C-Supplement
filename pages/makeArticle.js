@@ -1,22 +1,16 @@
-function Article(title, desc, subsec, img, code, vid)
-{
-	this.title = title;
-	this.desc = desc;
-	this.subsec
-}
-
 var subIndex = 0;
+var imgIndex = 0;
 var articleDiv = document.getElementById("article");
 
-var lastElName = "";
+var lastElId = 0;
 var lastElPos = 0;
 
 window.onload = init;
 
 function init()
 {
-	document.addEventListener("keyup", function(event) { setCursorPos(); });
-	document.addEventListener("click", function(event) { setCursorPos(); });
+	document.addEventListener("keyup", function(event) { setLastEl(); });
+	document.addEventListener("click", function(event) { setLastEl(); });
 
 	var addSubBtn = document.getElementById("addSub");
 	addSubBtn.onclick = addSub;
@@ -31,12 +25,17 @@ function init()
 	addVidBtn.onclick = addVid;
 }
 
-function setCursorPos()
+function setLastEl()
 {
-	if (document.activeElement.name && document.activeElement.selectionStart) {
-		lastElName = document.activeElement.name;
-		lastElPos = document.activeElement.selectionStart;
-		console.log(lastElName);
+	if (document.activeElement.name == "body" || document.activeElement.name.includes("subBody")) {
+		lastElId = document.activeElement.id;
+		if (document.activeElement.selectionStart) {
+			lastElPos = document.activeElement.selectionStart;
+		}
+		else {
+			lastElPos = 0;
+		}
+		console.log(lastElId);
 		console.log(lastElPos);
 	}
 }
@@ -44,7 +43,6 @@ function setCursorPos()
 function addSub()
 {
 	subIndex++;
-	const curSubIndex = subIndex;
 	var div = document.createElement("div");
 	div.id = "sub" + subIndex;
 	var p = document.createElement("p");
@@ -58,6 +56,7 @@ function addSub()
 	p.innerHTML = "<br>SubSection " + subIndex + " Body";
 	div.appendChild(p);
 	var ta = document.createElement("textarea");
+	ta.id = subIndex;
 	ta.name = "subBody" + subIndex;
 	ta.cols = 70;
 	ta.rows = 5;
@@ -67,7 +66,74 @@ function addSub()
 
 function addImg()
 {
+	console.log("benis :DDD");
+	console.log(lastElId);
+	var subSect = document.getElementById(lastElId);
+	if (subSect) {
+		imgIndex++;
+		var div = document.createElement("div");
+		div.id = "img" + imgIndex;
+
+		var p = document.createElement("p");
+		p.innerHTML = "<br>Image " + imgIndex;
+		div.appendChild(p);
+
+		var label = document.createElement("label");
+		label.for = "imgSub" + imgIndex;
+		label.innerHTML = "SubSection:-";
+		div.appendChild(label);
+		var input = document.createElement("input");
+		input.type = "text";
+		input.name = "imgSub" + imgIndex;
+		input.size = 3;
+		input.value = subSect.id;
+		div.appendChild(input);
+		div.appendChild(document.createElement("br"));
 	
+		label = document.createElement("label");
+		label.for = "imgPos" + imgIndex;
+		label.innerHTML = "Position:---";
+		div.appendChild(label);
+		input = document.createElement("input");
+		input.type = "text";
+		input.name = "imgPos" + imgIndex;
+		input.size = 6;
+		input.value = lastElPos;
+		div.appendChild(input);	
+		div.appendChild(document.createElement("br"));
+
+		label = document.createElement("label");
+		label.for = "imgFilename" + imgIndex;
+		label.innerHTML = "Filename:---";
+		div.appendChild(label);
+		input = document.createElement("input");
+		input.type = "text";
+		input.name = "imgFilename" + imgIndex;
+		div.appendChild(input);
+		div.appendChild(document.createElement("br"));
+			
+		label = document.createElement("label");
+		label.for = "imgFigcaption" + imgIndex;
+		label.innerHTML = "Caption:----";
+		div.appendChild(label);
+		input = document.createElement("input");
+		input.type = "text";
+		input.name = "imgFigcaption" + imgIndex;
+		div.appendChild(input);	
+		div.appendChild(document.createElement("br"));
+		
+		label = document.createElement("label");
+		label.for = "imgAlt" + imgIndex;
+		label.innerHTML = "Alt:--------";
+		div.appendChild(label);
+		input = document.createElement("input");
+		input.type = "text";
+		input.name = "imgAlt" + imgIndex;
+		div.appendChild(input);	
+		div.appendChild(document.createElement("br"));
+
+		articleDiv.appendChild(div);
+	}	
 }
 
 function addCode()
