@@ -12,32 +12,39 @@ if (isset($_POST["title"])) {
     }
 
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "INSERT INTO ProgQuiz VALUES (NULL,?,?,?)");
-	mysqli_stmt_bind_param($stmt, "sss", $desc, $input, $output);
+	mysqli_stmt_prepare($stmt, "INSERT INTO Article VALUES (NULL,?,?,NULL,NULL)");
+	mysqli_stmt_bind_param($stmt, "ss", $title, $body);
 	$result = mysqli_stmt_execute($stmt);
 
 	if (!$result) {
 		die("Query failed: " .  mysqli_error($conn));
 	}
+	
+	$query = "SELECT Max(TopicID) FROM Article";
+	$result = mysqli_query($conn, $query);
+
+	if (!$result) {
+		die("Query failed: " .  mysqli_error($conn));
+	}
+
+	$articleID = mysqli_fetch_assoc($result)["Max(TopicID)"];
 
 	$i = 1;
-	$output = Array();
-	while (isset($_POST["output" . $i])) {
-		$output[$i] = htmlspecialchars($_POST["output" . $i]);
+	while (isset($_POST["subTitle" . $i])) {
+		$title = htmlspecialchars($_POST["subTitle" . $i]);
+		$body = htmlspecialchars($_POST["subBody" . $i]);
+		$code = "";
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "INSERT INTO Subtopics VALUES (?,?,?,?,?)");
+		mysqli_stmt_bind_param($stmt, "iisss", $articleID, $i, $title, $code, $body);
+		$result = mysqli_stmt_execute($stmt);
+
+		if (!$result) {
+			die("Query failed: " .  mysqli_error($conn));
+		}
+
 		$i++;
 	}
-
-	$output = json_encode($output);
-
-	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "INSERT INTO ProgQuiz VALUES (NULL,?,?,?)");
-	mysqli_stmt_bind_param($stmt, "sss", $desc, $input, $output);
-	$result = mysqli_stmt_execute($stmt);
-
-	if (!$result) {
-		die("Query failed: " .  mysqli_error($conn));
-	}
-
 }
 require_once('../inc/header.inc.php');
 ?>
@@ -48,8 +55,8 @@ require_once('../inc/header.inc.php');
 	<form action="makeArticle.php" method="post">
 		<br>
 		<?php 
-		if ($result) {
-			echo "<p>Article submitted successfully</p>";
+		if ($articleID) {
+			echo "<p>Article #$articleID submitted successfully</p>";
 		}
 		?>
 		<div id="article">

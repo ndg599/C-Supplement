@@ -27,7 +27,8 @@ function init()
 
 function setLastEl()
 {
-	if (document.activeElement.name == "body" || document.activeElement.name.includes("subBody")) {
+	var elName = document.activeElement.name;
+	if (elName && (elName == "body" || elName.includes("subBody"))) {
 		lastElId = document.activeElement.id;
 		if (document.activeElement.selectionStart) {
 			lastElPos = document.activeElement.selectionStart;
@@ -45,6 +46,7 @@ function addSub()
 	subIndex++;
 	var div = document.createElement("div");
 	div.id = "sub" + subIndex;
+
 	var p = document.createElement("p");
 	p.innerHTML = "<br>SubSection " + subIndex + " Title";
 	div.appendChild(p);
@@ -52,6 +54,7 @@ function addSub()
 	input.type = "text";
 	input.name = "subTitle" + subIndex;
 	div.appendChild(input);
+
 	p = document.createElement("p");
 	p.innerHTML = "<br>SubSection " + subIndex + " Body";
 	div.appendChild(p);
@@ -61,6 +64,7 @@ function addSub()
 	ta.cols = 70;
 	ta.rows = 5;
 	div.appendChild(ta);
+	
 	articleDiv.appendChild(div);
 }
 
