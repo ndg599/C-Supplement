@@ -33,31 +33,3 @@
 	$endSpan   = '</span>';
 	/* 3) End with $endOfLine always */
 
-	$code[2] =  $includeLine . '#include &lt;iostream&gt;										   ' . $endOfLine
-			   .$emptyLine
-			   .$bodyLine 	 . $type . 'int ' . $endSpan . 'main(){								   ' . $endOfLine
-			   .$bodyLine 	 . '	int SIZE = 5;												   ' . $endOfLine
-			   .$bodyLine 	 . '	int myArray[SIZE] = {1, 2, 3, 4, 5};						   ' . $endOfLine
-			   .$emptyLine
-			   .$bodyLine 	 . '	// printing myArray: 1, 2, 3, 4, 5							   ' . $endOfLine
-			   .$bodyLine 	 . '	std::cout << "My array contains: ";							   ' . $endOfLine
-			   .$emptyLine
-			   .$bodyLine 	 . '   for(int i = 0; itr != SIZE - 1; ++i){ 						   ' . $endOfLine
-			   .$bodyLine 	 . '		std::cout <<  i << ", ";  								   ' . $endOfLine
-			   .$bodyLine 	 . '	}															   ' . $endOfLine
-			   .$bodyLine 	 . '	std::cout << std::endl;										   ' . $endOfLine 
-			   .$bodyLine 	 . $keyword . '    return ' . $endSpan . $literal . '0' . $endSpan . ';' . $endOfLine
-			   .$bodyLine 	 . '}																   ' . $endOfLine;
-	
-	$raw[2] =   '#include <iostream>				     \\n\\n'
-			   .'int main(){								\\n'
-			   .'    int SIZE = 5;					     \\n\\n'
-			   .'    int myArray[SIZE] = {1, 2, 3, 4, 5};   \\n'
-			   .'	 // Printing myArray: 1, 2, 3, 4, 5     \\n'
-			   .'    std::cout << "My array contains: "; 	\\n'
-			   .'    for (int i = 0; i < SIZE - 1; ++i){ 	\\n'
-			   .'    	std::cout << i << ", ";			 	\\n'
-			   .'    }									 	\\n'
-			   .'    std::cout << std::endl;			 	\\n'
-			   .'    return 0;						     	\\n'
-	           .'}										 	\\n';
