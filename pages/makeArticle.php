@@ -16,15 +16,14 @@ if (isset($_POST["articleTitle"])) {
 	{
 		$img = array();
 		$i = 1;
-		echo $sect . "ImgPos" . $i . "\n";
 		while (isset($_POST[$sect . "ImgPos" . $i])) {
+			echo $sect . "ImgPos" . $i . "\n";
 			$img[$i-1] = new Image();
 			$img[$i-1]->position = $_POST[$sect . "ImgPos" . $i];
 			$img[$i-1]->filename = $_POST[$sect . "ImgFile" . $i];
 			$img[$i-1]->caption = $_POST[$sect . "ImgCap" . $i];
 			$img[$i-1]->alt = $_POST[$sect . "ImgAlt" . $i];
 			$i++;
-			echo $sect . "ImgPos" . $i . "\n";
 		}
 		return JSON_encode($img);
 	}
@@ -41,18 +40,16 @@ if (isset($_POST["articleTitle"])) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-	echo "INSERT INTO Article VALUES (NULL,$title,$body,NULL,NULL,$imgJSON)";
-	return;
-/*
+	//echo "INSERT INTO Article VALUES (NULL,$title,$body,NULL,$imgJSON)\n";
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "INSERT INTO Article VALUES (NULL,?,?,NULL,NULL)");
-	mysqli_stmt_bind_param($stmt, "ss", $title, $body);
+	mysqli_stmt_prepare($stmt, "INSERT INTO Article VALUES (NULL,?,?,NULL,?)");
+	mysqli_stmt_bind_param($stmt, "sss", $title, $body, $imgJSON);
 	$result = mysqli_stmt_execute($stmt);
 
 	if (!$result) {
 		die("Query failed: " .  mysqli_error($conn));
 	}
-*/	
+	
 	$query = "SELECT Max(TopicID) FROM Article";
 	$result = mysqli_query($conn, $query);
 
@@ -63,13 +60,16 @@ if (isset($_POST["articleTitle"])) {
 	$articleID = mysqli_fetch_assoc($result)["Max(TopicID)"];
 
 	$i = 1;
-	while (isset($_POST["subTitle" . $i])) {
-		$title = htmlspecialchars($_POST["subTitle" . $i]);
-		$body = htmlspecialchars($_POST["subBody" . $i]);
+	while (isset($_POST["sub$i"."Body"])) {
+		$title = htmlspecialchars($_POST["sub$i"."Title"]);
+		$body = htmlspecialchars($_POST["sub$i"."Body"]);
 		$code = "";
+		$imgJSON = getImageJSON("sub$i");
+
+		//echo "INSERT INTO Subtopics VALUES ($articleID,$i,$title,$code,$body,$imgJSON)\n";
 		$stmt = mysqli_stmt_init($conn);
 		mysqli_stmt_prepare($stmt, "INSERT INTO Subtopics VALUES (?,?,?,?,?)");
-		mysqli_stmt_bind_param($stmt, "iisss", $articleID, $i, $title, $code, $body);
+		mysqli_stmt_bind_param($stmt, "iisss", $articleID, $i, $title, $body, $imgJSON);
 		$result = mysqli_stmt_execute($stmt);
 
 		if (!$result) {
@@ -79,6 +79,7 @@ if (isset($_POST["articleTitle"])) {
 		$i++;
 	}
 }
+
 require_once('../inc/header.inc.php');
 ?>
 <div class="content">
