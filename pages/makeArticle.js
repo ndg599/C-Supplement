@@ -28,7 +28,7 @@ function init()
 function setLastCur()
 {
 	var activeEl = document.activeElement;
-	if (activeEl.type == "textarea") { // Only insert images in textareas
+	if (activeEl.type == "textarea") { // Can only insert images in textareas
 		lastCurSec = activeEl.parentElement.id;
 		if (document.activeElement.selectionStart) {
 			lastCurPos = document.activeElement.selectionStart;
@@ -81,10 +81,23 @@ function getSectIndex(sect)
 	}
 }
 
+function addInput(sect, div, index, inputName, labelName, value, size)
+{
+	var label = document.createElement("label");
+	label.for = sect.id + inputName + index;
+	label.innerHTML = labelName;
+	div.appendChild(label);
+	var input = document.createElement("input");
+	input.type = "text";
+	input.name = sect.id + inputName + index;
+	if (value != undefined) { input.value = value; }
+	if (size != undefined) { input.size = size; }
+	div.appendChild(input);	
+	div.appendChild(document.createElement("br"));
+}
+
 function addImg()
 {
-	console.log("beniss:DDD");
-	console.log(lastCurSec);
 	var sect = document.getElementById(lastCurSec);
 	if (sect) {
 		var index = ++imgIndex[getSectIndex(sect)];
@@ -95,47 +108,10 @@ function addImg()
 		p.innerHTML = "<br>Image " + index;
 		div.appendChild(p);
 
-		var label = document.createElement("label");
-		label.for = sect.id + "imgPos" + index;
-		label.innerHTML = "Position:---";
-		div.appendChild(label);
-		var input = document.createElement("input");
-		input.type = "text";
-		input.name = sect.id + "imgPos" + index;
-		input.size = 6;
-		input.value = lastCurPos;
-		div.appendChild(input);	
-		div.appendChild(document.createElement("br"));
-
-		label = document.createElement("label");
-		label.for = sect.id + "imgFilename" + index;
-		label.innerHTML = "Filename:---";
-		div.appendChild(label);
-		input = document.createElement("input");
-		input.type = "text";
-		input.name = sect.id + "imgFilename" + index;
-		div.appendChild(input);
-		div.appendChild(document.createElement("br"));
-			
-		label = document.createElement("label");
-		label.for = sect.id + "imgFigcaption" + imgIndex;
-		label.innerHTML = "Caption:----";
-		div.appendChild(label);
-		input = document.createElement("input");
-		input.type = "text";
-		input.name = sect.id + "imgFigcaption" + imgIndex;
-		div.appendChild(input);	
-		div.appendChild(document.createElement("br"));
-		
-		label = document.createElement("label");
-		label.for = sect.id + "imgAlt" + imgIndex;
-		label.innerHTML = "Alt:--------";
-		div.appendChild(label);
-		input = document.createElement("input");
-		input.type = "text";
-		input.name = sect.id + "imgAlt" + imgIndex;
-		div.appendChild(input);	
-		div.appendChild(document.createElement("br"));
+		addInput(sect, div, index, "ImgPos", "Position:-", lastCurPos, 6);
+		addInput(sect, div, index, "ImgFile", "Filename:-");
+		addInput(sect, div, index, "ImgCap", "Caption:--");
+		addInput(sect, div, index, "ImgAlt", "Alt:------");
 
 		sect.appendChild(div);
 	}	
