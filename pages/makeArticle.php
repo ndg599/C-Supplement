@@ -59,11 +59,13 @@ require_once('../inc/header.inc.php');
 			echo "<p>Article #$articleID submitted successfully</p>";
 		}
 		?>
-		<div id="article">
-			<p>Article Title:</p>
-			<input type="text" name="title"><br><br>
-			<p>Article Body:</p>
-			<textarea id=0 name="body" cols="70" rows="5"></textarea><br>
+		<div id="sections">
+			<div id="article">
+				<p>Article Title:</p>
+				<input type="text" name="articleTitle"><br><br>
+				<p>Article Body:</p>
+				<textarea name="articleBody" cols="70" rows="5"></textarea><br>
+			</div>
 		</div>
 		<br><button type="button" id="addSub">Add SubSection</button>
 		<button type="button" id="addImg">Add Image</button>
