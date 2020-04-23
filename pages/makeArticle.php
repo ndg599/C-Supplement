@@ -48,9 +48,6 @@ if (isset($_POST["articleTitle"])) {
 	$body = $_POST["articleBody"];
 	$imgJSON = getImageJSON("article", $body);
 	$body = nl2br(htmlspecialchars(removeImageMarkers("article", $body)));
-	echo "$body<br>";
-	echo "$imgJSON<br>";
-	return;
 
     // Setup link to database
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -80,9 +77,9 @@ if (isset($_POST["articleTitle"])) {
 	$i = 1;
 	while (isset($_POST["sub$i"."Body"])) {
 		$title = htmlspecialchars($_POST["sub$i"."Title"]);
-		$body = htmlspecialchars($_POST["sub$i"."Body"]);
+		$body = $_POST["sub$i"."Body"];
 		$imgJSON = getImageJSON("sub$i", $body);
-		$body = removeImageCodes($body);
+		$body = nl2br(htmlspecialchars(removeImageMarkers("sub$i", $body)));
 
 		//echo "INSERT INTO Subtopics VALUES ($articleID,$i,$title,$code,$body,$imgJSON)\n";
 		$stmt = mysqli_stmt_init($conn);
