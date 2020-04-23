@@ -108,8 +108,35 @@ if(isset($_POST['reply'])){
 	}
 	
 /* Start of functions to load page */
-	function displayImages($imgTable, $subnum = NULL) 
+	function addImages($textArr, $imgArr) 
 	{
+		foreach ($imgArr as $img) {
+			$imgHTML =	'<figure class="text-center"><img src="../img/' . $img->filename . '" class="figOpts" alt="' . ($img->alt ? $img->alt : 'Alt Text Missing') . '">'
+			. '<figcaption class="justify-center kentYellow">' . ($img->caption ? $img->caption : "") . '</figcaption></figure>';
+
+			$line = $img->line;
+			$textArr[$line] = $imgHTML . $textArr[$line];
+		}
+
+		return $textArr;
+	}
+
+	function addContent($row)
+	{
+		// Split up text into lines and add images/code/etc.
+		$textArr = preg_split("<<br />>", $row["Text"]);
+		$textArr = addImages($textArr, $row['Images']);
+
+		// Combine back into bodyText
+		$text = "";
+		foreach ($textArr as $line) {
+			$text = $text . $line . "<br>";
+		}
+
+		return $text;
+	}
+
+	function displayImages($imgTable, $subnum) {
 		/* Image pull */
 		try {
 			global $conn;
@@ -179,6 +206,8 @@ if(isset($_POST['reply'])){
 			$res_sub = $sql_sub->get_result();
 			
 			while($row_sub = $res_sub->fetch_assoc()) {
+				$bodyText = addContent($row_sub);
+
 				echo 	'<div class="container-fluid mt-5">
 						    <h3 class="intro">' . $row_sub['SubName'] . '</h3>
 							<hr>
@@ -187,9 +216,9 @@ if(isset($_POST['reply'])){
 							<div class="row ml-5 mr-5">
 								<div class="col-12 section">';
 								
-				echo    '<p class="break">' . nl2br($row_sub['Text']) . '</p>';
+				echo    '<p class="break">' . $bodyText . '</p>';
 								
-				displayImages("Subimages", $row_sub['SubNum']);
+				//displayImages("Subimages", $row_sub['SubNum']);
 				
 				displayExCode($row_sub['SubNum']);
 				
@@ -426,8 +455,8 @@ if(isset($_POST['reply'])){
 				<div class="row ml-5 mr-5">
 					<div class="col-12 section">
 						<?php 
-							echo $row_article['Text'];
-							displayImages("Images"); 
+							echo addContent($row_article);
+							//displayImages("Images"); 
 						?>				
 					</div>
 				</div>
