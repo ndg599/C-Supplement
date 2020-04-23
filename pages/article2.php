@@ -125,7 +125,8 @@ if(isset($_POST['reply'])){
 	{
 		// Split up text into lines and add images/code/etc.
 		$textArr = preg_split("<<br />>", $row["Text"]);
-		$textArr = addImages($textArr, $row['Images']);
+		$imgArr = JSON_decode($row["Images"]);
+		$textArr = addImages($textArr, $imgArr);
 
 		// Combine back into bodyText
 		$text = "";
