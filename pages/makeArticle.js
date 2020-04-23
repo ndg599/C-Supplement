@@ -36,8 +36,6 @@ function setLastCur()
 		else {
 			lastCurPos = 0;
 		}
-		console.log(lastCurSec);
-		console.log(lastCurPos);
 	}
 }
 
@@ -96,6 +94,11 @@ function addInput(sect, div, index, inputName, labelName, value, size)
 	div.appendChild(document.createElement("br"));
 }
 
+function insertString(target, string, pos)
+{
+	return target.slice(0, pos) + string + target.slice(pos);
+}
+
 function addImg()
 {
 	var sect = document.getElementById(lastCurSec);
@@ -108,12 +111,19 @@ function addImg()
 		p.innerHTML = "<br>Image " + index;
 		div.appendChild(p);
 
-		addInput(sect, div, index, "ImgPos", "Position:-", lastCurPos, 6);
+		//addInput(sect, div, index, "ImgPos", "Position:-", lastCurPos, 6);
 		addInput(sect, div, index, "ImgFile", "Filename:-");
 		addInput(sect, div, index, "ImgCap", "Caption:--");
 		addInput(sect, div, index, "ImgAlt", "Alt:------");
 
 		sect.appendChild(div);
+
+		// Add image code to textarea at lastCurPos
+		var textarea = document.getElementsByName(sect.id + "Body")[0];
+		console.log(textarea.innerText);
+		console.log("[img]" + index);
+		console.log(lastCurPos);
+		textarea.value = insertString(textarea.value, "[img" + index + ']', lastCurPos);
 	}	
 }
 
