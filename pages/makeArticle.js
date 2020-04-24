@@ -1,5 +1,6 @@
 var subIndex = 0; // Number of subTopics
 var imgIndex = [0]; // Number of images per section. First element is article, element 1+ is respective subTopic
+var codeIndex = [0];
 var sections = document.getElementById("sections");
 
 var lastCurSec = "article"; // Id of the section (article/subtopic) cursor was last at
@@ -21,14 +22,14 @@ function init()
 	var addCodeBtn = document.getElementById("addCode");
 	addCodeBtn.onclick = addCode;
 	
-	var addVidBtn = document.getElementById("addVid");
-	addVidBtn.onclick = addVid;
+	//var addVidBtn = document.getElementById("addVid");
+	//addVidBtn.onclick = addVid;
 }
 
 function setLastCur()
 {
 	var activeEl = document.activeElement;
-	if (activeEl.type == "textarea") { // Can only insert images in textareas
+	if (activeEl.className == "body") { // Can only insert images in article/subtopic body
 		lastCurSec = activeEl.parentElement.id;
 		if (document.activeElement.selectionStart) {
 			lastCurPos = document.activeElement.selectionStart;
@@ -47,7 +48,7 @@ function addSub()
 	div.id = "sub" + subIndex;
 
 	var p = document.createElement("p");
-	p.innerHTML = "<br>SubSection " + subIndex + " Title";
+	p.innerHTML = "<br>Subtopic " + subIndex + " Title";
 	div.appendChild(p);
 	var input = document.createElement("input");
 	input.type = "text";
@@ -55,11 +56,11 @@ function addSub()
 	div.appendChild(input);
 
 	p = document.createElement("p");
-	p.innerHTML = "<br>SubSection " + subIndex + " Body";
+	p.innerHTML = "<br>Subtopic " + subIndex + " Body";
 	div.appendChild(p);
 	var ta = document.createElement("textarea");
-	ta.id = subIndex;
 	ta.name = div.id + "Body";
+	ta.className = "body";
 	ta.cols = 70;
 	ta.rows = 5;
 	div.appendChild(ta);
@@ -70,12 +71,11 @@ function addSub()
 // Might be better to store section's index in class instead of doing this
 function getSectIndex(sect)
 {
-
 	if (sect.id == "article") {
 		return 0;
 	}
-	else { // SubTopics
-		return sect.id[3];
+	else { // Subtopics
+		return sect.id.slice(3); // Get index out of id
 	}
 }
 
@@ -111,25 +111,42 @@ function addImg()
 		p.innerHTML = "<br>Image " + index;
 		div.appendChild(p);
 
-		//addInput(sect, div, index, "ImgPos", "Position:-", lastCurPos, 6);
 		addInput(sect, div, index, "ImgFile", "Filename:-");
 		addInput(sect, div, index, "ImgCap", "Caption:--");
 		addInput(sect, div, index, "ImgAlt", "Alt:------");
 
 		sect.appendChild(div);
 
-		// Add image code to textarea at lastCurPos
+		// Add image token to textarea at lastCurPos
 		var textarea = document.getElementsByName(sect.id + "Body")[0];
-		console.log(textarea.innerText);
-		console.log("[img]" + index);
-		console.log(lastCurPos);
 		textarea.value = insertString(textarea.value, "[img" + index + ']', lastCurPos);
 	}	
 }
 
 function addCode()
 {
+	var sect = document.getElementById(lastCurSec);
+	if (sect) {
+		var index = ++codeIndex[getSectIndex(sect)];
+		var div = document.createElement("div");
+		div.id = sect.id + "code" + index;
 
+		var p = document.createElement("p");
+		p.innerHTML = "<br>Code Snippet " + index;
+		div.appendChild(p);
+
+		var ta = document.createElement("textarea");
+		ta.name = sect.id + "CodeText" + index;
+		ta.cols = 70;
+		ta.rows = 5;
+		div.appendChild(ta);
+
+		sect.appendChild(div);
+
+		// Add code token to textarea at lastCurPos
+		var textarea = document.getElementsByName(sect.id + "Body")[0];
+		textarea.value = insertString(textarea.value, "[code" + index + ']', lastCurPos);
+	}
 }
 
 function addVid()

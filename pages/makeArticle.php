@@ -12,15 +12,21 @@ if (isset($_POST["articleTitle"])) {
 		public string $alt;
 	}
 
+	class CodeSnippet
+	{
+		public int $line;
+		public string $code;
+	}
+
 	function getImageJSON($sect, $body)
 	{
 		$img = array();
 		$i = 0;
 		$lastPos = 0;
 		$lineCount = 0;
-		while ($pos = strpos($body, "[img", $lastPos)) { // Search for position of each image marker
+		while ($pos = strpos($body, "[img", $lastPos)) { // Search for position of each image token
 			$id = $body[$pos+4]; // Get id of image (NOTE: will only get id that's under 10... fix this)
-			$lineCount += substr_count($body, "\n", $lastPos, $pos-$lastPos); // Find line the image is on
+			$lineCount += substr_count($body, "\n", $lastPos, $pos-$lastPos); // Find line the token is on
 			$img[$i] = new Image();
 			$img[$i]->line = $lineCount;
 			$img[$i]->filename = $_POST[$sect . "ImgFile" . $id];
@@ -32,7 +38,25 @@ if (isset($_POST["articleTitle"])) {
 		return JSON_encode($img);
 	}
 
-	function removeImageMarkers($sect, $body)
+	function getCodeJSON($sect, $body)
+	{
+		$code = array();
+		$i = 0;
+		$lastPos = 0;
+		$lineCount = 0;
+		while ($pos = strpos($body, "[code", $lastPos)) { // Search for position of each code token
+			$id = $body[$pos+5]; // Get id of image (NOTE: will only get id that's under 10... fix this)
+			$lineCount += substr_count($body, "\n", $lastPos, $pos-$lastPos); // Find line the token is on
+			$code[$i] = new CodeSnippet();
+			$code[$i]->line = $lineCount;
+			$code[$i]->text = $_POST[$sect . "CodeText" . $id];
+			$i++;
+			$lastPos = $pos+1;
+		}
+		return JSON_encode($code);
+	}
+
+	function removeImageTokens($sect, $body)
 	{
 		$i = 1;
 		while (isset($_POST[$sect . "ImgFile$i"])) {
@@ -42,12 +66,24 @@ if (isset($_POST["articleTitle"])) {
 		return $body;
 	}
 
+	function removeCodeTokens($sect, $body)
+	{
+		$i = 1;
+		while (isset($_POST[$sect . "CodeText$i"])) {
+			$body = str_replace("[code$i]", "", $body);
+			$i++;
+		}
+		return $body;
+	}
+
     require_once('../pdoconfig.php');
 
 	$title = htmlspecialchars($_POST["articleTitle"]);
 	$body = $_POST["articleBody"];
+	$video = $_POST["articleVideo"];
 	$imgJSON = getImageJSON("article", $body);
-	$body = nl2br(htmlspecialchars(removeImageMarkers("article", $body)));
+	$codeJSON = getCodeJSON("article", $body);
+	$body = nl2br(htmlspecialchars(removeCodeTokens("article", removeImageTokens("article", $body))));
 
     // Setup link to database
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -57,8 +93,8 @@ if (isset($_POST["articleTitle"])) {
 
 	//echo "INSERT INTO Article VALUES (NULL,$title,$body,NULL,$imgJSON)\n";
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "INSERT INTO Article VALUES (NULL,?,?,NULL,?)");
-	mysqli_stmt_bind_param($stmt, "sss", $title, $body, $imgJSON);
+	mysqli_stmt_prepare($stmt, "INSERT INTO Article VALUES (NULL,?,?,?,?,?)");
+	mysqli_stmt_bind_param($stmt, "sssss", $title, $body, $video, $imgJSON, $codeJSON);
 	$result = mysqli_stmt_execute($stmt);
 
 	if (!$result) {
@@ -79,12 +115,13 @@ if (isset($_POST["articleTitle"])) {
 		$title = htmlspecialchars($_POST["sub$i"."Title"]);
 		$body = $_POST["sub$i"."Body"];
 		$imgJSON = getImageJSON("sub$i", $body);
-		$body = nl2br(htmlspecialchars(removeImageMarkers("sub$i", $body)));
+		$codeJSON = getCodeJSON("sub$i", $body);
+		$body = nl2br(htmlspecialchars(removeCodeTokens("sub$i", removeImageTokens("sub$i", $body))));
 
 		//echo "INSERT INTO Subtopics VALUES ($articleID,$i,$title,$code,$body,$imgJSON)\n";
 		$stmt = mysqli_stmt_init($conn);
-		mysqli_stmt_prepare($stmt, "INSERT INTO Subtopics VALUES (?,?,?,?,?)");
-		mysqli_stmt_bind_param($stmt, "iisss", $articleID, $i, $title, $body, $imgJSON);
+		mysqli_stmt_prepare($stmt, "INSERT INTO Subtopics VALUES (?,?,?,?,?,?)");
+		mysqli_stmt_bind_param($stmt, "iissss", $articleID, $i, $title, $body, $imgJSON, $codeJSON);
 		$result = mysqli_stmt_execute($stmt);
 
 		if (!$result) {
@@ -110,13 +147,15 @@ require_once('../inc/header.inc.php');
 		?>
 		<div id="sections">
 			<div id="article">
-				<p>Article Title:</p>
+				<p>Article Title</p>
 				<input type="text" name="articleTitle"><br><br>
-				<p>Article Body:</p>
-				<textarea name="articleBody" cols="70" rows="5"></textarea><br>
+				<p>Article Body</p>
+				<textarea name="articleBody" class="body" cols="70" rows="5"></textarea><br><br>
+				<label for="articleVideo">Video Link:</label>
+				<input type="text" name="articleVideo"><br>
 			</div>
 		</div>
-		<div id="taskbar">
+		<div id="buttons">
 			<br><button type="button" id="addSub">Add SubSection</button>
 			<button type="button" id="addImg">Add Image</button>
 			<button type="button" id="addCode">Add Code Snippet</button>
