@@ -71,8 +71,6 @@
 	
 	$raw[4] =   '#include <iostream>								\\n\\n'
 
-				.'using namespace std;								\\n\\n'
-
 				.'class Box{										   \\n'
 				.'	public:										       \\n'
 				.'		Box();										   \\n'
