@@ -121,12 +121,40 @@ if(isset($_POST['reply'])){
 		return $textArr;
 	}
 
+	function addCode($textArr, $codeArr)
+	{
+		$i = 0;
+		foreach ($codeArr as $code) {
+			$codeText = htmlspecialchars($code->text);
+			$codeHTML =
+					'<div class="row mb-4">
+						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
+							. $code->text .
+					   '</div>
+						<div class="col-11 mt-1 mb-2">
+							<button class="btn btn-success" id="' . $i . '" ' .
+								'onclick="copyStringToClipboard(' . $code->text . ')" ' .
+					'		    type="button">Copy Code</button>
+							<span>*iOS users, manually copy</span>
+						</div>
+					 </div>';
+
+			$line = $code->line;
+			$textArr[$line] = $codeHTML . $textArr[$line];
+			$i++;
+		}
+
+		return $textArr;
+	}	
+
 	function addContent($row)
 	{
 		// Split up text into lines and add images/code/etc.
 		$textArr = preg_split("<<br />>", $row["Text"]);
 		$imgArr = JSON_decode($row["Images"]);
-		$textArr = addImages($textArr, $imgArr);
+		$codeArr = JSON_decode($row["Code"]);
+		if ($imgArr) { $textArr = addImages($textArr, $imgArr); }
+		if ($codeArr) { $textArr = addCode($textArr, $codeArr); }
 
 		// Combine back into bodyText
 		$text = "";
@@ -221,7 +249,7 @@ if(isset($_POST['reply'])){
 								
 				//displayImages("Subimages", $row_sub['SubNum']);
 				
-				displayExCode($row_sub['SubNum']);
+				//displayExCode($row_sub['SubNum']);
 				
 				/* Ending 3 divs from second echo of while loop */
 				echo	'</div>
