@@ -44,6 +44,7 @@ function addSub()
 {
 	subIndex++;
 	imgIndex[subIndex] = 0;
+	codeIndex[subIndex] = 0;
 	var div = document.createElement("div");
 	div.id = "sub" + subIndex;
 

@@ -111,6 +111,8 @@ if(isset($_POST['reply'])){
 	function addImages($textArr, $imgArr) 
 	{
 		foreach ($imgArr as $img) {
+			if ($img->filename == "") { continue; }
+
 			$imgHTML =	'<figure class="text-center"><img src="../img/' . $img->filename . '" class="figOpts" alt="' . ($img->alt ? $img->alt : 'Alt Text Missing') . '">'
 			. '<figcaption class="justify-center kentYellow">' . ($img->caption ? $img->caption : "") . '</figcaption></figure>';
 
@@ -125,6 +127,8 @@ if(isset($_POST['reply'])){
 	{
 		$i = 0;
 		foreach ($codeArr as $code) {
+			if ($code->text == "") { continue; }
+
 			$codeText = htmlspecialchars($code->text);
 			$codeHTML =
 					'<div class="row mb-4">

@@ -471,6 +471,8 @@ form input.btnKent {
 	color: #F8EB61;
 }
 
+/* chat.php */
+
 .chatMsg {
 	margin: 10px 0px;
 	background-color: #333333;
@@ -491,4 +493,13 @@ form input.btnKent {
 
 .rcvdMsgText {
 	color: White;
+}
+
+/* makeArticle.php */
+
+.articleTaskbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 }
