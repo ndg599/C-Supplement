@@ -155,13 +155,12 @@ require_once('../inc/header.inc.php');
 				<input type="text" name="articleVideo"><br>
 			</div>
 		</div>
-		<div id="buttons">
-			<br><button type="button" id="addSub">Add SubSection</button>
+		<div id="articleTaskbar">
+			<br><button type="button" id="addSub">Add Subtopic</button>
 			<button type="button" id="addImg">Add Image</button>
-			<button type="button" id="addCode">Add Code Snippet</button>
-			<button type="button" id="addVid">Add Video</button><br><br>
-			<input type="submit" id="submit" value="Submit Article">
+			<button type="button" id="addCode">Add Code Snippet</button><br><br>
 		</div>
+		<input type="submit" id="submit" value="Submit Article">
 	</form>
    </div>
   </div>
