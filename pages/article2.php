@@ -133,7 +133,7 @@ if(isset($_POST['reply'])){
 			$codeHTML =
 					'<div class="row mb-4">
 						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
-							. $code[$code->text] .
+							. $code[intval($code->text)] .
 					   '</div>
 						<div class="col-11 mt-1 mb-2">
 							<button class="btn btn-success" id="' . $i . '" ' .
