@@ -134,7 +134,7 @@ if(isset($_POST['reply'])){
 			$codeText = htmlspecialchars($raw[intval($snippet->text)]);
 			$codeHTML =
 					'<div class="row mb-4">
-						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
+						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1 text-center">'
 							. $code[intval($snippet->text)] .
 					   '</div>
 						<div class="col-11 mt-1 mb-2">
