@@ -353,7 +353,7 @@ if(isset($_POST['reply'])){
 			}
 						
 			if ($i === 0) {
-				echo '<span class="kentYellow articleFontSize text-center">No present quiz questions</span>';
+				echo '<span class="kentYellow articleFontSize">No present quiz questions</span>';
 				return;
 			}
 		}
