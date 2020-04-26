@@ -103,32 +103,34 @@
 					</div>
 				</div>
 				
-				<div class="col-cust-img mb-5"> 
-					<img src="./img/IM.png" class="img-view mx-auto d-block" alt="Chat Word Art">
-				</div>
-				<div class="col-cust-info mb-5">
-					<h5 class="kentYellow text-center">Chat with a Tutor</h5>				
-					<table class="table text-white">
-						<tr>
-							<td class="kentBlue">Landen:</td>
-							<td>Monday/Wednesday</td>
-							<td>08:00a - 12:00p</td>
-						</tr>
-						<tr>
-							<td class="kentBlue">Trey:</td>
-							<td>Tuesday/Thursday</td>
-							<td>09:00a - 01:00p</td>
-						</tr>
-						<tr>
-							<td class="kentBlue">Tutor3:</td>
-							<td>Friday</td>
-							<td>01:00p - 05:00p</td>
-						</tr>				
-					</table>				
-					<div class="text-center">
-						<a href="#" class="btn btnKent">IM Client</a>
+				<?php if (isset($_SESSION["loggedin"])): ?>
+					<div class="col-cust-img mb-5"> 
+						<img src="./img/IM.png" class="img-view mx-auto d-block" alt="Chat Word Art">
 					</div>
-				</div>
+					<div class="col-cust-info mb-5">
+						<h5 class="kentYellow text-center">Chat with a Tutor</h5>				
+						<table class="table text-white">
+							<tr>
+								<td class="kentBlue">Landen:</td>
+								<td>Monday/Wednesday</td>
+								<td>08:00a - 12:00p</td>
+							</tr>
+							<tr>
+								<td class="kentBlue">Trey:</td>
+								<td>Tuesday/Thursday</td>
+								<td>09:00a - 01:00p</td>
+							</tr>
+							<tr>
+								<td class="kentBlue">Tutor3:</td>
+								<td>Friday</td>
+								<td>01:00p - 05:00p</td>
+							</tr>				
+						</table>				
+						<div class="text-center">
+							<a href="#" class="btn btnKent">IM Client</a>
+						</div>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
