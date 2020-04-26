@@ -40,7 +40,7 @@
 			   .$bodyLine . $keyword . '    public' . $endSpan . ':' . $endOfLine
 			   .$bodyLine . $type . '        virtual void ' . $endSpan . 'display() ' . $type . 'const' . $endSpan . $endOfLine
 			   .$bodyLine . '        {' . $endOfLine
-			   .$bodyLine . '            std::cout << ' . $literal . '"Parent Class Display' . $escape . '\n' . $endSpan . '"' . $endSpan . ';' . $endOfLine
+			   .$bodyLine . '            std::cout &lt;&lt; ' . $literal . '"Parent Class Display' . $escape . '\n' . $endSpan . '"' . $endSpan . ';' . $endOfLine
                .$bodyLine . '        }' . $endOfLine
 			   .$bodyLine . '};' . $endOfLine
 			   .$emptyLine
@@ -51,7 +51,7 @@
 			   .$bodyLine . $keyword . '    public' . $endSpan . ':' . $endOfLine
 			   .$bodyLine . $type . '        virtual void ' . $endSpan . 'display() ' . $type . 'const override' . $endSpan . $endOfLine
 			   .$bodyLine . '        {' . $endOfLine
-			   .$bodyLine . '            std::cout << ' . $literal . '"Child1 Class Display' . $escape . '\n' . $endSpan . '"' . $endSpan . ';' . $endOfLine
+			   .$bodyLine . '            std::cout &lt;&lt; ' . $literal . '"Child1 Class Display' . $escape . '\n' . $endSpan . '"' . $endSpan . ';' . $endOfLine
                .$bodyLine . '        }' . $endOfLine
 			   .$bodyLine . '};' . $endOfLine
 	           .$emptyLine
@@ -60,7 +60,7 @@
 			   .$bodyLine . $keyword . '    public' . $endSpan . ':' . $endOfLine
 			   .$bodyLine . $type . '        virtual void ' . $endSpan . 'display() ' . $type . 'const override' . $endSpan . $endOfLine
 			   .$bodyLine . '        {' . $endOfLine
-			   .$bodyLine . '            std::cout << ' . $literal . '"Child2 Class Display' . $escape . '\n' . $endSpan . '"' . $endSpan . ';' . $endOfLine
+			   .$bodyLine . '            std::cout &lt;&lt; ' . $literal . '"Child2 Class Display' . $escape . '\n' . $endSpan . '"' . $endSpan . ';' . $endOfLine
                .$bodyLine . '        }' . $endOfLine
 			   .$bodyLine . '};' . $endOfLine
 	           .$emptyLine
