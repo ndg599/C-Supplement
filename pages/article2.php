@@ -126,24 +126,24 @@ if(isset($_POST['reply'])){
 	function addCode($textArr, $codeArr)
 	{
 		$i = 0;
-		foreach ($codeArr as $code) {
-			if ($code->text == "") { continue; }
+		foreach ($codeArr as $snippet) {
+			if ($snippet->text == "") { continue; }
 
-			$codeText = htmlspecialchars($code->text);
+			$codeText = htmlspecialchars($raw[intval($snippet->text)]);
 			$codeHTML =
 					'<div class="row mb-4">
 						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
-							. $code[intval($code->text)] .
+							. $code[intval($snippet->text)] .
 					   '</div>
 						<div class="col-11 mt-1 mb-2">
 							<button class="btn btn-success" id="' . $i . '" ' .
-								'onclick="copyStringToClipboard(' . $code->text . ')" ' .
+								'onclick="copyStringToClipboard(' . $codeText . ')" ' .
 					'		    type="button">Copy Code</button>
 							<span>*iOS users, manually copy</span>
 						</div>
 					 </div>';
 
-			$line = $code->line;
+			$line = $snippet->line;
 			$textArr[$line] = $codeHTML . $textArr[$line];
 			$i++;
 		}
