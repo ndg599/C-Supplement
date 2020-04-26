@@ -131,11 +131,11 @@ if(isset($_POST['reply'])){
 		foreach ($codeArr as $snippet) {
 			if ($snippet->text == "") { continue; }
 
-			$codeText = htmlspecialchars($raw[intval($snippet->text)]);
+			$codeText = htmlspecialchars($raw[$snippet->text]);
 			$codeHTML =
 					'<div class="row mb-4 justify-content-center">
 						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
-							. $code[intval($snippet->text)] .
+							. $code[$snippet->text] .
 					   '</div>
 						<div class="col-11 mt-1 mb-2">
 							<button class="btn btn-success" id="' . $i . '" ' .
