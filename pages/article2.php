@@ -125,6 +125,8 @@ if(isset($_POST['reply'])){
 
 	function addCode($textArr, $codeArr)
 	{
+		global $code;
+		global $raw;
 		$i = 0;
 		foreach ($codeArr as $snippet) {
 			if ($snippet->text == "") { continue; }
