@@ -38,13 +38,13 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav nav nav-pills mr-auto mt-2 mt-md-0">	
 				<li class="nav-item">
-					<a class="nav-link mr-2 kentYellow" href="#">CS I</a>
+					<a class="nav-link mr-2 kentYellow" href="/pages/topics.php?Class=CSI">CS I</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link mr-2 kentBlue" href="#">CS II</a>
+					<a class="nav-link mr-2 kentBlue" href="/pages/topics.php?Class=CSII">CS II</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link mr-2 text-white" href="#">CS III</a>
+					<a class="nav-link mr-2 text-white" href="/pages/topics.php?Class=CSIII">CS III</a>
 				</li>
 			<?php if (isset($_SESSION["loggedin"])): ?>
 				<li class="nav-item">
