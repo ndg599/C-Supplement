@@ -353,7 +353,7 @@ if(isset($_POST['reply'])){
 			}
 						
 			if ($i === 0) {
-				echo '<p class="kentYellow articleFontSize">Database fetch failure or no present quiz questions</p>';
+				echo '<p class="kentYellow articleFontSize text-center">No present quiz questions</p>';
 				return;
 			}
 		}
