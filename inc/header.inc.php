@@ -9,7 +9,10 @@
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php session_start(); ?> <!-- Start php session so session variables are available -->
+	<?php 
+		if(!isset($_SESSION)) 
+			session_start(); 
+	?> <!-- Start php session so session variables are available -->
 	<title>Kent C++ Supplement</title>
 	<meta charset="utf-8">
 	<meta name="description" content="C++ Supplement for Kent State - Stark">

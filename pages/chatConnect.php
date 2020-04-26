@@ -1,6 +1,7 @@
 <?php
 require_once('../pdoconfig.php');
-session_start();
+if(!isset($_SESSION)) 
+			session_start();
 // Must be logged in to chat
 if (!isset($_SESSION["loggedin"])) {
 	header("Location: https://www.kentcpp.com/pages/login.php");
