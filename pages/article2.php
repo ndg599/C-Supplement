@@ -139,7 +139,7 @@ if(isset($_POST['reply'])){
 					   '</div>
 						<div class="col-11 mt-1 mb-2">
 							<button class="btn btn-success" id="' . $i . '" ' .
-								'onclick="copyStringToClipboard("' . $codeText . '",' . $i . ')" ' .
+								'onclick="copyStringToClipboard(\'' . $codeText . '\',' . $i . ')" ' .
 					'		    type="button">Copy Code</button>
 							<span>*iOS users, manually copy</span>
 						</div>
