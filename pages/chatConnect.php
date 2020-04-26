@@ -1,6 +1,5 @@
 <?php
 require_once('../pdoconfig.php');
-session_start();
 
 // Must be logged in to chat
 if (!isset($_SESSION["loggedin"])) {
