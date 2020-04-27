@@ -592,7 +592,7 @@ if(isset($_POST['reply'])){
 				
 				success: function(data)
 				{
-					$("#dispAns").append('<div id="results"></div>);
+					$("#dispAns").append('<div id="results"></div>');
 					for(var i = 0; i < data.length; ++i) {
 						if(choices[i] == data[i].Ans)
 							$('#results').append('<p class="green">' + data[i].Exp + '</p>');
