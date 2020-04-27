@@ -188,6 +188,21 @@
 		$body.$t.'char '.$es.'c = '.$l.'\'c\''.$es.';'.$end
 	   .$body.$t.'char'.$es.' d = '.$l.'\'d\''.$es.', *ptr = &c;'.$end
 	   .$body.'std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end;
+	   
+	$code["PointersQuiz3"] =
+		$inc . '#include &lt;iostream&gt;'.$end
+	   .$body.$t.'void '.$es.'changeVal('.$t.'int '.$es.'*ptr)'.$end
+	   .$body.'{'.$end
+	   .$body.'    *ptr = '.$l.'204'.$es.';'.$end
+	   .$body.'}'.$end
+	   .$empty
+	   .$body.$t.'int '.$es.'main()'.$end
+	   .$body.'{'.$end
+	   .$body.$t.'    int '.$es.'num = '.$l.'50'.$es.';'.$end
+	   .$body.$t.'    int *'.$es.'ptr = &num;'.$end
+	   .$body.'    changeVal(ptr);'.$end
+	   .$body.'    std::cout &lt;&lt; ptr &lt;&lt; std::endl;'.$end
+	   .$body.'}'.$end
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
