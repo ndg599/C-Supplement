@@ -573,7 +573,8 @@ if(isset($_POST['reply'])){
 			
 			var i = 1;
 			var choices = new Array();
-			console.log(<?php echo $Q_COUNT ?>);
+			var a =<?php echo $Q_COUNT ?>
+			console.log(a);
 			while(i <= <?php echo $Q_COUNT ?>) {
 				choices[i] = $('#Q'+i+'').val();
 			}
