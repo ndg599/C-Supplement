@@ -191,6 +191,7 @@
 	   
 	$code["PointersQuiz3"] =
 		$inc . '#include &lt;iostream&gt;'.$end
+	   .$empty
 	   .$body.$t.'void '.$es.'changeVal('.$t.'int '.$es.'*ptr)'.$end
 	   .$body.'{'.$end
 	   .$body.'    *ptr = '.$l.'204'.$es.';'.$end
@@ -201,7 +202,7 @@
 	   .$body.$t.'    int '.$es.'num = '.$l.'50'.$es.';'.$end
 	   .$body.$t.'    int *'.$es.'ptr = &num;'.$end
 	   .$body.'    changeVal(ptr);'.$end
-	   .$body.'    std::cout &lt;&lt; ptr &lt;&lt; std::endl;'.$end
+	   .$body.'    std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end
 	   .$body.'}'.$end
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
