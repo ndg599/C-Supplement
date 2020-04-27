@@ -356,7 +356,7 @@ if(isset($_POST['reply'])){
 							 </label>';
 				}
 			}
-			$Q_COUNT = $j;
+			$Q_COUNT = $i;
 						
 			if ($i === 0) {
 				echo '<span class="kentYellow articleFontSize">No present quiz questions</span>';
