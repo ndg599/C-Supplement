@@ -574,16 +574,6 @@ if(isset($_POST['reply'])){
 			while(i <= <?php echo $Q_COUNT ?>) {
 				choices[i] = $('#Q'+i+'').val();
 			}
-			$('input:radio[name=Q'+i+']').each(function() {
-				if (this.id != "none" && $(this).is(':checked')) {
-					titleORmessage = this.value;
-					$(this).siblings('.dropDown').append('<input type="text" id="searchText" class="form-control ml-3 mb-2" style="width: 95%" placeholder="' + this.value + '">');
-				}
-				else if (this.id == "none" && $(this).is(':checked'))
-					titleORmessage = "";
-				else
-					$(this).siblings('.dropDown').empty();
-			});
 			
 			$.ajax({ 
 				url:      "../inc/quizResults.php",
