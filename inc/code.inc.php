@@ -200,7 +200,7 @@
 	   .$body.$t.'int '.$es.'main()'.$end
 	   .$body.'{'.$end
 	   .$body.$t.'    int '.$es.'num = '.$l.'50'.$es.';'.$end
-	   .$body.$t.'    int *'.$es.'ptr = &num;'.$end
+	   .$body.$t.'    int *'.$es.'ptr = &amp;num;'.$end
 	   .$body.'    changeVal(ptr);'.$end
 	   .$body.'    std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end
 	   .$body.'}'.$end;
