@@ -337,7 +337,7 @@ if(isset($_POST['reply'])){
 							 <br>';
 				}
 				/* Options / Choices */
-				for($j = 0; $j < count($choices); ++$j) {
+				for($j = 1; $j <= count($choices); ++$j) {
 					if($row_quiz[$choices[$j]] == NULL)
 						continue;
 					echo	'<label class="qBox kentYellow">' 
@@ -530,8 +530,9 @@ if(isset($_POST['reply'])){
 			<div class="container ml-5">
 				<div class="row">
 					<div class="col-12">
-						<form name="FORM" action="../quizProcess.???" method="post"> 
+						<form name="quiz" action="javascript:void(0);" method="post"> 
 							<?php displayQuiz(); ?>
+							<button type="submit" class="btn btnKent mt-2">Check Ans</button>
 						</form>
 					</div>
 				</div>
