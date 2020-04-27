@@ -5,11 +5,14 @@
 	{
 		global $conn;
 		try {
-			if(!($sql_results = $conn->prepare("SELECT Ans, Exp FROM Questions ORDER BY QNum ASC"))) {
+			if(!($sql_results = $conn->prepare("SELECT Ans, Exp 
+			                                    FROM Questions 
+												WHERE TopicID = ? 
+												ORDER BY QNum ASC"))) {
 				printf("Error\n" + $sql_results->error);
 				return;
 			}
-			
+			$sql_results->bind("i",$_GET['ID']);
 			$sql_results->execute();
 			$sql_results = $sql_results->get_result();
 			$rowArray = array();
