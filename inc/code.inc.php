@@ -182,7 +182,7 @@
 	$code["PointersQuiz1"] = 
 		$body.$t.'int '.$es.'x = '.$l.'25'.$es.';'.$end
 	   .$body.$t.'int'.$es.'* ptr = &x;'.$end
-	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;';
+	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;'.$end;
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
