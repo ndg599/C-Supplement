@@ -183,6 +183,11 @@
 		$body.$t.'int '.$es.'x = '.$l.'25'.$es.';'.$end
 	   .$body.$t.'int'.$es.'* ptr = &x;'.$end
 	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;'.$end;
+	   
+	$code["PointersQuiz2"] = 
+		$body.$t.'char '.$es.'c = '.$l.'\'c\''.$es.';'.$end
+	   .$body.$t.'char'.$es.' d = \'d\', *ptr = &c;'.$end
+	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;'.$end;
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
