@@ -6,7 +6,7 @@
 		$incoming = json_decode($_POST["choices"], false);
 		global $conn;
 		try {
-			if(!($sql_results = $conn->prepare("SELECT Ans, Exp FROM Questions SORT BY QNum ASC"))) {
+			if(!($sql_results = $conn->prepare("SELECT * FROM Questions SORT BY QNum ASC"))) {
 				printf("Error\n" + $sql_results->error);
 				return;
 			}
