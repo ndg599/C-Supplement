@@ -186,7 +186,7 @@
 	   
 	$code["PointersQuiz2"] = 
 		$body.$t.'char '.$es.'c = '.$l.'\'c\''.$es.';'.$end
-	   .$body.$t.'char'.$es.' d = '.$1.'\'d\''.$es.', *ptr = &c;'.$end
+	   .$body.$t.'char'.$es.' d = '.$l.'\'d\''.$es.', *ptr = &c;'.$end
 	   .$body.'std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end;
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
