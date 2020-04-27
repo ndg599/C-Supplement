@@ -18,6 +18,7 @@
 
 <?php
 $counter=0;
+$Q_COUNT = 0;
 /* Start of things to be done before page is loaded */ 
 	require_once('../inc/header.inc.php'); 
     require_once('../inc/code.inc.php');
@@ -306,7 +307,6 @@ if(isset($_POST['reply'])){
 		
 	}
 	
-	$Q_COUNT = 0;
 	function displayQuiz() 
 	{
 		/* Quiz information pull */
