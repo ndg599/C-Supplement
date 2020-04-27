@@ -19,7 +19,7 @@
 			while ($row = $sql_results->fetch_assoc())
 				$rowArray[] = $row; 
 
-			echo json_encode($incoming);
+			echo json_encode($rowArray);
 		} catch (Exception $e) {
 			die("quizResults.php: " . $e);
 		}
