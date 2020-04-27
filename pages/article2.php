@@ -577,7 +577,7 @@ if(isset($_POST['reply'])){
 			var choices = new Array();
 
 			while(i <= <?php echo $Q_COUNT ?>) {
-				var id = "Q" + toString(i);
+				var id = "Q" + i.toString();
 				choices.push($('input[name="' + id + '"]:checked').val());
 				++i;
 			}
