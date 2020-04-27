@@ -3,7 +3,7 @@
 
 	function dispAns()
 	{
-		$incoming = json_decode($_POST["choices"], false);
+		$incoming = json_decode($_POST["choices"]);
 		global $conn;
 		try {
 			if(!($sql_results = $conn->prepare("SELECT * FROM Questions SORT BY QNum ASC"))) {
@@ -16,7 +16,7 @@
 			$rowArray = array();
 			while ($row = $sql_results->fetch_assoc())
 				$rowArray[] = $row; 
-printf("HH");
+		printf("HH");
 			echo json_encode($rowArray);
 		} catch (Exception $e) {
 			die("quizResults.php: " . $e);
