@@ -587,7 +587,7 @@ if(isset($_POST['reply'])){
 				success: function(data)
 				{
 					for(var i = 0; i < data.length; ++i) {
-						$('#dispAns').append('<p>Working</p>');
+						$('#dispAns').append('<p>' data[i].Exp + '</p>');
 					}
 				}
 			});

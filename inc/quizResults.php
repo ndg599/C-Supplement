@@ -3,7 +3,6 @@
 
 	function dispAns()
 	{
-		echo json_encode($_POST);
 		$incoming = json_decode($_POST["choices"], false);
 		global $conn;
 		try {
@@ -16,7 +15,7 @@
 			while ($row = $sql_results->fetch_assoc())
 				$rowArray[] = $row; 
 
-
+			echo json_encode($rowArray);
 		} catch (Exception $e) {
 			die("quizResults.php: " . $e);
 		}
