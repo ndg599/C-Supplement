@@ -275,6 +275,7 @@ if(isset($_POST['reply'])){
 			global $conn;
 			global $code;
 			global $raw;
+			
 			if(!($sql_code = $conn->prepare("SELECT * FROM Subcode WHERE SubNum = ? AND TopicID = ? ORDER BY SubCodeNum ASC;"))) {
 				echo '<p class="kentYellow articleFontSize">Database prepare failure - ExCode</p>';
 				return;
@@ -313,6 +314,7 @@ if(isset($_POST['reply'])){
 		try {
 			global $conn;
 			global $code;
+			global $Q_COUNT;
 			if(!($sql_quiz = $conn->prepare("SELECT * FROM Questions WHERE TopicID = ?;"))) {
 				echo '<p class="kentYellow articleFontSize">Database prepare failure</p>';
 				return;
