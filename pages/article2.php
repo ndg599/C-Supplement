@@ -343,7 +343,7 @@ if(isset($_POST['reply'])){
 						continue;
 					echo	'<label class="qBox kentYellow">' 
 								. $row_quiz[$choices[$j]] .
-							'<input type="radio" name="'
+							'<input type="radio" name="Q'
 								. $row_quiz['QNum'] . 
 							'" id=Q"'
 								. $row_quiz['QNum'] .
@@ -533,10 +533,10 @@ if(isset($_POST['reply'])){
 			</div>
 			<div class="container ml-5">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-12" id="dispAns">
 						<form name="quiz" id="quiz" action="javascript:void(0);" method="POST"> 
 							<?php displayQuiz(); ?>
-							<button type="submit" class="btn btnKent mt-2">Check Ans</button>
+							<button type="submit" id="answers" class="btn btnKent mt-2">Check Ans</button>
 						</form>
 					</div>
 				</div>
@@ -567,28 +567,36 @@ if(isset($_POST['reply'])){
 
 	<script src="../inc/article.js"></script>
 	<script>
-		$("#btn1").click(function() {
+		$("#answers").click(function() {
 			
-				
+			var i = 1;
+			var choices[<?php echo $Q_COUNT ?>];
+			while(i <= <?php echo $Q_COUNT ?>) {
+				choices[i] = $('#Q'+i').val();
+			}
+			$('input:radio[name=Q'+i+']').each(function() {
+				if (this.id != "none" && $(this).is(':checked')) {
+					titleORmessage = this.value;
+					$(this).siblings('.dropDown').append('<input type="text" id="searchText" class="form-control ml-3 mb-2" style="width: 95%" placeholder="' + this.value + '">');
+				}
+				else if (this.id == "none" && $(this).is(':checked'))
+					titleORmessage = "";
+				else
+					$(this).siblings('.dropDown').empty();
+			});
+			
 			$.ajax({ 
-				url:      URL,
-				data:     param,
+				url:      "../inc/quizResults.php",
+				data:     JSON.stringify({paramName: info }),
 				async:    true,
-				type:     "GET",
+				type:     "POST",
 				dataType: "json",
 				
 				success: function(data)
 				{
-					$('#imgFilter').append('<ul class="mt-5 mb-3 list-inline text-center" id="displayImgs"> </ul>');
 					for(var i = 0; i < data.length; ++i) {
-						$('#displayImgs').append('<li class="mb-2 list-inline-item px-2">' +
-						                         '<a href="single_image.php?id=' + data[i].ImageID + '" class="img-responsive">' +
-												 '<img class="imgSize" src="../img/square-medium/' + data[i].Path + '" alt="' + data[i].Title + '">' + 
-												 '<h6 class="text-center">' + data[i].Title + '</h6>' +
-												 '</a></li>');
+						$('#dispAns').append('<p>WORKING</p>');
 					}
-					$('#imgFilter').append('</ul>');
-
 				}
 			});
 		});
