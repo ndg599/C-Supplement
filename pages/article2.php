@@ -123,7 +123,7 @@ if(isset($_POST['reply'])){
 		return $textArr;
 	}
 
-	$i = 0 // This represents a unique id and will be different between all sections
+	$i = 0; // This represents a unique id and will be different between all sections
 	function addCode($textArr, $codeArr)
 	{
 		global $code;
