@@ -345,9 +345,9 @@ if(isset($_POST['reply'])){
 								. $row_quiz[$choices[$j]] .
 							'<input type="radio" name="Q'
 								. $row_quiz['QNum'] . 
-							'" id=Q'
+							'" id="Q'
 								. $row_quiz['QNum'] .
-							'" value = "'
+							'" value ="'
 								. $choices[$j] .
 							'">
 							 <span class="checkmark"></span>
