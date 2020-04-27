@@ -41,7 +41,7 @@
 	   .$body.$k.'    public'.$es.':'.$end
 	   .$body.$t.'        virtual void '.$es.'display() '.$t.'const'.$es.$end
 	   .$body.'        {'.$end
-	   .$body.'            std::cout &lt;&lt; '.$l.'"Parent Class Display'.$e.'\n'.$es.'"'.$es.';'.$end
+	   .$body.'            std::std::cout &lt;&lt; '.$l.'"Parent Class Display'.$e.'\n'.$es.'"'.$es.';'.$end
 	   .$body.'        }'.$end
 	   .$body.'};'.$end
 	   .$empty
@@ -52,7 +52,7 @@
 	   .$body.$k.'    public'.$es.':'.$end
 	   .$body.$t. '        virtual void '.$es.'display() '.$t.'const override'.$es.$end
 	   .$body.'        {'.$end
-	   .$body.'            std::cout &lt;&lt; '.$l.'"Child1 Class Display'.$e.'\n'.$es.'"'.$es.';'.$end
+	   .$body.'            std::std::cout &lt;&lt; '.$l.'"Child1 Class Display'.$e.'\n'.$es.'"'.$es.';'.$end
 	   .$body.'        }'.$end
 	   .$body.'};'.$end
 	   .$empty
@@ -61,7 +61,7 @@
 	   .$body.$k.'    public'.$es.':'.$end
 	   .$body.$t.'        virtual void '.$es.'display() '.$t.'const override'.$es.$end
 	   .$body.'        {'.$end
-	   .$body.'            std::cout &lt;&lt; '.$l.'"Child2 Class Display'.$e.'\n'.$es.'"'.$es.';'.$end
+	   .$body.'            std::std::cout &lt;&lt; '.$l.'"Child2 Class Display'.$e.'\n'.$es.'"'.$es.';'.$end
 	   .$body.'        }'.$end
 	   .$body.'};'.$end
 	   .$empty
@@ -88,7 +88,7 @@
 	   .'    public:\\n'
 	   .'        virtual void display() const\\n'
 	   .'        {\\n'
-	   .'            std::cout << "Parent Class Display\\\n";\\n'
+	   .'            std::std::cout << "Parent Class Display\\\n";\\n'
 	   .'        }\\n'
 	   .'};\\n\\n'
 	   .'/* The virtual keyword and override identifier are not required in the\\n'
@@ -98,7 +98,7 @@
 	   .'    public:\\n'
 	   .'        virtual void display() const override\\n'
 	   .'        {\\n'
-	   .'            std::cout << "Child1 Class Display\\\n";\\n'
+	   .'            std::std::cout << "Child1 Class Display\\\n";\\n'
 	   .'        }\\n'
 	   .'};\\n\\n'
 	   .'class Child2 : public Parent\\n'
@@ -106,7 +106,7 @@
 	   .'    public:\\n'
 	   .'        virtual void display() const override\\n'
 	   .'        {\\n'
-	   .'            std::cout << "Child2 Class Display\\\n";\\n'
+	   .'            std::std::cout << "Child2 Class Display\\\n";\\n'
 	   .'        }\\n'
 	   .'};\\n\\n'
 	   .'class Child3 : public Parent\\n'
@@ -144,17 +144,17 @@
 	   
 	$code["Pointers3"] =
 		$body.'*pointer = '.$l.'23'.$es.';'.$c. ' // Changed x to 23'.$es.$end
-       .$body.'cout &lt;&lt; '.$l.'x is now: '.$es.'&lt;&lt; x &lt;&lt; endl;'.$c.' // Displays 23'.$es.$end;
+       .$body.'std::cout &lt;&lt; '.$l.'x is now: '.$es.'&lt;&lt; x &lt;&lt; std::endl;'.$c.' // Displays 23'.$es.$end;
 
 	$raw["Pointers3"] =
 		'typedef int* intPtrs; \\n'
 	   .'intPtrs ptr, ptr2, ptr3 \\n';
 	   
 	$code["Pointers4"] = 
-		$body.'cout &lt;&lt; pointer &lt;&lt; '.$l.'" is the same as outputting "'.$es.' &lt;&lt; &x &lt;&lt endl;'.$end;
+		$body.'std::cout &lt;&lt; pointer &lt;&lt; '.$l.'" is the same as outputting "'.$es.' &lt;&lt; &x &lt;&lt std::endl;'.$end;
 	
 	$raw["Pointers4"] =
-		'cout << pointer << " is the same as outputting " << &x << endl; \\n';
+		'std::cout << pointer << " is the same as outputting " << &x << std::endl; \\n';
 		
 	$code["Pointers5"] =
 		$body.$t.'int '.$es.'x = '.$l.'100'.$es.';'.$end
@@ -182,12 +182,12 @@
 	$code["PointersQuiz1"] = 
 		$body.$t.'int '.$es.'x = '.$l.'25'.$es.';'.$end
 	   .$body.$t.'int'.$es.'* ptr = &x;'.$end
-	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;'.$end;
+	   .$body.'std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end;
 	   
 	$code["PointersQuiz2"] = 
 		$body.$t.'char '.$es.'c = '.$l.'\'c\''.$es.';'.$end
-	   .$body.$t.'char'.$es.' d = \'d\', *ptr = &c;'.$end
-	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;'.$end;
+	   .$body.$t.'char'.$es.' d = '.$1.'\'d\''.$es.', *ptr = &c;'.$end
+	   .$body.'std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end;
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
@@ -204,12 +204,12 @@
 			   .$empty
 			   .$body . '	// printing myMap: 5, 4, 3, 2, 1								' . $end
 			   .$body . '	myMap<int, int>::iterator itr;									' . $end
-			   .$body . '	std::cout << "My map contains: ";								' . $end
+			   .$body . '	std::std::cout << "My map contains: ";								' . $end
 			   .$empty
 			   .$body . '   for(itr = myMap.begin(); itr != myMap.end(); ++itr){			' . $end
-			   .$body . '		std::cout << \t << itr->first << \t itr->second <<		    ' . $end
+			   .$body . '		std::std::cout << \t << itr->first << \t itr->second <<		    ' . $end
 			   .$body . '	}															    ' . $end
-			   .$body . '	std::cout << endl;												' . $end 
+			   .$body . '	std::std::cout << std::endl;												' . $end 
 			   .$body . $k . '    return ' . $es . $l . '0' . $es . ';' . $end
 			   .$body . '}																	' . $end;
 	
@@ -226,11 +226,11 @@
 			   .'    myMap.insert (pair<int, int>(5, 1);					  \\n\\n'
 			   .'	 // printing myMap: 5, 4, 3, 2, 1							 \\n'
 			   .'	 myMap<int, int>::iterator itr;								 \\n'
-			   .'    std::cout << "My map contains: "							 \\n'
+			   .'    std::std::cout << "My map contains: "							 \\n'
 			   .' 	 for(itr = myMap.begin(); itr != myMap.end(); ++itr){		 \\n'
-			   .'	 	std::cout << \t << itr->first << \t itr->second << \n;   \\n'
+			   .'	 	std::std::cout << \t << itr->first << \t itr->second << \n;   \\n'
 			   .'	 }'
-			   .'	 std::cout << endl;\\n'
+			   .'	 std::std::cout << std::endl;\\n'
 			   .'    return 0;\\n'
 	           .'}\\n';
 			   
@@ -241,12 +241,12 @@
 			   .$body 	 . '	int myArray[SIZE] = {1, 2, 3, 4, 5};						   ' . $end
 			   .$empty
 			   .$body 	 . '	// printing myArray: 1, 2, 3, 4, 5							   ' . $end
-			   .$body 	 . '	std::cout << "My array contains: ";							   ' . $end
+			   .$body 	 . '	std::std::cout << "My array contains: ";							   ' . $end
 			   .$empty
 			   .$body 	 . '   for(int i = 0; itr != SIZE - 1; ++i){ 						   ' . $end
-			   .$body 	 . '		std::cout <<  i << ", ";  								   ' . $end
+			   .$body 	 . '		std::std::cout <<  i << ", ";  								   ' . $end
 			   .$body 	 . '	}															   ' . $end
-			   .$body 	 . '	std::cout << std::endl;										   ' . $end 
+			   .$body 	 . '	std::std::cout << std::std::endl;										   ' . $end 
 			   .$body 	 . $k . '    return ' . $es . $l . '0' . $es . ';' . $end
 			   .$body 	 . '}																   ' . $end;
 	
@@ -255,10 +255,10 @@
 			   .'    int SIZE = 5;					     \\n\\n'
 			   .'    int myArray[SIZE] = {1, 2, 3, 4, 5};   \\n'
 			   .'	 // Printing myArray: 1, 2, 3, 4, 5     \\n'
-			   .'    std::cout << "My array contains: "; 	\\n'
+			   .'    std::std::cout << "My array contains: "; 	\\n'
 			   .'    for (int i = 0; i < SIZE - 1; ++i){ 	\\n'
-			   .'    	std::cout << i << ", ";			 	\\n'
+			   .'    	std::std::cout << i << ", ";			 	\\n'
 			   .'    }									 	\\n'
-			   .'    std::cout << std::endl;			 	\\n'
+			   .'    std::std::cout << std::std::endl;			 	\\n'
 			   .'    return 0;						     	\\n'
 	           .'}										 	\\n';
