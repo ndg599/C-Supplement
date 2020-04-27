@@ -572,7 +572,7 @@ if(isset($_POST['reply'])){
 
 	<script>
 		$("#answers").click(function() {
-			
+			$('#results').empty();
 			var param = "ID=" + <?php echo $_GET['ID'] ?>;
 			var i = 1;
 			var choices = new Array();
@@ -592,11 +592,12 @@ if(isset($_POST['reply'])){
 				
 				success: function(data)
 				{
+					$("#dispAns").append('<div id="results"></div>);
 					for(var i = 0; i < data.length; ++i) {
 						if(choices[i] == data[i].Ans)
-							$('#dispAns').append('<p class="green">' + data[i].Exp + '</p>');
+							$('#results').append('<p class="green">' + data[i].Exp + '</p>');
 						else
-							$('#dispAns').append('<p class="red">' + data[i].Exp + '</p>');
+							$('#results').append('<p class="red">' + data[i].Exp + '</p>');
 					}
 				}
 			});
