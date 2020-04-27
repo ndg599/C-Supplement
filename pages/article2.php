@@ -570,7 +570,7 @@ if(isset($_POST['reply'])){
 		$("#answers").click(function() {
 			
 			var i = 1;
-			var choices[<?php echo $Q_COUNT ?>];
+			var choices = new Array();
 			while(i <= <?php echo $Q_COUNT ?>) {
 				choices[i] = $('#Q'+i').val();
 			}
