@@ -573,10 +573,10 @@ if(isset($_POST['reply'])){
 	<script>
 		$("#answers").click(function() {
 			
-			var i = 0;
+			var i = 1;
 			var choices = new Array();
 
-			while(i < <?php echo $Q_COUNT ?>) {
+			while(i <= <?php echo $Q_COUNT ?>) {
 				choices.push($('input[name="Q' + i + ']:checked').val());
 				++i;
 			}
