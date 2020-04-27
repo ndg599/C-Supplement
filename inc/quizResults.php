@@ -14,7 +14,7 @@
 			$rowArray = array();
 			while ($row = $sql_results->fetch_assoc())
 				$rowArray[] = $row; 
-
+print_r($rowArray);
 			echo json_encode($rowArray);
 		} catch (Exception $e) {
 			die("quizResults.php: " . $e);
