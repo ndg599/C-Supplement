@@ -573,6 +573,7 @@ if(isset($_POST['reply'])){
 	<script>
 		$("#answers").click(function() {
 			
+			var param = "ID=" + <?php $_GET['ID'] ?>;
 			var i = 1;
 			var choices = new Array();
 
@@ -584,9 +585,9 @@ if(isset($_POST['reply'])){
 			console.log(choices);
 			$.ajax({ 
 				url:      "../inc/quizResults.php",
-				data:     {'choices' : JSON.stringify(choices)},
+				data:     param,
 				async:    true,
-				type:     "POST",
+				type:     "GET",
 				dataType: "json",
 				
 				success: function(data)

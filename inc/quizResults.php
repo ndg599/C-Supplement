@@ -3,14 +3,13 @@
 
 	function dispAns()
 	{
-		$incoming = json_decode($_POST["choices"], false);
 		global $conn;
 		try {
 			if(!($sql_results = $conn->prepare("SELECT Ans, Exp FROM Questions ORDER BY QNum ASC"))) {
 				printf("Error\n" + $sql_results->error);
 				return;
 			}
-
+			
 			$sql_results->execute();
 			$sql_results = $sql_results->get_result();
 			$rowArray = array();
