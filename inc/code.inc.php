@@ -127,7 +127,7 @@
 	$code["Pointers1"] =
 		$body.$t.'int '.$es.'x = '.$l.'1'.$es.';'.$end
        .$body.$t.'int'.$es.'* pointer;'.$end
-       .$body.'pointer = &x;'.$end
+       .$body.'pointer = &x;'.$end;
 
 	$raw["Pointers1"] =
 		'int x = 1; \\n'
@@ -136,7 +136,7 @@
 	   
 	$code["Pointers2"] =
 		$body.$t.'typedef int'.$es.'* intPtrs;'.$end
-       .$body.'intPtrs ptr, ptr2, ptr3;'.$end
+       .$body.'intPtrs ptr, ptr2, ptr3;'.$end;
 
 	$raw["Pointers2"] =
 		'typedef int* intPtrs; \\n'
@@ -144,14 +144,14 @@
 	   
 	$code["Pointers3"] =
 		$body.'*pointer = '.$l.'23'.$es.';'.$c. ' // Changed x to 23'.$es.$end
-       .$body.'cout &lt;&lt; '.$l.'x is now: '.$es.'&lt;&lt; x &lt;&lt; endl;'.$c.' // Displays 23'.$es.$end
+       .$body.'cout &lt;&lt; '.$l.'x is now: '.$es.'&lt;&lt; x &lt;&lt; endl;'.$c.' // Displays 23'.$es.$end;
 
 	$raw["Pointers3"] =
 		'typedef int* intPtrs; \\n'
 	   .'intPtrs ptr, ptr2, ptr3 \\n';
 	   
 	$code["Pointers4"] = 
-		$body.'cout &lt;&lt; pointer &lt;&lt; '.$l.'" is the same as outputting "'.$es.' &lt;&lt; &x &lt;&lt endl;'.$end
+		$body.'cout &lt;&lt; pointer &lt;&lt; '.$l.'" is the same as outputting "'.$es.' &lt;&lt; &x &lt;&lt endl;'.$end;
 	
 	$raw["Pointers4"] =
 		'cout << pointer << " is the same as outputting " << &x << endl; \\n';
@@ -160,7 +160,7 @@
 		$body.$t.'int '.$es.'x = '.$l.'100'.$es.';'.$end
        .$body.$t.'int '.$es.'*ptr1, *ptr2;'.$end
        .$body.'ptr1 = &x;'.$end
-	   .$body.'ptr2 = ptr1;'.$end
+	   .$body.'ptr2 = ptr1;'.$end;
 
 	$raw["Pointers5"] =
 		'int x = 100; \\n'
@@ -170,14 +170,14 @@
 	   
 	$code["Pointers6"] =
 		$body.$t.'void '.$es.'function('.$t.'int '.$es.'*ptr);'.$c.' // Function declaration'.$es.$end
-       .$body.'function(pointer_variable);'.$c.' // Function invocation elsewhere in program'.$es.$end
+       .$body.'function(pointer_variable);'.$c.' // Function invocation elsewhere in program'.$es.$end;
 	   
 	$raw["Pointers6"] =
 		'void function(int *ptr); // Function declaration \\n'
 	   .'function(pointer_variable); // Function invocation elsewhere in program \\n';
 	   
 	$code["Pointers7"] =
-		$body.$t.'void'.$es.' function('.$t.'const int'.$es.' *ptr);'.$end
+		$body.$t.'void'.$es.' function('.$t.'const int'.$es.' *ptr);'.$end;
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
