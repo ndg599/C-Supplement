@@ -203,7 +203,7 @@
 	   .$body.$t.'    int *'.$es.'ptr = &num;'.$end
 	   .$body.'    changeVal(ptr);'.$end
 	   .$body.'    std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end
-	   .$body.'}'.$end
+	   .$body.'}'.$end;
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
