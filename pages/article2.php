@@ -577,7 +577,7 @@ if(isset($_POST['reply'])){
 			
 			$.ajax({ 
 				url:      "../inc/quizResults.php",
-				data:     JSON.stringify({paramName: info }),
+				data:     JSON.stringify({paramName: choices}),
 				async:    true,
 				type:     "POST",
 				dataType: "json",
