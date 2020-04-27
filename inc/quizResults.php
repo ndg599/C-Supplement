@@ -7,7 +7,7 @@
 		global $conn;
 		try {
 			if(!($sql_results = $conn->prepare("SELECT Ans, Exp FROM Questions SORT BY QNum ASC"))) {
-				printf("Error\n");
+				printf("Error\n" + $sql_results->error);
 				return;
 			}
 
