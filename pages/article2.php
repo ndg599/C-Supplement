@@ -593,7 +593,10 @@ if(isset($_POST['reply'])){
 				success: function(data)
 				{
 					for(var i = 0; i < data.length; ++i) {
-					$('#dispAns').append('<p>' + data[i].Exp + '</p>');
+						if(choices[i] == data[i].Ans)
+							$('#dispAns').append('<p class="green">' + data[i].Exp + '</p>');
+						else
+							$('#dispAns').append('<p class="red">' + data[i].Exp + '</p>');
 					}
 				}
 			});
