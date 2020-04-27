@@ -580,7 +580,7 @@ if(isset($_POST['reply'])){
 			while(i <= <?php echo $Q_COUNT ?>) {
 				choices[i] = $('#Q'+i+'').val();
 			}
-			
+			console.log(choices);
 			$.ajax({ 
 				url:      "../inc/quizResults.php",
 				data:     {'choices' : JSON.stringify(choices)},
