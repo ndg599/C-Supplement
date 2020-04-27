@@ -176,10 +176,10 @@
 		'void function(int *ptr); // Function declaration \\n'
 	   .'function(pointer_variable); // Function invocation elsewhere in program \\n';
 	   
-	$code["PointersQuiz1"] =
+	$code["Pointers7"] =
 		$body.$t.'void'.$es.' function('.$t.'const int'.$es.' *ptr);'.$end;
 		
-	$code["PointersQuiz2"] = 
+	$code["PointersQuiz1"] = 
 		$body.$t.'int '.$es.'x = '.$l.'25'.$es.';'.$end
 	   .$body.$t.'int'.$es.'* ptr = &x;'.$end
 	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;'.$end;
