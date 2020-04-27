@@ -344,9 +344,9 @@ if(isset($_POST['reply'])){
 					echo	'<label class="qBox kentYellow">' 
 								. $row_quiz[$choices[$j]] .
 							'<input type="radio" name="Q'
-								. intval($row_quiz['QNum']) . 
-							'" id=Q"'
-								. intval($row_quiz['QNum']) .
+								. $row_quiz['QNum'] . 
+							'" id=Q'
+								. $row_quiz['QNum'] .
 							'" value = "'
 								. $choices[$j] .
 							'">
