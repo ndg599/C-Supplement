@@ -338,7 +338,7 @@ if(isset($_POST['reply'])){
 							 <br>';
 				}
 				/* Options / Choices */
-				for($j = 1; $j <= count($choices); ++$j) {
+				for($j = 0; $j < count($choices); ++$j) {
 					if($row_quiz[$choices[$j]] == NULL)
 						continue;
 					echo	'<label class="qBox kentYellow">' 
@@ -354,7 +354,7 @@ if(isset($_POST['reply'])){
 							 </label>';
 				}
 			}
-			$Q_COUNT = $j - 1;
+			$Q_COUNT = $j;
 						
 			if ($i === 0) {
 				echo '<span class="kentYellow articleFontSize">No present quiz questions</span>';
