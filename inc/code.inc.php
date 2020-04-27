@@ -178,6 +178,11 @@
 	   
 	$code["Pointers7"] =
 		$body.$t.'void'.$es.' function('.$t.'const int'.$es.' *ptr);'.$end;
+		
+	$code["PointersQuiz1"] = 
+		$body.$t.'int '.$es.'x = '.$l.'25'.$es.';'.$end
+	   .$body.$t.'int'.$es.'* ptr = &x;'.$end
+	   .$body.'cout &lt;&lt; *ptr &lt;&lt; endl;';
 
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
