@@ -12,7 +12,7 @@
 				printf("Error\n" + $sql_results->error);
 				return;
 			}
-			$sql_results->bind("i",$_GET['ID']);
+			$sql_results->bind_param("i",$_GET['ID']);
 			$sql_results->execute();
 			$sql_results = $sql_results->get_result();
 			$rowArray = array();
