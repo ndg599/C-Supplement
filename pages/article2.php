@@ -353,8 +353,8 @@ if(isset($_POST['reply'])){
 							 <span class="checkmark"></span>
 							 </label>';
 				}
-				$Q_COUNT = $j - 1;
 			}
+			$Q_COUNT = $j - 1;
 						
 			if ($i === 0) {
 				echo '<span class="kentYellow articleFontSize">No present quiz questions</span>';
