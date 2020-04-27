@@ -22,7 +22,7 @@
 			$rowArray = array();
 			while ($row = $sql_image->fetch_assoc())
 				$rowArray[] = $row; */
-			$rowArray[] = {"One", "two", "Three"};
+			$rowArray = array("One", "two", "Three");
 			echo json_encode($rowArray);
 		} catch (Exception $e) {
 			die("ImageFilter.php: " . $e);
