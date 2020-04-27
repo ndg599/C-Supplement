@@ -566,6 +566,8 @@ if(isset($_POST['reply'])){
 	</div>
 
 	<script src="../inc/article.js"></script>
+	<script src="../inc/jquery-3.4.1.min.js"></script>	
+
 	<script>
 		$("#answers").click(function() {
 			
