@@ -572,7 +572,7 @@ if(isset($_POST['reply'])){
 			var i = 1;
 			var choices = new Array();
 			while(i <= <?php echo $Q_COUNT ?>) {
-				choices[i] = $('#Q'+i').val();
+				choices[i] = $('#Q'+i+'').val();
 			}
 			$('input:radio[name=Q'+i+']').each(function() {
 				if (this.id != "none" && $(this).is(':checked')) {
