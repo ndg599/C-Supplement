@@ -578,7 +578,8 @@ if(isset($_POST['reply'])){
 			var a =<?php echo $Q_COUNT ?>;
 			console.log(a);
 			while(i < <?php echo $Q_COUNT ?>) {
-				choices.push($('#Q'+i+'').val());
+				var id = "#Q" + i;
+				choices.push($(id).val());
 			}
 			console.log(choices);
 			$.ajax({ 
