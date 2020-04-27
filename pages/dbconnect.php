@@ -1,6 +1,6 @@
 <?php
 	/* Used to open database */
-	require_once('../pdoconfig.php');
+	require_once('/pdoconfig.php');
 	error_reporting(-1);
 	ini_set("display_errors","0");
 	ini_set("log_errors",0);
