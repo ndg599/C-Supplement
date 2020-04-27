@@ -123,11 +123,12 @@ if(isset($_POST['reply'])){
 		return $textArr;
 	}
 
+	$i = 0 // This represents a unique id and will be different between all sections
 	function addCode($textArr, $codeArr)
 	{
 		global $code;
 		global $raw;
-		$i = 0;
+		global $i;
 		foreach ($codeArr as $snippet) {
 			if ($snippet->text == "") { continue; }
 
@@ -138,7 +139,7 @@ if(isset($_POST['reply'])){
 							. $code[$snippet->text] .
 					   '</div>
 						<div class="col-11 mt-1 mb-2">
-							<button class="btn btn-success ml-5" id="' . $i . '" ' .
+							<button class="btn btn-success" id="' . $i . '" ' .
 								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" ' .
 					'		    type="button">Copy Code</button>
 						</div>
