@@ -306,6 +306,7 @@ if(isset($_POST['reply'])){
 		
 	}
 	
+	$Q_COUNT = 0;
 	function displayQuiz() 
 	{
 		/* Quiz information pull */
@@ -344,12 +345,15 @@ if(isset($_POST['reply'])){
 								. $row_quiz[$choices[$j]] .
 							'<input type="radio" name="'
 								. $row_quiz['QNum'] . 
+							'" id=Q"'
+								. $row_quiz['QNum'] .
 							'" value = "'
 								. $choices[$j] .
 							'">
 							 <span class="checkmark"></span>
 							 </label>';
 				}
+				$Q_COUNT = $j - 1;
 			}
 						
 			if ($i === 0) {
@@ -530,7 +534,7 @@ if(isset($_POST['reply'])){
 			<div class="container ml-5">
 				<div class="row">
 					<div class="col-12">
-						<form name="quiz" action="javascript:void(0);" method="post"> 
+						<form name="quiz" id="quiz" action="javascript:void(0);" method="POST"> 
 							<?php displayQuiz(); ?>
 							<button type="submit" class="btn btnKent mt-2">Check Ans</button>
 						</form>
@@ -562,4 +566,31 @@ if(isset($_POST['reply'])){
 	</div>
 
 	<script src="../inc/article.js"></script>
+	<script>
+		$("#btn1").click(function() {
+			
+				
+			$.ajax({ 
+				url:      URL,
+				data:     param,
+				async:    true,
+				type:     "GET",
+				dataType: "json",
+				
+				success: function(data)
+				{
+					$('#imgFilter').append('<ul class="mt-5 mb-3 list-inline text-center" id="displayImgs"> </ul>');
+					for(var i = 0; i < data.length; ++i) {
+						$('#displayImgs').append('<li class="mb-2 list-inline-item px-2">' +
+						                         '<a href="single_image.php?id=' + data[i].ImageID + '" class="img-responsive">' +
+												 '<img class="imgSize" src="../img/square-medium/' + data[i].Path + '" alt="' + data[i].Title + '">' + 
+												 '<h6 class="text-center">' + data[i].Title + '</h6>' +
+												 '</a></li>');
+					}
+					$('#imgFilter').append('</ul>');
+
+				}
+			});
+		});
+	</script>
 <?php require_once('../inc/footer.inc.php'); ?>
