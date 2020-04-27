@@ -138,10 +138,9 @@ if(isset($_POST['reply'])){
 							. $code[$snippet->text] .
 					   '</div>
 						<div class="col-11 mt-1 mb-2">
-							<button class="btn btn-success" id="' . $i . '" ' .
-								'onclick="copyStringToClipboard(\'' . $codeText . '\',' . $i . ')" ' .
+							<button class="btn btn-success ml-5" id="' . $i . '" ' .
+								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" ' .
 					'		    type="button">Copy Code</button>
-							<span>*iOS users, manually copy</span>
 						</div>
 					 </div>';
 
