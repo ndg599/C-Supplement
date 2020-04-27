@@ -332,7 +332,7 @@ if(isset($_POST['reply'])){
 				/* Code (if any) */
 				if ($row_quiz['CodeID'] != NULL) {
 					echo 	'<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
-								. $code[$row_quiz['CodeID']] .
+								. $code["$row_quiz[CodeID]"] .
 							'</div>
 							 <br>';
 				}
