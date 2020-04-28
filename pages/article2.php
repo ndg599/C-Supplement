@@ -142,7 +142,7 @@ if(isset($_POST['reply'])){
 						<div class="col-11 mt-1 mb-2">
 							<button class="btn btn-success" id="' . $i . '" ' .
 								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" ' .
-					'		    type="button">Copy Code</button>
+					'		    type="button"><i class="far fa-clipboard"></i></button>
 						</div>
 					 </div>';
 
@@ -593,9 +593,9 @@ if(isset($_POST['reply'])){
 					$("#dispAns").append('<div id="results"></div>');
 					for(var i = 0; i < data.length; ++i) {
 						if(choices[i] == data[i].Ans)
-							$('#results').append('<p class="green">' + data[i].Exp + '</p>');
+							$('#results').append('<p style="padding: 10px; color: #54e874">' + i.toString() + ') ' + data[i].Exp + '</p>');
 						else
-							$('#results').append('<p class="red">' + data[i].Exp + '</p>');
+							$('#results').append('<p style="padding: 10px; color: #e85d54">' + i.toString() + ') ' + data[i].Exp + '</p>');
 					}
 				}
 			});
