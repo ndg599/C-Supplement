@@ -12,10 +12,9 @@
 
 </script>
 <?php require_once('../inc/header.inc.php'); ?>
-        <div class="content">
-                <div class="container">
-                        <div class="row">
-				<div class='container' >
+	<div class="content">
+		<div class="container d-flex h-100">
+			<div class="row justify-content-center align-self-center mx-auto">
 				<?php
 				//Checks if user is signned in
 				if(isset($_SESSION["loggedin"])==true){
@@ -29,7 +28,7 @@
 						echo "<h4 align=center>Reassign user below</h4>";
 						require_once("dbconnect.php");
 						if ( mysqli_connect_errno() ) {
-    					printf("Connect failed: %s\n", mysqli_connect_error());
+						printf("Connect failed: %s\n", mysqli_connect_error());
 						}
 
 						//handles reassignment
@@ -99,40 +98,10 @@
 							$count++;
 						}
 						echo "</table></div>";
-
-
-
-
-
-
-
 					}
 				}
-
-
-
-
-
-
-
 				}else{header("index.php");}
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 			</div>
 		</div>
 	</div>
