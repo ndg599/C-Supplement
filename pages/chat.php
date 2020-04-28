@@ -3,35 +3,36 @@ if(!isset($_SESSION)) {
 	echo "You cannot access this page. Redirecting to www.kentcpp.com...";
     header('Refresh: 3; URL=https://www.kentcpp.com');
 }
+else {
+	require_once("../pdoconfig.php");
 
-require_once("../pdoconfig.php");
+	// Setup link to database
+	$conn = mysqli_connect($servername, $username, $password, $database);
+	if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+	}
 
-// Setup link to database
-$conn = mysqli_connect($servername, $username, $password, $database);
-if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+	session_start();
+	$_SESSION["partnerid"] = $_GET["partnerid"];
+
+	// Query chat partner's username
+	$stmt = mysqli_stmt_init($conn);
+	mysqli_stmt_prepare($stmt, "SELECT Username FROM Login WHERE ID=?");
+	mysqli_stmt_bind_param($stmt, "i", $_GET["partnerid"]);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+	$row = mysqli_fetch_assoc($result);
+	$_SESSION["partnername"] = $row["Username"];
+
+	// Query message history
+	$stmt = mysqli_stmt_init($conn);
+	mysqli_stmt_prepare($stmt, "SELECT * FROM IM WHERE SenderID=? AND ReceiverID=? OR ReceiverID=? AND SenderID=?");
+	mysqli_stmt_bind_param($stmt, "iiii", $_SESSION["userid"], $_GET["partnerid"], $_SESSION["userid"], $_GET["partnerid"]);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
+
+	require_once('../inc/header.inc.php');
 }
-
-session_start();
-$_SESSION["partnerid"] = $_GET["partnerid"];
-
-// Query chat partner's username
-$stmt = mysqli_stmt_init($conn);
-mysqli_stmt_prepare($stmt, "SELECT Username FROM Login WHERE ID=?");
-mysqli_stmt_bind_param($stmt, "i", $_GET["partnerid"]);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$row = mysqli_fetch_assoc($result);
-$_SESSION["partnername"] = $row["Username"];
-
-// Query message history
-$stmt = mysqli_stmt_init($conn);
-mysqli_stmt_prepare($stmt, "SELECT * FROM IM WHERE SenderID=? AND ReceiverID=? OR ReceiverID=? AND SenderID=?");
-mysqli_stmt_bind_param($stmt, "iiii", $_SESSION["userid"], $_GET["partnerid"], $_SESSION["userid"], $_GET["partnerid"]);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-
-require_once('../inc/header.inc.php');
 ?>
 <div class="content">
  <div class="container">
