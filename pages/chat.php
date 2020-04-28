@@ -1,4 +1,10 @@
 <?php
+if(!isset($_SESSION)) {
+	echo "You cannot access this page. Redirecting to www.kentcpp.com...";
+	sleep(3);
+    header('Location: https://www.kentcpp.com');
+}
+
 require_once("../pdoconfig.php");
 
 // Setup link to database
