@@ -1,10 +1,7 @@
 <?php
 if(!isset($_SESSION)) {
-	ob_start();
 	echo "You cannot access this page. Redirecting to www.kentcpp.com...";
-	ob_flush();
-	sleep(3);
-    header('Location: https://www.kentcpp.com');
+    header('Refresh: 3; URL=https://www.kentcpp.com');
 }
 
 require_once("../pdoconfig.php");
