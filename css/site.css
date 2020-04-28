@@ -239,7 +239,7 @@ footer p {
 }
 
 /* ------------------------------------------------------------------------- */
-/* Below is for article.php */
+/* Below is for article2.php */
 hr {
 	border-top: 3px solid transparent; 
 	border-image: linear-gradient(to right, #EFAB00,#F8EB61,  #4994CB, #002664) !important; 
@@ -427,6 +427,11 @@ code {
 
 .qSize {
 	font-size: 1.15rem;
+}
+
+#results {
+	background-color: black;
+	border: 2px solid white;
 }
 
 /* ------------------------------------------------------------------------- */
