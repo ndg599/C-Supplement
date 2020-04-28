@@ -34,6 +34,7 @@ $(document).ready(function(){
 	function stepOne(x,y) 
 	{
 		changeText(0,4);
+		$("#pseudo").remove();
 		$("#pseudo").append('<p class="green mt-2"><span class="yellow">Loop:</span> number-of-elements / 2 times \
 		                     <br><span class="yellow"> Swap:</span> first element with last element \
 		                     <br><span class="yellow"> Swap:</span> second element with second-to-last element</p>');
