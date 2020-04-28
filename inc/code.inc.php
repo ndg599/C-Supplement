@@ -251,7 +251,7 @@
 	   .$empty
 	   .$body.$k.'    for'.$es.$i.'int '.$es.'i = '.$l.'0'.$es.'; i < used; ++i) {'.$end
 	   .$body.'        std::cout &lt;&lt; '.$l.'"Number["'.$es.' &lt;&lt; i &lt;&lt; '.$l.'"]: "'.$es.' &lt;&lt; intArray[i] &lt;&lt; std::endl;'.$end
-	   .$body.'    }'.$end;
+	   .$body.'    }'.$end
 	   .$body.'}'.$end;
 	$raw["Arrays5"] = 
 		'#include <iostream> \\n\\n'
