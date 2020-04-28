@@ -15,10 +15,11 @@
 	<div class="content">
 		<div class="container d-flex h-100">
 			<div class="row justify-content-center align-self-center mx-auto">
+			     <div class="col">
 				<?php
 				//Checks if user is signned in
 				if(isset($_SESSION["loggedin"])==true){
-				echo "<h2 align=center><br>Welcome  ".$_SESSION["username"] ."! <br><h2>"; 
+				echo "<h2 align=center><br>Welcome  ".$_SESSION["username"] ."! <br></h2>"; 
 					echo "<body>";
 					//if user is an administrator print list and allow reassignment
 					if(isset($_SESSION["usertype"])){
@@ -99,9 +100,13 @@
 						}
 						echo "</table></div>";
 					}
+					else if($_SESSION['usertype'] == "Tutor") {
+						    echo '<h4 class="mt-3"><a href="./makeArticle.php" class="kentYellow">Make Article</a></h4>';
+					}
+
 				}
 				}else{header("index.php");}
-?>
+?>              </div>
 			</div>
 		</div>
 	</div>
