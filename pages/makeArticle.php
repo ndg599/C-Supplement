@@ -1,6 +1,7 @@
 <?php
-if(!isset($_SESSION) || ($_SESSION['usertype'] != "Tutor" && $_SESSION['usertype'] != "Admin")) {
-	echo "You cannot access this page. Redirecting to the login page...";
+	require_once('../inc/header.inc.php');
+if(empty($_SESSION) || ($_SESSION['usertype'] != "Tutor" && $_SESSION['usertype'] != "Admin")) {
+	echo "<p style='margin-top: 70px;'>You cannot access this page. Redirecting to the login page...</p>";
     header('Refresh: 3; URL=https://www.kentcpp.com/pages/login.php');
 }
 else {
@@ -137,7 +138,7 @@ else {
 		}
 	}
 
-	require_once('../inc/header.inc.php');
+
 	?>
 	<div class="content">
 	 <div class="container">
