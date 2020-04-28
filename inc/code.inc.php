@@ -247,7 +247,7 @@
 	   .$body.$k.'            break'.$es.';'.$end
 	   .$body.'        intArray[i] = input;'.$end
 	   .$body.'        ++used;'.$end
-	   .$body.'    }'.$end;
+	   .$body.'    }'.$end
 	   .$empty
 	   .$body.$k.'    for'.$es.$i.'int '.$es.'i = '.$l.'0'.$es.'; i < used; ++i) {'.$end
 	   .$body.'        std::cout &lt;&lt; '.$l.'"Number["'.$es.' &lt;&lt; i &lt;&lt; '.$l.'"]: "'.$es.' &lt;&lt; intArray[i] &lt;&lt; std::endl;'.$end
