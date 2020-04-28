@@ -267,7 +267,7 @@
 	   .'            break; \\n'
 	   .'        intArray[i] = input; \\n'
 	   .'        ++used; \\n'
-	   .'    } \\n\\n';
+	   .'    } \\n\\n'
 	   .'    for(int i = 0; i < used; ++i) { \\n'
 	   .'        std::cout << "Number[" << i << "]: " << intArray[i] << std::endl; \\n'
 	   .'    }'
