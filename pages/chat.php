@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)) {
-	echo "You cannot access this page. Redirecting to www.kentcpp.com...";
-    header('Refresh: 3; URL=https://www.kentcpp.com');
+	echo "You cannot access this page. Sign in. Redirecting to the login page...";
+    header('Refresh: 3; URL=https://www.kentcpp.com/pages/login.php');
 }
 else {
 	require_once("../pdoconfig.php");
