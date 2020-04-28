@@ -268,46 +268,7 @@ if(isset($_POST['reply'])){
 			echo '<p class="kentYellow articleFontSize">Database failure for subtopic(s)</p>';
 		}
 	}
-	
-	function displayExCode($SubNum) 
-	{
-		try {
-			global $conn;
-			global $code;
-			global $raw;
-			
-			if(!($sql_code = $conn->prepare("SELECT * FROM Subcode WHERE SubNum = ? AND TopicID = ? ORDER BY SubCodeNum ASC;"))) {
-				echo '<p class="kentYellow articleFontSize">Database prepare failure - ExCode</p>';
-				return;
-			}
 
-			$sql_code->bind_param("ii", $SubNum, $_GET['ID']);
-			$sql_code->execute();
-			$res_code = $sql_code->get_result();
-			
-			if ($res_code->num_rows > 0)
-				echo	'<p class="kentBlue text-center articleFontSize">Example Code:</p>';
-			while($row_code = $res_code->fetch_assoc()) {	
-				$copy_paste_code = htmlspecialchars($raw[$row_code['SubCodeNum']]);
-				echo	'<div class="row mb-4">
-							<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
-								. $code[$row_code['SubCodeNum']] .
-						   '</div>
-							<div class="col-11 mt-1 mb-2">
-							    <button class="btn btn-success" id="' . $row_code['SubCodeNum'] . '" ';
-				                    printf('onclick="copyStringToClipboard(\'%s\',\'%s\')" ', $copy_paste_code , $row_code[SubCodeNum]);
-				echo	'		    type="button">Copy Code</button>
-								<span>*iOS users, manually copy</span>
-							</div>
-						 </div>';
-			}	
-		}
-		catch(Exception $e) {
-			echo '<p class="kentYellow articleFontSize">Database failure for example code</p>';
-		}		
-		
-	}
-	
 	function displayQuiz() 
 	{
 		/* Quiz information pull */
