@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)) {
+if(!isset($_GET["partnerid"])) {
 	echo "You cannot access this page. Sign in. Redirecting to the login page...";
     header('Refresh: 3; URL=https://www.kentcpp.com/pages/login.php');
 }
