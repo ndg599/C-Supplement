@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION) || ($_SESSION['usertype'] != "Tutor" || $_SESSION['usertype'] != "Admin")) {
+if(!isset($_SESSION) || ($_SESSION['usertype'] != "Tutor" && $_SESSION['usertype'] != "Admin")) {
 	echo "You cannot access this page. Redirecting to the login page...";
     header('Refresh: 3; URL=https://www.kentcpp.com/pages/login.php');
 }
