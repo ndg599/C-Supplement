@@ -6,7 +6,9 @@ var resume_pos = 1;
 
 $(document).ready(function(){
 	$("#Pause").attr("disabled","disabled");
+	$("#Resume").attr("disabled","disabled");
 	$("#Pause i").css("color","#212529");
+	$("#Resume i").css("color","#212529");
 	$("#Play").click(function($e){
 		$e.preventDefault();
 		$("#Pause").removeAttr("disabled","disabled");
@@ -20,23 +22,29 @@ $(document).ready(function(){
 		$("#Fast i").css("color","#212529");
 		$("#Resume i").css("color","#212529");
 		pause_animation = false;
-		stepOne();
+		var x = window.scrollX;
+		var y = window.scrollY;
+		stepOne(x,y);
 	});
 	
 	function sleep (time) {
 	  return new Promise((resolve) => setTimeout(resolve, time));
 	}
 	
-	function stepOne() 
+	function stepOne(x,y) 
 	{
 		changeText(0,4);
+		$("#pseudo").append('<p class="green mt-2"><span class="yellow">Loop:</span> number-of-elements / 2 times \
+		                     <br><span class="yellow"> Swap:</span> first element with last element \
+		                     <br><span class="yellow"> Swap:</span> second element with second-to-last element</p>');
+		window.scrollTo(x,y);
 		$("#box0").animate({bottom: '177px'},std_speed)
 				  .animate({left:   '140px'},std_speed);
 		$("#box4").animate({bottom: '133px'},std_speed)
 				  .animate({right:  '260px'},std_speed);
 		++resume_pos;
 		sleep(3000).then(()=> {
-			if(pause_animation == false)
+			if(pause_animation === false)
 				stepTwo();
 		});
 	}
@@ -47,7 +55,7 @@ $(document).ready(function(){
 		$("#box4").delay(delay_speed);
 		++resume_pos;
 		sleep(3000).then(()=> {
-			if(pause_animation == false)
+			if(pause_animation === false)
 				stepThree();
 		});
 	}	
@@ -59,7 +67,7 @@ $(document).ready(function(){
 				  .delay(std_speed);	  
 		++resume_pos;
 		sleep(3000).then(()=> {
-			if(pause_animation == false)
+			if(pause_animation === false)
 				stepFour();
 		});
 	}
@@ -73,7 +81,7 @@ $(document).ready(function(){
 				  .animate({top:        '0'},std_speed);
 		++resume_pos;
 		sleep(3000).then(()=> {
-			if(pause_animation == false)
+			if(pause_animation === false)
 				stepFive();
 		});
 	}
@@ -86,7 +94,7 @@ $(document).ready(function(){
 				  .animate({right:  '160px'},std_speed);
 		++resume_pos;
 		sleep(3000).then(()=> {
-			if(pause_animation == false)
+			if(pause_animation === false)
 				stepSix();
 		});
 	}
@@ -98,7 +106,7 @@ $(document).ready(function(){
 				  .animate({bottom: '177px'},std_speed);
 		++resume_pos;
 		sleep(3000).then(()=> {
-			if(pause_animation == false)
+			if(pause_animation === false)
 				stepSeven();
 		});
 	}
@@ -108,7 +116,7 @@ $(document).ready(function(){
 				  .animate({bottom: '133px'},std_speed);
 		++resume_pos;
 		sleep(3000).then(()=> {
-			if(pause_animation == false)
+			if(pause_animation === false)
 				stepEight();
 		});
 	}
