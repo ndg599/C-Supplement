@@ -132,8 +132,8 @@
 					<label class="kentBlue mt-2" for="password">Password</label>
 					<input type="password" name="password" required><br>
 					<input class="btn btnKent mt-2" id="btnMv" type="submit" value="Sign In">
-					<br><a href="resetpassword.php" class="kentBlue">Forgot Password?</a>
-					<br><a href="./signup.php" class="kentYellow">Sign Up</a>
+					<br><a href="resetpassword.php" class="kentYellow mt-2">Forgot Password?</a>
+					<br><a href="./signup.php" class="kentBlue">Sign Up</a>
 				</form>
 				
 				<?php if (isset($errorMsg)) echo $errorMsg; // Error message from attempt ?>
