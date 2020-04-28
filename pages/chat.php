@@ -32,7 +32,7 @@ else {
 	$result = mysqli_stmt_get_result($stmt);
 
 	require_once('../inc/header.inc.php');
-}
+
 ?>
 <div class="content">
  <div class="container">
@@ -61,4 +61,5 @@ else {
  </div>
 </div>
 <script src="chat.js"></script>
-<?php require_once('../inc/footer.inc.php');?>
+<?php require_once('../inc/footer.inc.php');
+} // This is the end of the else at the top of the page ?>
