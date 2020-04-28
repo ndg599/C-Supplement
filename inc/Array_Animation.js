@@ -7,7 +7,8 @@ var resume_pos = 1;
 $(document).ready(function(){
 	$("#Pause").attr("disabled","disabled");
 	$("#Pause i").css("color","#212529");
-	$("#Play").click(function(){
+	$("#Play").click(function($e){
+		$e.preventDefault();
 		$("#Pause").removeAttr("disabled","disabled");
 		$("#Play").attr("disabled","disabled");
 		$("#Slow").attr("disabled","disabled");
@@ -128,7 +129,8 @@ $(document).ready(function(){
 		$("#eleY").html("Element[" + y + "]:");
 	}
 	
-	$("#Restart").click(function(){
+	$("#Restart").click(function($e){
+		$e.preventDefault();
 		$("#box0").stop(true).removeAttr("style");
 		$("#box1").stop(true).removeAttr("style");
 		$("#box3").stop(true).removeAttr("style");
@@ -145,7 +147,8 @@ $(document).ready(function(){
 		pause_animation = true;
 	});
 	
-	$("#Pause").click(function(){
+	$("#Pause").click(function($e){
+		$e.preventDefault();
 		pause_animation = true;
 		$("#Pause").attr("disabled","disabled");
 		$("#Pause i").css("color","#212529");
@@ -157,7 +160,8 @@ $(document).ready(function(){
 		$("#Resume i").css("color","#29a670");
 	});
 	
-	$("#Slow").click(function(){
+	$("#Slow").click(function($e){
+		$e.preventDefault();
 		if(std_speed == 1000) {
 			std_speed = 2000;
 			delay_speed = 4000;
@@ -168,7 +172,8 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#Fast").click(function(){
+	$("#Fast").click(function($e){
+		$e.preventDefault();
 		if(std_speed == 1000) {
 			std_speed = 700;
 			delay_speed = 1700;
@@ -179,7 +184,8 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#Resume").click(function(){
+	$("#Resume").click(function($e){
+		$e.preventDefault();
 		pause_animation = false;
 		$("#Pause").removeAttr("disabled","disabled");
 		$("#Pause i").css("color","#b31b1b");
