@@ -593,9 +593,9 @@ if(isset($_POST['reply'])){
 					$("#dispAns").append('<div id="results"></div>');
 					for(var i = 0; i < data.length; ++i) {
 						if(choices[i] == data[i].Ans)
-							$('#results').append('<p style="padding: 10px; color: #54e874">' + i.toString() + ') ' + data[i].Exp + '</p>');
+							$('#results').append('<p style="padding: 10px; color: #54e874">' + (i+1).toString() + ') ' + data[i].Exp + '</p>');
 						else
-							$('#results').append('<p style="padding: 10px; color: #e85d54">' + i.toString() + ') ' + data[i].Exp + '</p>');
+							$('#results').append('<p style="padding: 10px; color: #e85d54">' + (i+1).toString() + ') ' + data[i].Exp + '</p>');
 					}
 				}
 			});
