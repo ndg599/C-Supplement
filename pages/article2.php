@@ -352,7 +352,7 @@ if(isset($_POST['reply'])){
 					exit();
 				}
 				$oUsr = mysqli_fetch_array($res_oUsr);
-				echo 	"<div class='col-12 section mt-5 noWrap'>
+				echo 	"<div class='col-12 section mt-5 noWrap commentBorder'>
 							<p class='kentYellow'>$oUsr[username]</p>
 							<p>$row_OC[Text]</p>
 							<form method='POST' action=''>
@@ -531,7 +531,7 @@ if(isset($_POST['reply'])){
 	<script src="../inc/article.js"></script>	
 	<script>
 		$("#answers").click(function() {
-			$('#results').empty();
+			$('#results').remove();
 			var param = "ID=" + <?php echo $_GET['ID'] ?>;
 			var i = 1;
 			var choices = new Array();

@@ -255,8 +255,6 @@ hr {
 .section { 
 	padding: 20px;
 	text-align: justify;
-	border-top: 1px solid #4994CB;
-	border-bottom: 1px solid #F8EB61;
 	font-size: 1rem;
 } 
 
@@ -268,6 +266,11 @@ hr {
 .section br {
 	display: block;
 	content: "";
+}
+
+.commentBorder {
+	border-top: 1px solid #4994CB;
+	border-bottom: 1px solid #F8EB61;
 }
 
 .noWrap span, .noWrap p:first-child{
