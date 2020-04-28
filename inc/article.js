@@ -18,10 +18,10 @@
 	   
 	   console.log(rawStr);
 	   // Landen's addition below
-	   document.getElementById(ID).textContent="<i class='fas fa-clipboard-check'></i>";
+	   document.getElementById(ID).innerHTML="<i class='fas fa-clipboard-check'></i>";
        var inst = setInterval(changeBtnTxt, 3000);
        function changeBtnTxt() {
-        document.getElementById(ID).textContent="<i class='far fa-clipboard'></i>";
+        document.getElementById(ID).innerHTML="<i class='far fa-clipboard'></i>";
         clearInterval(inst);
        }
     }
