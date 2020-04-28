@@ -322,6 +322,8 @@ if(isset($_POST['reply'])){
 			if ($i === 0) {
 				echo '<span class="kentYellow articleFontSize">No present quiz questions</span>';
 				return;
+			} else {
+				echo '<button type="submit" id="answers" class="btn btnKent mt-2">Check Ans</button>'
 			}
 		}
 		catch(Exception $e) {
@@ -499,7 +501,7 @@ if(isset($_POST['reply'])){
 					<div class="col-12" id="dispAns">
 						<form name="quiz" id="quiz" action="javascript:void(0);" method="POST"> 
 							<?php displayQuiz(); ?>
-							<button type="submit" id="answers" class="btn btnKent mt-2">Check Ans</button>
+							
 						</form>
 					</div>
 				</div>
