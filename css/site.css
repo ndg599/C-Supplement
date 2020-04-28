@@ -511,3 +511,42 @@ form input.btnKent {
 	width: 100%;
 	z-index: 1;
 }
+
+/* Animation.html */
+#widthBkgnd {
+	background-color: rgba(0,0,0,0.9);
+	width: 552px;
+}
+#outer { 
+	padding: 10px;
+	border: 1px solid white; 
+	height: 238px;
+}
+#box0 {
+	background: #870000;
+}
+#box1 {
+	background: #cf6400;
+}
+#box2 {
+	background: #087300;
+}
+#box3 {
+	background: #070173;
+}
+#box4 {
+	background: #490173;
+}
+#outer div div {
+	float: left;
+	text-align: center;
+	border: 1px solid black;
+	height: 25px;
+	width: 100px;
+	position: relative;
+	color: white;
+}
+.div_p p {
+	font-size: 1.2rem;
+	color: white;
+}

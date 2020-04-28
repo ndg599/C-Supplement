@@ -471,6 +471,22 @@ if(isset($_POST['reply'])){
 				displaySubtopics();
 			?>
 			
+			<!-- Animation Section -->
+			<?php if($_GET['ID'] == 12) { ?>
+				<div class="container-fluid mt-5">
+					<h3 class="intro kentYellow">Animation</h3>
+					<hr>
+				</div>
+				<div class="container">
+				<div class="row justify-content-center">
+					<div class="col">
+						<?php include_once("../inc/Animation.html"); ?>
+					</div>
+				</div>
+			</div>
+					
+			<?php } ?>
+			
 			<!-- Video Section -->
 			<div class="container-fluid mt-5">
 				<h3 class="intro kentYellow">Video</h3>
