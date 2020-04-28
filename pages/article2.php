@@ -138,10 +138,12 @@ if(isset($_POST['reply'])){
 					'<div class="row mb-4 justify-content-center">
 						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
 							. $code[$snippet->text] .
-							'<button class="btn btn-success" id="' . $i . '" ' .
-								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" 
-							     type="button"><i class="far fa-clipboard"></i></button>
-
+					   '</div>
+						<div class="col-12 col-lg-9 ml-auto">
+							<button class="btn btn-success" id="' . $i . '" ' .
+								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" ' .
+					'		    type="button"><i class="far fa-clipboard"></i></button>
+						</div>
 					 </div>';
 
 			$line = $snippet->line;
