@@ -205,6 +205,75 @@
 	   .$body.'    std::cout &lt;&lt; *ptr &lt;&lt; std::endl;'.$end
 	   .$body.'}'.$end;
 
+	$code["Arrays1"] = 
+		$body.$t.'int '.$es.'arrayVar[] = {'.$l.'100,200,300,400'.$es.'};'.$end;
+	$raw["Arrays1"] = 
+		'int arrayVar[] = {100,200,300,400}; \\n';
+	$code["Arrays2"] = 
+		$body.$t.'double '.$es.'arrayVar[5];'.$end;
+	$raw["Arrays2"] = 
+		'double arrayVar[5]; \\n';
+	$code["Arrays3"] = 
+		$body.$t.'int '.$es.'arrayVar[4] = {'.$l.'100,200,300,400'.$es.'};'.$end;
+	$raw["Arrays3"] = 
+		'int arrayVar[4] = {100,200,300,400}; \\n';
+	$code["Arrays4"] = 
+		$inc . '#include &lt;iostream&gt;'.$end
+	   .$empty
+	   .$body.$t.'int '.$es.'main()'.$end
+	   .$body.'{'.$end
+	   .$body.$t.'    int '.$es.'intArray[] = {'.$l.'1'.$es.','.$l.'2'.$es.','.$l.'3'.$es.';'.$end
+	   .$body.'    std::cout &lt;&lt; intarray['.$l.'0'.$es.'] &lt;&lt; '.$l.'" "'.$es.' &lt;&lt; intarray['.$l.'1'.$es.'] &lt;&lt; std::endl;'.$end
+	   .$body.'}'.$end;
+	$raw["Arrays4"] = 
+		'#include <iostream> \\n\\n'
+	   .'int main() \\n'
+	   .'{ \\n'
+	   .'    int intArray[] = {1,2,3}; \\n'
+	   .'    std::cout << intArray[0] << " " << intArray[1] << std::endl; \\n'
+	   .'} \\n';
+	$code["Arrays5"] = 
+		$inc . '#include &lt;iostream&gt;'.$end
+	   .$empty
+	   .$body.$t.'int '.$es.'main()'.$end
+	   .$body.'{'.$end
+	   .$body.$t.'    int '.$es.'intArray[50];'.$end
+	   .$body.$t.'    int '.$es.'used = '.$l.'0'.$es.';'.$end
+	   .$body.$t.'    int '.$es.'input;'.$end
+	   .$body.'    std::cout &lt;&lt; '.$l.'"Enter up to 50 non-negative integers. Enter negative num to stop.'.$e.'\n'.$es.'"'.$es.';'.$end
+	   .$body.$k.'    for'.$es.$i.'int '.$es.'i = '.$l.'0'.$es.'; i < '.$l.'50'.$es.'; ++i) {'.$end
+	   .$body.'        std::cin &gt;&gt; input;'.$end
+	   .$body.$k.'        if'.$es.'input < '.$l.'0'.$es.')'.$end
+	   .$body.$k.'            break'.$es.';'.$end
+	   .$body.'        intArray[i] = input;'.$end
+	   .$body.'        ++used;'.$end
+	   .$body.'    }'.$end;
+	   .$empty
+	   .$body.$k.'    for'.$es.$i.'int '.$es.'i = '.$l.'0'.$es.'; i < used; ++i) {'.$end
+	   .$body.'        std::cout &lt;&lt; '.$l.'"Number["'.$es.' &lt;&lt; i &lt;&lt; '.$l.'"]: "'.$es.' &lt;&lt; intArray[i] &lt;&lt; std::endl;'.$end
+	   .$body.'    }'.$end;
+	   .$body.'}'.$end;
+	$raw["Arrays5"] = 
+		'#include <iostream> \\n\\n'
+	   .'int main() \\n'
+	   .'{ \\n'
+	   .'    int intArray[50]; \\n'
+	   .'    int used = 0; \\n'
+	   .'    int input; \\n'
+	   .'    std::cout << "Enter up to 50 non-negative integers. Enter negative num to stop.\\\n"; \\n'
+	   .'    for(int i = 0; i < 50; ++i) { \\n'
+	   .'        cin >> input; \\n'
+	   .'        if(input < 0) \\n'
+	   .'            break; \\n'
+	   .'        intArray[i] = input; \\n'
+	   .'        ++used; \\n'
+	   .'    } \\n\\n';
+	   .'    for(int i = 0; i < used; ++i) { \\n'
+	   .'        std::cout << "Number[" << i << "]: " << intArray[i] << std::endl; \\n'
+	   .'    }'
+	   .'} \\n';
+
+
 	$code[2] =  $inc . '#include &lt;iostream&gt;										' . $end
 			   .$body . '#include &lt;map&gt;												' . $end
 			   .$body . '#include &lt;iterator&gt;											' . $end
