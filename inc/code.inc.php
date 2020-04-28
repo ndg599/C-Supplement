@@ -241,7 +241,7 @@
 	   .$body.$t.'    int '.$es.'used = '.$l.'0'.$es.';'.$end
 	   .$body.$t.'    int '.$es.'input;'.$end
 	   .$body.'    std::cout &lt;&lt; '.$l.'"Enter up to 50 non-negative integers. Enter negative num to stop.'.$e.'\n'.$es.'"'.$es.';'.$end
-	   .$body.$k.'    for'.$es.$i.'int '.$es.'i = '.$l.'0'.$es.'; i < '.$l.'50'.$es.'; ++i) {'.$end
+	   .$body.$k.'    for'.$es.$l.'int '.$es.'i = '.$l.'0'.$es.'; i < '.$l.'50'.$es.'; ++i) {'.$end
 	   .$body.'        std::cin &gt;&gt; input;'.$end
 	   .$body.$k.'        if'.$es.'input < '.$l.'0'.$es.')'.$end
 	   .$body.$k.'            break'.$es.';'.$end
@@ -249,7 +249,7 @@
 	   .$body.'        ++used;'.$end
 	   .$body.'    }'.$end
 	   .$empty
-	   .$body.$k.'    for'.$es.$i.'int '.$es.'i = '.$l.'0'.$es.'; i < used; ++i) {'.$end
+	   .$body.$k.'    for'.$es.$l.'int '.$es.'i = '.$l.'0'.$es.'; i < used; ++i) {'.$end
 	   .$body.'        std::cout &lt;&lt; '.$l.'"Number["'.$es.' &lt;&lt; i &lt;&lt; '.$l.'"]: "'.$es.' &lt;&lt; intArray[i] &lt;&lt; std::endl;'.$end
 	   .$body.'    }'.$end
 	   .$body.'}'.$end;
