@@ -33,11 +33,11 @@ require_once('../inc/header.inc.php');
    <div class="col-12">
 	<?php if (isset($submitMsg)) { echo "<p>$submitMsg</p>"; } ?>
 	<form action="addCompileFeedback.php" method="post">
-		<p>Enter the string to identify the compile error:</p>
+		<p class="kentYellow">Enter the string to identify the compile error:</p>
 		<textarea name="target" cols="70" rows="5"></textarea>
-		<p>Enter the feedback message to be received by the student:</p>
+		<p class="kentBlue mt-3">Enter the feedback message to be received by the student:</p>
 		<textarea name="feedback" cols="70" rows="5"></textarea>
-		<br><input type="submit" value="Submit">
+		<br><input class="btn btnKent" type="submit" value="Submit">
 	</form>
    </div>
   </div>
