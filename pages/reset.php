@@ -16,18 +16,19 @@ require_once('../inc/header.inc.php');
 			<div class="row justify-content-center align-self-center mx-auto">
 				<form class="login-form" action="" method="post">
 					<h2 class="form-title">New password</h2>
+					<hr>
 					<!-- form validation messages -->
 					
 					<div class="form-group">
-						<label>New password&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+						<label class="kentYellow">New password&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
 						<input type="password" name="npass" id="npass">
 					</div>
 					<div class="form-group">
-						<label>Confirm new password    </label>
+						<label class="kentBlue">Confirm new password    </label>
 						<input type="password" name="npassc">
 					</div>
 					<div class="form-group">
-						<button type="submit" name="newpass" class="login-btn">Submit</button>
+						<button type="submit" name="newpass" class="btn btnKent">Submit</button>
 					</div>
 				</form>
 			</div>
