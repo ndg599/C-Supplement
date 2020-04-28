@@ -135,11 +135,11 @@ if(isset($_POST['reply'])){
 
 			$codeText = htmlspecialchars($raw[$snippet->text]);
 			$codeHTML =
-					'<div class="row mb-4 justify-content-center">
+					'<div class="row mb-4 justify-content-center" style="border: 1px solid white">
 						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
 							. $code[$snippet->text] .
 					   '</div>
-						<div class="col-12 col-lg-9 ml-auto">
+						<div class="col-12 col-lg-9 mr-auto">
 							<button class="btn btn-success" id="' . $i . '" ' .
 								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" ' .
 					'		    type="button"><i class="far fa-clipboard"></i></button>
