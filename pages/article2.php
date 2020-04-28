@@ -323,7 +323,7 @@ if(isset($_POST['reply'])){
 				echo '<span class="kentYellow articleFontSize">No present quiz questions</span>';
 				return;
 			} else {
-				echo '<button type="submit" id="answers" class="btn btnKent mt-2">Check Ans</button>'
+				echo '<button type="submit" id="answers" class="btn btnKent mt-2">Check Ans</button>';
 			}
 		}
 		catch(Exception $e) {
