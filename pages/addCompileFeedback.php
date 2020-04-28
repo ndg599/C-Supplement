@@ -28,8 +28,8 @@ if (isset($_POST["target"])) {
 require_once('../inc/header.inc.php');
 ?>
 <div class="content">
- <div class="container">
-  <div class="row">
+ <div class="container d-flex h-100">
+  <div class="row justify-content-center align-self-center mx-auto">
    <div class="col-12">
 	<?php if (isset($submitMsg)) { echo "<p>$submitMsg</p>"; } ?>
 	<form action="addCompileFeedback.php" method="post">
