@@ -497,9 +497,17 @@ if(isset($_POST['reply'])){
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 col-lg-9">
-						<?php   if($videoLink != NULL) {
-									echo '<div class="embed-responsive embed-responsive-16by9">
-										      <iframe class="embed-responsive-item" src="'. $videoLink . '" allowfullscreen>
+						<?php   if($_GET['ID'] == 11) /*if($videoLink != NULL)*/ {
+									echo '<div class="embed-responsive embed-responsive-16by9 mb-4">
+										      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4bh6ianNFtM" allowfullscreen>
+									          </iframe>
+										  </div>';
+									echo '<div class="embed-responsive embed-responsive-16by9 mb-4">
+										      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/en57ADDlSms" allowfullscreen>
+									          </iframe>
+										  </div>';
+									echo '<div class="embed-responsive embed-responsive-16by9 mb-4">
+										      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/aO1y4ROInb0" allowfullscreen>
 									          </iframe>
 										  </div>';
 						        } else
