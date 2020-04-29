@@ -1,8 +1,9 @@
 <?php
 	require_once('../inc/header.inc.php');
+
 if(empty($_SESSION) || ($_SESSION['usertype'] != "Tutor" && $_SESSION['usertype'] != "Admin")) {
 	echo "<p style='margin-top: 70px;'>You cannot access this page. Redirecting to the login page...</p>";
-    header('Refresh: 3; URL=https://www.kentcpp.com/pages/login.php');
+    header('Refresh: 3; URL=http://192.168.86.41/pages/login.php');
 }
 else {
 	ini_set('display_errors', 1);
@@ -12,16 +13,16 @@ else {
 	if (isset($_POST["articleTitle"])) {
 		class Image
 		{
-			public int $line;
-			public string $filename;
-			public string $caption;
-			public string $alt;
+			public $line;
+			public $filename;
+			public $caption;
+			public $alt;
 		}
 
 		class CodeSnippet
 		{
-			public int $line;
-			public string $code;
+			public $line;
+			public $code;
 		}
 
 		function getImageJSON($sect, $body)
