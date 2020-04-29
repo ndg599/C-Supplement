@@ -499,15 +499,15 @@ if(isset($_POST['reply'])){
 					<div class="col-12 col-lg-9">
 						<?php   if($_GET['ID'] == 11) /*if($videoLink != NULL)*/ {
 									echo '<div class="embed-responsive embed-responsive-16by9 mb-4">
-										      <iframe class="embed-responsive-item" src="https://youtu.be/4bh6ianNFtM" allowfullscreen>
+										      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4bh6ianNFtM" allowfullscreen>
 									          </iframe>
 										  </div>';
 									echo '<div class="embed-responsive embed-responsive-16by9 mb-4">
-										      <iframe class="embed-responsive-item" src="https://youtu.be/en57ADDlSms" allowfullscreen>
+										      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/en57ADDlSms" allowfullscreen>
 									          </iframe>
 										  </div>';
 									echo '<div class="embed-responsive embed-responsive-16by9 mb-4">
-										      <iframe class="embed-responsive-item" src="https://youtu.be/aO1y4ROInb0" allowfullscreen>
+										      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/aO1y4ROInb0" allowfullscreen>
 									          </iframe>
 										  </div>';
 						        } else
