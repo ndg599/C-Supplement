@@ -23,7 +23,8 @@
 					echo "<body>";
 					//if user is an administrator print list and allow reassignment
 					if(isset($_SESSION["usertype"])){
-						
+						if($_SESSION["usertype"] != "Student")
+							echo '<h4 class="mt-3"><a href="./makeArticle.php" class="kentYellow">Make Article</a></h4>';
 						if($_SESSION["usertype"]=="Admin"){
 						
 						echo "<h4 align=center>Reassign user below</h4>";
@@ -100,10 +101,6 @@
 						}
 						echo "</table></div>";
 					}
-					else if($_SESSION['usertype'] == "Tutor") {
-						    echo '<h4 class="mt-3"><a href="./makeArticle.php" class="kentYellow">Make Article</a></h4>';
-					}
-
 				}
 				}else{header("index.php");}
 ?>              </div>
