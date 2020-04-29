@@ -90,7 +90,7 @@
 							$assign="";
 							if($row['Type']=="Student"){$assign="Assign as Tutor";}else {$assign="Assign as Student";}
 							if($row['Type']!="Admin"){
-								$list[]="<tr><th align=left style='padding: 36px;'>".$row['Username']."</th>&nbsp&nbsp&nbsp&nbsp<th align=center style='padding: 36px;'>". $row['Email']."</th>   <th align =center style='padding: 36px;'>".$row['Type']."</th><th></tr><br>";
+								$list[]="<tr><th align=left style='padding: 36px;'>".$row['Username']."</th>&nbsp&nbsp&nbsp&nbsp<th class='kentBlue' align=center style='padding: 36px;'>". $row['Email']."</th>   <th class='kentYellow' align =center style='padding: 36px;'>".$row['Type']."</th><th></tr><br>";
 							$count++;
 							}
 							
