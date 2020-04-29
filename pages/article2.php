@@ -429,7 +429,7 @@ if(isset($_POST['reply'])){
 					   ."<span class='kentYellow'> | @$pUser[username] "
 					   ."post #$row_repl[ParentEntryNum]</span>" 
 					   ."</p>";
-				echo 	"<p>$row_repl[Text]</p>";
+				echo 	"<p><pre class='text-white'>$row_repl[Text]</pre></p>";
 				echo 	'<button onclick= "displaybox('.$GLOBALS["counter"].')" class="btn btnKent fa fa-reply"> Reply</button>';
 				echo 	"<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>";	
 				echo    '</div>';
