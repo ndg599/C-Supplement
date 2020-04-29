@@ -438,7 +438,7 @@ code {
 }
 
 .cursorChange {
-	cursor:url(ISO_C.cur),auto;
+	cursor:url(../img/ISO_C.cur),auto;
 }
 
 /* ------------------------------------------------------------------------- */
