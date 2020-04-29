@@ -12,9 +12,9 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    id="svg3713"
-   width="228"
-   height="256"
-   viewBox="0 0 228 256"
+   width="8.4359999"
+   height="8.8710003"
+   viewBox="0 0 8.4359999 8.8710003"
    sodipodi:docname="ISO_C.svg"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <metadata
@@ -46,11 +46,13 @@
      showgrid="false"
      inkscape:zoom="3.15625"
      inkscape:cx="114"
-     inkscape:cy="128"
+     inkscape:cy="64.633663"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg3713" />
+     inkscape:current-layer="svg3713"
+     scale-x="1"
+     inkscape:pagecheckerboard="true" />
   <image
      width="8.4356441"
      height="8.8712873"
@@ -304,5 +306,5 @@ gg==
 "
      id="image3721"
      x="0"
-     y="247.12871" />
+     y="-0.00029211424" />
 </svg>
