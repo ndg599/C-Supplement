@@ -61,7 +61,7 @@ $Q_COUNT = 0;
 	if(isset($_POST['comment'])) {
 		if($_SESSION["loggedin"]==true){
 			try {
-				$_comment=$_POST['comment'];
+				$_comment=htmlspecialchars($_POST['comment']);
 				$_date=date('Y-m-d H:i:s');
 				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
 				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
@@ -136,14 +136,16 @@ if(isset($_POST['reply'])){
 			$codeText = htmlspecialchars($raw[$snippet->text]);
 			$codeHTML =
 					'<div class="row mb-4 justify-content-center">
-						<div class="col-12 col-lg-9 Code_Ex ml-1 mb-1">'
+						<div class="col-11 Code_Ex ml-1 mb-1">'
 							. $code[$snippet->text] .
 					   '</div>
-						<div class="col-12 col-lg-9" style="margin-left: -25px;">
-							<button class="btn btn-success" id="' . $i . '" ' .
+					   
+						<div class="cursorChange">
+							<a id="' . $i . '" ' .
 								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" ' .
-					'		    type="button"><i class="far fa-clipboard"></i></button>
+					'		    ><i class="far fa-clipboard"></i></a>
 						</div>
+					  
 					 </div>';
 
 			$line = $snippet->line;
@@ -356,7 +358,7 @@ if(isset($_POST['reply'])){
 				$oUsr = mysqli_fetch_array($res_oUsr);
 				echo 	"<div class='col-12 section mt-5 noWrap commentBorder'>
 							<p class='kentYellow'>$oUsr[username]</p>
-							<p>$row_OC[Text]</p>
+							<p><pre class='text-white'>$row_OC[Text]</pre></p>
 							<form method='POST' action=''>
 								<input type='hidden' name='parentNum' value='NULL'>
 								<button onclick= 'displaybox(".$GLOBALS['counter'].")' type='button' class='btn btnKent fa fa-reply'> Reply</button>
@@ -364,7 +366,7 @@ if(isset($_POST['reply'])){
 							</form>
 				         </div>";
 					
-					echo    '<div style="text-indent:55px" id="messtxt" class="display:none">';
+				echo    '<div style="text-indent:55px" id="messtxt" class="display:none">';
 				echo    '<p>Input your reply</p>';
 				echo    '<form method=post action="">';
 				echo    '<textarea placeholder="Your reply" name="reply" style="padding-left:5px;height:100px; width:500px"  type="text"  id="reply"></textarea><br>';
@@ -429,7 +431,7 @@ if(isset($_POST['reply'])){
 					   ."<span class='kentYellow'> | @$pUser[username] "
 					   ."post #$row_repl[ParentEntryNum]</span>" 
 					   ."</p>";
-				echo 	"<p>$row_repl[Text]</p>";
+				echo 	"<p><pre class='text-white'>$row_repl[Text]</pre></p>";
 				echo 	'<button onclick= "displaybox('.$GLOBALS["counter"].')" class="btn btnKent fa fa-reply"> Reply</button>';
 				echo 	"<span style='color: Thistle'> $row_repl[Time] | Post #$row_repl[EntryNum]</span>";	
 				echo    '</div>';

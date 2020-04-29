@@ -297,7 +297,7 @@ hr {
 	overflow: auto;
 }
 
-pre {
+#pre-code {
 	display: inline;
 	overflow-x: auto; /* Scroll within code table */
 	border: 2px solid Black;
@@ -435,6 +435,14 @@ code {
 #results {
 	background-color: black;
 	border: 2px solid white;
+}
+
+.cursorChange {
+	margin-right: -5px;
+}
+
+.cursorChange i{
+	cursor:url(../img/ISO_C.cur),auto;
 }
 
 /* ------------------------------------------------------------------------- */

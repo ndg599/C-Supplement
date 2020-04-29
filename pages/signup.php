@@ -122,7 +122,7 @@
 							<tr>
 							   <td width = "200">Password</td>
 							   <td>
-								  <input name = "_password" type = "text" id = "_password" placeholder="8-30 Chars">
+								  <input name = "_password" type = "password" id = "_password" placeholder="8-30 Chars">
 							   </td></tr>
 
 							<tr>

@@ -19,14 +19,16 @@
 				<?php
 				//Checks if user is signned in
 				if(isset($_SESSION["loggedin"])==true){
-				echo "<h2 align=center><br>Welcome  ".$_SESSION["username"] ."! <br></h2>"; 
+				echo "<h2 align=center class='kentBlue'><br>Welcome  ".$_SESSION["username"] ."! <br></h2>"; 
 					echo "<body>";
 					//if user is an administrator print list and allow reassignment
 					if(isset($_SESSION["usertype"])){
-						
+						if($_SESSION["usertype"] != "Student")
+							echo '<h4 class="mt-3 text-center">
+						              <a href="./makeArticle.php" class="kentYellow"  style="text-decoration: underline">Make Article</a></h4>';
 						if($_SESSION["usertype"]=="Admin"){
 						
-						echo "<h4 align=center>Reassign user below</h4>";
+						echo "<h4 align=center class='mt-5'>Reassign user below</h4>";
 						require_once("dbconnect.php");
 						if ( mysqli_connect_errno() ) {
 						printf("Connect failed: %s\n", mysqli_connect_error());
@@ -75,20 +77,20 @@
 							$count++;
 						}
 						//form to reassign user
-						echo "<form align='center' action='' method='post'>
+						echo "<form class='text-center mt-3' align='center' action='' method='post'>
 								<input type='text' placeholder='username' name='assign' id='assign'>
-								<input type='submit' id='submit' name='submit' value='Reassign user'>
+								<input class='btn btnKent' type='submit' id='submit' name='submit' value='Reassign user'>
 								</form>";
 						//list of users
 						echo "<br><br><br><h5 align=center>List of users</h5>";
-						echo "<div class='row' align=center><table align=justify style='top:1000px; margin-left:18%;'>";
+						echo "<div class='row' align=center><table align=justify>";
 						$list=array();
 						$count=0;
 						foreach($resultarr as $row){
 							$assign="";
 							if($row['Type']=="Student"){$assign="Assign as Tutor";}else {$assign="Assign as Student";}
 							if($row['Type']!="Admin"){
-								$list[]="<tr><th align=left style='padding: 36px;'>".$row['Username']."</th>&nbsp&nbsp&nbsp&nbsp<th align=center style='padding: 36px;'>". $row['Email']."</th>   <th align =center style='padding: 36px;'>".$row['Type']."</th><th></tr><br>";
+								$list[]="<tr><th align=left style='padding: 36px;'>".$row['Username']."</th>&nbsp&nbsp&nbsp&nbsp<th class='kentBlue' align=center style='padding: 36px;'>". $row['Email']."</th>   <th class='kentYellow' align =center style='padding: 36px;'>".$row['Type']."</th><th></tr><br>";
 							$count++;
 							}
 							
@@ -100,10 +102,6 @@
 						}
 						echo "</table></div>";
 					}
-					else if($_SESSION['usertype'] == "Tutor") {
-						    echo '<h4 class="mt-3"><a href="./makeArticle.php" class="kentYellow">Make Article</a></h4>';
-					}
-
 				}
 				}else{header("index.php");}
 ?>              </div>

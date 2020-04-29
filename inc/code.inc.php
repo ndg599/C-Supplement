@@ -16,7 +16,7 @@
 	/* Code display variables $_<VAR> are solely a portion of an overall styling variable */
 	$_span        = '<span class="';
 	$_code        = '<code class="';
-	$_startOfLine = '<div><pre><span></span>';
+	$_startOfLine = '<div><pre id="pre-code"><span></span>';
 	$end    = '</code></pre></div>'; //Use in step 3, but defined here due to use in $empty
 	/* 1) Choose an overall line style first */
 	$empty = $_startOfLine . '<code> ' . $end;
@@ -178,6 +178,8 @@
 	   
 	$code["Pointers7"] =
 		$body.$t.'void'.$es.' function('.$t.'const int'.$es.' *ptr);'.$end;
+	$raw["Pointers7"] = 
+		'void function(const int *ptr); \\n';
 		
 	$code["PointersQuiz1"] = 
 		$body.$t.'int '.$es.'x = '.$l.'25'.$es.';'.$end

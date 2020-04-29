@@ -49,6 +49,7 @@ function addSub()
 	div.id = "sub" + subIndex;
 
 	var p = document.createElement("p");
+	p.classList.add("turquoise");
 	p.innerHTML = "<br>Subtopic " + subIndex + " Title";
 	div.appendChild(p);
 	var input = document.createElement("input");
@@ -57,6 +58,7 @@ function addSub()
 	div.appendChild(input);
 
 	p = document.createElement("p");
+	p.classList.add("turquoise");
 	p.innerHTML = "<br>Subtopic " + subIndex + " Body";
 	div.appendChild(p);
 	var ta = document.createElement("textarea");
@@ -83,6 +85,7 @@ function getSectIndex(sect)
 function addInput(sect, div, index, inputName, labelName, value, size)
 {
 	var label = document.createElement("label");
+	label.classList.add("magenta");
 	label.for = sect.id + inputName + index;
 	label.innerHTML = labelName;
 	div.appendChild(label);
@@ -109,6 +112,7 @@ function addImg()
 		div.id = sect.id + "img" + index;
 
 		var p = document.createElement("p");
+		p.classList.add("magenta");
 		p.innerHTML = "<br>Image " + index;
 		div.appendChild(p);
 
@@ -133,6 +137,7 @@ function addCode()
 		div.id = sect.id + "code" + index;
 
 		var p = document.createElement("p");
+		p.classList.add("green");
 		p.innerHTML = "<br>Code Snippet " + index;
 		div.appendChild(p);
 

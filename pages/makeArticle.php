@@ -31,7 +31,7 @@ else {
 			$lastPos = 0;
 			$lineCount = 0;
 			while ($pos = strpos($body, "[img", $lastPos)) { // Search for position of each image token
-				$id = $body[$pos+4]; // Get id of image (NOTE: will only get id that's under 10... fix this)
+				$id = $body[$pos+4]; // Get id of image TODO: (NOTE: will only get id that's under 10... fix this)
 				$lineCount += substr_count($body, "\n", $lastPos, $pos-$lastPos); // Find line the token is on
 				$img[$i] = new Image();
 				$img[$i]->line = $lineCount;
@@ -141,9 +141,9 @@ else {
 
 	?>
 	<div class="content">
-	 <div class="container">
-	  <div class="row">
-	   <div class="col-12">
+	 <div class="container d-flex h-100">
+	  <div class="row justify-content-center align-self-center mx-auto">
+	   <div class="col-10">
 		<form action="makeArticle.php" method="post">
 			<br>
 			<?php 
@@ -155,18 +155,18 @@ else {
 				<div id="article">
 					<p>Article Title</p>
 					<input type="text" name="articleTitle"><br><br>
-					<p>Article Body</p>
+					<p class="kentYellow">Article Body</p>
 					<textarea name="articleBody" class="body" cols="70" rows="5"></textarea><br><br>
-					<label for="articleVideo">Video Link:</label>
+					<label for="articleVideo" class="kentBlue">Video Link:</label>
 					<input type="text" name="articleVideo"><br>
 				</div>
 			</div>
 			<div id="articleTaskbar">
-				<br><button type="button" id="addSub">Add Subtopic</button>
-				<button type="button" id="addImg">Add Image</button>
-				<button type="button" id="addCode">Add Code Snippet</button><br><br>
+				<br><button class="btn btnKent" type="button" id="addSub">Add Subtopic</button>
+				<button class="btn btnKent" type="button" id="addImg">Add Image</button>
+				<button class="btn btnKent" type="button" id="addCode">Add Code Snippet</button><br><br>
 			</div>
-			<input type="submit" id="submit" value="Submit Article">
+			<input class="btn btn-success mb-5" type="submit" id="submit" value="Submit Article">
 		</form>
 	   </div>
 	  </div>
