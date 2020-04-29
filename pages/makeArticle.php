@@ -143,7 +143,7 @@ else {
 	<div class="content">
 	 <div class="container">
 	  <div class="row justify-content-center align-self-center mx-auto">
-	   <div class="col-12">
+	   <div class="col-10">
 		<form action="makeArticle.php" method="post">
 			<br>
 			<?php 
