@@ -54,7 +54,7 @@ ob_start();
 include("http://ec2-54-81-32-152.compute-1.amazonaws.com/compile.php?text=" . urlencode($_GET["text"]));
 $compileError = ob_get_clean();
 
-require_once("../../pdoconfig.php");
+require_once("../pdoconfig.php");
 
 // Setup link to database
 $conn = mysqli_connect($servername, $username, $password, $database);
