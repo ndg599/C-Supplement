@@ -166,7 +166,7 @@ else {
 				<button class="btn btnKent" type="button" id="addImg">Add Image</button>
 				<button class="btn btnKent" type="button" id="addCode">Add Code Snippet</button><br><br>
 			</div>
-			<input class="btn btn-success" type="submit" id="submit" value="Submit Article">
+			<input class="btn btn-success mb-5" type="submit" id="submit" value="Submit Article">
 		</form>
 	   </div>
 	  </div>
