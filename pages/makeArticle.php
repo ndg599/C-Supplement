@@ -142,7 +142,7 @@ else {
 	?>
 	<div class="content">
 	 <div class="container">
-	  <div class="row">
+	  <div class="row justify-content-center align-self-center mx-auto">
 	   <div class="col-12">
 		<form action="makeArticle.php" method="post">
 			<br>
@@ -162,11 +162,11 @@ else {
 				</div>
 			</div>
 			<div id="articleTaskbar">
-				<br><button type="button" id="addSub">Add Subtopic</button>
-				<button type="button" id="addImg">Add Image</button>
-				<button type="button" id="addCode">Add Code Snippet</button><br><br>
+				<br><button class="btn btnKent" type="button" id="addSub">Add Subtopic</button>
+				<button class="btn btnKent" type="button" id="addImg">Add Image</button>
+				<button class="btn btnKent" type="button" id="addCode">Add Code Snippet</button><br><br>
 			</div>
-			<input type="submit" id="submit" value="Submit Article">
+			<input class="btn success" type="submit" id="submit" value="Submit Article">
 		</form>
 	   </div>
 	  </div>
