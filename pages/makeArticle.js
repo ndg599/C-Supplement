@@ -83,6 +83,7 @@ function getSectIndex(sect)
 function addInput(sect, div, index, inputName, labelName, value, size)
 {
 	var label = document.createElement("label");
+	label.classList.add("magenta");
 	label.for = sect.id + inputName + index;
 	label.innerHTML = labelName;
 	div.appendChild(label);
