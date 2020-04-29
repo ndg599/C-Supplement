@@ -356,7 +356,7 @@ if(isset($_POST['reply'])){
 				$oUsr = mysqli_fetch_array($res_oUsr);
 				echo 	"<div class='col-12 section mt-5 noWrap commentBorder'>
 							<p class='kentYellow'>$oUsr[username]</p>
-							<p><pre class='text-white'>$row_OC[Text]<pre></p>
+							<p><pre class='text-white'>$row_OC[Text]</pre></p>
 							<form method='POST' action=''>
 								<input type='hidden' name='parentNum' value='NULL'>
 								<button onclick= 'displaybox(".$GLOBALS['counter'].")' type='button' class='btn btnKent fa fa-reply'> Reply</button>
