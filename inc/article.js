@@ -25,3 +25,5 @@
         clearInterval(inst);
        }
     }
+	
+	$(".changeCursor a").click(function(e) { e.preventDefault(); });

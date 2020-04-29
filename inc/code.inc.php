@@ -178,6 +178,8 @@
 	   
 	$code["Pointers7"] =
 		$body.$t.'void'.$es.' function('.$t.'const int'.$es.' *ptr);'.$end;
+	$raw["Pointers7"] = 
+		'void function(const int *ptr); \\n';
 		
 	$code["PointersQuiz1"] = 
 		$body.$t.'int '.$es.'x = '.$l.'25'.$es.';'.$end
