@@ -61,7 +61,7 @@ $Q_COUNT = 0;
 	if(isset($_POST['comment'])) {
 		if($_SESSION["loggedin"]==true){
 			try {
-				$_comment=nl2br($_POST['comment']);
+				$_comment=htmlspecialchars($_POST['comment']);
 				$_date=date('Y-m-d H:i:s');
 				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
 				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
@@ -356,7 +356,7 @@ if(isset($_POST['reply'])){
 				$oUsr = mysqli_fetch_array($res_oUsr);
 				echo 	"<div class='col-12 section mt-5 noWrap commentBorder'>
 							<p class='kentYellow'>$oUsr[username]</p>
-							<p>$row_OC[Text]</p>
+							<p><pre class='text-white'>$row_OC[Text]<pre></p>
 							<form method='POST' action=''>
 								<input type='hidden' name='parentNum' value='NULL'>
 								<button onclick= 'displaybox(".$GLOBALS['counter'].")' type='button' class='btn btnKent fa fa-reply'> Reply</button>

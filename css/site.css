@@ -297,7 +297,7 @@ hr {
 	overflow: auto;
 }
 
-pre {
+#pre-code {
 	display: inline;
 	overflow-x: auto; /* Scroll within code table */
 	border: 2px solid Black;
