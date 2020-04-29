@@ -221,6 +221,8 @@ $(document).ready(function(){
 		$("#Play i").css("color","#2ab31b");
 		$("#Pause").attr("disabled","disabled");
 		$("#Pause i").css("color","#212529");
+		$("#Resume").attr("disabled","disabled");
+		$("#Resume i").css("color","#212529");
 		$("#Slow").removeAttr("disabled","disabled");
 		$("#Slow i").css("color","white");
 		$("#Fast").removeAttr("disabled","disabled");
