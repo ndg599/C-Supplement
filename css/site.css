@@ -437,6 +437,10 @@ code {
 	border: 2px solid white;
 }
 
+.cursorChange {
+	cursor:url(ISO_C.cur),auto;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Below is for signup.php, login.php*/
 #forms {
