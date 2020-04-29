@@ -438,6 +438,10 @@ code {
 }
 
 .cursorChange {
+	margin-right: -5px;
+}
+
+.cursorChange i{
 	cursor:url(../img/ISO_C.cur),auto;
 }
 
