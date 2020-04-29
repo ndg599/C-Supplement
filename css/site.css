@@ -274,7 +274,7 @@ hr {
 }
 
 .noWrap span, .noWrap p:first-child{
-	white-space: normal;
+	white-space: pre;
 }
 
 .figOpts {
