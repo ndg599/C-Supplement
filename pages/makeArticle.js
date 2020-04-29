@@ -49,7 +49,7 @@ function addSub()
 	div.id = "sub" + subIndex;
 
 	var p = document.createElement("p");
-	p..classList.add("turquoise");
+	p.classList.add("turquoise");
 	p.innerHTML = "<br>Subtopic " + subIndex + " Title";
 	div.appendChild(p);
 	var input = document.createElement("input");
@@ -58,7 +58,7 @@ function addSub()
 	div.appendChild(input);
 
 	p = document.createElement("p");
-	p..classList.add("turquoise");
+	p.classList.add("turquoise");
 	p.innerHTML = "<br>Subtopic " + subIndex + " Body";
 	div.appendChild(p);
 	var ta = document.createElement("textarea");
