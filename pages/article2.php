@@ -140,9 +140,9 @@ if(isset($_POST['reply'])){
 							. $code[$snippet->text] .
 					   '</div>
 						<div class="col-12 col-lg-9" style="margin-left: -25px;">
-							<a id="' . $i . '" ' .
+							<area alt="Copy Code"><a id="' . $i . '" ' .
 								'onclick="copyStringToClipboard(\'' . $codeText . '\',\'' . $i . '\')" ' .
-					'		    ><i class="far fa-clipboard"></i></button>
+					'		    ><i class="far fa-clipboard"></i></a></area>
 						</div>
 					 </div>';
 
