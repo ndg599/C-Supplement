@@ -61,7 +61,7 @@ $Q_COUNT = 0;
 	if(isset($_POST['comment'])) {
 		if($_SESSION["loggedin"]==true){
 			try {
-				$_comment=$_POST['comment'];
+				$_comment=nl2br($_POST['comment']);
 				$_date=date('Y-m-d H:i:s');
 				$pNum = $_POST['parentNum'] == '' ? null : $_POST['parentNum'];
 				$sql=$conn->prepare("INSERT INTO Comments". "(Text,ID,Time,TopicID,ParentEntryNum)"."VALUES".
@@ -364,7 +364,7 @@ if(isset($_POST['reply'])){
 							</form>
 				         </div>";
 					
-					echo    '<div style="text-indent:55px" id="messtxt" class="display:none">';
+				echo    '<div style="text-indent:55px" id="messtxt" class="display:none">';
 				echo    '<p>Input your reply</p>';
 				echo    '<form method=post action="">';
 				echo    '<textarea placeholder="Your reply" name="reply" style="padding-left:5px;height:100px; width:500px"  type="text"  id="reply"></textarea><br>';
