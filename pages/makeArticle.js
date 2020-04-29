@@ -109,6 +109,7 @@ function addImg()
 		div.id = sect.id + "img" + index;
 
 		var p = document.createElement("p");
+		element.classList.add("magenta");
 		p.innerHTML = "<br>Image " + index;
 		div.appendChild(p);
 
@@ -133,6 +134,7 @@ function addCode()
 		div.id = sect.id + "code" + index;
 
 		var p = document.createElement("p");
+		element.classList.add("green");
 		p.innerHTML = "<br>Code Snippet " + index;
 		div.appendChild(p);
 

@@ -31,7 +31,7 @@ else {
 			$lastPos = 0;
 			$lineCount = 0;
 			while ($pos = strpos($body, "[img", $lastPos)) { // Search for position of each image token
-				$id = $body[$pos+4]; // Get id of image (NOTE: will only get id that's under 10... fix this)
+				$id = $body[$pos+4]; // Get id of image TODO: (NOTE: will only get id that's under 10... fix this)
 				$lineCount += substr_count($body, "\n", $lastPos, $pos-$lastPos); // Find line the token is on
 				$img[$i] = new Image();
 				$img[$i]->line = $lineCount;
@@ -155,9 +155,9 @@ else {
 				<div id="article">
 					<p>Article Title</p>
 					<input type="text" name="articleTitle"><br><br>
-					<p>Article Body</p>
+					<p class="kentYellow">Article Body</p>
 					<textarea name="articleBody" class="body" cols="70" rows="5"></textarea><br><br>
-					<label for="articleVideo">Video Link:</label>
+					<label for="articleVideo" class="kentBlue">Video Link:</label>
 					<input type="text" name="articleVideo"><br>
 				</div>
 			</div>
@@ -166,7 +166,7 @@ else {
 				<button class="btn btnKent" type="button" id="addImg">Add Image</button>
 				<button class="btn btnKent" type="button" id="addCode">Add Code Snippet</button><br><br>
 			</div>
-			<input class="btn success" type="submit" id="submit" value="Submit Article">
+			<input class="btn btn-success" type="submit" id="submit" value="Submit Article">
 		</form>
 	   </div>
 	  </div>
