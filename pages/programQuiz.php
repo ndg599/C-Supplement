@@ -1,6 +1,12 @@
 <?php 
 require_once("../pdoconfig.php");
 
+if ($_SERVER["SERVER_ADDR"] == gethostbyname("kentcpp.com")) {
+	echo "<p style='margin-top: 70px;'>This page is currently unavailable. Please try again at a later date.</p>";
+	require_once('../inc/footer.inc.php');
+	return;
+}
+
 if ($_GET["ID"]) {
 	// Setup link to database
 	$conn = mysqli_connect($servername, $username, $password, $database);
