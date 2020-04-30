@@ -32,5 +32,5 @@ if ($text != $row["IMText"]) {
 	$text = "Failed to send message";
 }
 echo "<div class='sentMsgHead'>" . $_SESSION["username"] . " | " . $row["Time"] 
-. "</div><div class='sentMsgText'>" . $text . "</div>";
+. "</div><div class='sentMsgText'><pre>" . $text . "</pre></div>";
 ?>

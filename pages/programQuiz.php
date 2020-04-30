@@ -19,7 +19,7 @@ if ($_GET["ID"]) {
 }
 else {
 	require_once("dbconnect2.php");
-	$query = "SELECT ID, Descr FROM ProgQuiz";
+	$query = "SELECT ID,Name FROM ProgQuiz";
 	$result = mysqli_query($conn, $query);
 
 	if (!$result) {
@@ -35,8 +35,8 @@ else {
 			<p><br>Select a programming quiz:</p>';
 			while ($row = mysqli_fetch_assoc($result)) {
 				$rowid = $row['ID'];
-				$desc = $row['Descr'];
-				echo "<p>$rowid - <a href='programQuiz.php?ID=$rowid'>$desc</a></p>";
+				$rowname = $row['Name'];
+				echo "<p>$rowid - <a href='programQuiz.php?ID=$rowid'>$rowname</a></p>";
 			}
 	echo '
 		</div>

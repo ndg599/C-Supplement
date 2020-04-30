@@ -52,7 +52,7 @@ require_once('../inc/header.inc.php');
 		}
 		?>
 		<p>Quiz Title:</p>
-		<input type="text" name"title">
+		<input type="text" name="title">
 		<p><br>Description:</p>
 		<textarea name="desc" cols="70" rows="5"></textarea>
 		<p><br>Enter each input to be received by the program's standard input (leave blank for no input).</p>
@@ -64,7 +64,7 @@ require_once('../inc/header.inc.php');
 			<textarea name="output1" cols="50" rows="3"></textarea>
 		</div>
 		<button type="button" id="addOutput">Add Output</button><br><br>
-		<p>Add a tip to be shown each time the student misses.</p>
+		<p>Add tips to help the student out.</p>
 		<div id="tipList">
 			<p>Tip 1:</p>	
 			<textarea name="tip1" cols="50" rows="3"></textarea>
