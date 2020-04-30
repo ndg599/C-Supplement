@@ -1,58 +1,61 @@
-/*
-function ProgQuiz(desc, ans)
-{
-	this.desc = desc;
-	this.ans = ans;
-}
-*/
 var outputIndex = 1;
-var outputDiv = document.getElementById("output");
+var outputDiv = document.getElementById("outputList");
+
+var tipIndex = 1;
+var tipDiv = document.getElementById("tipList");
 
 window.onload = init;
 
 function init()
 {
-	var addOutputDiv = document.getElementById("addOutput");
-	addOutputDiv.onclick = addOutput;
-	//var sendButton = document.getElementById("submit");
-	//sendButton.onclick = sendQuiz;
+	var addOutputBtn = document.getElementById("addOutput");
+	addOutputBtn.onclick = addOutput;
+
+	var addTipBtn = document.getElementById("addTip");
+	addTipBtn.onclick = addTip;
 }
 
 function addOutput()
 {
 	outputIndex++;
+
+	var inputId = "input" + outputIndex;
+	var label = document.createElement("label");
+	label.for = inputId;
+	label.innerHTML = "Input " + outputIndex + ': ';
+	var input = document.createElement("input");
+	input.type = "text";
+	input.id = inputId;
+	input.name = inputId;
+	outputDiv.appendChild(document.createElement("br"));
+	outputDiv.appendChild(document.createElement("br"));
+	outputDiv.appendChild(label);
+	outputDiv.appendChild(input);
+
 	var p = document.createElement("p");
-	p.innerHTML = "Acceptable Output " + outputIndex;
+	p.innerHTML = "Output " + outputIndex;
 	var ta = document.createElement("textarea");
 	ta.name = "output" + outputIndex;
 	ta.cols = 50;
-	ta.rows = 10;
+	ta.rows = 3;
+	outputDiv.appendChild(document.createElement("br"));
+	outputDiv.appendChild(document.createElement("br"));
 	outputDiv.appendChild(p);
 	outputDiv.appendChild(ta);
 }
-/*
-function sendQuiz()
+
+function addTip()
 {
-	var outputs = new Array();
-	for (var i = 1; i <= outputIndex; i++) {
-		outputs[i-1] = document.getElementById("output" + i).value;
-	}
+	tipIndex++;
 
-	var desc = document.getElementById("desc").value;
-	var newQuiz = new ProgQuiz(desc, outputs);
-	console.log(newQuiz);
-
-	// Send AJAX request to compile program, print result
-	var text = encodeURIComponent(document.getElementById("textBox").value);
-	var request = new XMLHttpRequest();
-	request.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			result.innerHTML = this.responseText;
-		}
-	};
-	request.open("GET", "sendPrgQuiz.php?desc=" + desc);
-	request.setRequestHeader("Content-Type", "text/plain;chatset=UTF-8");
-	request.send();
-
+	var p = document.createElement("p");
+	p.innerHTML = "Tip " + tipIndex;
+	var ta = document.createElement("textarea");
+	ta.name = "tip" + tipIndex;
+	ta.cols = 50;
+	ta.rows = 3;
+	tipDiv.appendChild(document.createElement("br"));
+	tipDiv.appendChild(document.createElement("br"));
+	tipDiv.appendChild(p);
+	tipDiv.appendChild(ta);
 }
-*/

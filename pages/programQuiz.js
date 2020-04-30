@@ -1,9 +1,14 @@
+var tipIndex = 0;
+
 window.onload = init;
 
 function init()
 {
 	var sendButton = document.getElementById("send");
 	sendButton.onclick = sendProgram;
+
+	var showTipBtn = document.getElementById("showTip");
+	showTipBtn.onclick = showTip;
 }
 
 function sendProgram()
@@ -23,4 +28,14 @@ function sendProgram()
 	request.open("GET", "sendProgram.php?" + window.location.search.substr(1) + "&text=" + text);
 	request.setRequestHeader("Content-Type", "text/x-c;chatset=UTF-8");
 	request.send();
+}
+
+function showTip()
+{
+	tipIndex++;
+
+	var tip = document.getElementById("tip" + tipIndex);
+	if (tip) {
+		tip.hidden = false;
+	}
 }
