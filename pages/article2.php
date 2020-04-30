@@ -550,6 +550,7 @@ if(isset($_POST['reply'])){
 							<?php if($_SESSION["loggedin"]!=true) {
 									echo '<span class="red">Please sign in to comment</span>';
 								  }
+							?>
 						</form>
 					</div>
 				</div>
