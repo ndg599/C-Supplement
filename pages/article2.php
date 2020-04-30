@@ -79,7 +79,7 @@ $Q_COUNT = 0;
 				echo '<p class="kentYellow articleFontSize">Database failure for replies</p>';
 			}	
 		}else
-			echo '<p class="red">You must sign in to add a comment.</p>';
+			echo '<p class="red" style="margin-top: 70px; font-size: 1.2rem;">You must sign in to add a comment.</p>';
 	}
 if(isset($_POST['reply'])){
 		if($_SESSION["loggedin"]==true){
@@ -547,6 +547,9 @@ if(isset($_POST['reply'])){
 							</div>
 							<input type="hidden" name="parentNum" value="">
 							<button type="submit" class="btn btnKent mt-2">Submit</button>
+							<?php if($_SESSION["loggedin"]==true) {
+									echo '<span class="red">Please sign in to comment</span>';
+								  }
 						</form>
 					</div>
 				</div>
