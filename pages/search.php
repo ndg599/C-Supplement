@@ -10,7 +10,7 @@ require_once('../inc/header.inc.php');
 require_once("dbconnect.php");
 $search="";
 echo "<div class='content'>";
-echo "<h3 class='mt-5' style='text-align: center'>Search Results</h3><hr>";
+echo "<h2 class='mt-5' style='text-align: center'>Search Results</h2><hr>";
 echo "<div class='container  h-100' style='overflow-y:auto'>";
 echo '<div class="row justify-content-center align-self-center mx-auto">';
 
@@ -34,7 +34,7 @@ if(!$results){
 		$x="";
 		$x=$row['TopicName'];
 		$r=$row['TopicID'];
-		echo "<p align=left><a href='article2.php?ID=$r' class='kentBlue' style='text-decoration: underline; font-size: 1.1rem;'>".$x."<br></a></p>";
+		echo "<p align=left><a href='article2.php?ID=$r' class='kentBlue' style='text-decoration: underline; font-size: 1.4rem;'>".$x."<br></a></p>";
 		$str=$row['Text'];
 		echo "<p class='kentYellow'>".substr($str,0,500)."...<br></p>";
 		
@@ -53,7 +53,7 @@ if(!$results){
 			$x="";
 			$x=$row['SubName'];
 			$r=$row['TopicID'];
-			echo "<p align=left><a href='article2.php?ID=$r' class='kentBlue' style='text-decoration: underline; font-size: 1.1rem;'>".$x."<br></a></p>";
+			echo "<p align=left><a href='article2.php?ID=$r' class='kentBlue' style='text-decoration: underline; font-size: 1.4rem;'>".$x."<br></a></p>";
 			$str=$row['Text'];
 			echo "<p class='kentYellow'>".substr($str,0,500)."...<br></p>";
 			
