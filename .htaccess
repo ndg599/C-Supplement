@@ -1,3 +1,5 @@
+php_value date.timezone 'America/New_York'
+
 ## Turn on rewrite engine
 RewriteEngine on
 
