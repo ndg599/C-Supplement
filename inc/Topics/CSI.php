@@ -5,5 +5,5 @@
 <p><a href="#">Looping Mechanisms</a></p>
 <p><a href="#">Functions</a></p>
 <p><a href="#">Call by Value / Reference</a></p>
-<p><a href="#">Arrays</a></p>
+<p><a href="https://www.kentcpp.com/pages/article2.php?ID=12">Arrays</a></p>
 <p><a href="#">Class Terminology</a></p>
