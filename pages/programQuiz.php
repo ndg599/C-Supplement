@@ -9,10 +9,7 @@ if ($_SERVER["SERVER_ADDR"] == gethostbyname("kentcpp.com")) {
 
 if ($_GET["ID"]) {
 	// Setup link to database
-	$conn = mysqli_connect($servername, $username, $password, $database);
-	if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error());
-	}
+	require_once("dbconnect2.php");
 
 	$stmt = mysqli_stmt_init($conn);
 	mysqli_stmt_prepare($stmt, "SELECT Descr FROM ProgQuiz WHERE ID=?");
@@ -23,9 +20,31 @@ if ($_GET["ID"]) {
 	if (!$result) {
 		die("Query failed: " .  mysqli_error($conn));
 	}
-}
 
-$row = mysqli_fetch_assoc($result);
+	$row = mysqli_fetch_assoc($result);
+}
+else {
+	require_once("dbconnect2.php");
+	$query = "SELECT ID, Descr FROM ProgQuiz";
+	$result = mysqli_query($query, $conn);
+
+	require_once('../inc/header.inc.php');
+	echo
+'	<div class="content">
+	 <div class="container">
+	  <div class="row">
+		<div class="col-12">';
+			while ($row = mysqli_fetch_assoc($result)) {
+				echo '<a href="programQuiz.php?ID=' , $row['ID'] . '">' . $row['Descr'] . '</a><br>';
+			}
+	echo
+'		</div>
+	  </div>
+	 </div>
+	</div>';
+	require_once('../inc/footer.inc.php');
+	return;
+}
 
 require_once('../inc/header.inc.php');
 ?>
