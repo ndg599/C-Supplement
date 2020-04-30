@@ -10,7 +10,7 @@ require_once('../inc/header.inc.php');
 require_once("dbconnect.php");
 $search="";
 echo "<div class='content'>";
-echo "<h3 style='text-align: center'>Search Results</h3><hr>";
+echo "<h3 class='mt-5' style='text-align: center'>Search Results</h3><hr>";
 echo "<div class='container  h-100' style='overflow-y:auto'>";
 echo '<div class="row justify-content-center align-self-center mx-auto">';
 
