@@ -17,18 +17,19 @@ function compileErrorFeedback($compileError, $conn)
 	return NULL;
 }
 
-function outputFeedback($output, $conn)
+function outputFeedback($i, $output, $conn)
 {
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "SELECT Output FROM ProgQuiz WHERE ID=?");
+	mysqli_stmt_prepare($stmt, "SELECT Input,Output FROM ProgQuiz WHERE ID=?");
 	mysqli_stmt_bind_param($stmt, "i", $_GET["ID"]);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	$row = mysqli_fetch_assoc($result);
-	$correctOutput = json_decode($row["Output"], true);
+	$curInput = json_decode($row["Input"], true);
+	$curOutput = json_decode($row["Output"], true);
 
 	$i = 1;
-	while ($correctOutput[$i]) {
+	while ($curOutput[$i]) {
 		if ($output == $correctOutput[$i]) {
 			return "Correct.<br><br>Your output:<br>$output"; 
 		}
@@ -71,19 +72,35 @@ if ($compileError) {
 // Check for correctness of output and return feedback
 else {
 	$stmt = mysqli_stmt_init($conn);
-	mysqli_stmt_prepare($stmt, "SELECT Input FROM ProgQuiz WHERE ID=?");
+	mysqli_stmt_prepare($stmt, "SELECT Input,Output FROM ProgQuiz WHERE ID=?");
 	mysqli_stmt_bind_param($stmt, "i", $_GET["ID"]);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	$row = mysqli_fetch_assoc($result);
-	$input = $row["Input"];
+	$curInput = json_decode($row["Input"], true);
+	$curOutput = json_decode($row["Output"], true);
 
-	// Send exec command to compile server to run file and get output
-	$exec = $input ? " echo '$input' | ./a.out 2>&1" : "./a.out 2>&1";
-	ob_start();
-	include("http://ec2-54-81-32-152.compute-1.amazonaws.com/compile.php?text=" . urlencode($exec));
-	$output = ob_get_clean();
+	$i = 1;
+	$finalOutput = "";
+	while (isset($curOutput[$i])) {
+		// Send exec command to compile server to run file and get output
+		$input = $curInput[$i];
+		$exec = $input ? " echo '$input' | ./a.out 2>&1" : "./a.out 2>&1";
+		ob_start();
+		include("http://ec2-54-81-32-152.compute-1.amazonaws.com/exec.php?text=" . urlencode($exec));
+		$output = ob_get_clean();
 
-	echo outputFeedback($output, $conn);
+		if ($output == $curOutput[$i]) {
+			$finalOutput = $finalOutput . "Input: $input<br>Your output: $output<br>"; 
+		}
+		else {
+			die("Incorrect output. Try again.<br><br>Input: $input<br>Your output: $output<br>Expected output: " . $curOutput[$i]); 
+		}
+
+		$i++;
+	}
+
+	echo "Correct!<br><br>";
+	echo $finalOutput;
 }
 ?> 
