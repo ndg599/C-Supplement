@@ -547,7 +547,7 @@ if(isset($_POST['reply'])){
 							</div>
 							<input type="hidden" name="parentNum" value="">
 							<button type="submit" class="btn btnKent mt-2">Submit</button>
-							<?php if($_SESSION["loggedin"]==true) {
+							<?php if($_SESSION["loggedin"]!=true) {
 									echo '<span class="red">Please sign in to comment</span>';
 								  }
 						</form>
